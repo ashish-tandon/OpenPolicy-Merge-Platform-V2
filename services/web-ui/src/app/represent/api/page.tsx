@@ -122,14 +122,14 @@ export default function RepresentAPIPage() {
             </p>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Request</h3>
+              <h4 className="font-semibold mb-2">Request</h4>
               <code className="text-sm">
                 GET /boundary-sets/
               </code>
             </div>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Response Fields</h3>
+              <h4 className="font-semibold mb-2">Response Fields</h4>
               <ul className="text-sm space-y-1">
                 <li><code>name</code> - Name of the boundary set</li>
                 <li><code>domain</code> - Domain (e.g., 'ca')</li>
@@ -148,14 +148,14 @@ export default function RepresentAPIPage() {
             </p>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Request</h3>
+              <h4 className="font-semibold mb-2">Request</h4>
               <code className="text-sm">
                 GET /boundaries/{'{boundary_set_slug}'}/
               </code>
             </div>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Query Parameters</h3>
+              <h4 className="font-semibold mb-2">Query Parameters</h4>
               <ul className="text-sm space-y-1">
                 <li><code>limit</code> - Number of results per page (default: 20)</li>
                 <li><code>offset</code> - Number of results to skip</li>
@@ -163,7 +163,7 @@ export default function RepresentAPIPage() {
             </div>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Response Fields</h3>
+              <h4 className="font-semibold mb-2">Response Fields</h4>
               <ul className="text-sm space-y-1">
                 <li><code>name</code> - Name of the boundary</li>
                 <li><code>boundary_set_name</code> - Name of the boundary set</li>
@@ -183,14 +183,14 @@ export default function RepresentAPIPage() {
             </p>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Request</h3>
+              <h4 className="font-semibold mb-2">Request</h4>
               <code className="text-sm">
                 GET /representatives/{'{representative_set_slug}'}/
               </code>
             </div>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Query Parameters</h3>
+              <h4 className="font-semibold mb-2">Query Parameters</h4>
               <ul className="text-sm space-y-1">
                 <li><code>limit</code> - Number of results per page (default: 20)</li>
                 <li><code>offset</code> - Number of results to skip</li>
@@ -200,7 +200,7 @@ export default function RepresentAPIPage() {
             </div>
             
             <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Response Fields</h3>
+              <h4 className="font-semibold mb-2">Response Fields</h4>
               <ul className="text-sm space-y-1">
                 <li><code>name</code> - Full name of the representative</li>
                 <li><code>first_name</code> - First name</li>
@@ -222,15 +222,15 @@ export default function RepresentAPIPage() {
               Look up electoral boundaries by geographic coordinates.
             </p>
             
-            <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Request</h3>
-              <code className="text-sm">
-                GET /boundaries/?lat={'{latitude}'}&lon={'{longitude}'}
-              </code>
-            </div>
-            
-            <div className="bg-gray-50 p-4 rounded mb-4">
-              <h4 className="font-semibold mb-2">Query Parameters</h3>
+                            <div className="bg-gray-50 p-4 rounded mb-4">
+                  <h4 className="font-semibold mb-2">Request</h4>
+                  <code className="text-sm">
+                    GET /boundaries/?lat={'{latitude}'}&lon={'{longitude}'}
+                  </code>
+                </div>
+                
+                <div className="bg-gray-50 p-4 rounded mb-4">
+                  <h4 className="font-semibold mb-2">Query Parameters</h4>
               <ul className="text-sm space-y-1">
                 <li><code>lat</code> - Latitude (required)</li>
                 <li><code>lon</code> - Longitude (required)</li>

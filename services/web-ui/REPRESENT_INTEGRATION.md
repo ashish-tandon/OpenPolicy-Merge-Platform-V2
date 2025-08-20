@@ -98,14 +98,33 @@ services/
   - Usage examples and use cases
   - GitHub repository links
 
-### 4. Interactive Demo (`/represent/demo`)
-- **Purpose**: Showcase interactive features and tools
-- **Features**:
-  - Postal code lookup demo
-  - Sample results and data
-  - Interactive feature previews
-  - Use case examples
-  - Getting started guide
+            ### 4. Interactive Demo (`/represent/demo`)
+            - **Purpose**: Showcase interactive features and tools
+            - **Features**:
+              - Postal code lookup demo
+              - Sample results and data
+              - Interactive feature previews
+              - Use case examples
+              - Getting started guide
+
+            ### 5. Government Data Contribution (`/represent/government`)
+            - **Purpose**: Guide municipalities on contributing elected official data
+            - **Features**:
+              - CSV schema documentation
+              - Required vs. optional field explanations
+              - Step-by-step contribution process
+              - Municipal adoption showcase
+              - CSV template download
+              - **Source**: Adapted from `legacy/represent-canada/finder/templates/government.html`
+
+            ### 6. Privacy Policy (`/represent/privacy`)
+            - **Purpose**: Privacy policy and data handling information
+            - **Features**:
+              - Information collection practices
+              - Data security measures
+              - Policy change notifications
+              - Contact information
+              - **Source**: Adapted from `legacy/represent-canada/finder/templates/privacy.html`
 
 ## Data Models
 

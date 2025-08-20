@@ -19,26 +19,32 @@ export default function RepresentPage() {
             Discover the elected officials and electoral districts for any Canadian address or postal code, 
             at all levels of government.
           </p>
-          <div className="flex flex-wrap gap-4">
-            <Link 
-              href="/represent/demo"
-              className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
-            >
-              Try the Demo App
-            </Link>
-            <Link 
-              href="/represent/api"
-              className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-            >
-              Use the Free API
-            </Link>
-            <Link 
-              href="/represent/data"
-              className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
-            >
-              Download the Data
-            </Link>
-          </div>
+                                <div className="flex flex-wrap gap-4">
+                        <Link 
+                          href="/represent/demo"
+                          className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
+                        >
+                          Try the Demo App
+                        </Link>
+                        <Link 
+                          href="/represent/api"
+                          className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                        >
+                          Use the Free API
+                        </Link>
+                        <Link 
+                          href="/represent/data"
+                          className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                        >
+                          Download the Data
+                        </Link>
+                        <Link 
+                          href="/represent/government"
+                          className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+                        >
+                          For Government
+                        </Link>
+                      </div>
         </div>
 
         {/* Benefits Section */}
@@ -167,26 +173,32 @@ export default function RepresentPage() {
           <p className="text-gray-600 mb-6">
             Explore electoral districts, find representatives, or integrate our API into your application.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link 
-              href="/represent/postal-code"
-              className="bg-op-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Lookup by Postal Code
-            </Link>
-            <Link 
-              href="/represent/boundaries"
-              className="bg-op-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Browse Electoral Districts
-            </Link>
-            <Link 
-              href="/represent/representatives"
-              className="bg-op-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
-            >
-              Find Representatives
-            </Link>
-          </div>
+                                <div className="flex flex-wrap justify-center gap-4">
+                        <Link 
+                          href="/represent/postal-code"
+                          className="bg-op-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                        >
+                          Lookup by Postal Code
+                        </Link>
+                        <Link 
+                          href="/represent/boundaries"
+                          className="bg-op-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                        >
+                          Browse Electoral Districts
+                        </Link>
+                        <Link 
+                          href="/represent/representatives"
+                          className="bg-op-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                        >
+                          Find Representatives
+                        </Link>
+                        <Link 
+                          href="/represent/government"
+                          className="bg-op-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                        >
+                          For Government
+                        </Link>
+                      </div>
         </div>
       </div>
     </div>

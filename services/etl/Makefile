@@ -1,7 +1,7 @@
 # ETL Service Makefile for OpenParliament.ca V2
 # Following FUNDAMENTAL RULE: Uses legacy OpenParliament importers
 
-.PHONY: help install collect-data test clean setup dev
+.PHONY: help install collect-data ingest-data test clean setup dev full-pipeline
 
 help: ## Show this help message
 	@echo "OpenParliament.ca V2 ETL Service"
@@ -19,6 +19,17 @@ collect-data: ## Collect parliamentary data using legacy OpenParliament importer
 	@echo "🚀 Starting data collection using legacy OpenParliament importers..."
 	@echo "📋 Following FUNDAMENTAL RULE: Never reinvent the wheel!"
 	python collect_data.py
+
+ingest-data: ## Ingest collected legacy data into database
+	@echo "🗄️ Starting data ingestion into database..."
+	@echo "📋 Following FUNDAMENTAL RULE: Using existing legacy data structure"
+	python ingest_legacy_data.py
+
+full-pipeline: ## Run complete pipeline: collect data then ingest into database
+	@echo "🔄 Running full ETL pipeline..."
+	@echo "📋 Following FUNDAMENTAL RULE: Using legacy OpenParliament importers"
+	$(MAKE) collect-data
+	$(MAKE) ingest-data
 
 test: ## Run tests for legacy adapters
 	pytest tests/ -v
