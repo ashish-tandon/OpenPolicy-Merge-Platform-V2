@@ -30,15 +30,25 @@ Welcome to the comprehensive documentation for OpenParliament.ca V2, a modern pa
 - **Use When**: Understanding the overall system architecture and data flow
 
 ### **2. [Scraper Mapping & Data Flow](SCRAPER_MAPPING.md)**
-- **Purpose**: Detailed mapping of all scrapers and their data sources
+- **Purpose**: Detailed mapping of parliamentary scrapers and their data sources
 - **Contents**:
   - Individual scraper analysis (Represent API, OurCommons.ca, LEGISinfo)
   - Exact data collected from each source
   - Database table mapping for each data type
   - Performance metrics and monitoring
-- **Use When**: Need to understand specific data sources or troubleshoot collection issues
+- **Use When**: Need to understand parliamentary data sources or troubleshoot collection issues
 
-### **3. [Maintenance & Operations Guide](MAINTENANCE_AND_OPERATIONS.md)**
+### **3. [Complete Scraper Inventory](COMPLETE_SCRAPER_INVENTORY.md)**
+- **Purpose**: **COMPLETE INVENTORY** of ALL scrapers in the system (109+ scrapers)
+- **Contents**:
+  - Parliamentary scrapers (3 active)
+  - Municipal scrapers (100+ across all provinces)
+  - Civic platform scrapers (5 platforms)
+  - Electoral scrapers (1 active)
+  - Future integration opportunities
+- **Use When**: Need to understand the full scope of available scrapers or plan future integrations
+
+### **4. [Maintenance & Operations Guide](MAINTENANCE_AND_OPERATIONS.md)**
 - **Purpose**: Step-by-step procedures for running and maintaining the system
 - **Contents**:
   - Daily, weekly, and monthly operations
