@@ -1,0 +1,13 @@
+# Ignore legacy migration files
+src/legacy-migration/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build outputs
+.next/
+out/
+dist/
+
+# Ignore config files
+next-env.d.ts

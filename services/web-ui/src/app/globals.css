@@ -1,22 +1,29 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* OpenParliament.ca custom styles adapted from legacy SCSS */
+@layer base {
+  body {
+    @apply bg-op-gray;
   }
+  
+  a {
+    @apply text-op-blue hover:underline;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply text-op-dark;
+  }
+  
+  .content-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .text-content {
+    @apply max-w-text;
+  }
+<<<<<<< Current (Your changes)
 }
 
 body {
@@ -24,3 +31,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+=======
+}
+>>>>>>> Incoming (Background Agent changes)

@@ -17,6 +17,12 @@ from fastapi.responses import JSONResponse
 from app.config import settings
 from app.database import engine, Base, init_db
 
+# Import new infrastructure components
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.core.middleware.rate_limiting import rate_limit_middleware
+from src.core.versioning import version_middleware, create_versioned_app
+
 # Initialize database tables (in development)
 if settings.ENV == "local":
     try:
@@ -48,6 +54,10 @@ app.add_middleware(
     TrustedHostMiddleware,
     allowed_hosts=settings.ALLOWED_HOSTS
 )
+
+# Add custom middleware
+app.middleware("http")(rate_limit_middleware)
+app.middleware("http")(version_middleware)
 
 # Global exception handler
 @app.exception_handler(Exception)
@@ -114,13 +124,15 @@ async def root() -> Dict[str, str]:
         "message": "Welcome to OpenPolicy API",
         "version": "0.1.0",
         "docs": "/docs",
-        "health": "/healthz"
+        "health": "/healthz",
+        "api_versions": "/api/versions"
     }
 
 # Include OpenParliament API routers
 from app.api.v1 import bills, members, represent, debates, committees, search
 # TODO: Fix votes API recursion error
 
+# Legacy route mounting (will be deprecated)
 app.include_router(
     bills.router,
     prefix="/api/v1/bills",
@@ -157,11 +169,35 @@ app.include_router(
     tags=["search"]
 )
 
+# Include new infrastructure routes
+try:
+    from src.api.v1 import export, feeds
+    
+    app.include_router(
+        export.router,
+        prefix="/api/v1/export",
+        tags=["export"]
+    )
+    
+    app.include_router(
+        feeds.router,
+        prefix="/api/v1/feeds",
+        tags=["feeds"]
+    )
+except ImportError:
+    print("⚠️  Export and feeds modules not found, skipping...")
+
 # app.include_router(
 #     votes.router,
 #     prefix="/api/v1/votes",
 #     tags=["votes"]
 # )
+
+# Set up API versioning
+try:
+    create_versioned_app(app)
+except Exception as e:
+    print(f"⚠️  Could not set up API versioning: {e}")
 
 if __name__ == "__main__":
     import uvicorn

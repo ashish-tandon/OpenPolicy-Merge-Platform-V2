@@ -18,6 +18,9 @@ const eslintConfig = [
       "out/**",
       "build/**",
       "next-env.d.ts",
+      "src/legacy-migration/**",
+      "src/components/legacy-assets/**",
+      "src/components/legacy-templates/**",
     ],
   },
 ];
