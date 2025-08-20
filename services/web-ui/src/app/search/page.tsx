@@ -13,9 +13,11 @@ interface SearchPageProps {
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.q || '';
-  const type = searchParams.type || 'all';
-  const page = parseInt(searchParams.page || '1');
+  const params = await searchParams;
+
+  const query = params.q || '';
+  const type = params.type || 'all';
+  const page = parseInt(params.page || '1');
 
   let searchResults = null;
   let error = null;

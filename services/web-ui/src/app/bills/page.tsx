@@ -15,15 +15,21 @@ interface BillsPageProps {
 }
 
 export default async function BillsPage({ searchParams }: BillsPageProps) {
-  const page = parseInt(searchParams.page || '1');
+  const params = await searchParams;
+
+  const page = parseInt(params.page || '1');
   const filters = {
     page,
-    search: searchParams.search,
-    session: searchParams.session,
-    privatemember: searchParams.type === 'private',
+    search: params.search,
+    session: params.session,
+    privatemember: params.type === 'private',
   };
 
-  const billsData = await api.getBills(filters);
+  const billsData = await api.getBills(
+    page,
+    20, // pageSize
+    filters.search
+  );
 
   return (
     <div className="content-container py-8">
@@ -46,10 +52,9 @@ export default async function BillsPage({ searchParams }: BillsPageProps) {
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
             <BillsList 
-              bills={billsData.results || []} 
-              totalCount={billsData.count || 0}
+              bills={billsData.bills || []} 
               currentPage={page}
-              filters={filters}
+              totalPages={billsData.pagination?.pages || 1}
             />
           </Suspense>
         </div>

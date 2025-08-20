@@ -14,14 +14,19 @@ interface DebatesPageProps {
 }
 
 export default async function DebatesPage({ searchParams }: DebatesPageProps) {
-  const page = parseInt(searchParams.page || '1');
+  const params = await searchParams;
+
+  const page = parseInt(params.page || '1');
   const filters = {
     page,
-    date_gte: searchParams.date_gte,
-    date_lte: searchParams.date_lte,
+    date_gte: params.date_gte,
+    date_lte: params.date_lte,
   };
 
-  const debatesData = await api.getDebates(filters);
+  const debatesData = await api.getDebates(
+    page,
+    20 // pageSize
+  );
 
   return (
     <div className="content-container py-8">
@@ -43,9 +48,9 @@ export default async function DebatesPage({ searchParams }: DebatesPageProps) {
         {/* Debates List */}
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
-            <DebatesList 
-              debates={debatesData.results || []} 
-              totalCount={debatesData.count || 0}
+            <DebatesList
+              debates={debatesData.debates || []}
+              totalCount={debatesData.pagination?.total || 0}
               currentPage={page}
               filters={filters}
             />

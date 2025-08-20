@@ -15,16 +15,24 @@ interface MPsPageProps {
 }
 
 export default async function MPsPage({ searchParams }: MPsPageProps) {
-  const page = parseInt(searchParams.page || '1');
+  const params = await searchParams;
+
+  const page = parseInt(params.page || '1');
   const filters = {
     page,
-    search: searchParams.search,
-    province: searchParams.province,
-    party: searchParams.party,
-    current: searchParams.current === 'false' ? false : true,
+    search: params.search,
+    province: params.province,
+    party: params.party,
+    current: params.current === 'false' ? false : true,
   };
 
-  const mpsData = await api.getMembers(filters);
+  const mpsData = await api.getMembers(
+    page,
+    20, // pageSize
+    filters.search,
+    filters.province,
+    filters.party
+  );
 
   return (
     <div className="content-container py-8">
@@ -33,7 +41,7 @@ export default async function MPsPage({ searchParams }: MPsPageProps) {
           Members of Parliament
         </h1>
         <p className="text-gray-600">
-          {mpsData.count || 338}+ current and former MPs representing Canadians
+          {mpsData.pagination?.total || 338}+ current and former MPs representing Canadians
         </p>
       </div>
 
@@ -46,9 +54,9 @@ export default async function MPsPage({ searchParams }: MPsPageProps) {
         {/* MPs Grid */}
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
-            <MPList 
-              members={mpsData.results || []} 
-              totalCount={mpsData.count || 0}
+            <MPList
+              members={mpsData.members || []}
+              totalCount={mpsData.pagination?.total || 0}
               currentPage={page}
               filters={filters}
             />

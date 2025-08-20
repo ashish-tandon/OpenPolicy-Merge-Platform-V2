@@ -14,13 +14,19 @@ interface CommitteesPageProps {
 }
 
 export default async function CommitteesPage({ searchParams }: CommitteesPageProps) {
-  const page = parseInt(searchParams.page || '1');
+  const params = await searchParams;
+
+  const page = parseInt(params.page || '1');
   const filters = {
     page,
-    search: searchParams.search,
+    search: params.search,
   };
 
-  const committeesData = await api.getCommittees(filters);
+  const committeesData = await api.getCommittees(
+    page,
+    20, // pageSize
+    filters.search
+  );
 
   return (
     <div className="content-container py-8">
@@ -43,8 +49,8 @@ export default async function CommitteesPage({ searchParams }: CommitteesPagePro
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
             <CommitteesList 
-              committees={committeesData.results || []} 
-              totalCount={committeesData.count || 0}
+              committees={committeesData.committees || []} 
+              totalCount={committeesData.pagination?.total || 0}
               currentPage={page}
               filters={filters}
             />
