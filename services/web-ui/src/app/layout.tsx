@@ -66,71 +66,7 @@ export default function RootLayout({
             <Footer />
           </AccessibilityProvider>
         </ErrorBoundary>
-        
-        {/* Add CSS for different font sizes */}
-        <style jsx global>{`
-          html[data-font-size="large"] {
-            font-size: 18px;
-          }
-          
-          html[data-font-size="extra-large"] {
-            font-size: 20px;
-          }
-          
-          /* Respect user's motion preferences */
-          @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-              animation-duration: 0.01ms !important;
-              animation-iteration-count: 1 !important;
-              transition-duration: 0.01ms !important;
-              scroll-behavior: auto !important;
-            }
-          }
-          
-          /* High contrast mode support */
-          @media (prefers-contrast: high) {
-            .bg-op-blue {
-              background-color: #000080;
-            }
-            
-            .text-op-blue {
-              color: #0000FF;
-            }
-            
-            .border-gray-200 {
-              border-color: #000000;
-            }
-          }
-          
-          /* Focus visible for keyboard navigation */
-          :focus-visible {
-            outline: 2px solid #2563eb;
-            outline-offset: 2px;
-          }
-          
-          /* Print styles */
-          @media print {
-            nav,
-            footer,
-            .no-print {
-              display: none !important;
-            }
-            
-            main {
-              width: 100% !important;
-              margin: 0 !important;
-              padding: 0 !important;
-            }
-          }
-        `}</style>
       </body>
     </html>
-<<<<<<< Current (Your changes)
   );
 }
-=======
-  )
-}
->>>>>>> Incoming (Background Agent changes)

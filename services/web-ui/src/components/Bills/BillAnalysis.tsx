@@ -1,21 +1,21 @@
-&lsquo;use client&rsquo;;
+'use client';
 
-import { useState } from &lsquo;react&rsquo;;
-import { Bill } from &lsquo;@/lib/api&rsquo;;
-import Link from &lsquo;next/link&rsquo;;
+import { useState } from 'react';
+import { Bill } from '@/lib/api';
+import Link from 'next/link';
 
 interface BillAnalysisProps {
   bill: Bill;
 }
 
 export default function BillAnalysis({ bill }: BillAnalysisProps) {
-  const [activeSection, setActiveSection] = useState(&lsquo;summary&rsquo;);
+  const [activeSection, setActiveSection] = useState('summary');
 
   const sections = [
-    { id: &lsquo;summary&rsquo;, label: &lsquo;Executive Summary&rsquo; },
-    { id: &lsquo;impact&rsquo;, label: &lsquo;Impact Assessment&rsquo; },
-    { id: &lsquo;stakeholders&rsquo;, label: &lsquo;Stakeholder Positions&rsquo; },
-    { id: &lsquo;predictions&rsquo;, label: &lsquo;Success Predictions&rsquo; },
+    { id: 'summary', label: 'Executive Summary' },
+    { id: 'impact', label: 'Impact Assessment' },
+    { id: 'stakeholders', label: 'Stakeholder Positions' },
+    { id: 'predictions', label: 'Success Predictions' },
   ];
 
   return (
@@ -28,8 +28,8 @@ export default function BillAnalysis({ bill }: BillAnalysisProps) {
             onClick={() => setActiveSection(section.id)}
             className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
               activeSection === section.id
-                ? &lsquo;bg-op-blue text-white&rsquo;
-                : &lsquo;bg-gray-100 text-gray-700 hover:bg-gray-200&rsquo;
+                ? 'bg-op-blue text-white'
+                : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
             }`}
           >
             {section.label}
@@ -38,7 +38,7 @@ export default function BillAnalysis({ bill }: BillAnalysisProps) {
       </div>
 
       {/* Content Sections */}
-      {activeSection === &lsquo;summary&rsquo; && (
+      {activeSection === 'summary' && (
         <div className="space-y-6">
           <div>
             <h3 className="text-lg font-bold mb-3">Executive Summary</h3>
@@ -76,7 +76,7 @@ export default function BillAnalysis({ bill }: BillAnalysisProps) {
         </div>
       )}
 
-      {activeSection === &lsquo;impact&rsquo; && (
+      {activeSection === 'impact' && (
         <div className="space-y-6">
           <div>
             <h3 className="text-lg font-bold mb-3">Impact Assessment</h3>
@@ -132,7 +132,7 @@ export default function BillAnalysis({ bill }: BillAnalysisProps) {
         </div>
       )}
 
-      {activeSection === &lsquo;stakeholders&rsquo; && (
+      {activeSection === 'stakeholders' && (
         <div className="space-y-6">
           <h3 className="text-lg font-bold mb-3">Stakeholder Positions</h3>
           
@@ -177,7 +177,7 @@ export default function BillAnalysis({ bill }: BillAnalysisProps) {
         </div>
       )}
 
-      {activeSection === &lsquo;predictions&rsquo; && (
+      {activeSection === 'predictions' && (
         <div className="space-y-6">
           <h3 className="text-lg font-bold mb-3">Success Predictions</h3>
           
@@ -188,7 +188,7 @@ export default function BillAnalysis({ bill }: BillAnalysisProps) {
             </div>
             
             <div className="w-full bg-gray-200 rounded-full h-4 mb-4">
-              <div className="bg-green-500 h-4 rounded-full" style={{ width: &lsquo;75%&rsquo; }}></div>
+              <div className="bg-green-500 h-4 rounded-full" style={{ width: '75%' }}></div>
             </div>
             
             <div className="space-y-3 text-sm">

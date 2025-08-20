@@ -23,14 +23,61 @@
   .text-content {
     @apply max-w-text;
   }
-<<<<<<< Current (Your changes)
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Accessibility and utility styles */
+html[data-font-size="large"] {
+  font-size: 18px;
 }
-=======
+
+html[data-font-size="extra-large"] {
+  font-size: 20px;
 }
->>>>>>> Incoming (Background Agent changes)
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-op-blue {
+    background-color: #000080;
+  }
+  
+  .text-op-blue {
+    color: #0000FF;
+  }
+  
+  .border-gray-200 {
+    border-color: #000000;
+  }
+}
+
+/* Focus visible for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #2563eb;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  nav,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+  
+  main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

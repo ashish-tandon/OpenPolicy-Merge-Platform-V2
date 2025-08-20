@@ -66,22 +66,22 @@ export default function SearchBar() {
   };
 
   return (
-    <div ref={searchRef} className=""rdquo;""rdquo;ldquo;relative""rdquo;""rdquo;ldquo;>
+    <div ref={searchRef} className="relative">
       <form onSubmit={handleSubmit}>
-        <div className=""rdquo;""rdquo;ldquo;relative""rdquo;""rdquo;ldquo;>
+        <div className="relative">
           <input
-            type=""rdquo;""rdquo;ldquo;text""rdquo;""rdquo;ldquo;
+            type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder=""rdquo;""rdquo;ldquo;Search MPs, bills, debates... or enter postal code""rdquo;""rdquo;ldquo;
-            className=""rdquo;""rdquo;ldquo;w-full px-4 py-2 pr-10 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-op-blue focus:border-transparent""rdquo;""rdquo;ldquo;
+            placeholder="Search MPs, bills, debates... or enter postal code"
+            className="w-full px-4 py-2 pr-10 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-op-blue focus:border-transparent"
           />
           <button
-            type=""rdquo;""rdquo;ldquo;submit""rdquo;""rdquo;ldquo;
-            className=""rdquo;""rdquo;ldquo;absolute right-0 top-0 bottom-0 px-3 text-gray-500 hover:text-op-blue""rdquo;""rdquo;ldquo;
+            type="submit"
+            className="absolute right-0 top-0 bottom-0 px-3 text-gray-500 hover:text-op-blue"
           >
-            <svg className=""rdquo;""rdquo;ldquo;w-5 h-5""rdquo;""rdquo;ldquo; fill=""rdquo;""rdquo;ldquo;none""rdquo;""rdquo;ldquo; stroke=""rdquo;""rdquo;ldquo;currentColor""rdquo;""rdquo;ldquo; viewBox=""rdquo;""rdquo;ldquo;0 0 24 24""rdquo;""rdquo;ldquo;>
-              <path strokeLinecap=""rdquo;""rdquo;ldquo;round""rdquo;""rdquo;ldquo; strokeLinejoin=""rdquo;""rdquo;ldquo;round""rdquo;""rdquo;ldquo; strokeWidth={2} d=""rdquo;""rdquo;ldquo;M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z""rdquo;""rdquo;ldquo; />
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
         </div>
@@ -89,9 +89,9 @@ export default function SearchBar() {
 
       {/* Autocomplete Suggestions */}
       {showSuggestions && suggestions.length > 0 && (
-        <div className=""rdquo;""rdquo;ldquo;absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50""rdquo;""rdquo;ldquo;>
+        <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-gray-200 rounded-md shadow-lg z-50">
           {loading ? (
-            <div className=""rdquo;""rdquo;ldquo;px-4 py-2 text-sm text-gray-500""rdquo;""rdquo;ldquo;>Searching...</div>
+            <div className="px-4 py-2 text-sm text-gray-500">Searching...</div>
           ) : (
             <>
               {isPostalCode(query) && (
@@ -100,9 +100,9 @@ export default function SearchBar() {
                     setShowSuggestions(false);
                     router.push(`/search/postal/${encodeURIComponent(query.replace(/\s/g, ''))}`);
                   }}
-                  className=""rdquo;""rdquo;ldquo;w-full px-4 py-2 text-left text-sm hover:bg-gray-100""rdquo;""rdquo;ldquo;
+                  className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100"
                 >
-                  <span className=""rdquo;""rdquo;ldquo;font-medium""rdquo;""rdquo;ldquo;>Find MP for postal code:</span> {query.toUpperCase()}
+                  <span className="font-medium">Find MP for postal code:</span> {query.toUpperCase()}
                 </button>
               )}
               {suggestions.map((result, index) => (
@@ -119,10 +119,10 @@ export default function SearchBar() {
                       router.push(`/search?q=${encodeURIComponent(query)}`);
                     }
                   }}
-                  className=""rdquo;""rdquo;ldquo;w-full px-4 py-2 text-left text-sm hover:bg-gray-100 border-t border-gray-100 first:border-t-0""rdquo;""rdquo;ldquo;
+                  className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 border-t border-gray-100 first:border-t-0"
                 >
-                  <div className=""rdquo;""rdquo;ldquo;font-medium""rdquo;""rdquo;ldquo;>{result._source.name || result._source.title}</div>
-                  <div className=""rdquo;""rdquo;ldquo;text-xs text-gray-500""rdquo;""rdquo;ldquo;>
+                  <div className="font-medium">{result._source.name || result._source.title}</div>
+                  <div className="text-xs text-gray-500">
                     {result._index === 'politicians' ? 'MP' : 
                      result._index === 'bills' ? 'Bill' : 
                      result._index === 'debates' ? 'Debate' : 
@@ -135,9 +135,9 @@ export default function SearchBar() {
                   setShowSuggestions(false);
                   router.push(`/search?q=${encodeURIComponent(query)}`);
                 }}
-                className=""rdquo;""rdquo;ldquo;w-full px-4 py-2 text-left text-sm hover:bg-gray-100 border-t border-gray-200""rdquo;""rdquo;ldquo;
+                className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 border-t border-gray-200"
               >
-                View all results for ""rdquo;""rdquo;ldquo;{query}""rdquo;""rdquo;ldquo;
+                View all results for "{query}"
               </button>
             </>
           )}

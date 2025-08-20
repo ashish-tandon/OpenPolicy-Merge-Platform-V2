@@ -16,6 +16,7 @@ export default function Navbar() {
     { href: '/committees', label: 'Committees' },
     { href: '/about', label: 'About' },
     { href: '/labs', label: 'Labs' },
+    { href: '/api', label: 'API' },
   ];
 
   return (
