@@ -1,0 +1,320 @@
+openapi: 3.1.0
+info:
+  title: OpenPolicy API
+  description: Unified API for parliamentary and civic data from multiple jurisdictions
+  version: 0.1.0
+  contact:
+    name: OpenPolicy Team
+    url: https://github.com/ashish-tandon/OpenPolicyMergePlatformV2
+servers:
+  - url: http://localhost:8080
+    description: Local development
+  - url: https://api.openpolicy.ca
+    description: Production API
+
+paths:
+  /healthz:
+    get:
+      summary: Liveness probe
+      description: Health check endpoint for load balancers and monitoring
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "ok"
+                  timestamp:
+                    type: string
+                    format: date-time
+                  version:
+                    type: string
+                    example: "0.1.0"
+
+  /version:
+    get:
+      summary: API version information
+      description: Get current API version and build information
+      responses:
+        '200':
+          description: Version information
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                    example: "0.1.0"
+                  build_date:
+                    type: string
+                    format: date-time
+                  git_commit:
+                    type: string
+                    example: "abc1234"
+
+  /bills:
+    get:
+      summary: List bills
+      description: Retrieve a paginated list of bills with optional filtering
+      parameters:
+        - in: query
+          name: q
+          schema: 
+            type: string
+          description: Search query for bill title or summary
+        - in: query
+          name: jurisdiction
+          schema: 
+            type: string
+            enum: [federal, provincial, municipal]
+          description: Filter by jurisdiction level
+        - in: query
+          name: session
+          schema: 
+            type: string
+          description: Filter by parliamentary/legislative session
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [introduced, in_committee, passed, failed, royal_assent]
+          description: Filter by bill status
+        - in: query
+          name: page
+          schema: 
+            type: integer
+            minimum: 1
+            default: 1
+          description: Page number for pagination
+        - in: query
+          name: page_size
+          schema: 
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+          description: Number of items per page
+      responses:
+        '200':
+          description: A page of bills
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/BillSummary'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+        '400':
+          description: Invalid query parameters
+        '500':
+          description: Internal server error
+
+  /bills/{bill_id}:
+    get:
+      summary: Bill detail
+      description: Get detailed information about a specific bill
+      parameters:
+        - in: path
+          name: bill_id
+          required: true
+          schema: 
+            type: string
+          description: Unique identifier for the bill
+      responses:
+        '200':
+          description: Bill details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillDetail'
+        '404':
+          description: Bill not found
+        '500':
+          description: Internal server error
+
+  /members:
+    get:
+      summary: List members
+      description: Retrieve a paginated list of elected officials
+      parameters:
+        - in: query
+          name: jurisdiction
+          schema:
+            type: string
+            enum: [federal, provincial, municipal]
+          description: Filter by jurisdiction level
+        - in: query
+          name: party
+          schema:
+            type: string
+          description: Filter by political party
+        - in: query
+          name: district
+          schema:
+            type: string
+          description: Filter by electoral district
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - in: query
+          name: page_size
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: A page of members
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MemberSummary'
+                  pagination:
+                    $ref: '#/components/schemas/Pagination'
+
+components:
+  schemas:
+    BillSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique bill identifier
+        title:
+          type: string
+          description: Bill title
+        summary:
+          type: string
+          description: Brief description of the bill
+        status:
+          type: string
+          enum: [introduced, in_committee, passed, failed, royal_assent]
+        jurisdiction:
+          type: string
+          enum: [federal, provincial, municipal]
+        session:
+          type: string
+          description: Parliamentary/legislative session
+        introduced_date:
+          type: string
+          format: date
+        sponsors:
+          type: array
+          items:
+            type: string
+          description: List of sponsor names
+      required: [id, title, status, jurisdiction, session]
+
+    BillDetail:
+      allOf:
+        - $ref: '#/components/schemas/BillSummary'
+        - type: object
+          properties:
+            full_text:
+              type: string
+              description: Complete bill text
+            votes:
+              type: array
+              items:
+                $ref: '#/components/schemas/Vote'
+            amendments:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  description:
+                    type: string
+                  date:
+                    type: string
+                    format: date
+
+    MemberSummary:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        party:
+          type: string
+        district:
+          type: string
+        jurisdiction:
+          type: string
+          enum: [federal, provincial, municipal]
+        role:
+          type: string
+          description: Current role (MP, MPP, Councillor, etc.)
+      required: [id, name, jurisdiction]
+
+    Vote:
+      type: object
+      properties:
+        id:
+          type: string
+        bill_id:
+          type: string
+        date:
+          type: string
+          format: date-time
+        result:
+          type: string
+          enum: [passed, failed, tied]
+        yeas:
+          type: integer
+        nays:
+          type: integer
+        abstentions:
+          type: integer
+      required: [id, bill_id, date, result]
+
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Current page number
+        page_size:
+          type: integer
+          description: Items per page
+        total:
+          type: integer
+          description: Total number of items
+        pages:
+          type: integer
+          description: Total number of pages
+      required: [page, page_size, total, pages]
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+          description: Error message
+        code:
+          type: string
+          description: Error code
+        details:
+          type: object
+          description: Additional error details
+      required: [error]
