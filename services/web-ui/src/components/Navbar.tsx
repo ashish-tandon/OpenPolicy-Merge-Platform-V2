@@ -14,6 +14,7 @@ export default function Navbar() {
     { href: '/bills', label: 'Bills' },
     { href: '/debates', label: 'Debates' },
     { href: '/committees', label: 'Committees' },
+    { href: '/represent', label: 'Represent' },
     { href: '/about', label: 'About' },
     { href: '/labs', label: 'Labs' },
     { href: '/api', label: 'API' },
