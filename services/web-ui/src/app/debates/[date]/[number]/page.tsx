@@ -36,7 +36,7 @@ export default async function DebatePage({ params }: DebatePageProps) {
             <li><span className="text-gray-400">/</span></li>
             <li><Link href="/debates" className="text-gray-500 hover:text-op-blue">Debates</Link></li>
             <li><span className="text-gray-400">/</span></li>
-            <li className="text-gray-700">{params.date}</li>
+            <li className="text-gray-700">{date}</li>
           </ol>
         </nav>
 

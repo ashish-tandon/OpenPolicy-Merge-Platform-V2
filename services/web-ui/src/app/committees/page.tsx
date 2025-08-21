@@ -42,14 +42,14 @@ export default async function CommitteesPage({ searchParams }: CommitteesPagePro
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
         <div className="lg:col-span-1">
-          <CommitteesFilters currentFilters={searchParams} />
+          <CommitteesFilters currentFilters={params} />
         </div>
 
         {/* Committees List */}
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
             <CommitteesList 
-              committees={committeesData.committees || []} 
+              committees={committeesData.items || []} 
               totalCount={committeesData.pagination?.total || 0}
               currentPage={page}
               filters={filters}

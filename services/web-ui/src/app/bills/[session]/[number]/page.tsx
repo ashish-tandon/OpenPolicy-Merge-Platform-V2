@@ -16,7 +16,18 @@ interface BillPageProps {
 export default async function BillPage({ params }: BillPageProps) {
   const { session, number } = await params;
   try {
-    const bill = await api.getBillByNumber(session, number);
+    const billData = await api.getBillByNumber(session, number);
+    
+    // Transform API response to match expected format
+    const bill = {
+      ...billData,
+      privatemember: false, // Default value
+      law: false, // Default value
+      name: billData.title,
+      introduced: billData.introduced_date,
+      sponsor_politician_id: billData.sponsor?.id,
+      latest_bill_event_id: null // Default value
+    };
     
     return (
       <div className="content-container py-8">
@@ -27,7 +38,7 @@ export default async function BillPage({ params }: BillPageProps) {
             <li><span className="text-gray-400">/</span></li>
             <li><Link href="/bills" className="text-gray-500 hover:text-op-blue">Bills</Link></li>
             <li><span className="text-gray-400">/</span></li>
-            <li className="text-gray-700">{bill.number}</li>
+            <li className="text-gray-700">{bill.bill_number}</li>
           </ol>
         </nav>
 
@@ -36,7 +47,7 @@ export default async function BillPage({ params }: BillPageProps) {
           <div className="flex items-start justify-between mb-4">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-3xl font-bold text-op-dark">{bill.number}</h1>
+                <h1 className="text-3xl font-bold text-op-dark">{bill.bill_number}</h1>
                 <span className={`px-3 py-1 rounded text-sm font-medium ${
                   bill.privatemember 
                     ? 'bg-purple-100 text-purple-800' 
@@ -88,7 +99,7 @@ export default async function BillPage({ params }: BillPageProps) {
             {/* Quick Actions */}
             <div className="flex flex-col gap-2 ml-6">
               <a
-                href={`https://www.parl.ca/legisinfo/en/bill/${bill.session}/${bill.number}`}
+                href={`https://www.parl.ca/legisinfo/en/bill/${bill.session}/${bill.bill_number}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-4 py-2 bg-op-blue text-white rounded hover:bg-blue-700 transition-colors"
@@ -114,13 +125,13 @@ export default async function BillPage({ params }: BillPageProps) {
         {/* Recent Votes */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-bold mb-4">Votes on this Bill</h2>
-          <BillVotesList billId={bill.id} />
+          <BillVotesList billId={parseInt(bill.id) || 0} />
         </div>
 
         {/* Related Debates */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-bold mb-4">Related Debates</h2>
-          <RelatedDebates billNumber={bill.number} />
+          <RelatedDebates billNumber={bill.bill_number} debates={[]} />
         </div>
 
         {/* Tabbed Content */}

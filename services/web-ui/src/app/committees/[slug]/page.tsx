@@ -38,13 +38,13 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
           {/* Active Studies */}
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-bold mb-4">Active Studies</h2>
-            <ActiveStudies committeeId={committee.id} />
+            <ActiveStudies committeeId={parseInt(committee.id) || 0} />
           </div>
 
           {/* Recent Meetings */}
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-bold mb-4">Recent Meetings</h2>
-            <RecentMeetings committeeId={committee.id} />
+            <RecentMeetings committeeId={parseInt(committee.id) || 0} />
           </div>
         </div>
 
@@ -72,12 +72,12 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
                 </a>
               </li>
               <li>
-                <Link href={`/committees/${params.slug}/meetings`} className="text-op-blue hover:underline">
+                <Link href={`/committees/${slug}/meetings`} className="text-op-blue hover:underline">
                   Meeting archives
                 </Link>
               </li>
               <li>
-                <Link href={`/committees/${params.slug}/reports`} className="text-op-blue hover:underline">
+                <Link href={`/committees/${slug}/reports`} className="text-op-blue hover:underline">
                   Published reports
                 </Link>
               </li>
@@ -93,7 +93,7 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
                 </button>
               </li>
               <li>
-                <a href={`/api/v1/committees/${params.slug}/rss`} className="text-op-blue hover:underline flex items-center">
+                <a href={`/api/v1/committees/${slug}/rss`} className="text-op-blue hover:underline flex items-center">
                   RSS feed
                   <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
@@ -101,7 +101,7 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
                 </a>
               </li>
               <li>
-                <a href={`/api/v1/committees/${params.slug}`} className="text-op-blue hover:underline">
+                <a href={`/api/v1/committees/${slug}`} className="text-op-blue hover:underline">
                   API access
                 </a>
               </li>

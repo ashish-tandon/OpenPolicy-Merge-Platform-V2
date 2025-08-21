@@ -47,16 +47,16 @@ export default async function BillsPage({ searchParams }: BillsPageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
         <div className="lg:col-span-1">
-          <BillsFilters currentFilters={searchParams} />
+          <BillsFilters currentFilters={params} />
         </div>
 
         {/* Bills List */}
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
             <BillsList 
-              bills={billsData.bills || []} 
+              bills={billsData.items || []} 
               currentPage={page}
-              totalPages={billsData.pagination?.pages || 1}
+              totalPages={billsData.pagination?.total_pages || 1}
             />
           </Suspense>
         </div>
