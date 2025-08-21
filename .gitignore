@@ -249,3 +249,5 @@ config.local.json
 *.sql.gz
 *.dump.gz
 data-*.sql
+services/fider/
+services/nocobase/

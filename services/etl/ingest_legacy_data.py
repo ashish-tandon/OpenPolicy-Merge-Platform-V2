@@ -30,7 +30,7 @@ async def main():
     args = parser.parse_args()
     
     # Database URL
-    database_url = args.database_url or os.getenv('DATABASE_URL', 'postgresql://postgres:password@localhost:5432/openparliament')
+    database_url = args.database_url or os.getenv('DATABASE_URL', 'postgresql://ashishtandon@localhost:5432/openpolicy')
     
     # Find data file
     if args.file:

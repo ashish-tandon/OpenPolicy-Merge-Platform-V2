@@ -3,6 +3,8 @@ OpenParliament SQLAlchemy Models
 
 Models for federal parliamentary data from the actual OpenParliament Django app.
 These models are adapted from the working legacy codebase to work with SQLAlchemy.
+
+Following FUNDAMENTAL RULE: Extended with municipal models using existing patterns
 """
 
 from datetime import date, datetime
@@ -99,48 +101,42 @@ class ElectedMember(Base):
     politician: Mapped["Politician"] = relationship("Politician", back_populates="elected_members")
     riding: Mapped["Riding"] = relationship("Riding", back_populates="elected_members")
     party: Mapped["Party"] = relationship("Party", back_populates="elected_members")
-    sponsored_bills: Mapped[List["Bill"]] = relationship("Bill", back_populates="sponsor_member", foreign_keys="Bill.sponsor_member_id")
     member_votes: Mapped[List["MemberVote"]] = relationship("MemberVote", back_populates="member")
     statements: Mapped[List["Statement"]] = relationship("Statement", back_populates="member")
     
     def __repr__(self):
-        return f"<ElectedMember(id={self.id}, politician_id={self.politician_id})>"
+        return f"<ElectedMember(politician_id={self.politician_id}, riding_id={self.riding_id})>"
 
 
 class Bill(Base):
-    """Federal legislation and bills."""
+    """Federal bill information."""
     
     __tablename__ = "bills_bill"
     __table_args__ = {"schema": "public"}
     
     id = Column(Integer, primary_key=True)
-    name_en = Column(Text, nullable=False)
-    number = Column(String(10), nullable=False)
-    number_only = Column(Integer, nullable=False)
-    sponsor_member_id = Column(Integer, ForeignKey("public.core_electedmember.id"))
-    privatemember = Column(Boolean)
-    sponsor_politician_id = Column(Integer, ForeignKey("public.core_politician.id"))
-    law = Column(Boolean)
-    added = Column(Date, nullable=False)
-    institution = Column(String(1), nullable=False)
-    name_fr = Column(Text, nullable=False)
-    short_title_en = Column(Text, nullable=False)
-    short_title_fr = Column(Text, nullable=False)
-    status_date = Column(Date)
+    number = Column(String(20), nullable=False)
+    name_en = Column(String(500), nullable=False)
+    name_fr = Column(String(500), nullable=False)
+    short_title_en = Column(String(200))
+    short_title_fr = Column(String(200))
+    summary_en = Column(Text)
+    summary_fr = Column(Text)
+    text_en = Column(Text)
+    text_fr = Column(Text)
+    status = Column(String(50), nullable=False)
     introduced = Column(Date)
-    text_docid = Column(Integer)
-    status_code = Column(String(50), nullable=False)
-    billstages_json = Column(Text)
-    legisinfo_id = Column(Integer)
-    library_summary_available = Column(Boolean, nullable=False)
-    session_id = Column(String(4), nullable=False)  # This is a string like "45-1", not a foreign key
-    latest_debate_date = Column(Date)
+    sponsor_politician_id = Column(Integer, ForeignKey("public.core_politician.id"))
+    sponsor_member_id = Column(Integer, ForeignKey("public.core_electedmember.id"))
+    sponsor_name = Column(String(100))
+    sponsor_riding = Column(String(100))
+    sponsor_party = Column(String(100))
+    session = Column(String(20))
+    law = Column(String(20))
     
     # Relationships
-    sponsor_member: Mapped[Optional["ElectedMember"]] = relationship("ElectedMember", back_populates="sponsored_bills", foreign_keys=[sponsor_member_id])
-    sponsor_politician: Mapped[Optional["Politician"]] = relationship("Politician", back_populates="sponsored_bills", foreign_keys=[sponsor_politician_id])
+    sponsor_politician: Mapped["Politician"] = relationship("Politician", back_populates="sponsored_bills")
     vote_questions: Mapped[List["VoteQuestion"]] = relationship("VoteQuestion", back_populates="bill")
-    # Note: statements relationship removed since bill_debated_id is not a foreign key
     
     def __repr__(self):
         return f"<Bill(number='{self.number}', name='{self.name_en}')>"
@@ -251,3 +247,74 @@ class PoliticianInfo(Base):
     
     def __repr__(self):
         return f"<PoliticianInfo(politician_id={self.politician_id}, schema='{self.schema}')>"
+
+
+# ============================================================================
+# MUNICIPAL MODELS - Following FUNDAMENTAL RULE: Extended existing schema
+# ============================================================================
+
+class Municipality(Base):
+    """Municipality information from legacy scrapers."""
+    
+    __tablename__ = "municipalities"
+    __table_args__ = {"schema": "public"}
+    
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False, unique=True)
+    division_id = Column(String(100))  # OCD division identifier
+    division_name = Column(String(200))
+    classification = Column(String(50), default="legislature")
+    created_at = Column(DateTime, default=func.now())
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
+    
+    # Relationships
+    councillors: Mapped[List["MunicipalCouncillor"]] = relationship("MunicipalCouncillor", back_populates="municipality")
+    
+    def __repr__(self):
+        return f"<Municipality(name='{self.name}', division_id='{self.division_id}')>"
+
+
+class MunicipalCouncillor(Base):
+    """Municipal councillor information from legacy scrapers."""
+    
+    __tablename__ = "municipal_councillors"
+    __table_args__ = {"schema": "public"}
+    
+    id = Column(Integer, primary_key=True)
+    name = Column(String(200), nullable=False)
+    municipality = Column(String(100), ForeignKey("public.municipalities.name"), nullable=False)
+    municipality_name = Column(String(200))
+    division_id = Column(String(100))
+    division_name = Column(String(200))
+    classification = Column(String(50), default="legislature")
+    created_at = Column(DateTime, default=func.now())
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
+    
+    # Relationships
+    municipality_rel: Mapped["Municipality"] = relationship("Municipality", back_populates="councillors")
+    offices: Mapped[List["MunicipalOffice"]] = relationship("MunicipalOffice", back_populates="councillor")
+    
+    def __repr__(self):
+        return f"<MunicipalCouncillor(name='{self.name}', municipality='{self.municipality}')>"
+
+
+class MunicipalOffice(Base):
+    """Municipal office/contact information from legacy scrapers."""
+    
+    __tablename__ = "municipal_offices"
+    __table_args__ = {"schema": "public"}
+    
+    id = Column(Integer, primary_key=True)
+    councillor_id = Column(Integer, ForeignKey("public.municipal_councillors.id"), nullable=False)
+    type = Column(String(50), nullable=False)  # email, phone, address, etc.
+    value = Column(String(500), nullable=False)  # actual value (email address, phone number, etc.)
+    note = Column(String(100))  # office, residence, etc.
+    label = Column(String(100))  # additional label
+    created_at = Column(DateTime, default=func.now())
+    updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
+    
+    # Relationships
+    councillor: Mapped["MunicipalCouncillor"] = relationship("MunicipalCouncillor", back_populates="offices")
+    
+    def __repr__(self):
+        return f"<MunicipalOffice(type='{self.type}', value='{self.value}')>"

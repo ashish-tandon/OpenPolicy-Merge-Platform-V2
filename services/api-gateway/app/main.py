@@ -15,13 +15,22 @@ from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse
 
 from app.config import settings
-from app.database import engine, Base, init_db
+from app.database import engine, init_db
+
+# Import API routers
+from app.api.v1 import (
+    bills, members, represent, debates, committees, search, votes,
+    house_mentions, user_profiles, saved_items, bill_voting, chat, issues,
+    mobile_app
+)
+
+# Import Multi-Level Government API routers
+from app.api.v1 import multi_level_government, multi_level_government_extended
 
 # Import new infrastructure components
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.core.middleware.rate_limiting import rate_limit_middleware
-from src.core.versioning import version_middleware, create_versioned_app
 
 # Initialize database tables (in development)
 if settings.ENV == "local":
@@ -57,7 +66,8 @@ app.add_middleware(
 
 # Add custom middleware
 app.middleware("http")(rate_limit_middleware)
-app.middleware("http")(version_middleware)
+# TODO: Fix versioning middleware - currently causing routing issues
+# app.middleware("http")(version_middleware)
 
 # Global exception handler
 @app.exception_handler(Exception)
@@ -128,10 +138,6 @@ async def root() -> Dict[str, str]:
         "api_versions": "/api/versions"
     }
 
-# Include OpenParliament API routers
-from app.api.v1 import bills, members, represent, debates, committees, search
-# TODO: Fix votes API recursion error
-
 # Legacy route mounting (will be deprecated)
 app.include_router(
     bills.router,
@@ -169,6 +175,54 @@ app.include_router(
     tags=["search"]
 )
 
+app.include_router(
+    votes.router,
+    prefix="/api/v1/votes",
+    tags=["votes"]
+)
+
+app.include_router(
+    house_mentions.router,
+    prefix="/api/v1/house-mentions",
+    tags=["house-mentions"]
+)
+
+app.include_router(
+    user_profiles.router,
+    prefix="/api/v1/user-profiles",
+    tags=["user-profiles"]
+)
+
+app.include_router(
+    saved_items.router,
+    prefix="/api/v1/saved-items",
+    tags=["saved-items"]
+)
+
+app.include_router(
+    bill_voting.router,
+    prefix="/api/v1/bill-voting",
+    tags=["bill-voting"]
+)
+
+app.include_router(
+    chat.router,
+    prefix="/api/v1/chat",
+    tags=["chat"]
+)
+
+app.include_router(
+    issues.router,
+    prefix="/api/v1/issues",
+    tags=["issues"]
+)
+
+# Include Mobile App API router for compatibility
+app.include_router(
+    mobile_app.router,
+    tags=["mobile-app"]
+)
+
 # Include new infrastructure routes
 try:
     from src.api.v1 import export, feeds
@@ -187,6 +241,19 @@ try:
 except ImportError:
     print("⚠️  Export and feeds modules not found, skipping...")
 
+# Include Multi-Level Government API routers
+app.include_router(
+    multi_level_government.router,
+    prefix="/api/v1/multi-level-government",
+    tags=["multi-level-government"]
+)
+
+app.include_router(
+    multi_level_government_extended.router,
+    prefix="/api/v1/multi-level-government",
+    tags=["multi-level-government"]
+)
+
 # app.include_router(
 #     votes.router,
 #     prefix="/api/v1/votes",
@@ -194,10 +261,11 @@ except ImportError:
 # )
 
 # Set up API versioning
-try:
-    create_versioned_app(app)
-except Exception as e:
-    print(f"⚠️  Could not set up API versioning: {e}")
+# TODO: Fix versioning system - currently causing routing issues
+# try:
+#     create_versioned_app(app)
+# except Exception as e:
+#     print(f"⚠️  Could not set up API versioning: {e}")
 
 if __name__ == "__main__":
     import uvicorn

@@ -11,9 +11,15 @@ export default function Navbar() {
 
   const navItems = [
     { href: '/mps', label: 'MPs' },
+    { href: '/former-mps', label: 'Former MPs' },
     { href: '/bills', label: 'Bills' },
+    { href: '/voting-records', label: 'Voting Records' },
+    { href: '/mobile-app', label: 'Mobile App Features' },
+    { href: '/feedback', label: 'Feedback' },
+    { href: '/saved-items', label: 'Saved Items' },
     { href: '/debates', label: 'Debates' },
     { href: '/committees', label: 'Committees' },
+    { href: '/government', label: 'Government' },
     { href: '/represent', label: 'Represent' },
     { href: '/about', label: 'About' },
     { href: '/labs', label: 'Labs' },

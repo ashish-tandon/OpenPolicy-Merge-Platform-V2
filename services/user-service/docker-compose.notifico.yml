@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  # Notifico - Open Source Notification Server (Rust-based)
+  notifico:
+    image: ghcr.io/notifico/notifico:latest
+    container_name: openpolicy_notifico
+    ports:
+      - "8083:8083"
+    environment:
+      - NOTIFICO_ENV=production
+      - NOTIFICO_DATABASE_URL=postgresql://notifico:notifico123@notifico-db:5432/notifico
+      - NOTIFICO_REDIS_URL=redis://notifico-redis:6379/0
+      - NOTIFICO_SECRET_KEY=your-secret-key-change-in-production
+      - NOTIFICO_ADMIN_EMAIL=admin@openpolicy.me
+      - NOTIFICO_ADMIN_PASSWORD=admin123
+    volumes:
+      - notifico_data:/data
+      - ./notifico_config:/etc/notifico
+    depends_on:
+      - notifico-db
+      - notifico-redis
+    restart: unless-stopped
+    networks:
+      - notifico_network
+
+  # PostgreSQL for Notifico
+  notifico-db:
+    image: postgres:15
+    container_name: openpolicy_notifico_db
+    environment:
+      POSTGRES_DB: notifico
+      POSTGRES_USER: notifico
+      POSTGRES_PASSWORD: notifico123
+    volumes:
+      - notifico_db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      - notifico_network
+
+  # Redis for Notifico
+  notifico-redis:
+    image: redis:7-alpine
+    container_name: openpolicy_notifico_redis
+    command: redis-server --appendonly yes
+    volumes:
+      - notifico_redis_data:/data
+    restart: unless-stopped
+    networks:
+      - notifico_network
+
+  # Nginx reverse proxy for Notifico
+  notifico-nginx:
+    image: nginx:alpine
+    container_name: openpolicy_notifico_nginx
+    ports:
+      - "8084:80"
+    volumes:
+      - ./notifico_nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - notifico
+    restart: unless-stopped
+    networks:
+      - notifico_network
+
+volumes:
+  notifico_data:
+  notifico_db_data:
+  notifico_redis_data:
+
+networks:
+  notifico_network:
+    driver: bridge

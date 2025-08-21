@@ -243,3 +243,131 @@ async def get_bill_summary_stats(db: DBSession = Depends(get_db)):
         status_breakdown={status: count for status, count in status_counts},
         session_breakdown={session: count for session, count in session_counts}
     )
+
+
+@router.get("/{bill_id}/votes")
+async def get_bill_votes(
+    bill_id: int,
+    page: int = Query(1, ge=1, description="Page number"),
+    page_size: int = Query(20, ge=1, le=100, description="Items per page"),
+    db: DBSession = Depends(get_db)
+):
+    """
+    Get voting records for a specific bill.
+    """
+    # Verify bill exists
+    bill = db.query(Bill).filter(Bill.id == bill_id).first()
+    if not bill:
+        raise HTTPException(status_code=404, detail="Bill not found")
+    
+    # Get vote questions for this bill
+    votes_query = db.query(VoteQuestion).filter(VoteQuestion.bill_id == bill_id)
+    
+    # Get total count for pagination
+    total = votes_query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    votes = votes_query.offset(offset).limit(page_size).all()
+    
+    # Convert to response format
+    vote_results = []
+    for vote in votes:
+        vote_results.append({
+            "id": str(vote.id),
+            "vote_date": vote.date,
+            "description": vote.description,
+            "result": vote.result,
+            "bill_id": str(vote.bill_id),
+            "bill_title": bill.name_en,
+            "bill_number": bill.number
+        })
+    
+    return {
+        "results": vote_results,
+        "pagination": {
+            "page": page,
+            "page_size": page_size,
+            "total": total,
+            "total_pages": (total + page_size - 1) // page_size,
+            "has_next": page * page_size < total,
+            "has_prev": page > 1
+        }
+    }
+
+
+@router.get("/{bill_id}/history")
+async def get_bill_history(
+    bill_id: int,
+    page: int = Query(1, ge=1, description="Page number"),
+    page_size: int = Query(20, ge=1, le=100, description="Items per page"),
+    db: DBSession = Depends(get_db)
+):
+    """
+    Get legislative history for a specific bill.
+    """
+    # Verify bill exists
+    bill = db.query(Bill).filter(Bill.id == bill_id).first()
+    if not bill:
+        raise HTTPException(status_code=404, detail="Bill not found")
+    
+    # For now, create a basic history based on bill data
+    # In a full implementation, this would come from a separate history table
+    history_items = []
+    
+    # Add introduction
+    if bill.introduced:
+        history_items.append({
+            "id": f"intro-{bill_id}",
+            "date": bill.introduced,
+            "type": "introduction",
+            "title": "Bill Introduced",
+            "description": f"Bill {bill.number} was introduced in the House of Commons",
+            "location": "House of Commons",
+            "related_document": None
+        })
+    
+    # Add status changes (simplified)
+    if bill.status_code:
+        status_descriptions = {
+            "INTRODUCED": "Bill introduced and read for the first time",
+            "FIRST_READING": "Bill read for the first time",
+            "SECOND_READING": "Bill read for the second time",
+            "COMMITTEE": "Bill referred to committee for study",
+            "REPORT": "Committee report presented",
+            "THIRD_READING": "Bill read for the third time",
+            "PASSED": "Bill passed by the House of Commons",
+            "DEFEATED": "Bill defeated",
+            "WITHDRAWN": "Bill withdrawn"
+        }
+        
+        status_desc = status_descriptions.get(bill.status_code, f"Status changed to {bill.status_code}")
+        history_items.append({
+            "id": f"status-{bill_id}",
+            "date": bill.introduced or "Unknown",
+            "type": "status_change",
+            "title": f"Status: {bill.status_code}",
+            "description": status_desc,
+            "location": "House of Commons",
+            "related_document": None
+        })
+    
+    # Sort by date (most recent first)
+    history_items.sort(key=lambda x: x["date"] or "1900-01-01", reverse=True)
+    
+    # Apply pagination
+    total = len(history_items)
+    offset = (page - 1) * page_size
+    paginated_history = history_items[offset:offset + page_size]
+    
+    return {
+        "results": paginated_history,
+        "pagination": {
+            "page": page,
+            "page_size": page_size,
+            "total": total,
+            "total_pages": (total + page_size - 1) // page_size,
+            "has_next": page * page_size < total,
+            "has_prev": page > 1
+        }
+    }

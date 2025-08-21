@@ -8,9 +8,9 @@ This is adapted from the working legacy OpenParliament codebase.
 from fastapi import APIRouter, HTTPException, Query, Depends
 from sqlalchemy.orm import Session as DBSession
 from sqlalchemy import text
-from typing import List, Optional
+from typing import Optional
 from app.database import get_db
-from app.models.openparliament import VoteQuestion, Bill, MemberVote, PartyVote, ElectedMember, Politician, Party
+from app.models.openparliament import VoteQuestion, Bill, MemberVote, PartyVote, Politician, Party
 from app.schemas.votes import (
     VoteSummary, VoteDetail, VoteBallot, Pagination, 
     VoteListResponse, VoteDetailResponse, VoteBallotsResponse,
@@ -22,9 +22,11 @@ router = APIRouter()
 
 @router.get("/", response_model=VoteListResponse)
 async def list_votes(
+    q: Optional[str] = Query(None, description="Search query for bill title or description"),
     session: Optional[str] = Query(None, description="Session ID (e.g., '45-1')"),
     bill: Optional[str] = Query(None, description="Bill filter (e.g., '45-1/C-5')"),
     result: Optional[str] = Query(None, description="Vote result filter"),
+    type: Optional[str] = Query(None, description="Vote type filter"),
     date__gte: Optional[str] = Query(None, description="Date greater than or equal (YYYY-MM-DD)"),
     date__lte: Optional[str] = Query(None, description="Date less than or equal (YYYY-MM-DD)"),
     number: Optional[int] = Query(None, description="Vote number in session"),
@@ -47,6 +49,15 @@ async def list_votes(
     # Build base query
     query = db.query(VoteQuestion).join(Bill)
     
+    # Apply search if query provided
+    if q:
+        # Use PostgreSQL full-text search on bill name and vote description
+        search_query = text("""
+            to_tsvector('english', bills_bill.name_en || ' ' || COALESCE(votes_votequestion.description, '')) 
+            @@ plainto_tsquery('english', :search_term)
+        """)
+        query = query.filter(search_query.bindparams(search_term=q))
+    
     # Apply filters
     if session:
         query = query.filter(Bill.session_id == session)
@@ -59,6 +70,19 @@ async def list_votes(
     
     if result:
         query = query.filter(VoteQuestion.result == result)
+    
+    if type:
+        # For now, we'll use a simplified type mapping
+        # In a full implementation, this would come from a vote type field
+        type_mapping = {
+            'division': 'division',
+            'voice': 'voice',
+            'unanimous': 'unanimous',
+            'recorded': 'recorded'
+        }
+        if type in type_mapping:
+            # This is a placeholder - actual implementation would filter by vote type
+            pass
     
     if date__gte:
         query = query.filter(VoteQuestion.date >= date__gte)

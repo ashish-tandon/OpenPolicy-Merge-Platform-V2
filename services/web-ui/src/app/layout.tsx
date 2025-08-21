@@ -47,6 +47,9 @@ export default function RootLayout({
         
         {/* Viewport for responsive design */}
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        
+        {/* Umami Analytics */}
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="6ea9f614-9bc0-4edc-bd0b-8232a601825c"></script>
       </head>
       <body className={`${inter.className} bg-op-gray antialiased`}>
         <ErrorBoundary>
