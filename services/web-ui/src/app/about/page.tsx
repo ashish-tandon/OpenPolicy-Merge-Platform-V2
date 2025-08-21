@@ -118,7 +118,7 @@ export default function AboutPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-bold text-op-dark mb-4">Contact</h2>
             <p className="text-gray-700 mb-4">
-              Have questions, suggestions, or want to get involved? We'd love to hear from you.
+              Have questions, suggestions, or want to get involved? We&apos;d love to hear from you.
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
               <p className="text-gray-700">

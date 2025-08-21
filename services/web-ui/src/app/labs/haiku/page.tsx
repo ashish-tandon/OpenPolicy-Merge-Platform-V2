@@ -199,7 +199,7 @@ export default function ParliamentaryHaikuPage() {
                 View original text
               </summary>
               <blockquote className="mt-2 text-sm text-gray-600 italic border-l-4 border-op-blue pl-3">
-                "{haiku.source.originalText}"
+                &quot;{haiku.source.originalText}&quot;
               </blockquote>
             </details>
 
