@@ -8,14 +8,15 @@ import MPActivity from '@/components/mps/MPActivity';
 import { Metadata } from 'next';
 
 interface MPProfilePageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: MPProfilePageProps): Promise<Metadata> {
   try {
-    const mp = await api.getMember(params.id);
+    const { id } = await params;
+    const mp = await api.getMember(id);
     
     return {
       title: `${mp.full_name} | OpenPolicy`,
@@ -36,12 +37,13 @@ export async function generateMetadata({ params }: MPProfilePageProps): Promise<
 
 export default async function MPProfilePage({ params }: MPProfilePageProps) {
   try {
+    const { id } = await params;
     // Fetch MP data
     const [mp, votes, committees, activity] = await Promise.all([
-      api.getMember(params.id),
-      api.getMemberVotes(params.id).catch(() => ({ results: [] })),
-      api.getMemberCommittees(params.id).catch(() => ({ results: [] })),
-      api.getMemberActivity(params.id).catch(() => ({ results: [] })),
+      api.getMember(id),
+      api.getMemberVotes(id).catch(() => ({ results: [] })),
+      api.getMemberCommittees(id).catch(() => ({ results: [] })),
+      api.getMemberActivity(id).catch(() => ({ results: [] })),
     ]);
 
     return (

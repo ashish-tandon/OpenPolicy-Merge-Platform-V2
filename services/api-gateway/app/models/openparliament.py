@@ -115,24 +115,27 @@ class Bill(Base):
     __table_args__ = {"schema": "public"}
     
     id = Column(Integer, primary_key=True)
-    number = Column(String(20), nullable=False)
-    name_en = Column(String(500), nullable=False)
-    name_fr = Column(String(500), nullable=False)
-    short_title_en = Column(String(200))
-    short_title_fr = Column(String(200))
-    summary_en = Column(Text)
-    summary_fr = Column(Text)
-    text_en = Column(Text)
-    text_fr = Column(Text)
-    status = Column(String(50), nullable=False)
+    number = Column(String(10), nullable=False)
+    number_only = Column(Integer, nullable=False)
+    name_en = Column(Text, nullable=False)
+    name_fr = Column(Text, nullable=False)
+    short_title_en = Column(Text, nullable=False)
+    short_title_fr = Column(Text, nullable=False)
+    status_code = Column(String(50), nullable=False)
+    status_date = Column(Date)
     introduced = Column(Date)
+    added = Column(Date, nullable=False)
+    institution = Column(String(1), nullable=False)
+    privatemember = Column(Boolean)
+    law = Column(Boolean)
     sponsor_politician_id = Column(Integer, ForeignKey("public.core_politician.id"))
     sponsor_member_id = Column(Integer, ForeignKey("public.core_electedmember.id"))
-    sponsor_name = Column(String(100))
-    sponsor_riding = Column(String(100))
-    sponsor_party = Column(String(100))
-    session = Column(String(20))
-    law = Column(String(20))
+    text_docid = Column(Integer)
+    billstages_json = Column(Text)
+    legisinfo_id = Column(Integer)
+    library_summary_available = Column(Boolean, nullable=False)
+    session_id = Column(String(4), nullable=False)
+    latest_debate_date = Column(Date)
     
     # Relationships
     sponsor_politician: Mapped["Politician"] = relationship("Politician", back_populates="sponsored_bills")
@@ -152,8 +155,14 @@ class VoteQuestion(Base):
     bill_id = Column(Integer, ForeignKey("public.bills_bill.id"), nullable=False)
     date = Column(Date, nullable=False)
     number = Column(Integer, nullable=False)
-    description = Column(Text, nullable=False)
-    result = Column(String(50), nullable=False)
+    description_en = Column(Text, nullable=False)
+    description_fr = Column(Text, nullable=False)
+    result = Column(String(1), nullable=False)
+    session_id = Column(String(4), nullable=False)
+    yea_total = Column(Integer, nullable=False)
+    nay_total = Column(Integer, nullable=False)
+    paired_total = Column(Integer, nullable=False)
+    context_statement_id = Column(Integer, ForeignKey("public.hansards_statement.id"))
     
     # Relationships
     bill: Mapped["Bill"] = relationship("Bill", back_populates="vote_questions")
@@ -268,7 +277,7 @@ class Municipality(Base):
     updated_at = Column(DateTime, default=func.now(), onupdate=func.now())
     
     # Relationships
-    councillors: Mapped[List["MunicipalCouncillor"]] = relationship("MunicipalCouncillor", back_populates="municipality")
+    councillors: Mapped[List["MunicipalCouncillor"]] = relationship("MunicipalCouncillor", back_populates="municipality_rel")
     
     def __repr__(self):
         return f"<Municipality(name='{self.name}', division_id='{self.division_id}')>"

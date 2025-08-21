@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import FormerMPsList from '@/components/mps/FormerMPsList';
+import FormerMPsList from '@/components/MPs/FormerMPsList';
 
 export const metadata: Metadata = {
   title: 'Former Members of Parliament | OpenPolicy',

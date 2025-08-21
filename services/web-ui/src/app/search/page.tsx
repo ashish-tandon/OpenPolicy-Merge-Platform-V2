@@ -5,11 +5,11 @@ import SearchResults from '@/components/Search/SearchResults';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface SearchPageProps {
-  searchParams: {
+  searchParams: Promise<{
     q?: string;
     type?: string;
     page?: string;
-  };
+  }>;
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {

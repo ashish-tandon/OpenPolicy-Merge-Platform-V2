@@ -76,21 +76,21 @@ class LoginRequest(BaseModel):
 
 class OAuthLoginRequest(BaseModel):
     """Schema for OAuth login."""
-    provider: str = Field(..., regex="^(google|github)$")
+    provider: str = Field(..., pattern="^(google|github)$")
     token: str
 
 
 class OTPRequest(BaseModel):
     """Schema for requesting OTP."""
     phone: str = Field(..., max_length=20)
-    otp_type: str = Field(default="sms", regex="^(sms|email)$")
+    otp_type: str = Field(default="sms", pattern="^(sms|email)$")
 
 
 class OTPVerifyRequest(BaseModel):
     """Schema for verifying OTP."""
     phone: str = Field(..., max_length=20)
     otp: str = Field(..., min_length=4, max_length=10)
-    otp_type: str = Field(default="sms", regex="^(sms|email)$")
+    otp_type: str = Field(default="sms", pattern="^(sms|email)$")
 
 
 class ForgotPasswordRequest(BaseModel):

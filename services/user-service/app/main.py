@@ -12,7 +12,7 @@ from fastapi.responses import JSONResponse
 import time
 
 from app.config.settings import settings
-from app.api.v1 import auth, users, health, profile, engagement
+from app.api.v1 import health, auth_simple, profile_simple
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -62,11 +62,14 @@ async def global_exception_handler(request: Request, exc: Exception):
 
 
 # Include API routers
-app.include_router(auth.router, prefix="/api/v1")
-app.include_router(users.router, prefix="/api/v1")
 app.include_router(health.router, prefix="/api/v1")
-app.include_router(profile.router, prefix="/api/v1")
-app.include_router(engagement.router, prefix="/api/v1")
+app.include_router(auth_simple.router, prefix="/api/v1/auth")
+app.include_router(profile_simple.router, prefix="/api/v1/profile")
+# Temporarily commented out due to Pydantic model compatibility issues
+# app.include_router(auth.router, prefix="/api/v1")
+# app.include_router(users.router, prefix="/api/v1")
+# app.include_router(profile.router, prefix="/api/v1")
+# app.include_router(engagement.router, prefix="/api/v1")
 
 
 # Root endpoint

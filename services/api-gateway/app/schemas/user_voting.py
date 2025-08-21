@@ -56,7 +56,7 @@ class UserVoteListResponse(BaseModel):
     page_size: int = Field(..., description="Number of votes per page")
     total_pages: int = Field(..., description="Total number of pages")
 
-class VoteSummaryResponse(BaseModel):
+class BillVoteSummaryResponse(BaseModel):
     """Schema for bill voting summary"""
     bill_id: str = Field(..., description="Bill ID for the summary")
     overall_statistics: dict = Field(..., description="Overall voting statistics")

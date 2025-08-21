@@ -5,13 +5,13 @@ import MPFilters from '@/components/MPs/MPFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface MPsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     search?: string;
     province?: string;
     party?: string;
     current?: string;
-  };
+  }>;
 }
 
 export default async function MPsPage({ searchParams }: MPsPageProps) {

@@ -29,7 +29,7 @@ router = APIRouter(prefix="/profile", tags=["Profile Management"])
 
 
 @router.get("/me", response_model=dict)
-async def get_profile(current_user: User = Depends(current_active_user)):
+async def get_profile(current_user = Depends(current_active_user)):
     """Get current user's profile."""
     return {
         "success": True,
@@ -59,7 +59,7 @@ async def get_profile(current_user: User = Depends(current_active_user)):
 @router.put("/me", response_model=dict)
 async def update_profile(
     profile_update: UserProfileUpdate,
-    current_user: User = Depends(current_active_user)
+    current_user = Depends(current_active_user)
 ):
     """Update current user's profile."""
     try:
@@ -105,7 +105,7 @@ async def update_profile(
 @router.post("/picture", response_model=dict)
 async def upload_profile_picture(
     file: UploadFile = File(...),
-    current_user: User = Depends(current_active_user)
+    current_user = Depends(current_active_user)
 ):
     """Upload profile picture (Base64 encoding like Open Policy Infra)."""
     try:

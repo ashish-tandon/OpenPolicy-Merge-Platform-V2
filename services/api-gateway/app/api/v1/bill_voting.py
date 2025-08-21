@@ -334,8 +334,8 @@ async def get_user_voting_history(
             "low": len([v for v in filtered_history if v["confidence_level"] == "low"])
         },
         "mp_vote_alignment": {
-            "matches": len([v for v in filtered_history if v["mp_vote_match"]),
-            "mismatches": len([v for v in filtered_history if not v["mp_vote_match"])
+            "matches": len([v for v in filtered_history if v["mp_vote_match"]]),
+            "mismatches": len([v for v in filtered_history if not v["mp_vote_match"]])
         },
         "constituency_alignment": {
             "high_consensus": len([v for v in filtered_history if v["constituency_consensus"] in ["high", "very_high"]]),

@@ -65,8 +65,8 @@ export default function AllBillsPage() {
   const handleFilterChange = (key: keyof BillFilters, value: string | number | undefined) => {
     setFilters(prev => ({
       ...prev,
-      [key]: value === '' ? undefined : value,
-      page: key !== 'page' ? 1 : value // Reset to page 1 when changing other filters
+      [key]: key === 'page' ? (typeof value === 'string' ? parseInt(value) : value) : (value === '' ? undefined : value),
+      page: key !== 'page' ? 1 : (typeof value === 'string' ? parseInt(value) : value) // Reset to page 1 when changing other filters
     }));
   };
 
@@ -323,15 +323,8 @@ export default function AllBillsPage() {
                 <Pagination
                   currentPage={bills.pagination.page}
                   totalPages={bills.pagination.total_pages}
-                  onPageChange={handlePageChange}
-                  showInfo={{
-                    start: (bills.pagination.page - 1) * bills.pagination.page_size + 1,
-                    end: Math.min(
-                      bills.pagination.page * bills.pagination.page_size,
-                      bills.pagination.total
-                    ),
-                    total: bills.pagination.total
-                  }}
+                  baseUrl="/government/bills"
+                  queryParams={filters}
                 />
               </div>
             </>

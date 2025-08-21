@@ -115,7 +115,7 @@ async def list_votes(
         ).count()
         
         vote_summaries.append(VoteSummary(
-            id=str(vote.id),
+            vote_id=str(vote.id),
             session=vote.bill.session_id,
             number=vote.number,
             date=vote.date,
@@ -188,7 +188,7 @@ async def get_vote_detail(
     parties_n = [pv.party.name_en for pv in party_votes if pv.vote == 'N']
     
     vote_detail = VoteDetail(
-        id=str(vote.id),
+        vote_id=str(vote.id),
         session=vote.bill.session_id,
         number=vote.number,
         date=vote.date,
@@ -250,7 +250,7 @@ async def get_vote_ballots(
     ballot_list = []
     for ballot in ballots:
         ballot_list.append(VoteBallot(
-            id=str(ballot.id),
+            ballot_id=str(ballot.id),
             vote_id=str(ballot.votequestion_id),
             member_name=f"{ballot.politician.name_given} {ballot.politician.name_family}",
             party_name=ballot.member.party.name_en,

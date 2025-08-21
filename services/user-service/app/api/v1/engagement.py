@@ -22,7 +22,7 @@ router = APIRouter(prefix="/engagement", tags=["User Engagement"])
 @router.post("/bills/{bill_id}/vote", response_model=dict)
 async def cast_bill_vote(
     bill_id: str,
-    vote_type: str = Query(..., regex="^(support|oppose|abstain)$"),
+    vote_type: str = Query(..., pattern="^(support|oppose|abstain)$"),
     vote_reason: Optional[str] = Query(None, max_length=1000),
     current_user: User = Depends(current_active_user)
 ):
@@ -197,7 +197,7 @@ async def create_representative_issue(
     issue_title: str = Query(..., max_length=255),
     issue_description: str = Query(..., max_length=5000),
     issue_category: Optional[str] = Query(None, max_length=100),
-    priority: str = Query("medium", regex="^(low|medium|high)$"),
+    priority: str = Query("medium", pattern="^(low|medium|high)$"),
     current_user: User = Depends(current_active_user)
 ):
     """Create an issue for a representative (like Open Policy Infra RepresentativeIssue)."""
@@ -271,7 +271,7 @@ async def get_representative_issues(
 @router.get("/issues", response_model=dict)
 async def get_user_issues(
     current_user: User = Depends(current_active_user),
-    status_filter: Optional[str] = Query(None, regex="^(pending|approved|rejected|resolved)$"),
+    status_filter: Optional[str] = Query(None, pattern="^(pending|approved|rejected|resolved)$"),
     page: int = Query(1, ge=1),
     limit: int = Query(10, ge=1, le=100)
 ):

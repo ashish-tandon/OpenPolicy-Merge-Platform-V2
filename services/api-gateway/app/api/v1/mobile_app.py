@@ -485,12 +485,13 @@ async def bill_chat(
 # 6. ERROR HANDLING
 # ============================================================================
 
-@router.exception_handler(HTTPException)
-async def http_exception_handler(request, exc):
-    """
-    Standard error response format for mobile app compatibility.
-    """
-    return {
-        "success": False,
-        "message": exc.detail
-    }
+# Exception handlers should be defined at the app level, not router level
+# @router.exception_handler(HTTPException)
+# async def http_exception_handler(request, exc):
+#     """
+#     Standard error response format for mobile app compatibility.
+#     """
+#     return {
+#         "success": False,
+#         "message": exc.detail
+#     }

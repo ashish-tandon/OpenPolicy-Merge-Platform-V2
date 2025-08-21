@@ -5,12 +5,12 @@ import CommitteesFilters from '@/components/Committees/CommitteesFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface CommitteesPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     search?: string;
     type?: string;
     active?: string;
-  };
+  }>;
 }
 
 export default async function CommitteesPage({ searchParams }: CommitteesPageProps) {
@@ -42,7 +42,7 @@ export default async function CommitteesPage({ searchParams }: CommitteesPagePro
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
         <div className="lg:col-span-1">
-          <CommitteesFilters currentFilters={searchParams} />
+          <CommitteesFilters currentFilters={params} />
         </div>
 
         {/* Committees List */}

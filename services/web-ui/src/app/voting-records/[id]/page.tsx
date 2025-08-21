@@ -5,14 +5,15 @@ import { api } from '@/lib/api';
 import VotingRecordDetail from '@/components/voting/VotingRecordDetail';
 
 interface VotingRecordPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: VotingRecordPageProps): Promise<Metadata> {
   try {
-    const votingRecord = await api.getVotingRecord(params.id);
+    const { id } = await params;
+    const votingRecord = await api.getVotingRecord(id);
     
     return {
       title: `Vote on ${votingRecord.bill_title || 'Bill'} | OpenPolicy`,
@@ -33,8 +34,9 @@ export async function generateMetadata({ params }: VotingRecordPageProps): Promi
 
 export default async function VotingRecordPage({ params }: VotingRecordPageProps) {
   try {
+    const { id } = await params;
     // Fetch voting record data
-    const votingRecord = await api.getVotingRecord(params.id);
+    const votingRecord = await api.getVotingRecord(id);
 
     return (
       <div className="content-container py-8">

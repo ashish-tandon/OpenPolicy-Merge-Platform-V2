@@ -159,7 +159,7 @@ async def get_bill_detail(
         vote_info.append(VoteInfo(
             vote_id=str(vote.id),
             vote_date=vote.date,
-            description=vote.description,
+            description=vote.description_en,  # Use description_en from database
             result=vote.result
         ))
     
@@ -276,7 +276,7 @@ async def get_bill_votes(
         vote_results.append({
             "id": str(vote.id),
             "vote_date": vote.date,
-            "description": vote.description,
+            "description": vote.description_en,  # Use description_en from database
             "result": vote.result,
             "bill_id": str(vote.bill_id),
             "bill_title": bill.name_en,

@@ -5,13 +5,13 @@ import BillsFilters from '@/components/Bills/BillsFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface BillsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     search?: string;
     session?: string;
     type?: string;
     status?: string;
-  };
+  }>;
 }
 
 export default async function BillsPage({ searchParams }: BillsPageProps) {
@@ -45,7 +45,7 @@ export default async function BillsPage({ searchParams }: BillsPageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
         <div className="lg:col-span-1">
-          <BillsFilters currentFilters={searchParams} />
+          <BillsFilters currentFilters={params} />
         </div>
 
         {/* Bills List */}

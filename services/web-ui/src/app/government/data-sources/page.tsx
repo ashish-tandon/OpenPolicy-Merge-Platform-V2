@@ -64,8 +64,8 @@ export default function DataSourcesPage() {
   const handleFilterChange = (key: keyof DataSourceFilters, value: string | number | undefined) => {
     setFilters(prev => ({
       ...prev,
-      [key]: value === '' ? undefined : value,
-      page: key !== 'page' ? 1 : value
+      [key]: key === 'page' ? (typeof value === 'string' ? parseInt(value) : value) : (value === '' ? undefined : value),
+      page: key !== 'page' ? 1 : (typeof value === 'string' ? parseInt(value) : value)
     }));
   };
 
@@ -349,15 +349,8 @@ export default function DataSourcesPage() {
                 <Pagination
                   currentPage={dataSources.pagination.page}
                   totalPages={dataSources.pagination.total_pages}
-                  onPageChange={handlePageChange}
-                  showInfo={{
-                    start: (dataSources.pagination.page - 1) * dataSources.pagination.page_size + 1,
-                    end: Math.min(
-                      dataSources.pagination.page * dataSources.pagination.page_size,
-                      dataSources.pagination.total
-                    ),
-                    total: dataSources.pagination.total
-                  }}
+                  baseUrl="/government/data-sources"
+                  queryParams={filters}
                 />
               </div>
             </>

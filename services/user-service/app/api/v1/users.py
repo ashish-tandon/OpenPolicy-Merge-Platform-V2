@@ -12,7 +12,7 @@ from datetime import datetime
 from app.api.schemas import (
     UserResponse, UserUpdate, UserListResponse, UserRoleUpdate, UserStatusUpdate
 )
-from app.auth.jwt_handler import JWTAuthDependency
+from app.auth.simple_auth import current_active_user, require_role
 from app.models.user import User, UserRole, AccountType, UserStatus
 
 router = APIRouter()
@@ -20,7 +20,7 @@ router = APIRouter()
 
 @router.get("/me", response_model=UserResponse)
 async def get_current_user_profile(
-    current_user: User = Depends(JWTAuthDependency.get_current_active_user)
+    current_user = Depends(current_active_user)
 ):
     """Get current user's profile information."""
     try:
@@ -55,7 +55,7 @@ async def get_current_user_profile(
 @router.put("/me", response_model=UserResponse)
 async def update_current_user_profile(
     user_update: UserUpdate,
-    current_user: User = Depends(JWTAuthDependency.get_current_active_user)
+    current_user = Depends(current_active_user)
 ):
     """Update current user's profile information."""
     try:
@@ -113,7 +113,7 @@ async def list_users(
     role: Optional[str] = Query(None, description="Filter by user role"),
     status: Optional[str] = Query(None, description="Filter by user status"),
     search: Optional[str] = Query(None, description="Search by name or email"),
-    current_user: User = Depends(JWTAuthDependency.require_role("admin"))
+    current_user = Depends(require_role("admin"))
 ):
     """List users with pagination and filtering (admin only)."""
     try:

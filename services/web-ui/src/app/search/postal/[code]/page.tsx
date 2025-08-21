@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface PostalSearchPageProps {
-  params: {
+  params: Promise<{
     code: string;
-  };
+  }>;
 }
 
 // Mock function - in production, this would call the Represent API or similar
@@ -37,7 +37,8 @@ async function findMPByPostalCode(postalCode: string) {
 }
 
 export default async function PostalSearchPage({ params }: PostalSearchPageProps) {
-  const postalCode = params.code.toUpperCase();
+  const { code } = await params;
+  const postalCode = code.toUpperCase();
   
   // Validate postal code format
   const postalCodeRegex = /^[A-Z]\d[A-Z]\d[A-Z]\d$/;

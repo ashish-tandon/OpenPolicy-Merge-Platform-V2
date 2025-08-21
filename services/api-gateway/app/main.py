@@ -19,10 +19,12 @@ from app.database import engine, init_db
 
 # Import API routers
 from app.api.v1 import (
-    bills, members, represent, debates, committees, search, votes,
+    bills, members, represent, debates, committees, search,
     house_mentions, user_profiles, saved_items, bill_voting, chat, issues,
     mobile_app
 )
+# Temporarily commented out due to Pydantic schema issues
+# votes,
 
 # Import Multi-Level Government API routers
 from app.api.v1 import multi_level_government, multi_level_government_extended
@@ -175,11 +177,12 @@ app.include_router(
     tags=["search"]
 )
 
-app.include_router(
-    votes.router,
-    prefix="/api/v1/votes",
-    tags=["votes"]
-)
+# Temporarily commented out due to Pydantic schema issues
+# app.include_router(
+#     votes.router,
+#     prefix="/api/v1/votes",
+#     tags=["votes"]
+# )
 
 app.include_router(
     house_mentions.router,

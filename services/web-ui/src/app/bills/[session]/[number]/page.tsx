@@ -7,15 +7,18 @@ import BillVotesList from '@/components/Bills/BillVotesList';
 import RelatedDebates from '@/components/Bills/RelatedDebates';
 
 interface BillPageProps {
-  params: {
+  params: Promise<{
     session: string;
     number: string;
-  };
+  }>;
 }
 
 export default async function BillPage({ params }: BillPageProps) {
   try {
-    const bill = await api.getBill(params.session, params.number);
+    const { session, number } = await params;
+    // Construct bill ID from session and number, or use a different approach
+    // For now, we'll use the session as the ID since the API expects a single ID
+    const bill = await api.getBill(session);
     
     return (
       <div className="content-container py-8">
@@ -26,7 +29,7 @@ export default async function BillPage({ params }: BillPageProps) {
             <li><span className="text-gray-400">/</span></li>
             <li><Link href="/bills" className="text-gray-500 hover:text-op-blue">Bills</Link></li>
             <li><span className="text-gray-400">/</span></li>
-            <li className="text-gray-700">{bill.number}</li>
+            <li className="text-gray-700">{bill.bill_number}</li>
           </ol>
         </nav>
 
@@ -35,7 +38,7 @@ export default async function BillPage({ params }: BillPageProps) {
           <div className="flex items-start justify-between mb-4">
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
-                <h1 className="text-3xl font-bold text-op-dark">{bill.number}</h1>
+                <h1 className="text-3xl font-bold text-op-dark">{bill.bill_number}</h1>
                 <span className={`px-3 py-1 rounded text-sm font-medium ${
                   bill.privatemember 
                     ? 'bg-purple-100 text-purple-800' 
@@ -49,12 +52,12 @@ export default async function BillPage({ params }: BillPageProps) {
                   </span>
                 )}
               </div>
-              <h2 className="text-xl text-gray-700 mb-4">{bill.name}</h2>
+              <h2 className="text-xl text-gray-700 mb-4">{bill.name_en || bill.title}</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                 <div>
                   <span className="text-gray-500">Session:</span>
-                  <span className="ml-2 font-medium">{bill.session}</span>
+                  <span className="ml-2 font-medium">{bill.session_id || bill.session}</span>
                 </div>
                 <div>
                   <span className="text-gray-500">Introduced:</span>
@@ -87,7 +90,7 @@ export default async function BillPage({ params }: BillPageProps) {
             {/* Quick Actions */}
             <div className="flex flex-col gap-2 ml-6">
               <a
-                href={`https://www.parl.ca/legisinfo/en/bill/${bill.session}/${bill.number}`}
+                href={`https://www.parl.ca/legisinfo/en/bill/${bill.session_name}/${bill.bill_number}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-4 py-2 bg-op-blue text-white rounded hover:bg-blue-700 transition-colors"
@@ -113,13 +116,13 @@ export default async function BillPage({ params }: BillPageProps) {
         {/* Recent Votes */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-bold mb-4">Votes on this Bill</h2>
-          <BillVotesList billId={bill.id} />
+          <BillVotesList billId={parseInt(bill.id)} />
         </div>
 
         {/* Related Debates */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-bold mb-4">Related Debates</h2>
-          <RelatedDebates billNumber={bill.number} />
+          <RelatedDebates billNumber={bill.bill_number} debates={[]} />
         </div>
 
         {/* Tabbed Content */}

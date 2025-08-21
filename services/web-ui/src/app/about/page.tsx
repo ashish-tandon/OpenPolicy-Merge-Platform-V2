@@ -31,7 +31,7 @@ export default function AboutPage() {
               <div className="bg-white p-6 rounded-lg shadow">
                 <h3 className="text-xl font-semibold text-op-blue mb-3">Track MPs</h3>
                 <p className="text-gray-600">
-                  Follow your Member of Parliament's voting record, speeches, and committee work.
+                  Follow your Member of Parliament&apos;s voting record, speeches, and committee work.
                 </p>
               </div>
               <div className="bg-white p-6 rounded-lg shadow">

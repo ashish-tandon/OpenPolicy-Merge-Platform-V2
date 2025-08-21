@@ -5,8 +5,8 @@ Defines the data models for API requests and responses.
 """
 
 from datetime import date
-from typing import List, Optional, Dict, Any
-from pydantic import BaseModel, Field
+from typing import List, Optional, Dict
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class Pagination(BaseModel):
@@ -21,7 +21,7 @@ class Pagination(BaseModel):
 class VoteSummary(BaseModel):
     """Summary information about a parliamentary vote."""
     
-    id: str = Field(..., description="Unique vote identifier")
+    vote_id: str = Field(..., description="Unique vote identifier")
     session: str = Field(..., description="Session ID (e.g., '45-1')")
     number: int = Field(..., description="Vote number in session")
     date: date = Field(..., description="Date of the vote")
@@ -32,13 +32,13 @@ class VoteSummary(BaseModel):
     bill_number: str = Field(..., description="Associated bill number")
     bill_title: str = Field(..., description="Associated bill title")
     
-    model_config = {"from_attributes": True}
+    model_config = ConfigDict(from_attributes=True)
 
 
 class VoteDetail(BaseModel):
     """Detailed information about a parliamentary vote."""
     
-    id: str = Field(..., description="Unique vote identifier")
+    vote_id: str = Field(..., description="Unique vote identifier")
     session: str = Field(..., description="Session ID (e.g., '45-1')")
     number: int = Field(..., description="Vote number in session")
     date: date = Field(..., description="Date of the vote")
@@ -51,20 +51,20 @@ class VoteDetail(BaseModel):
     parties_yea: List[str] = Field(default_factory=list, description="Parties that voted in favor")
     parties_nay: List[str] = Field(default_factory=list, description="Parties that voted against")
     
-    model_config = {"from_attributes": True}
+    model_config = ConfigDict(from_attributes=True)
 
 
 class VoteBallot(BaseModel):
     """Individual MP voting record."""
     
-    id: str = Field(..., description="Unique ballot identifier")
+    ballot_id: str = Field(..., description="Unique ballot identifier")
     vote_id: str = Field(..., description="Vote question identifier")
     member_name: str = Field(..., description="MP's full name")
     party_name: str = Field(..., description="MP's party name")
     constituency: str = Field(..., description="MP's electoral district")
     vote_choice: str = Field(..., description="How the MP voted (Yea, Nay, etc.)")
     
-    model_config = {"from_attributes": True}
+    model_config = ConfigDict(from_attributes=True)
 
 
 class VoteListResponse(BaseModel):

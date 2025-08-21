@@ -1,33 +1,16 @@
-fastapi==0.109.1
-uvicorn[standard]==0.24.0
-sqlalchemy==2.0.23
-psycopg2-binary==2.9.9
-pydantic==2.5.0
-pydantic-settings==2.1.0
-
-# Standard Authentication Libraries (FREE!)
-fastapi-users[sqlalchemy]==12.1.3
-authlib==1.3.1
-itsdangerous==2.1.2
-
-# Database and Cache
-alembic==1.13.1
-redis==5.0.1
-
-# Utilities
-python-multipart==0.0.18
-httpx==0.25.2
-twilio==8.10.0
-pyotp==2.9.0 # Added for TOTP
-python-dotenv==1.0.0
-
-# FREE Notification Services
-pywebpush==1.15.1  # Web Push API (100% free)
-firebase-admin==6.4.0  # Firebase Cloud Messaging (100% free)
-
-# Apprise - Python-native notification library (100% FREE)
-apprise==1.9.4  # Supports 80+ notification services
-
-# Testing
-pytest==7.4.3
-pytest-asyncio==0.21.1
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+sqlalchemy>=2.0.0
+psycopg[binary]>=3.1.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+python-multipart>=0.0.6
+python-dotenv>=1.0.0
+alembic>=1.13.0
+redis>=5.0.0
+httpx>=0.25.0
+email-validator>=2.0.0
+PyJWT>=2.8.0
+pyotp>=2.9.0
+pytest>=7.4.0
+pytest-asyncio>=0.21.0

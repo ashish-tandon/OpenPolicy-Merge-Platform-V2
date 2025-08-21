@@ -5,12 +5,12 @@ import DebatesFilters from '@/components/Debates/DebatesFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface DebatesPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     date_gte?: string;
     date_lte?: string;
     search?: string;
-  };
+  }>;
 }
 
 export default async function DebatesPage({ searchParams }: DebatesPageProps) {
@@ -42,7 +42,7 @@ export default async function DebatesPage({ searchParams }: DebatesPageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
         <div className="lg:col-span-1">
-          <DebatesFilters currentFilters={searchParams} />
+          <DebatesFilters currentFilters={params} />
         </div>
 
         {/* Debates List */}

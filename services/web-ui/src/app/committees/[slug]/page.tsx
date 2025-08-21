@@ -7,14 +7,15 @@ import ActiveStudies from '@/components/Committees/ActiveStudies';
 import RecentMeetings from '@/components/Committees/RecentMeetings';
 
 interface CommitteePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function CommitteePage({ params }: CommitteePageProps) {
   try {
-    const committee = await api.getCommittee(params.slug);
+    const { slug } = await params;
+    const committee = await api.getCommittee(slug);
     
     return (
       <div className="content-container py-8">
@@ -71,12 +72,12 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
                 </a>
               </li>
               <li>
-                <Link href={`/committees/${params.slug}/meetings`} className="text-op-blue hover:underline">
+                <Link href={`/committees/${slug}/meetings`} className="text-op-blue hover:underline">
                   Meeting archives
                 </Link>
               </li>
               <li>
-                <Link href={`/committees/${params.slug}/reports`} className="text-op-blue hover:underline">
+                <Link href={`/committees/${slug}/reports`} className="text-op-blue hover:underline">
                   Published reports
                 </Link>
               </li>
@@ -92,7 +93,7 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
                 </button>
               </li>
               <li>
-                <a href={`/api/v1/committees/${params.slug}/rss`} className="text-op-blue hover:underline flex items-center">
+                <a href={`/api/v1/committees/${slug}/rss`} className="text-op-blue hover:underline flex items-center">
                   RSS feed
                   <svg className="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z" />
@@ -100,7 +101,7 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
                 </a>
               </li>
               <li>
-                <a href={`/api/v1/committees/${params.slug}`} className="text-op-blue hover:underline">
+                <a href={`/api/v1/committees/${slug}`} className="text-op-blue hover:underline">
                   API access
                 </a>
               </li>
