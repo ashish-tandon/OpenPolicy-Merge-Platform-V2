@@ -125,10 +125,93 @@ services:
     profiles:
       - frontend
 
+  # OpenMetadata Service for Data Lineage Tracking
+  openmetadata-server:
+    image: openmetadata/server:1.9.1
+    container_name: mergev2-openmetadata-server
+    restart: always
+    ports:
+      - "8585:8585"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=openpolicy
+      - DB_PASSWORD=openpolicy
+      - DB_NAME=openmetadata
+      - ELASTICSEARCH_HOST=elasticsearch
+      - ELASTICSEARCH_PORT=9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=changeme
+    volumes:
+      - openmetadata_data:/var/log
+      - openmetadata_data:/tmp
+    depends_on:
+      - db
+      - elasticsearch
+    profiles:
+      - openmetadata
+
+  openmetadata-ingestion:
+    image: openmetadata/ingestion:1.9.1
+    container_name: mergev2-openmetadata-ingestion
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://openpolicy:openpolicy@db:5432/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__WEBSERVER__SECRET_KEY=your-secret-key-here
+      - AIRFLOW__WEBSERVER__RBAC=true
+      - AIRFLOW__WEBSERVER__AUTHENTICATE=true
+      - AIRFLOW__WEBSERVER__AUTH_BACKEND=airflow.auth.backend.basic_auth
+      - AIRFLOW__WEBSERVER__AUTH_USER_REGISTRATION_ROLE=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_REGISTRATION=true
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_ROLE=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION=true
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_USERNAME=admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_PASSWORD=admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_EMAIL=admin@openpolicy.com
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_FIRSTNAME=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_LASTNAME=User
+    volumes:
+      - openmetadata_ingestion_dags:/opt/airflow/dags
+      - openmetadata_ingestion_logs:/opt/airflow/logs
+      - openmetadata_ingestion_plugins:/opt/airflow/plugins
+    depends_on:
+      - db
+    profiles:
+      - openmetadata
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.16.3
+    container_name: mergev2-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - ELASTIC_PASSWORD=changeme
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    profiles:
+      - openmetadata
+
 volumes:
   db_data:
     driver: local
   redis_data:
+    driver: local
+  openmetadata_data:
+    driver: local
+  openmetadata_ingestion_dags:
+    driver: local
+  openmetadata_ingestion_logs:
+    driver: local
+  openmetadata_ingestion_plugins:
+    driver: local
+  elasticsearch_data:
     driver: local
 
 networks:

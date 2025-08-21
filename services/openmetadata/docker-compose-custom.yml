@@ -1,0 +1,74 @@
+version: '3.8'
+services:
+  openmetadata-server:
+    image: openmetadata/server:1.9.1
+    container_name: mergev2-openmetadata-server
+    restart: always
+    ports:
+      - "8585:8585"
+    environment:
+      - DB_HOST=mergev2-db-1
+      - DB_PORT=5432
+      - DB_USER=openpolicy
+      - DB_PASSWORD=openpolicy
+      - DB_NAME=openmetadata
+      - ELASTICSEARCH_HOST=mergev2-elasticsearch-1
+      - ELASTICSEARCH_PORT=9200
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_PASSWORD=changeme
+    volumes:
+      - openmetadata_data:/var/log
+      - openmetadata_data:/tmp
+    networks:
+      - mergev2_default
+    depends_on:
+      - mergev2-db-1
+      - mergev2-elasticsearch-1
+
+  openmetadata-ingestion:
+    image: openmetadata/ingestion:1.9.1
+    container_name: mergev2-openmetadata-ingestion
+    restart: always
+    ports:
+      - "8080:8080"
+    environment:
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://openpolicy:openpolicy@mergev2-db-1:5432/airflow
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+      - AIRFLOW__WEBSERVER__SECRET_KEY=your-secret-key-here
+      - AIRFLOW__WEBSERVER__RBAC=true
+      - AIRFLOW__WEBSERVER__AUTHENTICATE=true
+      - AIRFLOW__WEBSERVER__AUTH_BACKEND=airflow.auth.backend.basic_auth
+      - AIRFLOW__WEBSERVER__AUTH_USER_REGISTRATION_ROLE=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_REGISTRATION=true
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_ROLE=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION=true
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_USERNAME=admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_PASSWORD=admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_EMAIL=admin@openpolicy.com
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_FIRSTNAME=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_LASTNAME=User
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_ROLE=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_USERNAME=admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_PASSWORD=admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_EMAIL=admin@openpolicy.com
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_FIRSTNAME=Admin
+      - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_LASTNAME=User
+    volumes:
+      - openmetadata_ingestion_dags:/opt/airflow/dags
+      - openmetadata_ingestion_logs:/opt/airflow/logs
+      - openmetadata_ingestion_plugins:/opt/airflow/plugins
+    networks:
+      - mergev2_default
+    depends_on:
+      - mergev2-db-1
+
+volumes:
+  openmetadata_data:
+  openmetadata_ingestion_dags:
+  openmetadata_ingestion_logs:
+  openmetadata_ingestion_plugins:
+
+networks:
+  mergev2_default:
+    external: true

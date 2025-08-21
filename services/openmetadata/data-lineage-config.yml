@@ -1,0 +1,229 @@
+# OpenMetadata Data Lineage Configuration for OpenPolicy Platform
+# This file configures data lineage tracking for all data sources and flows
+
+version: 1.0
+name: OpenPolicy Data Lineage
+description: "Complete data lineage tracking for parliamentary data platform"
+
+# Database Connections
+database_connections:
+  - name: openpolicy_main_db
+    type: postgresql
+    host: mergev2-db-1
+    port: 5432
+    database: openpolicy
+    username: openpolicy
+    password: openpolicy
+    description: "Main OpenPolicy database with parliamentary data"
+
+  - name: openpolicy_legacy_db
+    type: postgresql
+    host: mergev2-db-1
+    port: 5432
+    database: openpolicy
+    username: openpolicy
+    password: openpolicy
+    description: "Legacy data tables in public schema"
+
+# Data Sources to Track
+data_sources:
+  # Bills Data Lineage
+  bills:
+    source_tables:
+      - name: public.bills_bill
+        description: "Federal bills from OpenParliament legacy system"
+        columns:
+          - id: "Primary key for bills"
+          - number: "Bill number (e.g., C-51)"
+          - name_en: "English title of the bill"
+          - name_fr: "French title of the bill"
+          - status_code: "Current status of the bill"
+          - session_id: "Parliamentary session identifier"
+          - privatemember: "Whether it's a private member's bill"
+          - law: "Whether the bill has become law"
+          - introduced: "Date bill was introduced"
+          - sponsor_politician_id: "Reference to politician who sponsored"
+          - sponsor_member_id: "Reference to MP who sponsored"
+    
+    target_tables:
+      - name: openpolicy.bills
+        description: "New bills table (currently empty)"
+        columns:
+          - id: "UUID primary key"
+          - bill_number: "Bill number"
+          - title: "Bill title"
+          - status: "Bill status"
+          - session_id: "Session reference"
+    
+    transformations:
+      - name: "Legacy to New Schema Mapping"
+        description: "API Gateway transforms legacy schema to new API response"
+        mapping:
+          bills_bill.number -> bill_number
+          bills_bill.name_en -> title
+          bills_bill.status_code -> status
+          bills_bill.session_id -> session_name
+
+  # Members Data Lineage
+  members:
+    source_tables:
+      - name: public.core_politician
+        description: "Core politician information"
+        columns:
+          - id: "Politician ID"
+          - name: "Full name"
+          - name_given: "Given name"
+          - name_family: "Family name"
+          - slug: "URL slug"
+          - gender: "Gender identifier"
+          - dob: "Date of birth"
+      
+      - name: public.core_electedmember
+        description: "Elected member information"
+        columns:
+          - id: "Member ID"
+          - politician_id: "Reference to politician"
+          - party_id: "Reference to party"
+          - riding_id: "Reference to electoral district"
+          - start_date: "When they took office"
+          - end_date: "When they left office"
+      
+      - name: public.core_party
+        description: "Political party information"
+        columns:
+          - id: "Party ID"
+          - name_en: "English party name"
+          - name_fr: "French party name"
+          - slug: "Party slug"
+    
+    target_tables:
+      - name: openpolicy.members
+        description: "New members table (currently empty)"
+        columns:
+          - id: "UUID primary key"
+          - first_name: "First name"
+          - last_name: "Last name"
+          - full_name: "Generated full name"
+          - party_name: "Party name"
+          - constituency: "Electoral district"
+
+  # Sessions Data Lineage
+  sessions:
+    source_tables:
+      - name: public.core_session
+        description: "Parliamentary sessions"
+        columns:
+          - id: "Session ID (e.g., 42-1)"
+          - name: "Session name"
+          - start_date: "Session start"
+          - end_date: "Session end"
+    
+    target_tables:
+      - name: openpolicy.sessions
+        description: "New sessions table (currently empty)"
+
+  # Votes Data Lineage
+  votes:
+    source_tables:
+      - name: public.bills_votequestion
+        description: "Vote questions on bills"
+        columns:
+          - id: "Vote question ID"
+          - bill_id: "Reference to bill"
+          - question: "Vote question text"
+          - date: "Vote date"
+          - result: "Vote result"
+    
+    target_tables:
+      - name: openpolicy.votes
+        description: "New votes table (currently empty)"
+
+# API Endpoints to Track
+api_endpoints:
+  - name: "/api/v1/bills/"
+    description: "Bills listing endpoint"
+    source: "public.bills_bill"
+    transformations: ["Legacy to New Schema Mapping"]
+    
+  - name: "/api/v1/bills/{id}/"
+    description: "Single bill detail endpoint"
+    source: "public.bills_bill"
+    transformations: ["Legacy to New Schema Mapping"]
+    
+  - name: "/api/v1/members/"
+    description: "Members listing endpoint"
+    source: "public.core_electedmember"
+    transformations: ["Member data aggregation"]
+    
+  - name: "/api/v1/committees/"
+    description: "Committees endpoint"
+    source: "public.core_committee"
+    transformations: ["Committee data formatting"]
+
+# Data Flow Paths
+data_flows:
+  - name: "Bill Data Flow"
+    description: "Complete flow from database to API to UI"
+    steps:
+      1: "Legacy bills_bill table (5,603 records)"
+      2: "API Gateway transformation layer"
+      3: "API response with mapped properties"
+      4: "Web UI consumption and display"
+    
+  - name: "Member Data Flow"
+    description: "Complete flow for parliamentary members"
+    steps:
+      1: "core_politician + core_electedmember + core_party tables"
+      2: "API Gateway joins and aggregation"
+      3: "API response with member details"
+      4: "Web UI member listings and profiles"
+
+# Data Quality Rules
+data_quality:
+  - rule: "All bills must have a bill number"
+    source: "public.bills_bill.number"
+    validation: "NOT NULL"
+    
+  - rule: "All bills must have a title"
+    source: "public.bills_bill.name_en"
+    validation: "NOT NULL"
+    
+  - rule: "All members must have names"
+    source: "public.core_politician.name_given, name_family"
+    validation: "NOT NULL"
+    
+  - rule: "Session IDs must follow pattern XX-X"
+    source: "public.core_session.id"
+    validation: "Regex pattern: ^\\d{1,2}-\\d{1,2}$"
+
+# Monitoring and Alerts
+monitoring:
+  - metric: "Data freshness"
+    description: "How recent is the parliamentary data"
+    threshold: "24 hours"
+    
+  - metric: "Data completeness"
+    description: "Percentage of required fields populated"
+    threshold: "95%"
+    
+  - metric: "API response time"
+    description: "Time for API endpoints to respond"
+    threshold: "500ms"
+
+# Integration Points
+integrations:
+  - name: "ETL Service"
+    description: "Data extraction and transformation service"
+    connection: "services/etl"
+    
+  - name: "API Gateway"
+    description: "FastAPI service providing data endpoints"
+    connection: "services/api-gateway"
+    
+  - name: "Web UI"
+    description: "Next.js frontend consuming API data"
+    connection: "services/web-ui"
+    
+  - name: "Admin Dashboard"
+    description: "Administrative interface for data management"
+    connection: "services/admin-ui"
