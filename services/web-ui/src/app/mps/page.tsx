@@ -5,13 +5,13 @@ import MPFilters from '@/components/MPs/MPFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface MPsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     search?: string;
     province?: string;
     party?: string;
     current?: string;
-  };
+  }>;
 }
 
 export default async function MPsPage({ searchParams }: MPsPageProps) {
@@ -26,13 +26,14 @@ export default async function MPsPage({ searchParams }: MPsPageProps) {
     current: params.current === 'false' ? false : true,
   };
 
-  const mpsData = await api.getMembers(
-    page,
-    20, // pageSize
-    filters.search,
-    filters.province,
-    filters.party
-  );
+  const mpsData = await api.getMembers({
+    page: page.toString(),
+    page_size: '20',
+    q: filters.search,
+    province: filters.province,
+    party: filters.party,
+    current: filters.current ? 'true' : 'false',
+  });
 
   return (
     <div className="content-container py-8">

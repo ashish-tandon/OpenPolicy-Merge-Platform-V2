@@ -1,20 +1,21 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';
-import BillDetail from '@/components/bills/BillDetail';
-import BillVotes from '@/components/bills/BillVotes';
-import BillHistory from '@/components/bills/BillHistory';
+import BillDetail from '@/components/Bills/BillDetail';
+import BillVotes from '@/components/Bills/BillVotes';
+import BillHistory from '@/components/Bills/BillHistory';
 import { Metadata } from 'next';
 
 interface BillDetailPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: BillDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
   try {
-    const bill = await api.getBill(params.id);
+    const bill = await api.getBill(id);
     
     return {
       title: `${bill.title} | OpenPolicy`,
@@ -34,12 +35,13 @@ export async function generateMetadata({ params }: BillDetailPageProps): Promise
 }
 
 export default async function BillDetailPage({ params }: BillDetailPageProps) {
+  const { id } = await params;
   try {
     // Fetch bill data
     const [bill, votes, history] = await Promise.all([
-      api.getBill(params.id),
-      api.getBillVotes(params.id).catch(() => ({ results: [] })),
-      api.getBillHistory(params.id).catch(() => ({ results: [] })),
+      api.getBill(id),
+      api.getBillVotes(id).catch(() => ({ results: [] })),
+      api.getBillHistory(id).catch(() => ({ results: [] })),
     ]);
 
     return (
@@ -63,7 +65,7 @@ export default async function BillDetailPage({ params }: BillDetailPageProps) {
         {/* Bill Votes Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Voting Record</h2>
-          <BillVotes votes={votes.results} billId={params.id} />
+          <BillVotes votes={votes.results} billId={id} />
         </div>
 
         {/* Bill History Section */}

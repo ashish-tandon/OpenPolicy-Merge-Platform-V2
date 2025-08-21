@@ -7,14 +7,15 @@ import ActiveStudies from '@/components/Committees/ActiveStudies';
 import RecentMeetings from '@/components/Committees/RecentMeetings';
 
 interface CommitteePageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function CommitteePage({ params }: CommitteePageProps) {
+  const { slug } = await params;
   try {
-    const committee = await api.getCommittee(params.slug);
+    const committee = await api.getCommitteeBySlug(slug);
     
     return (
       <div className="content-container py-8">

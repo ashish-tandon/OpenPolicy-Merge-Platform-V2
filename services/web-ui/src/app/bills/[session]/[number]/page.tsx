@@ -7,15 +7,16 @@ import BillVotesList from '@/components/Bills/BillVotesList';
 import RelatedDebates from '@/components/Bills/RelatedDebates';
 
 interface BillPageProps {
-  params: {
+  params: Promise<{
     session: string;
     number: string;
-  };
+  }>;
 }
 
 export default async function BillPage({ params }: BillPageProps) {
+  const { session, number } = await params;
   try {
-    const bill = await api.getBill(params.session, params.number);
+    const bill = await api.getBillByNumber(session, number);
     
     return (
       <div className="content-container py-8">

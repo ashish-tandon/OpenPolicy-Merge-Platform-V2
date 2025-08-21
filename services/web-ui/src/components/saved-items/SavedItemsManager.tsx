@@ -7,9 +7,9 @@ import {
   TrashIcon, 
   PencilIcon,
   TagIcon,
-  FilterIcon,
-  SearchIcon,
-  SortAscendingIcon,
+  FunnelIcon,
+  MagnifyingGlassIcon,
+  BarsArrowUpIcon,
   EyeIcon
 } from '@heroicons/react/24/outline';
 import { api } from '@/lib/api';
@@ -285,7 +285,7 @@ export default function SavedItemsManager({
           onClick={() => setShowFilters(!showFilters)}
           className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-op-blue"
         >
-          <FilterIcon className="h-4 w-4 mr-2" />
+          <FunnelIcon className="h-4 w-4 mr-2" />
           Filters
         </button>
       </div>
@@ -300,7 +300,7 @@ export default function SavedItemsManager({
                 Search
               </label>
               <div className="relative">
-                <SearchIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
                 <input
                   type="text"
                   value={searchQuery}
@@ -355,7 +355,7 @@ export default function SavedItemsManager({
                 onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
                 className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-op-blue flex items-center justify-center"
               >
-                <SortAscendingIcon className={`h-4 w-4 mr-2 ${sortOrder === 'desc' ? 'rotate-180' : ''}`} />
+                <BarsArrowUpIcon className={`h-4 w-4 mr-2 ${sortOrder === 'desc' ? 'rotate-180' : ''}`} />
                 {sortOrder === 'asc' ? 'Ascending' : 'Descending'}
               </button>
             </div>

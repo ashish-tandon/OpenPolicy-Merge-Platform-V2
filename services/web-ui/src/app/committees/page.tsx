@@ -5,12 +5,12 @@ import CommitteesFilters from '@/components/Committees/CommitteesFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface CommitteesPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     search?: string;
     type?: string;
     active?: string;
-  };
+  }>;
 }
 
 export default async function CommitteesPage({ searchParams }: CommitteesPageProps) {
@@ -22,11 +22,11 @@ export default async function CommitteesPage({ searchParams }: CommitteesPagePro
     search: params.search,
   };
 
-  const committeesData = await api.getCommittees(
-    page,
-    20, // pageSize
-    filters.search
-  );
+  const committeesData = await api.getCommittees({
+    page: page.toString(),
+    page_size: '20',
+    q: filters.search,
+  });
 
   return (
     <div className="content-container py-8">

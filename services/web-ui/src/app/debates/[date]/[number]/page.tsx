@@ -7,15 +7,16 @@ import DebateWordCloud from '@/components/Debates/DebateWordCloud';
 import { api } from '@/lib/api';
 
 interface DebatePageProps {
-  params: {
+  params: Promise<{
     date: string;
     number: string;
-  };
+  }>;
 }
 
 export default async function DebatePage({ params }: DebatePageProps) {
+  const { date, number } = await params;
   try {
-    const debate = await api.getDebate(params.date, params.number);
+    const debate = await api.getDebate(date, number);
     
     const formatDate = (dateString: string) => {
       return new Date(dateString).toLocaleDateString('en-CA', {

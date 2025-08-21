@@ -7,14 +7,15 @@ import MPContactInfo from '@/components/MPs/MPContactInfo';
 import MPWordAnalysis from '@/components/MPs/MPWordAnalysis';
 
 interface MPPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function MPPage({ params }: MPPageProps) {
+  const { slug } = await params;
   try {
-    const mp = await api.getMember(params.slug);
+    const mp = await api.getMemberBySlug(slug);
     
     return (
       <div className="content-container py-8">

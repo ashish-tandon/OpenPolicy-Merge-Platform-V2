@@ -5,13 +5,13 @@ import BillsFilters from '@/components/Bills/BillsFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface BillsPageProps {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     search?: string;
     session?: string;
     type?: string;
     status?: string;
-  };
+  }>;
 }
 
 export default async function BillsPage({ searchParams }: BillsPageProps) {
@@ -25,11 +25,13 @@ export default async function BillsPage({ searchParams }: BillsPageProps) {
     privatemember: params.type === 'private',
   };
 
-  const billsData = await api.getBills(
-    page,
-    20, // pageSize
-    filters.search
-  );
+  const billsData = await api.getBills({
+    page: page.toString(),
+    page_size: '20',
+    q: filters.search,
+    session: filters.session,
+    privatemember: filters.privatemember ? 'true' : undefined,
+  });
 
   return (
     <div className="content-container py-8">

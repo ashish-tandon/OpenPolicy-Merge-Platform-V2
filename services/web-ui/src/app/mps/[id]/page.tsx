@@ -1,21 +1,22 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';
-import MPProfile from '@/components/mps/MPProfile';
-import MPVotes from '@/components/mps/MPVotes';
-import MPCommittees from '@/components/mps/MPCommittees';
-import MPActivity from '@/components/mps/MPActivity';
+import MPProfile from '@/components/MPs/MPProfile';
+import MPVotes from '@/components/MPs/MPVotes';
+import MPCommittees from '@/components/MPs/MPCommittees';
+import MPActivity from '@/components/MPs/MPActivity';
 import { Metadata } from 'next';
 
 interface MPProfilePageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: MPProfilePageProps): Promise<Metadata> {
+  const { id } = await params;
   try {
-    const mp = await api.getMember(params.id);
+    const mp = await api.getMember(id);
     
     return {
       title: `${mp.full_name} | OpenPolicy`,
@@ -35,13 +36,14 @@ export async function generateMetadata({ params }: MPProfilePageProps): Promise<
 }
 
 export default async function MPProfilePage({ params }: MPProfilePageProps) {
+  const { id } = await params;
   try {
     // Fetch MP data
     const [mp, votes, committees, activity] = await Promise.all([
-      api.getMember(params.id),
-      api.getMemberVotes(params.id).catch(() => ({ results: [] })),
-      api.getMemberCommittees(params.id).catch(() => ({ results: [] })),
-      api.getMemberActivity(params.id).catch(() => ({ results: [] })),
+      api.getMember(id),
+      api.getMemberVotes(id).catch(() => ({ results: [] })),
+      api.getMemberCommittees(id).catch(() => ({ results: [] })),
+      api.getMemberActivity(id).catch(() => ({ results: [] })),
     ]);
 
     return (
