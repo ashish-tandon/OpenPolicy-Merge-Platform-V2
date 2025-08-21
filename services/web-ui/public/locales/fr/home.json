@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "title": "Votre fenêtre sur la Chambre des communes",
+    "subtitle": "Suivez les députés canadiens, les projets de loi, les débats et les comités. Restez informé de ce qui se passe au Parlement.",
+    "searchPlaceholder": "Rechercher députés, projets de loi, codes postaux...",
+    "searchButton": "Rechercher"
+  },
+  "wordCloud": {
+    "title": "Sujets récents",
+    "subtitle": "Sujets les plus discutés dans les débats parlementaires récents"
+  },
+  "recentBills": {
+    "title": "Projets de loi récents",
+    "viewAll": "Voir tous les projets de loi",
+    "status": {
+      "first-reading": "Première lecture",
+      "second-reading": "Deuxième lecture",
+      "committee": "En comité",
+      "report-stage": "Étape du rapport",
+      "third-reading": "Troisième lecture",
+      "senate": "Au Sénat",
+      "royal-assent": "Sanction royale"
+    }
+  },
+  "houseStatus": {
+    "title": "État de la Chambre",
+    "sitting": "La Chambre siège",
+    "notSitting": "La Chambre ne siège pas",
+    "nextSitting": "Prochaine séance",
+    "currentBusiness": "Travaux en cours"
+  },
+  "recentVotes": {
+    "title": "Votes récents",
+    "viewAll": "Voir tous les votes",
+    "passed": "Adopté",
+    "failed": "Rejeté",
+    "yeas": "Pour",
+    "nays": "Contre",
+    "paired": "Pairés",
+    "noVotes": "Aucun vote récent"
+  },
+  "features": {
+    "title": "Explorer le Parlement",
+    "mps": {
+      "title": "Députés",
+      "description": "Trouvez votre député, consultez les votes et suivez leurs activités"
+    },
+    "bills": {
+      "title": "Projets de loi et législation",
+      "description": "Suivez la progression des projets de loi au Parlement"
+    },
+    "debates": {
+      "title": "Débats et Hansard",
+      "description": "Lisez les transcriptions et regardez les débats de la Chambre"
+    },
+    "committees": {
+      "title": "Comités",
+      "description": "Suivez les réunions et les rapports des comités"
+    }
+  }
+}

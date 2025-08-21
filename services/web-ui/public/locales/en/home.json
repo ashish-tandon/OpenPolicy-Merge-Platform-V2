@@ -1,0 +1,61 @@
+{
+  "hero": {
+    "title": "Your window into the House of Commons",
+    "subtitle": "Track Canadian MPs, bills, debates, and committees. Stay informed about what's happening in Parliament.",
+    "searchPlaceholder": "Search MPs, bills, postal codes...",
+    "searchButton": "Search"
+  },
+  "wordCloud": {
+    "title": "Recent Topics",
+    "subtitle": "Most discussed topics in recent parliamentary debates"
+  },
+  "recentBills": {
+    "title": "Recent Bills",
+    "viewAll": "View all bills",
+    "status": {
+      "first-reading": "First Reading",
+      "second-reading": "Second Reading",
+      "committee": "In Committee",
+      "report-stage": "Report Stage",
+      "third-reading": "Third Reading",
+      "senate": "In Senate",
+      "royal-assent": "Royal Assent"
+    }
+  },
+  "houseStatus": {
+    "title": "House Status",
+    "sitting": "House is sitting",
+    "notSitting": "House is not sitting",
+    "nextSitting": "Next sitting",
+    "currentBusiness": "Current business"
+  },
+  "recentVotes": {
+    "title": "Recent Votes",
+    "viewAll": "View all votes",
+    "passed": "Passed",
+    "failed": "Failed",
+    "yeas": "Yeas",
+    "nays": "Nays",
+    "paired": "Paired",
+    "noVotes": "No recent votes"
+  },
+  "features": {
+    "title": "Explore Parliament",
+    "mps": {
+      "title": "Members of Parliament",
+      "description": "Find your MP, view voting records, and track their activities"
+    },
+    "bills": {
+      "title": "Bills & Legislation",
+      "description": "Track the progress of bills through Parliament"
+    },
+    "debates": {
+      "title": "Debates & Hansard",
+      "description": "Read transcripts and watch debates from the House"
+    },
+    "committees": {
+      "title": "Committees",
+      "description": "Follow committee meetings and reports"
+    }
+  }
+}

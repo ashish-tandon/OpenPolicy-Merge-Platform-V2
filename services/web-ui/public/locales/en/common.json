@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Home",
+    "mps": "MPs",
+    "bills": "Bills",
+    "debates": "Debates",
+    "committees": "Committees",
+    "votes": "Votes",
+    "search": "Search",
+    "labs": "Labs",
+    "about": "About",
+    "api": "API",
+    "toggleTheme": "Toggle theme",
+    "selectLanguage": "Select language"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  },
+  "language": {
+    "en": "English",
+    "fr": "Français"
+  },
+  "search": {
+    "placeholder": "Search MPs, bills, debates...",
+    "submit": "Search",
+    "noResults": "No results found",
+    "searching": "Searching...",
+    "error": "Error searching"
+  },
+  "footer": {
+    "aboutUs": "About Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "contact": "Contact",
+    "sourceCode": "Source Code",
+    "openData": "Open Data",
+    "api": "API Documentation",
+    "allRightsReserved": "All rights reserved"
+  },
+  "actions": {
+    "viewMore": "View more",
+    "viewAll": "View all",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "share": "Share",
+    "download": "Download",
+    "filter": "Filter",
+    "sort": "Sort",
+    "reset": "Reset"
+  },
+  "status": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "pending": "Pending",
+    "active": "Active",
+    "inactive": "Inactive",
+    "completed": "Completed"
+  },
+  "date": {
+    "today": "Today",
+    "yesterday": "Yesterday",
+    "daysAgo": "{{count}} days ago",
+    "monthsAgo": "{{count}} months ago",
+    "yearsAgo": "{{count}} years ago"
+  }
+}

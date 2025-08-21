@@ -1,0 +1,37 @@
+{
+  "title": "Députés",
+  "subtitle": "Trouvez et suivez vos représentants",
+  "search": {
+    "placeholder": "Rechercher par nom, circonscription ou code postal...",
+    "filters": "Filtres",
+    "province": "Province",
+    "party": "Parti",
+    "reset": "Réinitialiser les filtres"
+  },
+  "profile": {
+    "currentMP": "Député actuel de {{riding}}",
+    "party": "{{party}}",
+    "elected": "Élu le {{date}}",
+    "contact": "Coordonnées",
+    "email": "Courriel",
+    "phone": "Téléphone",
+    "website": "Site web",
+    "offices": "Bureaux",
+    "hillOffice": "Bureau de la Colline",
+    "constituencyOffice": "Bureau de circonscription"
+  },
+  "stats": {
+    "votingRecord": "Historique de vote",
+    "speechesCount": "{{count}} discours",
+    "votesCount": "{{count}} votes",
+    "committeesCount": "{{count}} comités",
+    "billsSponsored": "{{count}} projets de loi parrainés"
+  },
+  "tabs": {
+    "overview": "Aperçu",
+    "votes": "Votes",
+    "speeches": "Discours",
+    "committees": "Comités",
+    "bills": "Projets de loi parrainés"
+  }
+}

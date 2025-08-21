@@ -1,0 +1,71 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "mps": "Députés",
+    "bills": "Projets de loi",
+    "debates": "Débats",
+    "committees": "Comités",
+    "votes": "Votes",
+    "search": "Rechercher",
+    "labs": "Labs",
+    "about": "À propos",
+    "api": "API",
+    "toggleTheme": "Changer le thème",
+    "selectLanguage": "Sélectionner la langue"
+  },
+  "theme": {
+    "light": "Clair",
+    "dark": "Sombre",
+    "system": "Système"
+  },
+  "language": {
+    "en": "English",
+    "fr": "Français"
+  },
+  "search": {
+    "placeholder": "Rechercher députés, projets de loi, débats...",
+    "submit": "Rechercher",
+    "noResults": "Aucun résultat trouvé",
+    "searching": "Recherche en cours...",
+    "error": "Erreur lors de la recherche"
+  },
+  "footer": {
+    "aboutUs": "À propos de nous",
+    "privacy": "Politique de confidentialité",
+    "terms": "Conditions d'utilisation",
+    "contact": "Contact",
+    "sourceCode": "Code source",
+    "openData": "Données ouvertes",
+    "api": "Documentation API",
+    "allRightsReserved": "Tous droits réservés"
+  },
+  "actions": {
+    "viewMore": "Voir plus",
+    "viewAll": "Voir tout",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "share": "Partager",
+    "download": "Télécharger",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "reset": "Réinitialiser"
+  },
+  "status": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "pending": "En attente",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "completed": "Terminé"
+  },
+  "date": {
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "daysAgo": "Il y a {{count}} jours",
+    "monthsAgo": "Il y a {{count}} mois",
+    "yearsAgo": "Il y a {{count}} ans"
+  }
+}

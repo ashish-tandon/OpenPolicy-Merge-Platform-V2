@@ -4,35 +4,33 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchBar from './SearchBar';
+import { ThemeToggle } from './ThemeToggle';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { useTranslation } from '@/hooks/useTranslation';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const router = useRouter();
+  const { t } = useTranslation();
 
   const navItems = [
-    { href: '/mps', label: 'MPs' },
-    { href: '/former-mps', label: 'Former MPs' },
-    { href: '/bills', label: 'Bills' },
-    { href: '/voting-records', label: 'Voting Records' },
-    { href: '/mobile-app', label: 'Mobile App Features' },
-    { href: '/feedback', label: 'Feedback' },
-    { href: '/saved-items', label: 'Saved Items' },
-    { href: '/debates', label: 'Debates' },
-    { href: '/committees', label: 'Committees' },
-    { href: '/government', label: 'Government' },
-    { href: '/represent', label: 'Represent' },
-    { href: '/about', label: 'About' },
-    { href: '/labs', label: 'Labs' },
-    { href: '/api', label: 'API' },
+    { href: '/mps', label: t('common.nav.mps') },
+    { href: '/bills', label: t('common.nav.bills') },
+    { href: '/debates', label: t('common.nav.debates') },
+    { href: '/committees', label: t('common.nav.committees') },
+    { href: '/votes', label: t('common.nav.votes') },
+    { href: '/labs', label: t('common.nav.labs') },
+    { href: '/about', label: t('common.nav.about') },
+    { href: '/api', label: t('common.nav.api') },
   ];
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="sticky top-0 z-50 bg-card border-b border-border backdrop-blur-lg bg-opacity-90">
       <div className="content-container">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-op-blue">openparliament.ca</span>
+          <Link href="/" className="flex items-center space-x-2 group">
+            <span className="text-xl font-bold text-gradient">openparliament.ca</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,7 +39,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 hover:text-op-blue transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
                 {item.label}
               </Link>
@@ -53,11 +51,10 @@ export default function Navbar() {
             <SearchBar />
           </div>
 
-          {/* Language Toggle */}
-          <div className="hidden md:flex items-center space-x-4">
-            <button className="text-sm text-gray-600 hover:text-op-blue">
-              Français
-            </button>
+          {/* Controls */}
+          <div className="hidden md:flex items-center space-x-3">
+            <ThemeToggle />
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,7 +74,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t">
+          <div className="md:hidden py-4 border-t animate-fade-in-down">
             <div className="mb-4">
               <SearchBar />
             </div>
@@ -85,15 +82,16 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block py-2 text-gray-700 hover:text-op-blue"
+                className="block py-2 text-muted-foreground hover:text-foreground transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {item.label}
               </Link>
             ))}
-            <button className="block py-2 text-gray-600 hover:text-op-blue">
-              Français
-            </button>
+            <div className="flex items-center space-x-3 pt-4 border-t mt-4">
+              <ThemeToggle />
+              <LanguageSwitcher />
+            </div>
           </div>
         )}
       </div>

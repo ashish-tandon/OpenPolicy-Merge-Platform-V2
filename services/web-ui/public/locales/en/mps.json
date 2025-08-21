@@ -1,0 +1,37 @@
+{
+  "title": "Members of Parliament",
+  "subtitle": "Find and track your representatives",
+  "search": {
+    "placeholder": "Search by name, riding, or postal code...",
+    "filters": "Filters",
+    "province": "Province",
+    "party": "Party",
+    "reset": "Reset filters"
+  },
+  "profile": {
+    "currentMP": "Current MP for {{riding}}",
+    "party": "{{party}}",
+    "elected": "Elected {{date}}",
+    "contact": "Contact Information",
+    "email": "Email",
+    "phone": "Phone",
+    "website": "Website",
+    "offices": "Offices",
+    "hillOffice": "Hill Office",
+    "constituencyOffice": "Constituency Office"
+  },
+  "stats": {
+    "votingRecord": "Voting Record",
+    "speechesCount": "{{count}} speeches",
+    "votesCount": "{{count}} votes",
+    "committeesCount": "{{count}} committees",
+    "billsSponsored": "{{count}} bills sponsored"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "votes": "Votes",
+    "speeches": "Speeches",
+    "committees": "Committees",
+    "bills": "Sponsored Bills"
+  }
+}
