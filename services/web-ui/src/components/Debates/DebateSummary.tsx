@@ -15,7 +15,7 @@ export default function DebateSummary({ debateId }: DebateSummaryProps) {
   useEffect(() => {
     setTimeout(() => {
       setSummary(`
-        Today's parliamentary session focused on three main areas: Bill C-5 amendments to the Criminal Code, 
+        Today's apos;s parliamentary session focused on three main areas: Bill C-5 amendments to the Criminal Code, 
         healthcare funding allocations, and climate change initiatives. 
 
         The debate on Bill C-5 dominated the morning session, with the government defending its approach to 

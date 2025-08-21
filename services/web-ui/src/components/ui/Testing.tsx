@@ -110,7 +110,7 @@ export function TestRunner({
         };
 
         setResults(prev => prev.map(t => t.id === test.id ? updatedTest : t));
-      } catch (error) {
+      } catch (_error) {
         const duration = Date.now() - startTime;
         const updatedTest: TestResult = {
           ...test,

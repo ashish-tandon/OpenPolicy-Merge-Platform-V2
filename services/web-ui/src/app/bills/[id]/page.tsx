@@ -19,14 +19,14 @@ export async function generateMetadata({ params }: BillDetailPageProps): Promise
     
     return {
       title: `${bill.title} | OpenPolicy`,
-      description: bill.description || `Details about ${bill.title}`,
+      description: bill.summary || `Details about ${bill.title}`,
       openGraph: {
         title: bill.title,
-        description: bill.description || `Details about ${bill.title}`,
+        description: bill.summary || `Details about ${bill.title}`,
         type: 'website',
       },
     };
-  } catch (error) {
+  } catch (_error) {
     return {
       title: 'Bill Details | OpenPolicy',
       description: 'View detailed information about parliamentary bills',
@@ -75,7 +75,7 @@ export default async function BillDetailPage({ params }: BillDetailPageProps) {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading bill details:', error);
     notFound();
   }

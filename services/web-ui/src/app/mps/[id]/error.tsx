@@ -27,7 +27,7 @@ export default function MPProfileError({ error, reset }: MPProfileErrorProps) {
           Unable to Load MP Profile
         </h1>
         <p className="text-gray-600 mb-8">
-          We encountered an error while trying to load this Member of Parliament's profile. 
+          We encountered an error while trying to load this Member of Parliament's apos;s profile. 
           This could be due to a temporary issue or the MP ID may not exist.
         </p>
             

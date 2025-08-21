@@ -104,7 +104,7 @@ export default function VotingRecordsList() {
       vote_type: 'division',
       vote_result: 'passed',
       vote_description: 'Third reading vote on poverty reduction strategy',
-      vote_context: 'Bill establishing Canada\'s first poverty reduction strategy',
+      vote_context: 'Bill establishing Canada\'s apos;s first poverty reduction strategy',
       total_votes: 338,
       yes_votes: 244,
       no_votes: 82,
@@ -149,7 +149,7 @@ export default function VotingRecordsList() {
         const response = await api.getVotingRecords(currentPage, 20, searchTerm, selectedResult, selectedType);
         setVotingRecords(response.results);
         setTotalPages(response.pagination.total_pages);
-      } catch (error) {
+      } catch (_error) {
         console.error('Error loading voting records:', error);
         // Fallback to mock data if API fails
         setVotingRecords(mockVotingRecords);

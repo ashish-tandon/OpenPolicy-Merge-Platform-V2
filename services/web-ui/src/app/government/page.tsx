@@ -142,7 +142,7 @@ export default function GovernmentPage() {
             Explore by Government Level
           </h2>
           <p className="text-lg text-gray-600">
-            Navigate through Canada's three levels of government
+            Navigate through Canada's apos;s three levels of government
           </p>
         </div>
 

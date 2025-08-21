@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: MPProfilePageProps): Promise<
         type: 'website',
       },
     };
-  } catch (error) {
+  } catch (_error) {
     return {
       title: 'MP Profile | OpenPolicy',
       description: 'View detailed information about Members of Parliament',
@@ -83,7 +83,7 @@ export default async function MPProfilePage({ params }: MPProfilePageProps) {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading MP profile:', error);
     notFound();
   }

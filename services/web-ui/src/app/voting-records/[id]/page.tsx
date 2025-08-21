@@ -5,14 +5,15 @@ import { api } from '@/lib/api';
 import VotingRecordDetail from '@/components/voting/VotingRecordDetail';
 
 interface VotingRecordPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({ params }: VotingRecordPageProps): Promise<Metadata> {
+  const { id } = await params;
   try {
-    const votingRecord = await api.getVotingRecord(params.id);
+    const votingRecord = await api.getVotingRecord(id);
     
     return {
       title: `Vote on ${votingRecord.bill_title || 'Bill'} | OpenPolicy`,
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: VotingRecordPageProps): Promi
         type: 'website',
       },
     };
-  } catch (error) {
+  } catch (_error) {
     return {
       title: 'Voting Record | OpenPolicy',
       description: 'View detailed voting record for parliamentary bills',
@@ -32,9 +33,10 @@ export async function generateMetadata({ params }: VotingRecordPageProps): Promi
 }
 
 export default async function VotingRecordPage({ params }: VotingRecordPageProps) {
+  const { id } = await params;
   try {
     // Fetch voting record data
-    const votingRecord = await api.getVotingRecord(params.id);
+    const votingRecord = await api.getVotingRecord(id);
 
     return (
       <div className="content-container py-8">
@@ -57,7 +59,7 @@ export default async function VotingRecordPage({ params }: VotingRecordPageProps
         <VotingRecordDetail votingRecord={votingRecord} />
       </div>
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading voting record:', error);
     notFound();
   }

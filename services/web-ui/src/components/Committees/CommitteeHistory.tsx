@@ -66,7 +66,7 @@ export default function CommitteeHistory({ committeeId }: CommitteeHistoryProps)
           parliament: '43-1',
           type: 'mandate-change',
           title: 'Mandate Expanded',
-          description: 'The committee\'s mandate was expanded to include oversight of pandemic recovery efforts related to environmental sustainability.',
+          description: 'The committee\'s apos;s mandate was expanded to include oversight of pandemic recovery efforts related to environmental sustainability.',
         },
       ]);
       setLoading(false);

@@ -125,7 +125,7 @@ export default function FormerMPsList() {
         const response = await api.getFormerMembers(currentPage, 20, searchTerm, selectedParty, selectedProvince);
         setFormerMPs(response.results);
         setTotalPages(response.pagination.total_pages);
-      } catch (error) {
+      } catch (_error) {
         console.error('Error loading former MPs:', error);
         // Fallback to mock data if API fails
         setFormerMPs(mockFormerMPs);

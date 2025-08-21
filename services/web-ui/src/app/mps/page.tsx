@@ -42,23 +42,25 @@ export default async function MPsPage({ searchParams }: MPsPageProps) {
           Members of Parliament
         </h1>
         <p className="text-gray-600">
-          {mpsData.pagination?.total || 338}+ current and former MPs representing Canadians
+          Browse and search through {filters.current ? 'current' : 'former'} MPs
         </p>
       </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-        {/* Filters Sidebar */}
+      
+      <div className="grid lg:grid-cols-4 gap-8">
         <div className="lg:col-span-1">
-          <MPFilters currentFilters={filters} />
+          <MPFilters initialFilters={filters} />
         </div>
-
-        {/* MPs Grid */}
+        
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
-            <MPList
-              members={mpsData.members || []}
-              totalCount={mpsData.pagination?.total || 0}
-              currentPage={page}
+            <MPList 
+              members={mpsData.results}
+              pagination={{
+                page: mpsData.page,
+                pageSize: mpsData.pageSize,
+                total: mpsData.total,
+                totalPages: mpsData.totalPages,
+              }}
               filters={filters}
             />
           </Suspense>

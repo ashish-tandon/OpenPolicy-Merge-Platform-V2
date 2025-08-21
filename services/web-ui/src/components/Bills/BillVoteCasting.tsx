@@ -108,7 +108,7 @@ export default function BillVoteCasting({
       } else {
         alert('Failed to cast vote. Please try again.');
       }
-    } catch (error) {
+    } catch (_error) {
       console.error('Error casting vote:', error);
       alert('Error casting vote. Please try again.');
     } finally {

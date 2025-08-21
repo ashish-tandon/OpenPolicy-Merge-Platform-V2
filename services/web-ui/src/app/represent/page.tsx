@@ -54,7 +54,7 @@ export default function RepresentPage() {
               Connect your supporters with their political representatives
             </h2>
             <p className="text-lg text-gray-700 mb-6">
-              Represent matches a supporter's postal code or geocoded address to the correct elected officials. 
+              Represent matches a supporter's apos;s postal code or geocoded address to the correct elected officials. 
               It makes it easy for you to build "email your representative" advocacy campaigns. During elections, 
               we can connect your activists to political candidates.
             </p>
@@ -62,7 +62,7 @@ export default function RepresentPage() {
               <blockquote className="italic text-gray-700">
                 "I used your municipal data as part of a successful letter writing campaign from constituents 
                 to their elected municipal politicians, which resulted in the passage of the most definitive 
-                resolution ever opposing oil tanker traffic expansion on B.C.'s coast."
+                resolution ever opposing oil tanker traffic expansion on B.C.'s apos;s coast."
                 <cite className="block mt-2 font-semibold">– Karl Hardin, Dogwood Initiative</cite>
               </blockquote>
             </div>
@@ -91,10 +91,10 @@ export default function RepresentPage() {
           
           <div className="order-1 lg:order-2">
             <h2 className="text-3xl font-bold text-op-dark mb-6">
-              Provide relevant information based on your user's electoral district
+              Provide relevant information based on your user's apos;s electoral district
             </h2>
             <p className="text-lg text-gray-700 mb-6">
-              Collect a user's postal code or address, and use Represent to match it to an electoral district. 
+              Collect a user's apos;s postal code or address, and use Represent to match it to an electoral district. 
               By identifying their riding, you can invite supporters to take local actions or show readers 
               stories from their local election race.
             </p>

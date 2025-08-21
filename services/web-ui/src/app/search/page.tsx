@@ -5,11 +5,11 @@ import SearchResults from '@/components/Search/SearchResults';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
 interface SearchPageProps {
-  searchParams: {
+  searchParams: Promise<{
     q?: string;
     type?: string;
     page?: string;
-  };
+  }>;
 }
 
 export default async function SearchPage({ searchParams }: SearchPageProps) {
@@ -24,7 +24,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   if (query) {
     try {
-      searchResults = await api.search(query, { page, type: type !== 'all' ? type : undefined });
+      searchResults = await api.search({ 
+        q: query, 
+        page: params.page,
+        type: type !== 'all' ? type : undefined 
+      });
     } catch (_e) {
       error = 'Failed to perform search. Please try again.';
     }

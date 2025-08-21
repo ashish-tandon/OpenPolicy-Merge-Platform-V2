@@ -77,13 +77,13 @@ export default function SavedItemsManager({
         try {
           const response = await api.getSavedItems(userId, type);
           allItems.push(...response.results);
-        } catch (error) {
+        } catch (_error) {
           console.error(`Error loading ${type} items:`, error);
         }
       }
       
       setSavedItems(allItems);
-    } catch (error) {
+    } catch (_error) {
       console.error('Error loading saved items:', error);
       setError('Failed to load saved items. Please try again.');
     } finally {
@@ -156,7 +156,7 @@ export default function SavedItemsManager({
     try {
       await api.removeSavedItem(itemId, userId, itemType);
       setSavedItems(prev => prev.filter(item => !(item.id === itemId && item.item_type === itemType)));
-    } catch (error) {
+    } catch (_error) {
       console.error('Error removing saved item:', error);
       alert('Failed to remove item. Please try again.');
     }
@@ -170,7 +170,7 @@ export default function SavedItemsManager({
       ));
       setEditingItem(null);
       setEditNotes('');
-    } catch (error) {
+    } catch (_error) {
       console.error('Error updating notes:', error);
       alert('Failed to update notes. Please try again.');
     }
@@ -186,7 +186,7 @@ export default function SavedItemsManager({
       ));
       setEditingItem(null);
       setEditTags('');
-    } catch (error) {
+    } catch (_error) {
       console.error('Error updating tags:', error);
       alert('Failed to update tags. Please try again.');
     }

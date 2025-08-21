@@ -26,7 +26,7 @@ export default function MPVotes({ votes, mpId }: MPVotesProps) {
         <ChartBarIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
         <h3 className="text-lg font-medium text-gray-900 mb-2">No Voting Records</h3>
         <p className="text-gray-600">
-          This MP hasn't participated in any votes yet, or voting records are not available.
+          This MP hasnn't apos;t participated in any votes yet, or voting records are not available.
         </p>
       </div>
     );

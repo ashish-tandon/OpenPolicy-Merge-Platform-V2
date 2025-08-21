@@ -65,7 +65,7 @@ export default function MobileAppDemo() {
       const result = await apiMethod();
       setDemoData(result);
       setMessage(`✅ ${description} successful!`);
-    } catch (error) {
+    } catch (_error) {
       console.error('API Error:', error);
       setMessage(`❌ ${description} failed: ${error}`);
     } finally {
