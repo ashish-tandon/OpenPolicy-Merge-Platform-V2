@@ -383,10 +383,8 @@ export default function JurisdictionDetailPage() {
                 <Pagination 
                   currentPage={data.representatives.pagination.page}
                   totalPages={data.representatives.pagination.total_pages}
-                  onPageChange={(page) => {
-                    // Handle page change for representatives
-                    console.log('Representatives page change:', page);
-                  }}
+                  baseUrl={`/government/jurisdictions/${jurisdictionId}`}
+                  queryParams={{ tab: 'representatives' }}
                 />
               </div>
             )}

@@ -349,15 +349,8 @@ export default function DataSourcesPage() {
                 <Pagination
                   currentPage={dataSources.pagination.page}
                   totalPages={dataSources.pagination.total_pages}
-                  onPageChange={handlePageChange}
-                  showInfo={{
-                    start: (dataSources.pagination.page - 1) * dataSources.pagination.page_size + 1,
-                    end: Math.min(
-                      dataSources.pagination.page * dataSources.pagination.page_size,
-                      dataSources.pagination.total
-                    ),
-                    total: dataSources.pagination.total
-                  }}
+                  baseUrl="/government/data-sources"
+                  queryParams={filters}
                 />
               </div>
             </>

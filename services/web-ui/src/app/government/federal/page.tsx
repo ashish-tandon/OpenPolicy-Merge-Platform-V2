@@ -274,10 +274,8 @@ export default function FederalPage() {
                 <Pagination 
                   currentPage={data.representatives.pagination.page}
                   totalPages={data.representatives.pagination.total_pages}
-                  onPageChange={(page) => {
-                    // Handle page change
-                    console.log('Page change:', page);
-                  }}
+                  baseUrl="/government/federal"
+                  queryParams={{ tab: 'representatives' }}
                 />
               </div>
             )}

@@ -323,15 +323,8 @@ export default function AllBillsPage() {
                 <Pagination
                   currentPage={bills.pagination.page}
                   totalPages={bills.pagination.total_pages}
-                  onPageChange={handlePageChange}
-                  showInfo={{
-                    start: (bills.pagination.page - 1) * bills.pagination.page_size + 1,
-                    end: Math.min(
-                      bills.pagination.page * bills.pagination.page_size,
-                      bills.pagination.total
-                    ),
-                    total: bills.pagination.total
-                  }}
+                  baseUrl="/government/bills"
+                  queryParams={filters}
                 />
               </div>
             </>
