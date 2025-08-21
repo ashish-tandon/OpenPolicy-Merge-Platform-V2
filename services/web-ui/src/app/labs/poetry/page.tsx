@@ -25,12 +25,12 @@ export default function PoetryPage() {
         "In emergency rooms across this nation,",
         "families sit in plastic chairs,",
         "counting hours like rosary beads,",
-        "while the clock's hands mock their patience.",
+        "while the clock's apos;s hands mock their patience.",
         "",
         "We promised them care,",
         "we promised them healing,",
-        "but promises don't stop bleeding,",
-        "and words can't mend what's broken."
+        "but promises donn't apos;t stop bleeding,",
+        "and words cann't apos;t mend what's apos;s broken."
       ],
       source: {
         speaker: "Dr. Jane Smith, MP",
@@ -69,7 +69,7 @@ export default function PoetryPage() {
         "Numbers dance on spreadsheets—",
         "billions here, millions there,",
         "but behind each decimal point",
-        "lives a family's prayer:",
+        "lives a family's apos;s prayer:",
         "",
         "for affordable rent,",
         "for a doctor who'll see them,",

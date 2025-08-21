@@ -1,10 +1,10 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';
-import MPProfile from '@/components/mps/MPProfile';
-import MPVotes from '@/components/mps/MPVotes';
-import MPCommittees from '@/components/mps/MPCommittees';
-import MPActivity from '@/components/mps/MPActivity';
+import MPProfile from '@/components/MPs/MPProfile';
+import MPVotes from '@/components/MPs/MPVotes';
+import MPCommittees from '@/components/MPs/MPCommittees';
+import MPActivity from '@/components/MPs/MPActivity';
 import { Metadata } from 'next';
 
 interface MPProfilePageProps {
@@ -14,8 +14,8 @@ interface MPProfilePageProps {
 }
 
 export async function generateMetadata({ params }: MPProfilePageProps): Promise<Metadata> {
+  const { id } = await params;
   try {
-    const { id } = await params;
     const mp = await api.getMember(id);
     
     return {
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: MPProfilePageProps): Promise<
         type: 'website',
       },
     };
-  } catch (error) {
+  } catch (_error) {
     return {
       title: 'MP Profile | OpenPolicy',
       description: 'View detailed information about Members of Parliament',
@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: MPProfilePageProps): Promise<
 }
 
 export default async function MPProfilePage({ params }: MPProfilePageProps) {
+  const { id } = await params;
   try {
-    const { id } = await params;
     // Fetch MP data
     const [mp, votes, committees, activity] = await Promise.all([
       api.getMember(id),
@@ -83,7 +83,7 @@ export default async function MPProfilePage({ params }: MPProfilePageProps) {
         </div>
       </div>
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading MP profile:', error);
     notFound();
   }

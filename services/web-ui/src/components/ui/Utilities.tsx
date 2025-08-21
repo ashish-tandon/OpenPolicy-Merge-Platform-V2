@@ -548,7 +548,7 @@ export function CopyToClipboard({
     try {
       await navigator.clipboard.writeText(text);
       onCopy?.();
-    } catch (error) {
+    } catch (_error) {
       onError?.(error as Error);
     }
   };

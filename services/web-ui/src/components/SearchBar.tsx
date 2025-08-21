@@ -45,7 +45,7 @@ export default function SearchBar() {
         setSuggestions(response.results.slice(0, 5));
         setShowSuggestions(true);
       }
-    } catch (error) {
+    } catch (_error) {
       console.error('Search error:', error);
     } finally {
       setLoading(false);

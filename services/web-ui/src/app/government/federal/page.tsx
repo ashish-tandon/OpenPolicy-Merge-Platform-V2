@@ -275,7 +275,7 @@ export default function FederalPage() {
                   currentPage={data.representatives.pagination.page}
                   totalPages={data.representatives.pagination.total_pages}
                   baseUrl="/government/federal"
-                  queryParams={{}}
+                  queryParams={{ tab: 'representatives' }}
                 />
               </div>
             )}

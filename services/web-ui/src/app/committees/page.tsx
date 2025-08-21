@@ -22,11 +22,11 @@ export default async function CommitteesPage({ searchParams }: CommitteesPagePro
     search: params.search,
   };
 
-  const committeesData = await api.getCommittees(
-    page,
-    20, // pageSize
-    filters.search
-  );
+  const committeesData = await api.getCommittees({
+    page: page.toString(),
+    page_size: '20',
+    q: filters.search,
+  });
 
   return (
     <div className="content-container py-8">
@@ -49,7 +49,7 @@ export default async function CommitteesPage({ searchParams }: CommitteesPagePro
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
             <CommitteesList 
-              committees={committeesData.committees || []} 
+              committees={committeesData.items || []} 
               totalCount={committeesData.pagination?.total || 0}
               currentPage={page}
               filters={filters}

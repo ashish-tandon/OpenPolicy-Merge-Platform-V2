@@ -60,7 +60,7 @@ export default function AdvancedSearch({
           ...item,
           timestamp: new Date(item.timestamp)
         })));
-      } catch (error) {
+      } catch (_error) {
         console.error('Error loading search history:', error);
       }
     }
@@ -102,7 +102,7 @@ export default function AdvancedSearch({
 
         setSuggestions(filteredSuggestions);
         setShowSuggestions(filteredSuggestions.length > 0);
-      } catch (error) {
+      } catch (_error) {
         console.error('Error generating suggestions:', error);
       }
     };
@@ -125,7 +125,7 @@ export default function AdvancedSearch({
       
       // Hide suggestions
       setShowSuggestions(false);
-    } catch (error) {
+    } catch (_error) {
       console.error('Search error:', error);
     } finally {
       setIsLoading(false);

@@ -383,8 +383,8 @@ export default function JurisdictionDetailPage() {
                 <Pagination 
                   currentPage={data.representatives.pagination.page}
                   totalPages={data.representatives.pagination.total_pages}
-                  baseUrl={`/government/jurisdictions/${id}`}
-                  queryParams={{}}
+                  baseUrl={`/government/jurisdictions/${jurisdictionId}`}
+                  queryParams={{ tab: 'representatives' }}
                 />
               </div>
             )}

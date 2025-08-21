@@ -23,10 +23,13 @@ export default async function DebatesPage({ searchParams }: DebatesPageProps) {
     date_lte: params.date_lte,
   };
 
-  const debatesData = await api.getDebates(
-    page,
-    20 // pageSize
-  );
+  const debatesData = await api.getDebates({
+    page: page.toString(),
+    page_size: '20',
+    date_gte: params.date_gte,
+    date_lte: params.date_lte,
+    q: params.search,
+  });
 
   return (
     <div className="content-container py-8">

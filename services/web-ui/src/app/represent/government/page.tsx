@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'For Government - Data Contribution | OpenParliament.ca',
-  description: 'Learn how to contribute your municipality\'s elected official data to Represent using our standardized CSV schema.',
+  description: 'Learn how to contribute your municipality\'s apos;s elected official data to Represent using our standardized CSV schema.',
 };
 
 export default function RepresentGovernmentPage() {

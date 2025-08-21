@@ -197,7 +197,7 @@ export default function DebatesFilters({ currentFilters }: DebatesFiltersProps) 
             }}
             className="w-full text-left text-sm text-op-blue hover:underline"
           >
-            Today's debates
+            Today's apos;s debates
           </button>
           <button
             onClick={() => {

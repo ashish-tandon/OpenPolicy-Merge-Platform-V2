@@ -106,7 +106,7 @@ export default function BillHistory({ history }: BillHistoryProps) {
       <div className="px-6 py-4 border-b border-gray-200">
         <h3 className="text-lg font-medium text-gray-900">Legislative History</h3>
         <p className="text-sm text-gray-600 mt-1">
-          Timeline of key events in this bill's journey through Parliament
+          Timeline of key events in this bill's apos;s journey through Parliament
         </p>
       </div>
 

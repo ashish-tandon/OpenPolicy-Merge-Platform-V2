@@ -529,7 +529,7 @@ export function ValidationForm({
       
       // Simulate successful submission
       onSubmit({});
-    } catch (error) {
+    } catch (_error) {
       console.error('Form submission error:', error);
     } finally {
       setIsSubmitting(false);

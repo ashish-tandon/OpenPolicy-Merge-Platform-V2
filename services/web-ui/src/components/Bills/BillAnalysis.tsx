@@ -44,7 +44,7 @@ export default function BillAnalysis({ bill }: BillAnalysisProps) {
             <h3 className="text-lg font-bold mb-3">Executive Summary</h3>
             <div className="prose max-w-none text-gray-700">
               <p>
-                Bill {bill.number} represents a significant reform to Canada's criminal justice system, 
+                Bill {bill.number} represents a significant reform to Canada's apos;s criminal justice system, 
                 focusing on the removal of mandatory minimum penalties for certain offenses and providing 
                 judges with greater discretion in sentencing.
               </p>

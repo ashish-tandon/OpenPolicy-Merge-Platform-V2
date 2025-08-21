@@ -44,7 +44,7 @@ export default function SaveButton({
         const response = await api.getSavedItems(userId, itemType);
         const saved = response.results.some((item: any) => item.item_id === itemId);
         setIsSaved(saved);
-      } catch (error) {
+      } catch (_error) {
         console.error('Error checking saved status:', error);
       }
     };
@@ -83,7 +83,7 @@ export default function SaveButton({
         setIsSaved(true);
         onSaveChange?.(true);
       }
-    } catch (error) {
+    } catch (_error) {
       console.error('Error toggling save status:', error);
       alert('Failed to update saved status. Please try again.');
     } finally {

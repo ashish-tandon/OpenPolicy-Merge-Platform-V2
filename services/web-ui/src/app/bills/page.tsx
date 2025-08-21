@@ -25,11 +25,13 @@ export default async function BillsPage({ searchParams }: BillsPageProps) {
     privatemember: params.type === 'private',
   };
 
-  const billsData = await api.getBills(
-    page,
-    20, // pageSize
-    filters.search
-  );
+  const billsData = await api.getBills({
+    page: page.toString(),
+    page_size: '20',
+    q: filters.search,
+    session: filters.session,
+    privatemember: filters.privatemember ? 'true' : undefined,
+  });
 
   return (
     <div className="content-container py-8">
@@ -52,9 +54,9 @@ export default async function BillsPage({ searchParams }: BillsPageProps) {
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
             <BillsList 
-              bills={billsData.bills || []} 
+              bills={billsData.items || []} 
               currentPage={page}
-              totalPages={billsData.pagination?.pages || 1}
+              totalPages={billsData.pagination?.total_pages || 1}
             />
           </Suspense>
         </div>

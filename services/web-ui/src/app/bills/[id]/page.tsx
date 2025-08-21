@@ -13,20 +13,20 @@ interface BillDetailPageProps {
 }
 
 export async function generateMetadata({ params }: BillDetailPageProps): Promise<Metadata> {
+  const { id } = await params;
   try {
-    const { id } = await params;
     const bill = await api.getBill(id);
     
     return {
       title: `${bill.title} | OpenPolicy`,
-      description: `Details about ${bill.title}`,
+      description: bill.summary || `Details about ${bill.title}`,
       openGraph: {
         title: bill.title,
-        description: `Details about ${bill.title}`,
+        description: bill.summary || `Details about ${bill.title}`,
         type: 'website',
       },
     };
-  } catch (error) {
+  } catch (_error) {
     return {
       title: 'Bill Details | OpenPolicy',
       description: 'View detailed information about parliamentary bills',
@@ -35,6 +35,7 @@ export async function generateMetadata({ params }: BillDetailPageProps): Promise
 }
 
 export default async function BillDetailPage({ params }: BillDetailPageProps) {
+  const { id } = await params;
   try {
     const { id } = await params;
     // Fetch bill data
@@ -60,23 +61,42 @@ export default async function BillDetailPage({ params }: BillDetailPageProps) {
         </nav>
 
         {/* Main Bill Information */}
-        <BillDetail bill={bill as any} />
+        <BillDetail bill={{
+          ...bill,
+          billNumber: bill.bill_number,
+          sponsor: bill.sponsor?.name,
+          description: bill.summary
+        } as any} />
 
         {/* Bill Votes Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Voting Record</h2>
-          <BillVotes votes={votes.results} billId={id} />
+          <BillVotes votes={(votes.results || []).map((v: any) => ({
+            id: v.id,
+            billId: id,
+            date: v.vote_date || v.date,
+            yes: v.yeas || 0,
+            no: v.nays || 0,
+            abstain: v.abstentions || 0,
+            description: v.description
+          }))} billId={id} />
         </div>
 
         {/* Bill History Section */}
         <div className="mt-12">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Bill History</h2>
-          <BillHistory history={history.results} />
+          <BillHistory history={(history.results || []).map((h: any) => ({
+            id: h.id,
+            billId: id,
+            status: h.status,
+            date: h.date,
+            description: h.description
+          }))} />
         </div>
       </div>
     );
-  } catch (error) {
-    console.error('Error loading bill details:', error);
+  } catch (_error) {
+    console.error('Error loading bill details:', _error);
     notFound();
   }
 }

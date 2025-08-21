@@ -57,7 +57,7 @@ export default function BillChat({ billNumber, billTitle, billSummary, userId }:
         };
         setMessages([initialMessage]);
       }
-    } catch (error) {
+    } catch (_error) {
       console.error('Error loading bill info:', error);
       // Add fallback message
       const fallbackMessage: ChatMessage = {
@@ -76,14 +76,14 @@ export default function BillChat({ billNumber, billTitle, billSummary, userId }:
       if (response.success) {
         setSuggestions(response.suggestions);
       }
-    } catch (error) {
+    } catch (_error) {
       console.error('Error loading suggestions:', error);
       // Fallback suggestions
       setSuggestions([
         `Explain Bill ${billNumber} to me`,
         `What are the key points of Bill ${billNumber}?`,
         `How will Bill ${billNumber} affect me?`,
-        `What's the current status of Bill ${billNumber}?`
+        `What's apos;s the current status of Bill ${billNumber}?`
       ]);
     }
   };
@@ -121,7 +121,7 @@ export default function BillChat({ billNumber, billTitle, billSummary, userId }:
       } else {
         throw new Error('Failed to get AI response');
       }
-    } catch (error) {
+    } catch (_error) {
       console.error('Error sending message:', error);
       const errorMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),

@@ -314,15 +314,8 @@ export default function AllRepresentativesPage() {
                 <Pagination
                   currentPage={representatives.pagination.page}
                   totalPages={representatives.pagination.total_pages}
-                  onPageChange={handlePageChange}
-                  showInfo={{
-                    start: (representatives.pagination.page - 1) * representatives.pagination.page_size + 1,
-                    end: Math.min(
-                      representatives.pagination.page * representatives.pagination.page_size,
-                      representatives.pagination.total
-                    ),
-                    total: representatives.pagination.total
-                  }}
+                  baseUrl="/government/representatives"
+                  queryParams={filters}
                 />
               </div>
             </>

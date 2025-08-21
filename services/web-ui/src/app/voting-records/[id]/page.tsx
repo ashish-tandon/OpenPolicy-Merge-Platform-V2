@@ -11,8 +11,8 @@ interface VotingRecordPageProps {
 }
 
 export async function generateMetadata({ params }: VotingRecordPageProps): Promise<Metadata> {
+  const { id } = await params;
   try {
-    const { id } = await params;
     const votingRecord = await api.getVotingRecord(id);
     
     return {
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: VotingRecordPageProps): Promi
         type: 'website',
       },
     };
-  } catch (error) {
+  } catch (_error) {
     return {
       title: 'Voting Record | OpenPolicy',
       description: 'View detailed voting record for parliamentary bills',
@@ -33,8 +33,8 @@ export async function generateMetadata({ params }: VotingRecordPageProps): Promi
 }
 
 export default async function VotingRecordPage({ params }: VotingRecordPageProps) {
+  const { id } = await params;
   try {
-    const { id } = await params;
     // Fetch voting record data
     const votingRecord = await api.getVotingRecord(id);
 
@@ -59,7 +59,7 @@ export default async function VotingRecordPage({ params }: VotingRecordPageProps
         <VotingRecordDetail votingRecord={votingRecord} />
       </div>
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error loading voting record:', error);
     notFound();
   }

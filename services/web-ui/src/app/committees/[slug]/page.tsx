@@ -13,9 +13,9 @@ interface CommitteePageProps {
 }
 
 export default async function CommitteePage({ params }: CommitteePageProps) {
+  const { slug } = await params;
   try {
-    const { slug } = await params;
-    const committee = await api.getCommittee(slug);
+    const committee = await api.getCommitteeBySlug(slug);
     
     return (
       <div className="content-container py-8">
@@ -38,13 +38,13 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
           {/* Active Studies */}
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-bold mb-4">Active Studies</h2>
-            <ActiveStudies committeeId={committee.id} />
+            <ActiveStudies committeeId={parseInt(committee.id) || 0} />
           </div>
 
           {/* Recent Meetings */}
           <div className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-bold mb-4">Recent Meetings</h2>
-            <RecentMeetings committeeId={committee.id} />
+            <RecentMeetings committeeId={parseInt(committee.id) || 0} />
           </div>
         </div>
 

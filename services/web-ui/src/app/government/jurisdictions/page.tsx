@@ -301,15 +301,8 @@ export default function AllJurisdictionsPage() {
                 <Pagination
                   currentPage={jurisdictions.pagination.page}
                   totalPages={jurisdictions.pagination.total_pages}
-                  onPageChange={handlePageChange}
-                  showInfo={{
-                    start: (jurisdictions.pagination.page - 1) * jurisdictions.pagination.page_size + 1,
-                    end: Math.min(
-                      jurisdictions.pagination.page * jurisdictions.pagination.page_size,
-                      jurisdictions.pagination.total
-                    ),
-                    total: jurisdictions.pagination.total
-                  }}
+                  baseUrl="/government/jurisdictions"
+                  queryParams={filters}
                 />
               </div>
             </>

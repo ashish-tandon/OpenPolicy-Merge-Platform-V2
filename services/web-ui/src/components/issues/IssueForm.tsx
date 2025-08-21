@@ -147,7 +147,7 @@ export default function IssueForm({ userId, onIssueCreated, onCancel }: IssueFor
       } else {
         throw new Error(response.message || 'Failed to create issue');
       }
-    } catch (error) {
+    } catch (_error) {
       console.error('Error creating issue:', error);
       setErrors({ submit: 'Failed to create issue. Please try again.' });
     } finally {

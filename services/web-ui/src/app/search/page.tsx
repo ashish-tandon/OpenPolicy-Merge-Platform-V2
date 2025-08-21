@@ -24,7 +24,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   if (query) {
     try {
-      searchResults = await api.search(query, { page, type: type !== 'all' ? type : undefined });
+      searchResults = await api.search({ 
+        q: query, 
+        page: params.page,
+        type: type !== 'all' ? type : undefined 
+      });
     } catch (_e) {
       error = 'Failed to perform search. Please try again.';
     }

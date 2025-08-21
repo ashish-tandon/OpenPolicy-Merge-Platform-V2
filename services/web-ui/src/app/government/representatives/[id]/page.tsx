@@ -376,10 +376,8 @@ export default function RepresentativeDetailPage() {
                 <Pagination 
                   currentPage={data.sponsoredBills.pagination.page}
                   totalPages={data.sponsoredBills.pagination.total_pages}
-                  onPageChange={(page) => {
-                    // Handle page change for bills
-                    console.log('Bills page change:', page);
-                  }}
+                  baseUrl={`/government/representatives/${representativeId}`}
+                  queryParams={{ tab: 'bills' }}
                 />
               </div>
             )}
@@ -426,10 +424,8 @@ export default function RepresentativeDetailPage() {
                 <Pagination 
                   currentPage={data.votingRecord.pagination.page}
                   totalPages={data.votingRecord.pagination.total_pages}
-                  onPageChange={(page) => {
-                    // Handle page change for votes
-                    console.log('Votes page change:', page);
-                  }}
+                  baseUrl={`/government/representatives/${representativeId}`}
+                  queryParams={{ tab: 'votes' }}
                 />
               </div>
             )}

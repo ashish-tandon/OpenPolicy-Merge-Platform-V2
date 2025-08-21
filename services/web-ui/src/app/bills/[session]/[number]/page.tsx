@@ -14,11 +14,20 @@ interface BillPageProps {
 }
 
 export default async function BillPage({ params }: BillPageProps) {
+  const { session, number } = await params;
   try {
-    const { session, number } = await params;
-    // Construct bill ID from session and number, or use a different approach
-    // For now, we'll use the session as the ID since the API expects a single ID
-    const bill = await api.getBill(session);
+    const billData = await api.getBillByNumber(session, number);
+    
+    // Transform API response to match expected format
+    const bill = {
+      ...billData,
+      privatemember: false, // Default value
+      law: false, // Default value
+      name: billData.title,
+      introduced: billData.introduced_date,
+      sponsor_politician_id: billData.sponsor?.id,
+      latest_bill_event_id: null // Default value
+    };
     
     return (
       <div className="content-container py-8">
@@ -90,7 +99,7 @@ export default async function BillPage({ params }: BillPageProps) {
             {/* Quick Actions */}
             <div className="flex flex-col gap-2 ml-6">
               <a
-                href={`https://www.parl.ca/legisinfo/en/bill/${bill.session_name}/${bill.bill_number}`}
+                href={`https://www.parl.ca/legisinfo/en/bill/${bill.session}/${bill.bill_number}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center px-4 py-2 bg-op-blue text-white rounded hover:bg-blue-700 transition-colors"
@@ -116,7 +125,7 @@ export default async function BillPage({ params }: BillPageProps) {
         {/* Recent Votes */}
         <div className="bg-white rounded-lg shadow p-6 mb-8">
           <h2 className="text-xl font-bold mb-4">Votes on this Bill</h2>
-          <BillVotesList billId={parseInt(bill.id)} />
+          <BillVotesList billId={parseInt(bill.id) || 0} />
         </div>
 
         {/* Related Debates */}

@@ -310,15 +310,8 @@ export default function AllVotesPage() {
                 <Pagination
                   currentPage={votes.pagination.page}
                   totalPages={votes.pagination.total_pages}
-                  onPageChange={handlePageChange}
-                  showInfo={{
-                    start: (votes.pagination.page - 1) * votes.pagination.page_size + 1,
-                    end: Math.min(
-                      votes.pagination.page * votes.pagination.page_size,
-                      votes.pagination.total
-                    ),
-                    total: votes.pagination.total
-                  }}
+                  baseUrl="/government/votes"
+                  queryParams={filters}
                 />
               </div>
             </>

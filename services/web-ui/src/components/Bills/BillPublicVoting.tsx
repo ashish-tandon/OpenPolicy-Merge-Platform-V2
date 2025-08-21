@@ -44,7 +44,7 @@ export default function BillPublicVoting({ billId, billTitle, billNumber }: Bill
       
       setVotingData(summaryResponse.voting_summary);
       setUserVotes(votesResponse.results);
-    } catch (error) {
+    } catch (_error) {
       console.error('Error loading voting data:', error);
     } finally {
       setLoading(false);
@@ -56,7 +56,7 @@ export default function BillPublicVoting({ billId, billTitle, billNumber }: Bill
       const response = await api.getBillUserVotes(billId, page, pageSize);
       setUserVotes(response.results);
       setCurrentPage(page);
-    } catch (error) {
+    } catch (_error) {
       console.error('Error loading user votes:', error);
     }
   };

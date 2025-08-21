@@ -2,20 +2,17 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api';
 
-interface DebatesDetailPageProps {
+interface DebatePageProps {
   params: Promise<{
     date: string;
     number: string;
   }>;
 }
 
-export default async function DebatesDetailPage({ params }: DebatesDetailPageProps) {
+export default async function DebatePage({ params }: DebatePageProps) {
+  const { date, number } = await params;
   try {
-    const { date, number } = await params;
-    
-    // TODO: Implement getDebate API method
-    // const debate = await api.getDebate(date, number);
-    const debate: any = null; // Placeholder until API method is implemented
+    const debate = await api.getDebate(date, number);
     
     const formatDate = (dateString: string) => {
       return new Date(dateString).toLocaleDateString('en-CA', {
