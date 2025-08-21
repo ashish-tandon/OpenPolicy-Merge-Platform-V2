@@ -1,0 +1,261 @@
+# OpenMetadata Ingestion Workflows
+# These workflows will populate OpenMetadata with data lineage information
+
+version: "1.0"
+description: "Data lineage ingestion workflows for OpenPolicy Platform"
+
+# 1. DATABASE INGESTION WORKFLOW
+database_ingestion:
+  name: "postgres_ingestion"
+  type: "database"
+  source:
+    type: "postgres"
+    serviceName: "openpolicy_postgres"
+    serviceType: "Postgres"
+    connection:
+      type: "Postgres"
+      hostPort: "db:5432"
+      username: "openpolicy"
+      password: "openpolicy"
+      database: "openpolicy"
+      scheme: "postgresql+psycopg2"
+  sink:
+    type: "metadata-rest"
+    config:
+      api_endpoint: "http://openmetadata-server:8585/api"
+      auth_header: "Bearer admin"
+  processor:
+    type: "orm"
+    config:
+      databaseFilterPattern:
+        includes:
+          - "openpolicy"
+      schemaFilterPattern:
+        includes:
+          - "public"
+      tableFilterPattern:
+        includes:
+          - "bills_bill"
+          - "core_politician"
+          - "core_party"
+          - "core_session"
+          - "core_electedmember"
+
+# 2. API INGESTION WORKFLOW
+api_ingestion:
+  name: "api_gateway_ingestion"
+  type: "api"
+  source:
+    type: "rest-api"
+    serviceName: "openpolicy_api_gateway"
+    serviceType: "Custom"
+    connection:
+      type: "Rest"
+      baseUrl: "http://api-gateway:8080"
+      authHeader: "Bearer admin"
+  sink:
+    type: "metadata-rest"
+    config:
+      api_endpoint: "http://openmetadata-server:8585/api"
+      auth_header: "Bearer admin"
+  processor:
+    type: "api"
+    config:
+      apiFilterPattern:
+        includes:
+          - "/api/v1/bills"
+          - "/api/v1/members"
+          - "/api/v1/sessions"
+          - "/api/v1/committees"
+          - "/api/v1/debates"
+
+# 3. WEB SCRAPER INGESTION WORKFLOW
+scraper_ingestion:
+  name: "web_scraper_ingestion"
+  type: "custom"
+  source:
+    type: "custom"
+    serviceName: "openpolicy_scrapers"
+    serviceType: "Custom"
+    connection:
+      type: "Custom"
+      config:
+        scrapers:
+          - name: "CA_AB_Calgary"
+            location: "services/etl/legacy-scrapers-ca/ca_ab_calgary"
+            target: "https://calgary.ca"
+          - name: "CA_AB_Edmonton"
+            location: "services/etl/legacy-scrapers-ca/ca_ab_edmonton"
+            target: "https://edmonton.ca"
+          - name: "CA_BC_Vancouver"
+            location: "services/etl/legacy-scrapers-ca/ca_bc_vancouver"
+            target: "https://vancouver.ca"
+          - name: "CA_ON_Toronto"
+            location: "services/etl/legacy-scrapers-ca/ca_on_toronto"
+            target: "https://toronto.ca"
+  sink:
+    type: "metadata-rest"
+    config:
+      api_endpoint: "http://openmetadata-server:8585/api"
+      auth_header: "Bearer admin"
+  processor:
+    type: "custom"
+    config:
+      scraperFilterPattern:
+        includes:
+          - "CA_AB_*"
+          - "CA_BC_*"
+          - "CA_ON_*"
+
+# 4. WEB UI INGESTION WORKFLOW
+ui_ingestion:
+  name: "web_ui_ingestion"
+  type: "custom"
+  source:
+    type: "custom"
+    serviceName: "openpolicy_web_ui"
+    serviceType: "Custom"
+    connection:
+      type: "Custom"
+      config:
+        components:
+          - name: "BillsList"
+            location: "services/web-ui/src/app/bills/page.tsx"
+            data_source: "/api/v1/bills"
+          - name: "BillDetail"
+            location: "services/web-ui/src/app/bills/[session]/[number]/page.tsx"
+            data_source: "/api/v1/bills/{id}"
+          - name: "MembersList"
+            location: "services/web-ui/src/app/members/page.tsx"
+            data_source: "/api/v1/members"
+          - name: "CommitteesList"
+            location: "services/web-ui/src/app/committees/page.tsx"
+            data_source: "/api/v1/committees"
+  sink:
+    type: "metadata-rest"
+    config:
+      api_endpoint: "http://openmetadata-server:8585/api"
+      auth_header: "Bearer admin"
+  processor:
+    type: "custom"
+    config:
+      componentFilterPattern:
+        includes:
+          - "Bills*"
+          - "Members*"
+          - "Committees*"
+          - "Debates*"
+
+# 5. DATA LINEAGE INGESTION WORKFLOW
+lineage_ingestion:
+  name: "data_lineage_ingestion"
+  type: "lineage"
+  source:
+    type: "custom"
+    serviceName: "openpolicy_lineage"
+    serviceType: "Custom"
+    connection:
+      type: "Custom"
+      config:
+        lineage_mappings:
+          - from:
+              service: "openpolicy_scrapers"
+              table: "raw_data"
+            to:
+              service: "openpolicy_postgres"
+              table: "bills_bill"
+            transformation: "Data mapping and transformation"
+          - from:
+              service: "openpolicy_postgres"
+              table: "bills_bill"
+            to:
+              service: "openpolicy_api_gateway"
+              endpoint: "/api/v1/bills"
+            transformation: "API response mapping"
+          - from:
+              service: "openpolicy_api_gateway"
+              endpoint: "/api/v1/bills"
+            to:
+              service: "openpolicy_web_ui"
+              component: "BillsList"
+            transformation: "UI component rendering"
+  sink:
+    type: "metadata-rest"
+    config:
+      api_endpoint: "http://openmetadata-server:8585/api"
+      auth_header: "Bearer admin"
+  processor:
+    type: "lineage"
+    config:
+      lineageFilterPattern:
+        includes:
+          - "scraper_to_database"
+          - "database_to_api"
+          - "api_to_ui"
+
+# 6. SCHEDULING CONFIGURATION
+scheduling:
+  database_ingestion:
+    frequency: "0 */6 * * *"  # Every 6 hours
+    startDate: "2024-01-01"
+    endDate: "2024-12-31"
+  
+  api_ingestion:
+    frequency: "0 */2 * * *"  # Every 2 hours
+    startDate: "2024-01-01"
+    endDate: "2024-12-31"
+  
+  scraper_ingestion:
+    frequency: "0 0 * * *"    # Daily at midnight
+    startDate: "2024-01-01"
+    endDate: "2024-12-31"
+  
+  ui_ingestion:
+    frequency: "0 */12 * * *" # Every 12 hours
+    startDate: "2024-01-01"
+    endDate: "2024-12-31"
+  
+  lineage_ingestion:
+    frequency: "0 */4 * * *"  # Every 4 hours
+    startDate: "2024-01-01"
+    endDate: "2024-12-31"
+
+# 7. ERROR HANDLING & RETRY
+error_handling:
+  maxRetries: 3
+  retryDelay: 300  # 5 minutes
+  timeout: 3600    # 1 hour
+  
+  notifications:
+    - type: "email"
+      recipients: ["admin@openpolicy.org"]
+      events: ["failure", "retry"]
+    
+    - type: "webhook"
+      url: "http://api-gateway:8080/webhooks/ingestion-status"
+      events: ["success", "failure", "retry"]
+
+# 8. MONITORING & ALERTS
+monitoring:
+  metrics:
+    - name: "ingestion_success_rate"
+      threshold: 95
+      alert: "Success rate below 95%"
+    
+    - name: "ingestion_duration"
+      threshold: 1800  # 30 minutes
+      alert: "Ingestion taking longer than 30 minutes"
+    
+    - name: "data_freshness"
+      threshold: 86400  # 24 hours
+      alert: "Data older than 24 hours"
+  
+  dashboards:
+    - name: "Ingestion Overview"
+      url: "http://localhost:8585/dashboard/ingestion"
+    
+    - name: "Data Lineage"
+      url: "http://localhost:8585/dashboard/lineage"
+    
+    - name: "Data Quality"
+      url: "http://localhost:8585/dashboard/quality"

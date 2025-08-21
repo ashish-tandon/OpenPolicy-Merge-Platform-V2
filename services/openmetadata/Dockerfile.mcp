@@ -1,0 +1,48 @@
+# MCP Server Extension for OpenMetadata Container
+# This extends the OpenMetadata container with MCP server capabilities
+
+FROM openmetadata/server:1.9.1
+
+# Install Python dependencies for MCP server
+USER root
+RUN apk add --no-cache \
+    python3 \
+    py3-pip \
+    && python3 -m venv /opt/mcp-venv \
+    && . /opt/mcp-venv/bin/activate \
+    && pip install --no-cache-dir \
+    requests \
+    pydantic \
+    fastapi \
+    uvicorn \
+    python-multipart
+
+# Create MCP server directory
+RUN mkdir -p /opt/mcp-server
+WORKDIR /opt/mcp-server
+
+# MCP server dependencies already installed above
+
+# Copy MCP server files
+COPY mcp-server.py /opt/mcp-server/
+
+# Create MCP server startup script
+RUN echo '#!/bin/bash' > /opt/mcp-server/start-mcp.sh && \
+    echo 'echo "🚀 Starting MCP Server..."' >> /opt/mcp-server/start-mcp.sh && \
+    echo 'cd /opt/mcp-server' >> /opt/mcp-server/start-mcp.sh && \
+    echo '. /opt/mcp-venv/bin/activate' >> /opt/mcp-server/start-mcp.sh && \
+    echo 'python mcp-server.py &' >> /opt/mcp-server/start-mcp.sh && \
+    echo 'echo "✅ MCP Server started in background"' >> /opt/mcp-server/start-mcp.sh && \
+    echo 'echo "🚀 Starting OpenMetadata Server..."' >> /opt/mcp-server/start-mcp.sh && \
+    echo 'exec "$@"' >> /opt/mcp-server/start-mcp.sh && \
+    chmod +x /opt/mcp-server/start-mcp.sh
+
+# Switch back to openmetadata user
+USER openmetadata
+
+# Expose MCP server port
+EXPOSE 8084
+
+# Add MCP server startup to entrypoint
+ENTRYPOINT ["/opt/mcp-server/start-mcp.sh"]
+CMD ["/openmetadata-start.sh"]

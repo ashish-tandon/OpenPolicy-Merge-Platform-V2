@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "openmetadata": {
+      "command": "python3",
+      "args": ["-m", "openmetadata.ingestion.mcp.server"],
+      "env": {
+        "OPENMETADATA_SERVER_URL": "http://localhost:8585",
+        "OPENMETADATA_AUTH_TOKEN": "admin",
+        "OPENMETADATA_USERNAME": "admin@open-metadata.org"
+      }
+    }
+  }
+}

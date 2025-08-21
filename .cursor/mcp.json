@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "fetchProxy": {
+      "command": "curl",
+      "args": ["-s", "http://127.0.0.1:8096/servers/fetch/sse"],
+      "env": {}
+    },
+    "homeAssistantProxy": {
+      "command": "curl",
+      "args": ["-s", "http://127.0.0.1:8096/servers/ha/sse"],
+      "env": {}
+    },
+    "openMetadataProxy": {
+      "command": "curl",
+      "args": ["-s", "http://127.0.0.1:8096/servers/openmetadata/sse"],
+      "env": {}
+    }
+  }
+}

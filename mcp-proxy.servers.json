@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "command": "mcp-fetch",
+      "args": [],
+      "env": {}
+    },
+    "ha": {
+      "command": "mcp-homeassistant",
+      "args": [],
+      "env": {}
+    },
+    "openmetadata": {
+      "command": "npx",
+      "args": [
+        "mcp-remote",
+        "--url",
+        "${OPENMETADATA_SERVER}/mcp/sse",
+        "--auth-server-url",
+        "${OPENMETADATA_SERVER}/mcp",
+        "--auth-header",
+        "Authorization: Bearer ${OPENMETADATA_PAT}"
+      ],
+      "env": {}
+    }
+  }
+}

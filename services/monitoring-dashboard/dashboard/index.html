@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenPolicy Platform - System Monitor</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        .status-bar {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem 2rem;
+            margin: 1rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .status-healthy {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+
+        .status-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .status-unknown {
+            background: #e2e3e5;
+            color: #383d41;
+            border: 1px solid #d6d8db;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .card-status {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f8f9fa;
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .metric-value.success { color: #28a745; }
+        .metric-value.warning { color: #ffc107; }
+        .metric-value.danger { color: #dc3545; }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .service-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #dee2e6;
+            transition: all 0.3s ease;
+        }
+
+        .service-item.healthy {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+
+        .service-item.warning {
+            border-left-color: #ffc107;
+            background: #fff3cd;
+        }
+
+        .service-item.error {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .service-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-details {
+            font-size: 0.875rem;
+            color: #6c757d;
+        }
+
+        .refresh-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .refresh-btn:hover {
+            background: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        .refresh-btn:active {
+            transform: translateY(0);
+        }
+
+        .auto-refresh {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .auto-refresh input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .logs-container {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+
+        .log-entry {
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+        }
+
+        .log-entry.info { color: #63b3ed; }
+        .log-entry.warning { color: #f6ad55; }
+        .log-entry.error { color: #fc8181; }
+        .log-entry.success { color: #68d391; }
+
+        .chart-container {
+            height: 200px;
+            margin-top: 1rem;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .status-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><i class="fas fa-tachometer-alt"></i> OpenPolicy Platform Monitor</h1>
+        <div class="subtitle">Real-time system monitoring and health status</div>
+    </div>
+
+    <div class="container">
+        <div class="status-bar">
+            <div class="auto-refresh">
+                <input type="checkbox" id="autoRefresh" checked>
+                <label for="autoRefresh">Auto-refresh every 30s</label>
+            </div>
+            <button class="refresh-btn" onclick="refreshAll()">
+                <i class="fas fa-sync-alt"></i> Refresh Now
+            </button>
+            <div class="status-indicator status-healthy">
+                <i class="fas fa-circle"></i>
+                <span id="overallStatus">Loading...</span>
+            </div>
+        </div>
+
+        <div class="grid">
+            <!-- System Overview Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-server"></i> System Overview
+                    </div>
+                    <div class="card-status status-healthy" id="systemStatus">Healthy</div>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Services</span>
+                    <span class="metric-value" id="totalServices">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Healthy Services</span>
+                    <span class="metric-value success" id="healthyServices">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Warning Services</span>
+                    <span class="metric-value warning" id="warningServices">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Error Services</span>
+                    <span class="metric-value danger" id="errorServices">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Last Updated</span>
+                    <span class="metric-value" id="lastUpdated">-</span>
+                </div>
+            </div>
+
+            <!-- Container Status Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-docker"></i> Container Status
+                    </div>
+                    <div class="card-status status-healthy" id="containerStatus">Healthy</div>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Running Containers</span>
+                    <span class="metric-value success" id="runningContainers">-</span>
+                </div>
+                <div class="metric-label">Stopped Containers</span>
+                    <span class="metric-value warning" id="stoppedContainers">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Restarting Containers</span>
+                    <span class="metric-value danger" id="restartingContainers">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Total Containers</span>
+                    <span class="metric-value" id="totalContainers">-</span>
+                </div>
+            </div>
+
+            <!-- Resource Usage Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-chart-line"></i> Resource Usage
+                    </div>
+                    <div class="card-status status-healthy" id="resourceStatus">Healthy</div>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">CPU Usage</span>
+                    <span class="metric-value" id="cpuUsage">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Memory Usage</span>
+                    <span class="metric-value" id="memoryUsage">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Disk Usage</span>
+                    <span class="metric-value" id="diskUsage">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Network I/O</span>
+                    <span class="metric-value" id="networkIO">-</span>
+                </div>
+            </div>
+
+            <!-- API Health Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">
+                        <i class="fas fa-heartbeat"></i> API Health
+                    </div>
+                    <div class="card-status status-healthy" id="apiStatus">Healthy</div>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">API Gateway</span>
+                    <span class="metric-value" id="apiGatewayStatus">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">User Service</span>
+                    <span class="metric-value" id="userServiceStatus">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">ETL Service</span>
+                    <span class="metric-value" id="etlServiceStatus">-</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Database</span>
+                    <span class="metric-value" id="databaseStatus">-</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Details Grid -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <i class="fas fa-list"></i> Service Details
+                </div>
+            </div>
+            <div class="service-grid" id="serviceGrid">
+                <!-- Services will be populated here -->
+            </div>
+        </div>
+
+        <!-- System Logs -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <i class="fas fa-terminal"></i> System Logs
+                </div>
+            </div>
+            <div class="logs-container" id="logsContainer">
+                <div class="log-entry info">System monitor started...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class SystemMonitor {
+            constructor() {
+                this.autoRefresh = true;
+                this.refreshInterval = null;
+                this.services = [];
+                this.containers = [];
+                this.logs = [];
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+                this.startAutoRefresh();
+                this.refreshAll();
+                this.addLog('info', 'System monitor initialized');
+            }
+
+            setupEventListeners() {
+                document.getElementById('autoRefresh').addEventListener('change', (e) => {
+                    this.autoRefresh = e.target.checked;
+                    if (this.autoRefresh) {
+                        this.startAutoRefresh();
+                    } else {
+                        this.stopAutoRefresh();
+                    }
+                });
+            }
+
+            startAutoRefresh() {
+                if (this.refreshInterval) {
+                    clearInterval(this.refreshInterval);
+                }
+                this.refreshInterval = setInterval(() => {
+                    if (this.autoRefresh) {
+                        this.refreshAll();
+                    }
+                }, 30000); // 30 seconds
+            }
+
+            stopAutoRefresh() {
+                if (this.refreshInterval) {
+                    clearInterval(this.refreshInterval);
+                    this.refreshInterval = null;
+                }
+            }
+
+            async refreshAll() {
+                try {
+                    await Promise.all([
+                        this.refreshContainers(),
+                        this.refreshServices(),
+                        this.refreshResources(),
+                        this.refreshAPIHealth()
+                    ]);
+                    this.updateOverallStatus();
+                    this.updateLastUpdated();
+                } catch (error) {
+                    this.addLog('error', `Error refreshing data: ${error.message}`);
+                }
+            }
+
+            async refreshContainers() {
+                try {
+                    const response = await fetch('/api/containers');
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.containers = data.containers || [];
+                        this.updateContainerMetrics();
+                        this.updateServiceGrid();
+                    }
+                } catch (error) {
+                    // Fallback to mock data for demo
+                    this.containers = this.getMockContainers();
+                    this.updateContainerMetrics();
+                    this.updateServiceGrid();
+                }
+            }
+
+            async refreshServices() {
+                try {
+                    const response = await fetch('/api/services');
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.services = data.services || [];
+                    }
+                } catch (error) {
+                    // Fallback to mock data for demo
+                    this.services = this.getMockServices();
+                }
+            }
+
+            async refreshResources() {
+                try {
+                    const response = await fetch('/api/resources');
+                    if (response.ok) {
+                        const data = await response.json();
+                        this.updateResourceMetrics(data);
+                    }
+                } catch (error) {
+                    // Fallback to mock data for demo
+                    this.updateResourceMetrics(this.getMockResources());
+                }
+            }
+
+            async refreshAPIHealth() {
+                const endpoints = [
+                    { name: 'API Gateway', url: 'http://localhost:8080/healthz' },
+                    { name: 'User Service', url: 'http://localhost:8082/health' },
+                    { name: 'ETL Service', url: 'http://localhost:8086/health' },
+                    { name: 'Database', url: 'http://localhost:5432' }
+                ];
+
+                for (const endpoint of endpoints) {
+                    try {
+                        const response = await fetch(endpoint.url);
+                        const status = response.ok ? 'Healthy' : 'Error';
+                        this.updateAPIStatus(endpoint.name, status);
+                    } catch (error) {
+                        this.updateAPIStatus(endpoint.name, 'Error');
+                    }
+                }
+            }
+
+            updateContainerMetrics() {
+                const running = this.containers.filter(c => c.state === 'running').length;
+                const stopped = this.containers.filter(c => c.state === 'stopped').length;
+                const restarting = this.containers.filter(c => c.state === 'restarting').length;
+                const total = this.containers.length;
+
+                document.getElementById('runningContainers').textContent = running;
+                document.getElementById('stoppedContainers').textContent = stopped;
+                document.getElementById('restartingContainers').textContent = restarting;
+                document.getElementById('totalContainers').textContent = total;
+
+                // Update container status indicator
+                const containerStatus = document.getElementById('containerStatus');
+                if (restarting > 0) {
+                    containerStatus.className = 'card-status status-warning';
+                    containerStatus.textContent = 'Warning';
+                } else if (stopped > 0) {
+                    containerStatus.className = 'card-status status-error';
+                    containerStatus.textContent = 'Error';
+                } else {
+                    containerStatus.className = 'card-status status-healthy';
+                    containerStatus.textContent = 'Healthy';
+                }
+            }
+
+            updateServiceGrid() {
+                const serviceGrid = document.getElementById('serviceGrid');
+                serviceGrid.innerHTML = '';
+
+                this.containers.forEach(container => {
+                    const serviceItem = document.createElement('div');
+                    serviceItem.className = `service-item ${this.getServiceStatusClass(container.state)}`;
+                    
+                    const statusIcon = this.getStatusIcon(container.state);
+                    const statusText = container.state.charAt(0).toUpperCase() + container.state.slice(1);
+                    
+                    serviceItem.innerHTML = `
+                        <div class="service-name">
+                            <i class="${statusIcon}"></i> ${container.name}
+                        </div>
+                        <div class="service-details">
+                            Status: ${statusText}<br>
+                            Port: ${container.ports || 'N/A'}<br>
+                            Image: ${container.image}<br>
+                            Created: ${this.formatDate(container.created)}
+                        </div>
+                    `;
+                    
+                    serviceGrid.appendChild(serviceItem);
+                });
+            }
+
+            updateResourceMetrics(data) {
+                document.getElementById('cpuUsage').textContent = `${data.cpu}%`;
+                document.getElementById('memoryUsage').textContent = `${data.memory}%`;
+                document.getElementById('diskUsage').textContent = `${data.disk}%`;
+                document.getElementById('networkIO').textContent = data.network;
+
+                // Update resource status indicator
+                const resourceStatus = document.getElementById('resourceStatus');
+                if (data.cpu > 80 || data.memory > 80 || data.disk > 80) {
+                    resourceStatus.className = 'card-status status-warning';
+                    resourceStatus.textContent = 'Warning';
+                } else {
+                    resourceStatus.className = 'card-status status-healthy';
+                    resourceStatus.textContent = 'Healthy';
+                }
+            }
+
+            updateAPIStatus(serviceName, status) {
+                const elementId = `${serviceName.toLowerCase().replace(' ', '')}Status`;
+                const element = document.getElementById(elementId);
+                if (element) {
+                    element.textContent = status;
+                    element.className = `metric-value ${status === 'Healthy' ? 'success' : 'danger'}`;
+                }
+            }
+
+            updateOverallStatus() {
+                const totalServices = this.containers.length;
+                const healthyServices = this.containers.filter(c => c.state === 'running').length;
+                const warningServices = this.containers.filter(c => c.state === 'restarting').length;
+                const errorServices = this.containers.filter(c => c.state === 'stopped').length;
+
+                document.getElementById('totalServices').textContent = totalServices;
+                document.getElementById('healthyServices').textContent = healthyServices;
+                document.getElementById('warningServices').textContent = warningServices;
+                document.getElementById('errorServices').textContent = errorServices;
+
+                // Update overall status
+                const overallStatus = document.getElementById('overallStatus');
+                if (errorServices > 0) {
+                    overallStatus.className = 'status-indicator status-error';
+                    overallStatus.innerHTML = '<i class="fas fa-circle"></i> Critical';
+                } else if (warningServices > 0) {
+                    overallStatus.className = 'status-indicator status-warning';
+                    overallStatus.innerHTML = '<i class="fas fa-circle"></i> Warning';
+                } else {
+                    overallStatus.className = 'status-indicator status-healthy';
+                    overallStatus.innerHTML = '<i class="fas fa-circle"></i> Healthy';
+                }
+
+                // Update system status
+                const systemStatus = document.getElementById('systemStatus');
+                if (errorServices > 0) {
+                    systemStatus.className = 'card-status status-error';
+                    systemStatus.textContent = 'Critical';
+                } else if (warningServices > 0) {
+                    systemStatus.className = 'card-status status-warning';
+                    systemStatus.textContent = 'Warning';
+                } else {
+                    systemStatus.className = 'card-status status-healthy';
+                    systemStatus.textContent = 'Healthy';
+                }
+            }
+
+            updateLastUpdated() {
+                const now = new Date();
+                document.getElementById('lastUpdated').textContent = now.toLocaleTimeString();
+            }
+
+            getServiceStatusClass(state) {
+                switch (state) {
+                    case 'running': return 'healthy';
+                    case 'restarting': return 'warning';
+                    case 'stopped': return 'error';
+                    default: return '';
+                }
+            }
+
+            getStatusIcon(state) {
+                switch (state) {
+                    case 'running': return 'fas fa-check-circle';
+                    case 'restarting': return 'fas fa-exclamation-triangle';
+                    case 'stopped': return 'fas fa-times-circle';
+                    default: return 'fas fa-question-circle';
+                }
+            }
+
+            formatDate(dateString) {
+                if (!dateString) return 'N/A';
+                const date = new Date(dateString);
+                return date.toLocaleDateString();
+            }
+
+            addLog(level, message) {
+                const logsContainer = document.getElementById('logsContainer');
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry ${level}`;
+                logEntry.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+                
+                logsContainer.appendChild(logEntry);
+                logsContainer.scrollTop = logsContainer.scrollHeight;
+
+                // Keep only last 100 logs
+                if (logsContainer.children.length > 100) {
+                    logsContainer.removeChild(logsContainer.firstChild);
+                }
+            }
+
+            // Mock data for demo purposes
+            getMockContainers() {
+                return [
+                    {
+                        name: 'mergev2-api-gateway-1',
+                        state: 'running',
+                        image: 'mergev2-api-gateway:latest',
+                        ports: '8080:8000',
+                        created: new Date().toISOString()
+                    },
+                    {
+                        name: 'mergev2-user-service-1',
+                        state: 'running',
+                        image: 'mergev2-user-service:latest',
+                        ports: '8082:8000',
+                        created: new Date().toISOString()
+                    },
+                    {
+                        name: 'mergev2-etl-1',
+                        state: 'running',
+                        image: 'mergev2-etl:latest',
+                        ports: '8086:8083',
+                        created: new Date().toISOString()
+                    },
+                    {
+                        name: 'mergev2-web-ui-1',
+                        state: 'running',
+                        image: 'nginx:alpine',
+                        ports: '3001:80',
+                        created: new Date().toISOString()
+                    },
+                    {
+                        name: 'mergev2-openmetadata-server-1',
+                        state: 'restarting',
+                        image: 'openmetadata/server:1.9.1',
+                        ports: '8585:8585',
+                        created: new Date().toISOString()
+                    },
+                    {
+                        name: 'mergev2-db-1',
+                        state: 'running',
+                        image: 'postgres:15',
+                        ports: '5432:5432',
+                        created: new Date().toISOString()
+                    },
+                    {
+                        name: 'mergev2-redis-1',
+                        state: 'running',
+                        image: 'redis:7-alpine',
+                        ports: '6379:6379',
+                        created: new Date().toISOString()
+                    },
+                    {
+                        name: 'mergev2-elasticsearch-1',
+                        state: 'running',
+                        image: 'elasticsearch:8.11.0',
+                        ports: '9200:9200',
+                        created: new Date().toISOString()
+                    }
+                ];
+            }
+
+            getMockServices() {
+                return [
+                    { name: 'API Gateway', status: 'healthy', port: 8080 },
+                    { name: 'User Service', status: 'healthy', port: 8082 },
+                    { name: 'ETL Service', status: 'healthy', port: 8086 },
+                    { name: 'Web UI', status: 'healthy', port: 3001 },
+                    { name: 'OpenMetadata', status: 'warning', port: 8585 },
+                    { name: 'Database', status: 'healthy', port: 5432 },
+                    { name: 'Redis', status: 'healthy', port: 6379 },
+                    { name: 'Elasticsearch', status: 'healthy', port: 9200 }
+                ];
+            }
+
+            getMockResources() {
+                return {
+                    cpu: Math.floor(Math.random() * 30) + 20, // 20-50%
+                    memory: Math.floor(Math.random() * 40) + 30, // 30-70%
+                    disk: Math.floor(Math.random() * 20) + 15, // 15-35%
+                    network: `${Math.floor(Math.random() * 100) + 50} MB/s`
+                };
+            }
+        }
+
+        // Global functions for HTML onclick
+        function refreshAll() {
+            if (window.systemMonitor) {
+                window.systemMonitor.refreshAll();
+            }
+        }
+
+        // Initialize the monitor when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.systemMonitor = new SystemMonitor();
+        });
+    </script>
+</body>
+</html>

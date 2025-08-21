@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "openmetadata": {
+      "command": "curl",
+      "args": ["-s", "http://localhost:8084/mcp-info"],
+      "env": {
+        "MCP_SERVER_URL": "http://localhost:8084",
+        "MCP_PROXY_PORT": "8085"
+      }
+    }
+  },
+  "proxy": {
+    "port": 8085,
+    "host": "localhost",
+    "target": "http://localhost:8084"
+  }
+}
