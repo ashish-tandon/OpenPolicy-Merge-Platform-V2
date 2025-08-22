@@ -140,15 +140,34 @@ services:
     ports:
       - "8585:8585"
     environment:
+      # PostgreSQL Database Configuration
+      - DB_DRIVER_CLASS=org.postgresql.Driver
+      - DB_SCHEME=postgresql
+      - DB_PARAMS=allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      - DB_USER=openpolicy
+      - DB_USER_PASSWORD=openpolicy
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_USER=openpolicy
-      - DB_PASSWORD=openpolicy
-      - DB_NAME=openmetadata
+      - OM_DATABASE=openmetadata
+      # Elasticsearch Configuration
       - ELASTICSEARCH_HOST=elasticsearch
       - ELASTICSEARCH_PORT=9200
-      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_SCHEME=http
+      - ELASTICSEARCH_USER=elastic
       - ELASTICSEARCH_PASSWORD=changeme
+      # OpenMetadata Configuration
+      - OPENMETADATA_CLUSTER_NAME=openmetadata
+      - SERVER_PORT=8585
+      - LOG_LEVEL=INFO
+      - AUTHORIZER_CLASS_NAME=org.openmetadata.service.security.DefaultAuthorizer
+      - AUTHORIZER_REQUEST_FILTER=org.openmetadata.service.security.JwtFilter
+      - AUTHORIZER_ADMIN_PRINCIPALS=[admin]
+      - AUTHORIZER_ALLOWED_REGISTRATION_DOMAIN=["all"]
+      - AUTHENTICATION_PROVIDER=basic
+      - AUTHENTICATION_RESPONSE_TYPE=id_token
+      - AUTHENTICATION_ENABLE_SELF_SIGNUP=true
+      # Migration Configuration
+      - MIGRATION_LIMIT_PARAM=1200
     volumes:
       - openmetadata_data:/var/log
       - openmetadata_data:/tmp
@@ -157,6 +176,7 @@ services:
       - elasticsearch
     profiles:
       - openmetadata
+
 
   openmetadata-ingestion:
     image: openmetadata/ingestion:1.9.1
@@ -189,6 +209,8 @@ services:
       - db
     profiles:
       - openmetadata
+
+  # MCP Server removed - Cursor will run it directly
 
   # Monitoring Dashboard Service
   monitoring-dashboard:

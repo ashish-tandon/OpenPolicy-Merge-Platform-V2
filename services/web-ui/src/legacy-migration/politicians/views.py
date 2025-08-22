@@ -150,7 +150,7 @@ class PoliticianView(ModelDetailView):
                 pagenum = 1
             try:
                 statement_page = paginator.page(pagenum)
-            except (EmptyPage, InvalidPage):
+            except (EmptyPage as InvalidPage):
                 statement_page = paginator.page(paginator.num_pages)
         else:
             statement_page = None

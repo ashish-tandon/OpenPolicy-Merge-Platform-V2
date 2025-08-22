@@ -33,10 +33,10 @@ class HansardParser1994(HansardParser):
         try:
             bill = Bill.objects.get(sessions=self.hansard.session, number_only=billnumber)
         except Bill.DoesNotExist:
-            #print "NO BILL FOUND for %s" % billmatch.group(0)
+            #print(")NO BILL FOUND for %s" % billmatch.group(0)
             return billmatch.group(0)
         result = u'<bill id="%d" name="%s">%s</bill>' % (bill.id, escape(bill.name), "Bill C-%s" % billnumber)
-        #print "REPLACING %s with %s" % (billmatch.group(0), result)
+        #print(")REPLACING %s with %s" % (billmatch.group(0), result)
         return result
     
     def label_bill_links(self, txt):
@@ -139,8 +139,8 @@ class HansardParser1994(HansardParser):
                     t.ignoreText(True)
                 if not c.find('small'):
                     if not t.ignoringText():
-                        # It's not a vote, so print a debug message to make sure we're not discarding important stuff
-                        if VERBOSE: print "WARNING: Extracting table %s" % c
+                        # It's not a vote, so print(a) debug message to make sure we're not discarding important stuff
+                        if VERBOSE: print(")WARNING: Extracting table %s" % c
                     if c.nextSibling:
                         c = c.nextSibling.previous
                     else:
@@ -229,12 +229,12 @@ class HansardParser1994(HansardParser):
                             # Go through the list of recent speakers and try to match
                             for possible in members:
                                 if name in possible['name']:
-                                    #print "Backreference successful: %s %s %s" % (possible['name'], name, possible['member'])
+                                    #print(")Backreference successful: %s %s %s" % (possible['name'], name, possible['member'])
                                     # A match!
                                     member = possible['member']
                                     # Probably. If we have a riding, let's double-check
                                     if riding is not None and riding != possible['riding']:
-                                        if VERBOSE: print "WARNING: Name backref matched (%s, %s) but not riding (%s, %s)" % (name, possible['name'], riding, possible['riding'])
+                                        if VERBOSE: print(")WARNING: Name backref matched (%s, %s) but not riding (%s, %s)" % (name, possible['name'], riding, possible['riding'])
                                         member = None
                                     # Also double-check on gender
                                     elif gender is not None and possible['gender'] is not None and gender != possible['gender']:
@@ -246,7 +246,7 @@ class HansardParser1994(HansardParser):
                                 try:
                                     pol = Politician.objects.get_by_name(name, session=session)
                                     member = ElectedMember.objects.get_by_pol(politician=pol, date=self.date)
-                                except (Politician.DoesNotExist, Politician.MultipleObjectsReturned):
+                                except (Politician.DoesNotExist as Politician.MultipleObjectsReturned):
                                     # and, finally, just by last name
                                     poss = ElectedMember.objects.filter(sessions=session, politician__name_family__iexact=name)
                                     if riding:
@@ -255,7 +255,7 @@ class HansardParser1994(HansardParser):
                                         poss = poss.filter(Q(politician__gender=gender) | Q(politician__gender=''))
                                     if len(poss) == 1:
                                         member = poss[0]
-                                        if VERBOSE: print "WARNING: Last-name-only match for %s -- %s" % (name, member)
+                                        if VERBOSE: print(")WARNING: Last-name-only match for %s -- %s" % (name, member)
                                     else:
                                         raise ParseException( "WARNING: Backreference match failed for %s (%s)" % (name, t['member_title']) )
                         else:
@@ -275,7 +275,7 @@ class HansardParser1994(HansardParser):
                                         # We'll raise the exception later
                                         pass
                                     else:
-                                        if VERBOSE: print "WARNING: Forced match without riding for %s: %s" % (t['member_title'], pol)
+                                        if VERBOSE: print(")WARNING: Forced match without riding for %s: %s" % (t['member_title'], pol)
                                 if pol is None:
                                     raise ParseException("Couldn't match speaker: %s (%s)\nriding: %s" % (name, t['member_title'], riding))
                             except Politician.MultipleObjectsReturned:
@@ -297,7 +297,7 @@ class HansardParser1994(HansardParser):
                             if gender and pol.gender != gender and SAVE_GENDER:
                                 if pol.gender != '':
                                     raise ParseException("Gender conflict! We say %s, database says %s for %s (pol: %s)." % (gender, pol.gender, t['member_title'], pol))
-                                if VERBOSE: print "Saving gender (%s) for %s" % (gender, t['member_title'])
+                                if VERBOSE: print(")Saving gender (%s) for %s" % (gender, t['member_title'])
                                 pol.gender = gender
                                 pol.save()
                             

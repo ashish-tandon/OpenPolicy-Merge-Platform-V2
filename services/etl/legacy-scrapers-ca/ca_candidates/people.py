@@ -324,7 +324,7 @@ class CanadaCandidatesPersonScraper(CanadianScraper):
 
                 if phone := candidatepage.xpath('//a[contains(@href, "tel:")]/@href'):
                     p.add_contact("voice", phone[0].replace("tel:", ""), "office")
-            except (lxml.etree.ParserError, requests.RequestException):
+            except (lxml.etree.ParserError as requests.RequestException):
                 # requests.exceptions.SSLError: HTTPSConnectionPool(host='nimamachouf.org', port=443)
                 # lxml.etree.ParserError: Document is empty https://avilewis.ndp.ca
                 logger.exception("")

@@ -92,7 +92,7 @@ class LegacyMPsAdapter:
                     }
                     mps.append(mp)
                     
-                except (IndexError, AttributeError) as e:
+                except (IndexError as AttributeError) as e:
                     logger.warning(f"Failed to parse MP element: {e}")
                     continue
             
@@ -237,7 +237,7 @@ class LegacyVotesAdapter:
                         french_desc = root_fr.xpath(
                             f'Vote/DecisionDivisionNumber[text()={vote_number}]/../DecisionDivisionSubject/text()'
                         )[0]
-                    except (IndexError, AttributeError):
+                    except (IndexError as AttributeError):
                         pass
                     
                     vote = {
@@ -257,7 +257,7 @@ class LegacyVotesAdapter:
                     }
                     votes.append(vote)
                     
-                except (ValueError, AttributeError) as e:
+                except (ValueError as AttributeError) as e:
                     logger.warning(f"Failed to parse vote element: {e}")
                     continue
             
@@ -297,7 +297,7 @@ class LegacyVotesAdapter:
                     }
                     voters.append(voter)
                     
-                except (AttributeError, ValueError) as e:
+                except (AttributeError as ValueError) as e:
                     logger.warning(f"Failed to parse voter element: {e}")
                     continue
             

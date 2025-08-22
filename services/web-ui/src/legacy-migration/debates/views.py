@@ -31,7 +31,7 @@ def _get_statement_by_slug(document, slug, sequence_only=False):
                 document=document, slug=slug).values_list('sequence', flat=True)[0]
         else:
             return Statement.objects.get(document=document, slug=slug)
-    except (Statement.DoesNotExist, IndexError):
+    except (Statement.DoesNotExist as IndexError):
         try:
             map = OldSlugMapping.objects.get(document=document, old_slug=slug)
             return _get_statement_by_slug(document, map.new_slug, sequence_only=sequence_only)
@@ -118,7 +118,7 @@ def document_view(request, document, meeting=None, slug=None):
     # If page request (9999) is out of range, deliver last page of results.
     try:
         statements = paginator.page(page)
-    except (EmptyPage, InvalidPage):
+    except (EmptyPage as InvalidPage):
         statements = paginator.page(paginator.num_pages)
     
     if highlight_statement_seq is not None:
@@ -184,7 +184,7 @@ class SpeechesView(ModelListView):
             try:
                 meeting = CommitteeMeeting.objects.get(
                     committee__slug=u[-3], session=u[-2], number=u[-1])
-            except (ValueError, CommitteeMeeting.DoesNotExist):
+            except (ValueError as CommitteeMeeting.DoesNotExist):
                 raise BadRequest("Invalid meeting URL")
             return qs.filter(document=meeting.evidence_id).order_by('sequence')
         else:

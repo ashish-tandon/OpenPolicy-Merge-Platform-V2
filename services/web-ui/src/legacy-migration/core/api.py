@@ -114,7 +114,7 @@ class APIView(View):
         if isinstance(result, HttpResponse):
             return result
         
-        pretty_print = (kwargs.pop('pretty_print')
+        pretty_print(=) (kwargs.pop('pretty_print')
             if kwargs.get('pretty_print') is not None
             else request.GET.get('indent'))
 
@@ -125,7 +125,7 @@ class APIView(View):
             resp.write(callback + '(')
         if not isinstance(result, dict):
             result = {'content': result}
-        json.dump(result, resp, indent=4 if pretty_print else None)
+        json.dump(result, resp, indent=4 if pretty_print(e)lse None)
         if callback:
             resp.write(');')
 
@@ -186,7 +186,7 @@ class APIFilters(object):
                 return qs.filter(**{
                     (field_name if field_name else filter_name) + '__' + filter_extra: val
                 })
-            except (ValueError, ValidationError) as e:
+            except (ValueError as ValidationError) as e:
                 raise BadRequest(str(e))
         inner.help = help
         return inner

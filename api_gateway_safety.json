@@ -1,0 +1,617 @@
+
+
++===========================================================================================================================================================================================+
+
+
+DEPRECATED: this command (`check`) has been DEPRECATED, and will be unsupported beyond 01 June 2024.
+
+
+We highly encourage switching to the new `scan` command which is easier to use, more powerful, and can be set up to mimic the deprecated command if required.
+
+
++===========================================================================================================================================================================================+
+
+
+{
+    "report_meta": {
+        "scan_target": "files",
+        "scanned": [
+            "./services/api-gateway/requirements.txt"
+        ],
+        "scanned_full_path": [
+            "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+        ],
+        "target_languages": [
+            "python"
+        ],
+        "policy_file": null,
+        "policy_file_source": "local",
+        "audit_and_monitor": false,
+        "api_key": false,
+        "account": "",
+        "local_database_path": null,
+        "safety_version": "3.6.0",
+        "timestamp": "2025-08-21 18:29:03",
+        "packages_found": 16,
+        "vulnerabilities_found": 3,
+        "vulnerabilities_ignored": 0,
+        "remediations_recommended": 0,
+        "telemetry": {
+            "safety_options": {
+                "files": {
+                    "-r": 1
+                },
+                "output": {
+                    "--output": 1
+                }
+            },
+            "safety_version": "3.6.0",
+            "safety_source": "cli",
+            "os_type": "Darwin",
+            "os_release": "24.6.0",
+            "os_description": "macOS-15.7-arm64-arm-64bit-Mach-O",
+            "python_version": "3.13.5",
+            "safety_command": "check"
+        },
+        "git": {
+            "branch": "main",
+            "tag": "",
+            "commit": "763e62eabc7f565cdb6fb246be398b4256d69d95",
+            "dirty": "True",
+            "origin": "https://github.com/ashish-tandon/OpenPolicy-Merge-Platform-V2.git"
+        },
+        "project": null,
+        "json_version": "1.1",
+        "remediations_attempted": 0,
+        "remediations_completed": 0,
+        "remediation_mode": "NON_INTERACTIVE"
+    },
+    "scanned_packages": {
+        "fastapi": {
+            "name": "fastapi",
+            "version": "0.115.0",
+            "requirements": [
+                {
+                    "raw": "fastapi==0.115.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "fastapi",
+                    "specifier": "==0.115.0",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "uvicorn": {
+            "name": "uvicorn",
+            "version": "0.32.0",
+            "requirements": [
+                {
+                    "raw": "uvicorn[standard]==0.32.0",
+                    "extras": [
+                        "standard"
+                    ],
+                    "marker": null,
+                    "name": "uvicorn",
+                    "specifier": "==0.32.0",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "pydantic": {
+            "name": "pydantic",
+            "version": "2.10.0",
+            "requirements": [
+                {
+                    "raw": "pydantic==2.10.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pydantic",
+                    "specifier": "==2.10.0",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "pydantic-settings": {
+            "name": "pydantic-settings",
+            "version": "2.6.0",
+            "requirements": [
+                {
+                    "raw": "pydantic-settings==2.6.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pydantic-settings",
+                    "specifier": "==2.6.0",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "sqlalchemy": {
+            "name": "sqlalchemy",
+            "version": "2.0.23",
+            "requirements": [
+                {
+                    "raw": "sqlalchemy==2.0.23",
+                    "extras": [],
+                    "marker": null,
+                    "name": "sqlalchemy",
+                    "specifier": "==2.0.23",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "alembic": {
+            "name": "alembic",
+            "version": "1.13.1",
+            "requirements": [
+                {
+                    "raw": "alembic==1.13.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "alembic",
+                    "specifier": "==1.13.1",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "psycopg": {
+            "name": "psycopg",
+            "version": "3.2.9",
+            "requirements": [
+                {
+                    "raw": "psycopg[binary]==3.2.9",
+                    "extras": [
+                        "binary"
+                    ],
+                    "marker": null,
+                    "name": "psycopg",
+                    "specifier": "==3.2.9",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "httpx": {
+            "name": "httpx",
+            "version": "0.25.2",
+            "requirements": [
+                {
+                    "raw": "httpx==0.25.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "httpx",
+                    "specifier": "==0.25.2",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "python-multipart": {
+            "name": "python-multipart",
+            "version": "0.0.6",
+            "requirements": [
+                {
+                    "raw": "python-multipart==0.0.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "python-multipart",
+                    "specifier": "==0.0.6",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "python-dateutil": {
+            "name": "python-dateutil",
+            "version": "2.8.2",
+            "requirements": [
+                {
+                    "raw": "python-dateutil==2.8.2",
+                    "extras": [],
+                    "marker": null,
+                    "name": "python-dateutil",
+                    "specifier": "==2.8.2",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "pytz": {
+            "name": "pytz",
+            "version": "2023.3",
+            "requirements": [
+                {
+                    "raw": "pytz==2023.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pytz",
+                    "specifier": "==2023.3",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "pytest": {
+            "name": "pytest",
+            "version": "7.4.3",
+            "requirements": [
+                {
+                    "raw": "pytest==7.4.3",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pytest",
+                    "specifier": "==7.4.3",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "pytest-asyncio": {
+            "name": "pytest-asyncio",
+            "version": "0.21.1",
+            "requirements": [
+                {
+                    "raw": "pytest-asyncio==0.21.1",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pytest-asyncio",
+                    "specifier": "==0.21.1",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "pytest-cov": {
+            "name": "pytest-cov",
+            "version": "4.1.0",
+            "requirements": [
+                {
+                    "raw": "pytest-cov==4.1.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "pytest-cov",
+                    "specifier": "==4.1.0",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "ruff": {
+            "name": "ruff",
+            "version": "0.1.6",
+            "requirements": [
+                {
+                    "raw": "ruff==0.1.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "ruff",
+                    "specifier": "==0.1.6",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        },
+        "black": {
+            "name": "black",
+            "version": "23.11.0",
+            "requirements": [
+                {
+                    "raw": "black==23.11.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "black",
+                    "specifier": "==23.11.0",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ]
+        }
+    },
+    "affected_packages": {
+        "black": {
+            "name": "black",
+            "version": "23.11.0",
+            "requirements": [
+                {
+                    "raw": "black==23.11.0",
+                    "extras": [],
+                    "marker": null,
+                    "name": "black",
+                    "specifier": "==23.11.0",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ],
+            "found": null,
+            "insecure_versions": [
+                "18.3a0",
+                "18.3a1",
+                "18.3a2",
+                "18.3a3",
+                "18.3a4",
+                "18.4a0",
+                "18.4a1",
+                "18.4a2",
+                "18.4a3",
+                "18.4a4",
+                "18.5b0",
+                "18.5b1",
+                "18.6b0",
+                "18.6b1",
+                "18.6b2",
+                "18.6b3",
+                "18.6b4",
+                "18.9b0",
+                "19.10b0",
+                "19.3b0",
+                "20.8b0",
+                "20.8b1",
+                "21.10b0",
+                "21.11b0",
+                "21.11b1",
+                "21.12b0",
+                "21.4b0",
+                "21.4b1",
+                "21.4b2",
+                "21.5b0",
+                "21.5b1",
+                "21.5b2",
+                "21.6b0",
+                "21.7b0",
+                "21.8b0",
+                "21.9b0",
+                "22.1.0",
+                "22.10.0",
+                "22.12.0",
+                "22.3.0",
+                "22.6.0",
+                "22.8.0",
+                "23.1.0",
+                "23.10.0",
+                "23.10.1",
+                "23.11.0",
+                "23.12.0",
+                "23.12.1",
+                "23.1a1",
+                "23.3.0",
+                "23.7.0",
+                "23.9.0",
+                "23.9.1",
+                "24.1.0",
+                "24.1.1",
+                "24.1a1",
+                "24.2.0"
+            ],
+            "secure_versions": [
+                "25.1.0",
+                "24.10.0",
+                "24.8.0",
+                "24.4.2",
+                "24.4.1",
+                "24.4.0",
+                "24.3.0"
+            ],
+            "latest_version_without_known_vulnerabilities": "25.1.0",
+            "latest_version": "25.1.0",
+            "more_info_url": "https://data.safetycli.com/p/pypi/black/97c/"
+        },
+        "python-multipart": {
+            "name": "python-multipart",
+            "version": "0.0.6",
+            "requirements": [
+                {
+                    "raw": "python-multipart==0.0.6",
+                    "extras": [],
+                    "marker": null,
+                    "name": "python-multipart",
+                    "specifier": "==0.0.6",
+                    "url": null,
+                    "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                }
+            ],
+            "found": null,
+            "insecure_versions": [
+                "0.0.1",
+                "0.0.10",
+                "0.0.11",
+                "0.0.12",
+                "0.0.13",
+                "0.0.14",
+                "0.0.15",
+                "0.0.16",
+                "0.0.17",
+                "0.0.2",
+                "0.0.3",
+                "0.0.4",
+                "0.0.5",
+                "0.0.6",
+                "0.0.7",
+                "0.0.8",
+                "0.0.9"
+            ],
+            "secure_versions": [
+                "0.0.20",
+                "0.0.19",
+                "0.0.18"
+            ],
+            "latest_version_without_known_vulnerabilities": "0.0.20",
+            "latest_version": "0.0.20",
+            "more_info_url": "https://data.safetycli.com/p/pypi/python-multipart/97c/"
+        }
+    },
+    "announcements": [],
+    "vulnerabilities": [
+        {
+            "vulnerability_id": "66742",
+            "package_name": "black",
+            "ignored": {},
+            "ignored_reason": null,
+            "ignored_expires": null,
+            "vulnerable_spec": [
+                "<24.3.0"
+            ],
+            "all_vulnerable_specs": [
+                "<24.3.0"
+            ],
+            "analyzed_version": "23.11.0",
+            "analyzed_requirement": {
+                "raw": "black==23.11.0",
+                "extras": [],
+                "marker": null,
+                "name": "black",
+                "specifier": "==23.11.0",
+                "url": null,
+                "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+            },
+            "advisory": "Affected versions of Black are vulnerable to Regular Expression Denial of Service (ReDoS) via the lines_with_leading_tabs_expanded function in the strings.py file. An attacker could exploit this vulnerability by crafting a malicious input that causes a denial of service.",
+            "is_transitive": false,
+            "published_date": null,
+            "fixed_versions": [],
+            "closest_versions_without_known_vulnerabilities": [],
+            "resources": [],
+            "CVE": "CVE-2024-21503",
+            "severity": null,
+            "affected_versions": [],
+            "more_info_url": "https://data.safetycli.com/v/66742/97c"
+        },
+        {
+            "vulnerability_id": "74427",
+            "package_name": "python-multipart",
+            "ignored": {},
+            "ignored_reason": null,
+            "ignored_expires": null,
+            "vulnerable_spec": [
+                "<0.0.18"
+            ],
+            "all_vulnerable_specs": [
+                "<0.0.18"
+            ],
+            "analyzed_version": "0.0.6",
+            "analyzed_requirement": {
+                "raw": "python-multipart==0.0.6",
+                "extras": [],
+                "marker": null,
+                "name": "python-multipart",
+                "specifier": "==0.0.6",
+                "url": null,
+                "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+            },
+            "advisory": "Affected versions of python-multipart are vulnerable to Allocation of Resources Without Limits or Throttling (CWE-770). An attacker can send specially crafted multipart/form-data requests containing excessive CR (\\r) or LF (\\n) characters before the first boundary or after the last boundary. This can lead to uncontrolled CPU usage and high memory consumption, causing the processing thread or event loop in ASGI applications to stall, resulting in a denial of service (DoS). The vulnerability exists in the MultipartParser's handling of line breaks around boundaries, where it processes each CRLF byte individually and logs warnings for each occurrence. To exploit this, an attacker simply needs to send large amounts of malformed multipart data with numerous CRLF characters. Upgrading to version 0.0.19 resolves this issue by preventing excessive resource allocation and logging when CRLF bytes are present.",
+            "is_transitive": false,
+            "published_date": null,
+            "fixed_versions": [],
+            "closest_versions_without_known_vulnerabilities": [],
+            "resources": [],
+            "CVE": "CVE-2024-53981",
+            "severity": null,
+            "affected_versions": [],
+            "more_info_url": "https://data.safetycli.com/v/74427/97c"
+        },
+        {
+            "vulnerability_id": "66706",
+            "package_name": "python-multipart",
+            "ignored": {},
+            "ignored_reason": null,
+            "ignored_expires": null,
+            "vulnerable_spec": [
+                ">=0,<0.0.7"
+            ],
+            "all_vulnerable_specs": [
+                ">=0,<0.0.7"
+            ],
+            "analyzed_version": "0.0.6",
+            "analyzed_requirement": {
+                "raw": "python-multipart==0.0.6",
+                "extras": [],
+                "marker": null,
+                "name": "python-multipart",
+                "specifier": "==0.0.6",
+                "url": null,
+                "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+            },
+            "advisory": "A vulnerability in versions of python-multipart before 0.0.7 involves a Regular Expression Denial of Service (ReDoS) triggered by custom Content-Type headers. This issue allows an attacker to cause a significant consumption of system resources while processing such headers, effectively preventing the processing of other requests. This ReDoS vulnerability stems from the way regular expressions evaluate certain input patterns, which can lead to extensive backtracking, thereby causing the application to slow down significantly, consuming a disproportionate amount of CPU time and facilitating a denial of service condition.",
+            "is_transitive": false,
+            "published_date": null,
+            "fixed_versions": [],
+            "closest_versions_without_known_vulnerabilities": [],
+            "resources": [],
+            "CVE": null,
+            "severity": null,
+            "affected_versions": [],
+            "more_info_url": "https://data.safetycli.com/v/66706/97c"
+        }
+    ],
+    "ignored_vulnerabilities": [],
+    "remediations": {
+        "black": {
+            "requirements": {
+                "==23.11.0": {
+                    "vulnerabilities_found": 1,
+                    "version": "23.11.0",
+                    "requirement": {
+                        "raw": "black==23.11.0",
+                        "extras": [],
+                        "marker": null,
+                        "name": "black",
+                        "specifier": "==23.11.0",
+                        "url": null,
+                        "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                    },
+                    "more_info_url": "https://data.safetycli.com/p/pypi/black/97c/"
+                }
+            },
+            "current_version": null,
+            "vulnerabilities_found": null,
+            "recommended_version": null,
+            "other_recommended_versions": [],
+            "more_info_url": null
+        },
+        "python-multipart": {
+            "requirements": {
+                "==0.0.6": {
+                    "vulnerabilities_found": 2,
+                    "version": "0.0.6",
+                    "requirement": {
+                        "raw": "python-multipart==0.0.6",
+                        "extras": [],
+                        "marker": null,
+                        "name": "python-multipart",
+                        "specifier": "==0.0.6",
+                        "url": null,
+                        "found": "/Users/ashishtandon/Github/Merge V2/services/api-gateway/requirements.txt"
+                    },
+                    "more_info_url": "https://data.safetycli.com/p/pypi/python-multipart/97c/"
+                }
+            },
+            "current_version": null,
+            "vulnerabilities_found": null,
+            "recommended_version": null,
+            "other_recommended_versions": [],
+            "more_info_url": null
+        }
+    },
+    "remediations_results": {
+        "vulnerabilities_fixed": [],
+        "remediations_applied": {},
+        "remediations_skipped": {}
+    }
+}
+
+
++===========================================================================================================================================================================================+
+
+
+DEPRECATED: this command (`check`) has been DEPRECATED, and will be unsupported beyond 01 June 2024.
+
+
+We highly encourage switching to the new `scan` command which is easier to use, more powerful, and can be set up to mimic the deprecated command if required.
+
+
++===========================================================================================================================================================================================+
+
+

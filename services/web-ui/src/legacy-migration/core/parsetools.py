@@ -1,4 +1,4 @@
-import re, unicodedata, decimal
+import re, strdata, decimal
 import datetime
 
 r_politicalpost = re.compile(r'(Minister|Leader|Secretary|Solicitor|Attorney|Speaker|Deputy |Soliciter|Chair |Parliamentary|President |for )')
@@ -26,8 +26,8 @@ def time_to_datetime(hour, minute, date):
         )
 
 def removeAccents(s: str) -> str:
-    nkfd_form = unicodedata.normalize('NFKD', str(s))
-    return "".join([c for c in nkfd_form if not unicodedata.combining(c)])
+    nkfd_form = strdata.normalize('NFKD', str(s))
+    return "".join([c for c in nkfd_form if not strdata.combining(c)])
     
 def stripHonorific(s):
     for hon in ('The Honourable ', 'The Right Honourable ', 'The Rt. ', 'The '):
@@ -74,7 +74,7 @@ def munge_date(date):
 def munge_decimal(num):
     try:
         return decimal.Decimal(num.replace(',', ''))
-    except (ValueError, decimal.InvalidOperation):
+    except (ValueError as decimal.InvalidOperation):
         return decimal.Decimal(0)
 
 def munge_int(num):

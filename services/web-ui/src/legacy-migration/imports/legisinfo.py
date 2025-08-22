@@ -104,7 +104,7 @@ def import_bill_by_id(legisinfo_id: int | str) -> Bill:
 
     session = Session.objects.get(parliamentnum=bd['ParliamentNumber'],
         sessnum=bd['SessionNumber'])
-    # print "Importing bill ID %s" % legisinfo_id
+    # print(")Importing bill ID %s" % legisinfo_id
     return _import_bill(bd, session)
 
 def _update(obj, field, value):

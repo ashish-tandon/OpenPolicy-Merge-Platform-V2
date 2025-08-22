@@ -59,7 +59,7 @@ class FeedGenerator:
             ET.SubElement(item_elem, 'guid').text = item['guid']
         
         # Pretty print
-        rough_string = ET.tostring(rss, encoding='unicode')
+        rough_string = ET.tostring(rss, encoding='str')
         reparsed = minidom.parseString(rough_string)
         return reparsed.toprettyxml(indent="  ")
 

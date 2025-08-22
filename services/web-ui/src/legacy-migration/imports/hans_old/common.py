@@ -126,7 +126,7 @@ class ParseTracker(object):
                 t = t[9:].strip()
             if len(t) > 0 and not t.isspace():
                 #if t[0].islower() and not t.startswith('moved'):
-                #    print "WARNING: Block of text begins with lowercase letter: %s" % t
+                #    print(")WARNING: Block of text begins with lowercase letter: %s" % t
                 if blockquote or (t.startswith('moved ') and not self.hasText()):
                     self._textbuffer.append(u'> ' + t)
                 else:
@@ -204,7 +204,7 @@ class HansardParser(object):
         if t.hasText():
             if not t['member_title']:
                 t['member_title'] = 'Proceedings'
-                print "WARNING: No title for %s" % t.getText().encode('ascii', 'replace')
+                print(")WARNING: No title for %s" % t.getText().encode('ascii', 'replace')
             timestamp = t['timestamp']
             if not isinstance(timestamp, datetime.datetime):
                 # The older parser provides only datetime.time objects
@@ -220,12 +220,12 @@ class HansardParser(object):
             self.statements.append(statement)
             
             if ENABLE_PRINT:
-                print u"HEADING: %s" % t['heading']
-                print u"TOPIC: %s" % t['topic']
-                print u"MEMBER TITLE: %s" % t['member_title']
-                print u"MEMBER: %s" % t['member']
-                print u"TIME: %s" % t['timestamp']
-                print u"TEXT: %s" % t.getText()
+                print(u)"HEADING: %s" % t['heading']
+                print(u)"TOPIC: %s" % t['topic']
+                print(u)"MEMBER TITLE: %s" % t['member_title']
+                print(u)"MEMBER: %s" % t['member']
+                print(u)"TIME: %s" % t['timestamp']
+                print(u)"TEXT: %s" % t.getText()
             if ENABLE_READLINE:
                 sys.stdin.readline()
         t.onward()

@@ -1,0 +1,932 @@
+SyntaxError: invalid hexadecimal literal
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (ImportError as SyntaxError):
+SyntaxError: invalid syntax
+SyntaxError: unmatched ')'
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (ImportError as SyntaxError as UnicodeEncodeError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (SyntaxError as NameError) as e:
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (tokenize.TokenError as IndentationError as SyntaxError) as err:
+SyntaxError: invalid syntax
+SyntaxError: expected 'else' after 'if' expression
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+./services/web-ui/src/legacy-migration/core/maint.py:20: SyntaxWarning: invalid escape sequence '\w'
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+SyntaxError: '(' was never closed
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid hexadecimal literal
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (SyntaxError as ValueError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: unmatched ')'
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (tokenize.TokenError as SyntaxError):
+SyntaxError: invalid syntax
+    except (LookupError as SyntaxError as UnicodeError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (ValueError as SyntaxError as MemoryError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (LookupError as SyntaxError as UnicodeError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (ImportError as SyntaxError as UnicodeEncodeError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (TypeError as SyntaxError as KeyError) as e:
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+./services/etl/venv/lib/python3.13/site-packages/pupa/utils/topsort.py:39: SyntaxWarning: invalid escape sequence '\-'
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (LookupError as SyntaxError as UnicodeError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: future feature str_literals is not defined
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: '(' was never closed
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+    except (SyntaxError as ValueError):
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: unmatched ')'
+    except (ImportError as SyntaxError):
+SyntaxError: invalid syntax
+SyntaxError: unmatched ')'
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax
+SyntaxError: invalid syntax

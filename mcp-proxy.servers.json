@@ -1,27 +1,45 @@
 {
   "mcpServers": {
     "fetch": {
-      "command": "mcp-fetch",
-      "args": [],
-      "env": {}
+      "enabled": true,
+      "timeout": 60,
+      "command": "/opt/homebrew/bin/uvx",
+      "args": [
+        "mcp-server-fetch"
+      ],
+      "transportType": "stdio"
     },
     "ha": {
-      "command": "mcp-homeassistant",
-      "args": [],
-      "env": {}
+      "enabled": true,
+      "timeout": 60,
+      "command": "/opt/homebrew/bin/uvx",
+      "args": [
+        "mcp-server-fetch",
+        "--user-agent",
+        "CursorMCP-HA",
+        "--ignore-robots-txt"
+      ],
+      "env": {
+        "HOME_ASSISTANT_TOKEN": "${HOME_ASSISTANT_TOKEN}",
+        "HOME_ASSISTANT_CLOUD_URL": "${HOME_ASSISTANT_CLOUD_URL}",
+        "HOME_ASSISTANT_LOCAL_URL": "${HOME_ASSISTANT_LOCAL_URL}"
+      },
+      "transportType": "stdio"
     },
     "openmetadata": {
-      "command": "npx",
+      "enabled": true,
+      "timeout": 60,
+      "command": "python3",
       "args": [
-        "mcp-remote",
-        "--url",
-        "${OPENMETADATA_SERVER}/mcp/sse",
-        "--auth-server-url",
-        "${OPENMETADATA_SERVER}/mcp",
-        "--auth-header",
-        "Authorization: Bearer ${OPENMETADATA_PAT}"
+        "mcp-openmetadata-server.py"
       ],
-      "env": {}
+      "env": {
+        "OPENMETADATA_SERVER_URL": "http://localhost:8585",
+        "OPENMETADATA_AUTH_TOKEN": "admin",
+        "OPENMETADATA_USERNAME": "admin@open-metadata.org"
+      },
+      "transportType": "stdio"
     }
   }
 }
+

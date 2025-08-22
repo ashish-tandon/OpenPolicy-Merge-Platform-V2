@@ -24,7 +24,7 @@ class DatetimeValidator:
         if isinstance(value, str):
             try:
                 return date_parser.parse(value)
-            except (ValueError, TypeError):
+            except (ValueError as TypeError):
                 return None
         
         return None

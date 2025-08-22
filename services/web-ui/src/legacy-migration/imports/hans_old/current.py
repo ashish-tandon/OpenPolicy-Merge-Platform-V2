@@ -27,7 +27,7 @@ class HansardParser2009(HansardParser):
             x.findParent('div').extract()
             
     def process_related_link(self, tag, string, current_politician=None):
-        #print "PROCESSING RELATED for %s" % string
+        #print(")PROCESSING RELATED for %s" % string
         resid = re.search(r'ResourceID=(\d+)', tag['href'])
         restype = re.search(r'ResourceType=(Document|Affiliation)', tag['href'])
         if not resid and restype:
@@ -43,16 +43,16 @@ class HansardParser2009(HansardParser):
                     return string
                 bill = Bill.objects.create_temporary_bill(legisinfo_id=resid,
                     number=match.group(0), session=self.hansard.session)
-            except Exception, e:
-                print "Related bill search failed for callback %s" % resid
-                print repr(e)
+            except Exception as e:
+                print(")Related bill search failed for callback %s" % resid
+                print(r)epr(e)
                 return string
             return u'<bill id="%d" name="%s">%s</bill>' % (bill.id, escape(bill.name), string)
         elif restype == 'Affiliation':
             try:
                 pol = Politician.objects.getByParlID(resid)
             except Politician.DoesNotExist:
-                print "Related politician search failed for callback %s" % resid
+                print(")Related politician search failed for callback %s" % resid
                 if getattr(settings, 'PARLIAMENT_LABEL_FAILED_CALLBACK', False):
                     # FIXME migrate away from internalxref?
                     InternalXref.objects.get_or_create(schema='pol_parlid', int_value=resid, target_id=-1)
@@ -67,7 +67,7 @@ class HansardParser2009(HansardParser):
             if string.parent.name == 'a' and string.parent['class'] == 'WebOption':
                 text += self.process_related_link(string.parent, string, self.t['politician'])
             else:
-                text += unicode(string)
+                text += str(string)
         return text
         
     def parse(self):
@@ -121,7 +121,7 @@ class HansardParser2009(HansardParser):
             elif c.name == 'h4':
                 if c.string == 'APPENDIX':
                     self.saveStatement(t)
-                    print "Appendix reached -- we're done!"
+                    print(")Appendix reached -- we're done!"
                     break
             # Timestamp
             elif c.name == 'a' and c.has_key('name') and c['name'].startswith('T'):
@@ -149,12 +149,12 @@ class HansardParser2009(HansardParser):
                         t['politician'] = pol
                         t['member'] = ElectedMember.objects.get_by_pol(politician=pol, date=self.date)
                     except Politician.DoesNotExist:
-                        print "WARNING: No name match for %s" % polname
+                        print(")WARNING: No name match for %s" % polname
                     except Politician.MultipleObjectsReturned:
-                        print "WARNING: Multiple pols for %s" % polname
+                        print(")WARNING: Multiple pols for %s" % polname
                 else:
                     if not c.string.startswith('Question'):
-                        print "WARNING: Unexplained boldness: %s" % c.string
+                        print(")WARNING: Unexplained boldness: %s" % c.string
                 
             # div -- the biggie
             elif c.name == 'div':
@@ -181,9 +181,9 @@ class HansardParser2009(HansardParser):
                                     if match:
                                         polname = re.sub(r'\(.+\)', '', match.group(2)).strip()
                                         try:
-                                            #print "Looking for %s..." % polname,
+                                            #print(")Looking for %s..." % polname,
                                             pol = Politician.objects.get_by_name(polname, session=self.hansard.session)
-                                            #print "found."
+                                            #print(")found."
                                         except Politician.DoesNotExist:
                                             pass
                                         except Politician.MultipleObjectsReturned:
@@ -193,14 +193,14 @@ class HansardParser2009(HansardParser):
                                     try:
                                         pol = Politician.objects.getByParlID(parlwebid, session=self.hansard.session)
                                     except Politician.DoesNotExist:
-                                        print "WARNING: Couldn't find politician for ID %d" % parlwebid
+                                        print(")WARNING: Couldn't find politician for ID %d" % parlwebid
                             if pol is not None:
                                 t['member'] = ElectedMember.objects.get_by_pol(politician=pol, date=self.date)
                                 t['politician'] = pol
                     c = c.next
                     if not parsetools.isString(c): raise Exception("Expecting string in b for member name")
                     t['member_title'] = c.strip()
-                    #print c
+                    #print(c)
                     if t['member_title'].endswith(':'): # Remove colon in e.g. Some hon. members:
                         t['member_title'] = t['member_title'][:-1]
                     
@@ -222,7 +222,7 @@ class HansardParser2009(HansardParser):
                         if c.find('div', 'Footer'):
                             # We're done!
                             self.saveStatement(t)
-                            print "Footer div reached -- done!"
+                            print(")Footer div reached -- done!"
                             break
                         raise Exception("I wasn't expecting another div in here")
                     txt = self.get_text(c).strip()
@@ -232,13 +232,13 @@ class HansardParser2009(HansardParser):
                     else:
                         t.addText(txt, blockquote=bool(c.find('small')))
             else:
-                #print c.name
+                #print(c).name
                 if c.name == 'b':
-                    print "B: ",
-                    print c
+                    print(")B: ",
+                    print(c)
                 #if c.name == 'p':
-                #    print "P: ",
-                #    print c
+                #    print(")P: ",
+                #    print(c)
                 
             c = c.next
         return self.statements

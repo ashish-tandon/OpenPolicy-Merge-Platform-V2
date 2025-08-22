@@ -65,8 +65,8 @@ def serialize_to_xml(data: List[Dict[str, Any]], root_name: str, item_name: str)
                 elem = ET.SubElement(item_elem, key)
                 elem.text = str(value) if value is not None else ''
     
-    # Pretty print XML
-    rough_string = ET.tostring(root, encoding='unicode')
+    # Pretty print(X)ML
+    rough_string = ET.tostring(root, encoding='str')
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="  ")
 

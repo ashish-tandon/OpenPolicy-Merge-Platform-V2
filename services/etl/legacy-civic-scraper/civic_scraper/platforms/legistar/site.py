@@ -156,7 +156,7 @@ class Site(base.Site):
     def _event_name(self, event):
         try:
             return event["Name"]["label"]
-        except (KeyError, TypeError):
+        except (KeyError as TypeError):
             return event["Name"]
 
     def _skippable(self, asset, start_date, end_date, file_size=None, download=False):

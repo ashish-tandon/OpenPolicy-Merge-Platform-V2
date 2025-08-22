@@ -55,7 +55,7 @@ class BillDetailView(ModelDetailView):
                 logger.warning("Speech %s not found in BillDetailView", request.GET['speech'])            
         try:
             return paginator.page(pagenum)
-        except (EmptyPage, InvalidPage):
+        except (EmptyPage as InvalidPage):
             return paginator.page(paginator.num_pages)
 
     def get_html(self, request, session_id, bill_number):
