@@ -2,7 +2,7 @@
 
 ## Statistics
 - Total passes completed: 10
-- Files processed: 52
+- Files processed: 204
 - Merge notes created: 0
 
 ## Gaps Found
@@ -13,11 +13,11 @@
 - Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):
 - Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):
 
-### lineage
-- Found 1 unresolved merge notes
-- Found 1 unresolved merge notes
-- Found 1 unresolved merge notes
-- Found 1 unresolved merge notes
+### cross_refs
+- SoT coverage only 66.7% (need ≥95%)
+- SoT coverage only 66.7% (need ≥95%)
+- SoT coverage only 66.7% (need ≥95%)
+- SoT coverage only 66.7% (need ≥95%)
 
 ## Next Steps
 - Review and resolve all MERGE_NOTE markers
