@@ -1,6 +1,6 @@
 # Data Lineage (Auto-Generated)
 
-Auto-generated from DB artifacts, API spec, and UI artifacts. See the JSON for structured data.
+Source docs: validation & artifacts (existing + legacy references preserved in SoT Crosslinks Appendix).
 
 - JSON: `docs/plan/lineage/DATA_LINEAGE_AUTO.json`
 
@@ -24,7 +24,7 @@ Auto-generated from DB artifacts, API spec, and UI artifacts. See the JSON for s
 - `GET /api/v1/search`
 - `GET /api/v1/search/postcode/{postcode}`
 
-## Suggested End-to-End Route Pairs (summary)
+## Suggested End-to-End Pairs
 ### `GET /api/v1/bills`
 - **DB candidates:** _none detected_
 - **UI routes:** _none_
@@ -132,5 +132,4 @@ Auto-generated from DB artifacts, API spec, and UI artifacts. See the JSON for s
 - **UI routes:** _none_
 - **UI screens:** _none_
 - **UI components:** _none_
-
 
