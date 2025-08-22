@@ -11,7 +11,7 @@ from sqlalchemy import text, and_, desc
 from typing import List, Optional
 from datetime import date, datetime
 from app.database import get_db
-from app.models.openparliament import Statement, Bill, ElectedMember, Politician, Party
+from app.models.openparliament import Vote, Bill, Member, Party
 from app.schemas.debates import (
     DebateSummary, DebateDetail, SpeechSummary, SpeechDetail, Pagination,
     DebateListResponse, DebateDetailResponse, SpeechListResponse, SpeechDetailResponse,
@@ -42,22 +42,22 @@ async def list_debates(
     - Pagination
     """
     
-        # Build base query for hansard statements
+    # Build base query for votes/debates
     # Group by date to get unique debate dates
-    query = db.query(Statement.time).distinct()
+    query = db.query(Vote.vote_date).distinct()
     
     # Apply filters
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte, "%Y-%m-%d").date()
-            query = query.filter(Statement.time >= date_gte)
+            query = query.filter(Vote.vote_date >= date_gte)
         except ValueError:
             raise HTTPException(status_code=400, detail="Invalid date format. Use YYYY-MM-DD")
     
     if date__lte:
         try:
             date_lte = datetime.strptime(date__lte, "%Y-%m-%d").date()
-            query = query.filter(Statement.time <= date_lte)
+            query = query.filter(Vote.vote_date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400, detail="Invalid date format. Use YYYY-MM-DD")
     
@@ -72,19 +72,19 @@ async def list_debates(
     debate_summaries = []
     for (debate_date,) in debate_dates:
         if debate_date:
-            # Count total statements for this date
-            statement_count = db.query(Statement).filter(
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
                 and_(
-                    Statement.time >= datetime.combine(debate_date.date(), datetime.min.time()),
-                    Statement.time < datetime.combine(debate_date.date(), datetime.max.time())
+                    Vote.vote_date >= datetime.combine(debate_date.date(), datetime.min.time()),
+                    Vote.vote_date < datetime.combine(debate_date.date(), datetime.max.time())
                 )
             ).count()
             
-            # Get unique speakers for this date
-            speaker_count = db.query(Statement.politician_id).filter(
+            # Get unique bills for this date
+            bill_count = db.query(Vote.bill_id).filter(
                 and_(
-                    Statement.time >= datetime.combine(debate_date.date(), datetime.min.time()),
-                    Statement.time < datetime.combine(debate_date.date(), datetime.max.time())
+                    Vote.vote_date >= datetime.combine(debate_date.date(), datetime.min.time()),
+                    Vote.vote_date < datetime.combine(debate_date.date(), datetime.max.time())
                 )
             ).distinct().count()
             
@@ -92,7 +92,7 @@ async def list_debates(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}",
                 date=debate_date.date().isoformat(),
                 number=debate_date.day,  # Using day as the number for now
-                statement_count=statement_count,
+                statement_count=vote_count,
                 url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
             ))
     
@@ -128,81 +128,36 @@ async def get_debate_detail(
     except ValueError:
         raise HTTPException(status_code=400, detail="Invalid date")
     
-    # Get all statements for this date
-    statements = db.query(Statement).filter(
+    # Get all votes for this date
+    votes = db.query(Vote).filter(
         and_(
-            Statement.time >= datetime.combine(debate_date, datetime.min.time()),
-            Statement.time < datetime.combine(debate_date, datetime.max.time())
+            Vote.vote_date >= datetime.combine(debate_date, datetime.min.time()),
+            Vote.vote_date < datetime.combine(debate_date, datetime.max.time())
         )
-    ).order_by(Statement.sequence).all()
+    ).order_by(Vote.vote_date).all()
     
-    if not statements:
-        raise HTTPException(status_code=404, detail="Debate not found for this date")
+    if not votes:
+        raise HTTPException(status_code=404, detail="No debate found for this date")
     
-    # Count speakers and topics
-    unique_speakers = set()
-    topics = set()
+    # Convert to response format
+    vote_summaries = []
+    for vote in votes:
+        vote_summaries.append(SpeechSummary(
+            id=str(vote.id),
+            speaker_name=f"Vote on {vote.bill.title if vote.bill else 'Unknown Bill'}",
+            content=vote.vote_type,
+            time=vote.vote_date,
+            bill_id=str(vote.bill_id) if vote.bill_id else None,
+            url=f"/api/v1/votes/{vote.id}/"
+        ))
     
-    for stmt in statements:
-        if stmt.politician_id:
-            unique_speakers.add(stmt.politician_id)
-        
-        # Extract topics from statement text using keyword analysis
-        if stmt.content_en:
-            content = stmt.content_en.lower()
-            
-            # Define topic keywords for parliamentary debates
-            topic_keywords = {
-                'health': ['health', 'healthcare', 'medical', 'hospital', 'doctor', 'patient', 'pharmaceutical'],
-                'economy': ['economy', 'economic', 'finance', 'budget', 'tax', 'employment', 'job', 'business'],
-                'environment': ['environment', 'climate', 'pollution', 'renewable', 'energy', 'carbon', 'emission'],
-                'education': ['education', 'school', 'university', 'student', 'teacher', 'curriculum', 'learning'],
-                'security': ['security', 'defense', 'military', 'police', 'crime', 'safety', 'border'],
-                'immigration': ['immigration', 'refugee', 'citizenship', 'border', 'visa', 'asylum'],
-                'indigenous': ['indigenous', 'first nations', 'aboriginal', 'treaty', 'reconciliation'],
-                'infrastructure': ['infrastructure', 'transportation', 'road', 'bridge', 'transit', 'construction'],
-                'technology': ['technology', 'digital', 'internet', 'cyber', 'innovation', 'research'],
-                'foreign_policy': ['foreign', 'international', 'trade', 'diplomacy', 'global', 'treaty']
-            }
-            
-            # Check for topic matches
-            for topic, keywords in topic_keywords.items():
-                if any(keyword in content for keyword in keywords):
-                    topics.add(topic)
-        
-        # Also check French content if available
-        if stmt.content_fr:
-            content_fr = stmt.content_fr.lower()
-            
-            # French topic keywords
-            topic_keywords_fr = {
-                'health': ['santé', 'soins', 'médical', 'hôpital', 'médecin', 'patient'],
-                'economy': ['économie', 'finances', 'budget', 'impôt', 'emploi', 'entreprise'],
-                'environment': ['environnement', 'climat', 'pollution', 'énergie', 'carbone'],
-                'education': ['éducation', 'école', 'université', 'étudiant', 'enseignant'],
-                'security': ['sécurité', 'défense', 'militaire', 'police', 'crime'],
-                'immigration': ['immigration', 'réfugié', 'citoyenneté', 'frontière'],
-                'indigenous': ['autochtone', 'premières nations', 'réconciliation'],
-                'infrastructure': ['infrastructure', 'transport', 'route', 'construction'],
-                'technology': ['technologie', 'numérique', 'internet', 'innovation'],
-                'foreign_policy': ['étranger', 'international', 'commerce', 'diplomatie']
-            }
-            
-            for topic, keywords in topic_keywords_fr.items():
-                if any(keyword in content_fr for keyword in keywords):
-                    topics.add(topic)
-    
-    debate_detail = DebateDetail(
+    return DebateDetailResponse(
         id=f"{year}-{month:02d}-{day:02d}",
         date=debate_date.isoformat(),
         number=day,
-        statement_count=len(statements),
-        speaker_count=len(unique_speakers),
-        topics=list(topics),  # Add extracted topics
-        url=f"/api/v1/debates/{year}/{month:02d}/{day:02d}/"
+        statement_count=len(votes),
+        votes=vote_summaries
     )
-    
-    return DebateDetailResponse(debate=debate_detail)
 
 
 @router.get("/speeches/", response_model=SpeechListResponse)

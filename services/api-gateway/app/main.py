@@ -15,7 +15,7 @@ import structlog
 
 from app.config import settings
 from app.api.v1.api import api_router
-from app.core.middleware import RequestLoggingMiddleware
+from app.core.middleware import RequestLoggingMiddleware, RateLimitMiddleware, RedisRateLimitMiddleware
 from app.core.metrics import setup_metrics
 from app.database import init_db, check_db_connection
 
@@ -60,6 +60,17 @@ app.add_middleware(
 
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])
 app.add_middleware(RequestLoggingMiddleware)
+
+# Add rate limiting middleware based on configuration
+if settings.RATE_LIMIT_ENABLED:
+    if settings.RATE_LIMIT_BACKEND == "redis":
+        app.add_middleware(RedisRateLimitMiddleware)
+        logger.info("Redis-based rate limiting enabled")
+    else:
+        app.add_middleware(RateLimitMiddleware)
+        logger.info("In-memory rate limiting enabled")
+else:
+    logger.info("Rate limiting disabled")
 
 # Setup metrics
 setup_metrics(app)

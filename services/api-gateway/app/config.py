@@ -51,6 +51,8 @@ class Settings(BaseSettings):
     
     # Rate limiting
     RATE_LIMIT_PER_MINUTE: int = 60
+    RATE_LIMIT_BACKEND: str = "memory"  # "memory" or "redis"
+    RATE_LIMIT_ENABLED: bool = True
     
     # Monitoring
     ENABLE_METRICS: bool = True
@@ -58,6 +60,14 @@ class Settings(BaseSettings):
     # External APIs
     OPENPARLIAMENT_API_KEY: str = ""
     CIVIC_SCRAPER_API_KEY: str = ""
+    
+    # OAuth Configuration
+    GOOGLE_CLIENT_ID: str = ""
+    GOOGLE_CLIENT_SECRET: str = ""
+    GOOGLE_REDIRECT_URI: str = "http://localhost:8000/api/v1/auth/google/callback"
+    GOOGLE_AUTHORIZATION_URL: str = "https://accounts.google.com/o/oauth2/v2/auth"
+    GOOGLE_TOKEN_URL: str = "https://oauth2.googleapis.com/token"
+    GOOGLE_USERINFO_URL: str = "https://www.googleapis.com/oauth2/v2/userinfo"
     
     class Config:
         env_file = ".env"

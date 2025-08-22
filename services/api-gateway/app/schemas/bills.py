@@ -65,6 +65,21 @@ class BillDetail(BaseModel):
     institution: str = Field(..., description="Institution (H for House, S for Senate)")
     votes: List[VoteInfo] = Field(default_factory=list, description="Voting records")
     
+    # Enhanced status tracking
+    current_stage: Optional[str] = Field(None, description="Current legislative stage")
+    stage_progress: Optional[float] = Field(None, description="Progress through stages (0.0-1.0)")
+    next_stage: Optional[str] = Field(None, description="Next expected stage")
+    estimated_completion: Optional[date] = Field(None, description="Estimated completion date")
+    
+    # LEGISinfo integration
+    legisinfo_id: Optional[int] = Field(None, description="LEGISinfo identifier")
+    library_summary: Optional[str] = Field(None, description="Library of Parliament summary")
+    
+    # Bill lifecycle
+    last_activity_date: Optional[date] = Field(None, description="Date of last legislative activity")
+    days_in_current_stage: Optional[int] = Field(None, description="Days spent in current stage")
+    total_legislative_days: Optional[int] = Field(None, description="Total days since introduction")
+    
     model_config = {"from_attributes": True}
 
 
@@ -93,3 +108,60 @@ class BillSummaryResponse(BaseModel):
     total_bills: int = Field(..., description="Total number of bills")
     status_breakdown: dict = Field(..., description="Count of bills by status")
     session_breakdown: dict = Field(..., description="Count of bills by session")
+
+
+class BillStage(BaseModel):
+    """Information about a legislative stage."""
+    
+    stage: str = Field(..., description="Stage identifier")
+    title: str = Field(..., description="Stage title")
+    description: str = Field(..., description="Stage description")
+    status: str = Field(..., description="Stage status (completed, in_progress, pending)")
+    start_date: Optional[date] = Field(None, description="Stage start date")
+    end_date: Optional[date] = Field(None, description="Stage end date")
+    duration_days: Optional[int] = Field(None, description="Duration in days")
+    order: int = Field(..., description="Stage order in legislative process")
+    
+    model_config = {"from_attributes": True}
+
+
+class BillStatus(BaseModel):
+    """Comprehensive bill status information."""
+    
+    bill_id: str = Field(..., description="Bill identifier")
+    current_stage: str = Field(..., description="Current legislative stage")
+    stage_progress: float = Field(..., description="Progress through stages (0.0-1.0)")
+    next_stage: Optional[str] = Field(None, description="Next expected stage")
+    estimated_completion: Optional[date] = Field(None, description="Estimated completion date")
+    last_activity_date: Optional[date] = Field(None, description="Date of last legislative activity")
+    days_in_current_stage: int = Field(..., description="Days spent in current stage")
+    total_legislative_days: int = Field(..., description="Total days since introduction")
+    stages: List[BillStage] = Field(default_factory=list, description="All legislative stages")
+    
+    model_config = {"from_attributes": True}
+
+
+class BillStatusResponse(BaseModel):
+    """Response model for comprehensive bill status."""
+    
+    status: BillStatus = Field(..., description="Bill status information")
+
+
+class BillTimeline(BaseModel):
+    """Detailed bill timeline with stages and events."""
+    
+    bill_id: str = Field(..., description="Bill identifier")
+    bill_number: str = Field(..., description="Bill number")
+    bill_title: str = Field(..., description="Bill title")
+    current_stage: str = Field(..., description="Current legislative stage")
+    timeline: List[BillStage] = Field(default_factory=list, description="Timeline events")
+    summary: dict = Field(..., description="Timeline summary statistics")
+    last_updated: str = Field(..., description="Last update timestamp")
+    
+    model_config = {"from_attributes": True}
+
+
+class BillTimelineResponse(BaseModel):
+    """Response model for bill timeline."""
+    
+    timeline: BillTimeline = Field(..., description="Bill timeline information")

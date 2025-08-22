@@ -66,11 +66,14 @@ class SearchSuggestionsResponse(BaseModel):
 class PostcodeResult(BaseModel):
     """Result of a postal code lookup."""
     
-    postcode: str = Field(..., description="The queried postal code")
-    riding_name: str = Field(..., description="Electoral district name")
-    mp_name: str = Field(..., description="Member of Parliament name")
-    mp_party: str = Field(..., description="MP's political party")
-    mp_url: str = Field(..., description="URL to MP's profile")
+    name: str = Field(..., description="Representative name")
+    party: str = Field(..., description="Political party")
+    riding: str = Field(..., description="Electoral district name")
+    level: str = Field(..., description="Government level (federal, provincial, municipal)")
+    url: str = Field(..., description="URL to representative's profile")
+    photo_url: Optional[str] = Field(None, description="URL to representative's photo")
+    email: Optional[str] = Field(None, description="Representative's email address")
+    phone: Optional[str] = Field(None, description="Representative's phone number")
     
     model_config = {"from_attributes": True}
 
@@ -78,4 +81,8 @@ class PostcodeResult(BaseModel):
 class PostcodeResponse(BaseModel):
     """Response model for postcode lookup endpoint."""
     
-    result: PostcodeResult = Field(..., description="Postal code lookup result")
+    postcode: str = Field(..., description="The queried postal code")
+    representatives: List[PostcodeResult] = Field(..., description="List of representatives for this postal code")
+    total_count: int = Field(..., description="Total number of representatives found")
+    source: str = Field(..., description="Data source (e.g., Represent Canada API)")
+    timestamp: str = Field(..., description="When the lookup was performed")

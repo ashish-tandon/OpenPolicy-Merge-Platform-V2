@@ -9,11 +9,11 @@ from sqlalchemy.orm import Session as DBSession
 from sqlalchemy import text
 from typing import Optional
 from app.database import get_db
-from app.models.openparliament import Bill, ElectedMember, Party, VoteQuestion, Riding, Amendment, Politician
+from app.models.openparliament import Bill, Member, Party, Vote, Jurisdiction, Session
 from app.schemas.bills import (
     BillSummary, BillDetail, VoteInfo, Pagination,
     BillListResponse, BillDetailResponse, BillSuggestionsResponse,
-    BillSummaryResponse
+    BillSummaryResponse, BillStatus, BillStatusResponse, BillStage
 )
 from app.schemas.amendments import (
     AmendmentSummary, AmendmentListResponse
@@ -49,62 +49,39 @@ async def list_bills(
         query = query.filter(Bill.session_id == session)
 
     if status:
-        query = query.filter(Bill.status_code == status)
+        query = query.filter(Bill.status == status)
 
     # Apply search if query provided
     if q:
-        # Use PostgreSQL full-text search on name_en
+        # Use PostgreSQL full-text search on name
         search_query = text("""
-            to_tsvector('english', bills_bill.name_en) @@ plainto_tsquery('english', :search_term)
+            to_tsvector('english', bills.name) @@ plainto_tsquery('english', :search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
 
     # Get total count for pagination
     total = query.count()
-
+    
     # Apply pagination
     offset = (page - 1) * page_size
     bills = query.offset(offset).limit(page_size).all()
 
-    # Handle mock results for testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    if str(type(bills)) == "<class 'unittest.mock.Mock'>":
-        bills = []
-
     # Convert to response format
     bill_summaries = []
+    
     for bill in bills:
-        # Get sponsor info
-        sponsor_name = None
-        party_name = None
-
-        if bill.sponsor_member_id:
-            # Get sponsor member info
-            sponsor_member = db.query(ElectedMember).filter(
-                ElectedMember.id == bill.sponsor_member_id
-            ).first()
-
-            if sponsor_member:
-                sponsor_name = f"{sponsor_member.politician.name_given} {sponsor_member.politician.name_family}"
-
-                # Get party info
-                party = db.query(Party).filter(Party.id == sponsor_member.party_id).first()
-                if party:
-                    party_name = party.name_en
-
         bill_summaries.append(BillSummary(
             id=str(bill.id),
-            bill_number=bill.number,
-            title=bill.name_en,
-            short_title=bill.short_title_en,
-            summary=None,  # Not available in this schema
-            status=bill.status_code,
-            introduced_date=bill.introduced,
-            sponsor_name=sponsor_name,
-            party_name=party_name,
+            bill_number=bill.bill_number,
+            title=bill.title,
+            short_title=bill.title[:100] if bill.title else None,  # Use title as short title
+            summary=bill.summary,
+            status=bill.status,
+            introduced_date=bill.introduced_date,
+            sponsor_name=None,  # Not available in this schema
+            party_name=None,  # Not available in this schema
             session_name=f"Session {bill.session_id}",
-            keywords=[],  # Not available in this schema
+            keywords=bill.keywords or [],
             tags=[]  # Not available in this schema
         ))
 
@@ -146,10 +123,6 @@ async def get_bill_suggestions(
 
     results = db.execute(suggestions_query, {"query": q, "limit": limit})
 
-    # Handle mock results for testing
-    if str(type(results)) == "<class 'unittest.mock.Mock'>":
-        results = []
-
     suggestions = []
     for row in results:
         suggestions.append({
@@ -170,29 +143,17 @@ async def get_bill_summary_stats(db: DBSession = Depends(get_db)):
     # Get total bills count
     total_bills = db.query(Bill).count()
     
-    # Handle mock results for testing
-    if str(type(total_bills)) == "<class 'unittest.mock.Mock'>":
-        total_bills = 0
-
     # Get bills by status
     status_counts = db.query(
         Bill.status_code,
         db.func.count(Bill.id)
     ).group_by(Bill.status_code).all()
     
-    # Handle mock results for testing
-    if str(type(status_counts)) == "<class 'unittest.mock.Mock'>":
-        status_counts = []
-
     # Get bills by session
     session_counts = db.query(
         Bill.session_id,
         db.func.count(Bill.id)
     ).group_by(Bill.session_id).all()
-    
-    # Handle mock results for testing
-    if str(type(session_counts)) == "<class 'unittest.mock.Mock'>":
-        session_counts = []
 
     return BillSummaryResponse(
         total_bills=total_bills,
@@ -211,10 +172,6 @@ async def get_bill_detail(
     """
     bill = db.query(Bill).filter(Bill.id == bill_id).first()
 
-    # Handle mock results for testing
-    if str(type(bill)) == "<class 'unittest.mock.Mock'>":
-        bill = None
-
     if not bill:
         raise HTTPException(status_code=404, detail="Bill not found")
 
@@ -224,39 +181,25 @@ async def get_bill_detail(
     riding_name = None
 
     if bill.sponsor_member_id:
-        sponsor_member = db.query(ElectedMember).filter(
-            ElectedMember.id == bill.sponsor_member_id
+        sponsor_member = db.query(Member).filter(
+            Member.id == bill.sponsor_member_id
         ).first()
-
-        # Handle mock results for testing
-        if str(type(sponsor_member)) == "<class 'unittest.mock.Mock'>":
-            sponsor_member = None
 
         if sponsor_member:
             sponsor_name = f"{sponsor_member.politician.name_given} {sponsor_member.politician.name_family}"
 
             # Get party info
             party = db.query(Party).filter(Party.id == sponsor_member.party_id).first()
-            # Handle mock results for testing
-            if str(type(party)) == "<class 'unittest.mock.Mock'>":
-                party = None
             if party:
                 party_name = party.name_en
 
             # Get riding info
             riding = db.query(Riding).filter(Riding.id == sponsor_member.riding_id).first()
-            # Handle mock results for testing
-            if str(type(riding)) == "<class 'unittest.mock.Mock'>":
-                riding = None
             if riding:
                 riding_name = riding.name_en
 
     # Get vote information
-    votes = db.query(VoteQuestion).filter(VoteQuestion.bill_id == bill_id).all()
-    
-    # Handle mock results for testing
-    if str(type(votes)) == "<class 'unittest.mock.Mock'>":
-        votes = []
+    votes = db.query(Vote).filter(Vote.bill_id == bill_id).all()
     
     vote_info = []
 
@@ -278,6 +221,56 @@ async def get_bill_detail(
     session_id = getattr(bill, 'session_id', 'Unknown') if str(type(bill.session_id)) != "<class 'unittest.mock.Mock'>" else 'Unknown'
     institution = getattr(bill, 'institution', 'Unknown') if str(type(bill.institution)) != "<class 'unittest.mock.Mock'>" else 'Unknown'
 
+    # Calculate enhanced status tracking information
+    from datetime import date, datetime
+    
+    today = date.today()
+    
+    # Determine current stage based on bill status
+    status_to_stage = {
+        "INTRODUCED": "introduction",
+        "FIRST_READING": "first_reading",
+        "SECOND_READING": "second_reading",
+        "COMMITTEE": "committee_stage",
+        "REPORT": "report_stage",
+        "THIRD_READING": "third_reading",
+        "PASSED": "senate",
+        "ROYAL_ASSENT": "royal_assent",
+        "LAW": "royal_assent"
+    }
+    
+    current_stage = status_to_stage.get(status, "introduction")
+    
+    # Calculate stage progress (simplified)
+    stage_order = {
+        "introduction": 1, "first_reading": 2, "second_reading": 3,
+        "committee_stage": 4, "report_stage": 5, "third_reading": 6,
+        "senate": 7, "royal_assent": 8
+    }
+    current_stage_order = stage_order.get(current_stage, 1)
+    stage_progress = (current_stage_order - 1) / 7.0  # 8 stages total
+    
+    # Determine next stage
+    next_stage = None
+    if current_stage_order < 8:
+        next_stage = list(stage_order.keys())[current_stage_order]
+    
+    # Calculate lifecycle information
+    last_activity_date = None
+    days_in_current_stage = 0
+    total_legislative_days = 0
+    
+    if isinstance(introduced_date, date):
+        total_legislative_days = (today - introduced_date).days
+        last_activity_date = introduced_date  # Simplified - would come from actual activity tracking
+    
+    # Estimate completion date
+    estimated_completion = None
+    if isinstance(introduced_date, date) and current_stage_order < 8:
+        remaining_stages = 8 - current_stage_order
+        estimated_days = remaining_stages * 30  # Assume 30 days per stage
+        estimated_completion = introduced_date + datetime.timedelta(days=estimated_days)
+    
     bill_detail = BillDetail(
         id=bill_id_str,
         bill_number=bill_number,
@@ -291,7 +284,22 @@ async def get_bill_detail(
         riding_name=riding_name,
         session_id=session_id,
         institution=institution,
-        votes=vote_info
+        votes=vote_info,
+        
+        # Enhanced status tracking
+        current_stage=current_stage,
+        stage_progress=stage_progress,
+        next_stage=next_stage,
+        estimated_completion=estimated_completion,
+        
+        # LEGISinfo integration
+        legisinfo_id=getattr(bill, 'legisinfo_id', None),
+        library_summary=None,  # Would come from Library of Parliament API
+        
+        # Bill lifecycle
+        last_activity_date=last_activity_date,
+        days_in_current_stage=days_in_current_stage,
+        total_legislative_days=total_legislative_days
     )
 
     return BillDetailResponse(bill=bill_detail)
@@ -313,7 +321,7 @@ async def get_bill_votes(
         raise HTTPException(status_code=404, detail="Bill not found")
 
     # Get vote questions for this bill
-    votes_query = db.query(VoteQuestion).filter(VoteQuestion.bill_id == bill_id)
+    votes_query = db.query(Vote).filter(Vote.bill_id == bill_id)
 
     # Get total count for pagination
     total = votes_query.count()
@@ -321,12 +329,6 @@ async def get_bill_votes(
     # Apply pagination
     offset = (page - 1) * page_size
     votes = votes_query.offset(offset).limit(page_size).all()
-
-    # Handle mock results for testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    if str(type(votes)) == "<class 'unittest.mock.Mock'>":
-        votes = []
 
     # Convert to response format
     vote_results = []
@@ -474,10 +476,6 @@ async def get_bill_amendments(
         # Get total count for pagination
     total = query.count()
     
-    # Handle mock results for testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
     # Apply pagination and ordering
     offset = (page - 1) * page_size
     amendments = query.order_by(Amendment.proposed_date.desc(), Amendment.created_at.desc()).offset(offset).limit(page_size).all()
@@ -485,18 +483,14 @@ async def get_bill_amendments(
     # Convert to response format
     amendment_summaries = []
     
-    # Handle empty or mock results (for testing)
-    if not amendments or str(type(amendments)) == "<class 'unittest.mock.Mock'>":
-        amendments = []
-    
     for amendment in amendments:
         # Get mover information
         mover_name = None
         mover_party = None
 
         if amendment.mover_member_id:
-            mover_member = db.query(ElectedMember).filter(
-                ElectedMember.id == amendment.mover_member_id
+            mover_member = db.query(Member).filter(
+                Member.id == amendment.mover_member_id
             ).first()
 
             if mover_member:
@@ -740,3 +734,183 @@ async def get_bill_history(
             "has_prev": page > 1
         }
     }
+
+
+@router.get("/{bill_id}/status", response_model=BillStatusResponse)
+async def get_bill_comprehensive_status(
+    bill_id: int,
+    db: DBSession = Depends(get_db)
+):
+    """
+    Get comprehensive status tracking information for a specific bill.
+    
+    Implements Feature F003: Complete Bills Database with Status Tracking
+    Provides detailed stage-by-stage progress tracking and lifecycle information.
+    """
+    # Verify bill exists
+    bill = db.query(Bill).filter(Bill.id == bill_id).first()
+    if not bill:
+        raise HTTPException(status_code=404, detail="Bill not found")
+    
+    # Define legislative stages in order
+    legislative_stages = [
+        {
+            "stage": "introduction",
+            "title": "Introduction",
+            "description": "Bill introduced and read for the first time",
+            "order": 1
+        },
+        {
+            "stage": "first_reading",
+            "title": "First Reading",
+            "description": "Bill read for the first time and ordered printed",
+            "order": 2
+        },
+        {
+            "stage": "second_reading",
+            "title": "Second Reading",
+            "description": "Debate on the general principles of the bill",
+            "order": 3
+        },
+        {
+            "stage": "committee_stage",
+            "title": "Committee Study",
+            "description": "Detailed examination by parliamentary committee",
+            "order": 4
+        },
+        {
+            "stage": "report_stage",
+            "title": "Report Stage",
+            "description": "Review of committee amendments",
+            "order": 5
+        },
+        {
+            "stage": "third_reading",
+            "title": "Third Reading",
+            "description": "Final debate and vote on the bill",
+            "order": 6
+        },
+        {
+            "stage": "senate",
+            "title": "Senate Consideration",
+            "description": "Bill sent to Senate for consideration",
+            "order": 7
+        },
+        {
+            "stage": "royal_assent",
+            "title": "Royal Assent",
+            "description": "Bill receives royal assent and becomes law",
+            "order": 8
+        }
+    ]
+    
+    # Determine current stage based on bill status
+    current_stage = "introduction"
+    stage_progress = 0.0
+    
+    # Map status codes to stages
+    status_to_stage = {
+        "INTRODUCED": "introduction",
+        "FIRST_READING": "first_reading",
+        "SECOND_READING": "second_reading",
+        "COMMITTEE": "committee_stage",
+        "REPORT": "report_stage",
+        "THIRD_READING": "third_reading",
+        "PASSED": "senate",
+        "ROYAL_ASSENT": "royal_assent",
+        "LAW": "royal_assent"
+    }
+    
+    current_stage = status_to_stage.get(bill.status_code, "introduction")
+    
+    # Calculate stage progress
+    current_stage_order = next((stage["order"] for stage in legislative_stages if stage["stage"] == current_stage), 1)
+    stage_progress = (current_stage_order - 1) / (len(legislative_stages) - 1)
+    
+    # Determine next stage
+    next_stage = None
+    if current_stage_order < len(legislative_stages):
+        next_stage = legislative_stages[current_stage_order]["stage"]
+    
+    # Calculate dates and durations
+    from datetime import date, datetime
+    
+    today = date.today()
+    introduced_date = bill.introduced or today
+    last_activity_date = bill.status_date or bill.introduced or today
+    
+    # Calculate days
+    if isinstance(introduced_date, date):
+        total_legislative_days = (today - introduced_date).days
+    else:
+        total_legislative_days = 0
+    
+    if isinstance(last_activity_date, date):
+        days_in_current_stage = (today - last_activity_date).days
+    else:
+        days_in_current_stage = 0
+    
+    # Estimate completion date (simplified calculation)
+    estimated_completion = None
+    if current_stage_order < len(legislative_stages):
+        # Assume average 30 days per stage
+        remaining_stages = len(legislative_stages) - current_stage_order
+        estimated_days = remaining_stages * 30
+        estimated_completion = today + datetime.timedelta(days=estimated_days)
+    
+    # Build stage information
+    stages = []
+    for stage_info in legislative_stages:
+        stage = stage_info["stage"]
+        stage_order = stage_info["order"]
+        
+        # Determine stage status
+        if stage_order < current_stage_order:
+            stage_status = "completed"
+        elif stage_order == current_stage_order:
+            stage_status = "in_progress"
+        else:
+            stage_status = "pending"
+        
+        # Calculate stage dates (simplified)
+        stage_start_date = None
+        stage_end_date = None
+        duration_days = None
+        
+        if stage_status == "completed":
+            # Estimate completion dates for completed stages
+            if isinstance(introduced_date, date):
+                stage_start_date = introduced_date + datetime.timedelta(days=(stage_order - 1) * 30)
+                stage_end_date = introduced_date + datetime.timedelta(days=stage_order * 30)
+                duration_days = 30
+        elif stage_status == "in_progress":
+            # Current stage
+            if isinstance(introduced_date, date):
+                stage_start_date = introduced_date + datetime.timedelta(days=(stage_order - 1) * 30)
+                duration_days = days_in_current_stage
+        
+        stages.append(BillStage(
+            stage=stage,
+            title=stage_info["title"],
+            description=stage_info["description"],
+            status=stage_status,
+            start_date=stage_start_date,
+            end_date=stage_end_date,
+            duration_days=duration_days,
+            order=stage_order
+        ))
+    
+    # Create comprehensive status response
+    bill_status = BillStatus(
+        bill_id=str(bill_id),
+        current_stage=current_stage,
+        stage_progress=stage_progress,
+        next_stage=next_stage,
+        estimated_completion=estimated_completion,
+        last_activity_date=last_activity_date,
+        days_in_current_stage=days_in_current_stage,
+        total_legislative_days=total_legislative_days,
+        stages=stages
+    )
+    
+    return BillStatusResponse(status=bill_status)

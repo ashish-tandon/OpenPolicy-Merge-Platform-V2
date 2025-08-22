@@ -11,7 +11,7 @@ from sqlalchemy import text, and_, desc
 from typing import List, Optional
 from datetime import date, datetime
 from app.database import get_db
-from app.models.openparliament import Statement, Bill, ElectedMember, Politician, Party, Committee, CommitteeMeeting
+from app.models.openparliament import Vote, Bill, Member, Party, Session
 from app.schemas.committees import (
     CommitteeSummary, CommitteeDetail, MeetingSummary, MeetingDetail, Pagination,
     CommitteeListResponse, CommitteeDetailResponse, MeetingListResponse, MeetingDetailResponse,
