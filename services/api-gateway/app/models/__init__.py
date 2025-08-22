@@ -3,32 +3,18 @@ SQLAlchemy Models for OpenParliament.ca V2
 Following FUNDAMENTAL RULE: Extended existing schema with comprehensive multi-level government support
 """
 
-from .openparliament import (
-    # Legacy OpenParliament models
-    Party, Politician, Riding, ElectedMember, Bill, VoteQuestion, 
-    MemberVote, PartyVote, Statement, PoliticianInfo,
-    
-    # Municipal models (extended from existing schema)
-    Municipality, MunicipalCouncillor, MunicipalOffice
-)
-
-from .government_levels import (
-    # Multi-level government models
-    GovernmentLevel, Jurisdiction, Representative, Office,
-    Bill as UnifiedBill, Vote, RepresentativeVote,
-    DataSource, IngestionLog
-)
+# Import all models to ensure they're registered with SQLAlchemy
+from .parliamentary_entities import ParliamentaryEntity
+from .users import User, UserSession
+from .entity_audit_log import EntityAuditLog
+from .data_sources import DataSource
+from .sync_status import SyncStatus
 
 __all__ = [
-    # Legacy models
-    "Party", "Politician", "Riding", "ElectedMember", "Bill", "VoteQuestion",
-    "MemberVote", "PartyVote", "Statement", "PoliticianInfo",
-    
-    # Municipal models
-    "Municipality", "MunicipalCouncillor", "MunicipalOffice",
-    
-    # Multi-level government models
-    "GovernmentLevel", "Jurisdiction", "Representative", "Office",
-    "UnifiedBill", "Vote", "RepresentativeVote",
-    "DataSource", "IngestionLog"
+    "ParliamentaryEntity",
+    "User", 
+    "UserSession",
+    "EntityAuditLog",
+    "DataSource",
+    "SyncStatus"
 ]
