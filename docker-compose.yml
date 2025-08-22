@@ -140,15 +140,22 @@ services:
     ports:
       - "8585:8585"
     environment:
+      # Database configuration for PostgreSQL
+      - DB_DRIVER_CLASS=org.postgresql.Driver
+      - DB_SCHEME=postgresql
+      - DB_PARAMS=allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+      - DB_USER=openpolicy
+      - DB_USER_PASSWORD=openpolicy
       - DB_HOST=db
       - DB_PORT=5432
-      - DB_USER=openpolicy
-      - DB_PASSWORD=openpolicy
-      - DB_NAME=openmetadata
+      - OM_DATABASE=openmetadata
+      # ElasticSearch Configurations
       - ELASTICSEARCH_HOST=elasticsearch
       - ELASTICSEARCH_PORT=9200
+      - ELASTICSEARCH_SCHEME=http
       - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD=changeme
+      - SEARCH_TYPE=elasticsearch
     volumes:
       - openmetadata_data:/var/log
       - openmetadata_data:/tmp
@@ -165,7 +172,7 @@ services:
     ports:
       - "8085:8080"
     environment:
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://openpolicy:openpolicy@db:5432/airflow
+      - AIRFLOW__CORE__SQL_ALCHEMY_CONN=postgresql+psycopg2://openpolicy:openpolicy@db:5432/airflow
       - AIRFLOW__CORE__EXECUTOR=LocalExecutor
       - AIRFLOW__CORE__LOAD_EXAMPLES=false
       - AIRFLOW__WEBSERVER__SECRET_KEY=your-secret-key-here
