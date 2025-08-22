@@ -1,19 +1,22 @@
 """
-Merge V2 API Gateway
-Main FastAPI application entry point
+Merge V2 API Gateway - Main Application
+
+FastAPI application providing unified access to parliamentary and municipal data
+from multiple jurisdictions including federal, provincial, and municipal sources.
 """
 
+import time
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 from fastapi.responses import JSONResponse, Response
-import time
 import structlog
 
 from app.config import settings
 from app.api.v1.api import api_router
 from app.core.middleware import RequestLoggingMiddleware
 from app.core.metrics import setup_metrics
+from app.database import init_db, check_db_connection
 
 # Configure structured logging
 structlog.configure(
@@ -36,7 +39,7 @@ structlog.configure(
 
 logger = structlog.get_logger()
 
-# Create FastAPI application
+# Initialize FastAPI app
 app = FastAPI(
     title="Merge V2 API Gateway",
     description="Unified API for parliamentary and municipal data",
@@ -63,22 +66,47 @@ setup_metrics(app)
 # Include API router
 app.include_router(api_router, prefix="/api/v1")
 
+@app.on_event("startup")
+async def startup_event():
+    """Initialize database on startup."""
+    try:
+        if check_db_connection():
+            init_db()
+            print("✅ Database initialized successfully")
+        else:
+            print("⚠️  Database connection failed - running in mock mode")
+    except Exception as e:
+        print(f"⚠️  Database initialization warning: {e}")
+        print("   This is normal if the database schema already exists")
+
 @app.get("/")
 async def root():
-    """Root endpoint"""
+    """Root endpoint with API information."""
     return {
-        "message": "Merge V2 API Gateway",
+        "message": "Welcome to Merge V2 API Gateway",
         "version": "1.0.0",
-        "status": "operational"
+        "docs": "/docs",
+        "health": "/health"
     }
 
 @app.get("/health")
 async def health_check():
-    """Health check endpoint"""
+    """Basic health check endpoint."""
     return {
         "status": "healthy",
         "timestamp": time.time(),
         "service": "api-gateway"
+    }
+
+@app.get("/health/detailed")
+async def detailed_health_check():
+    """Detailed health check endpoint."""
+    return {
+        "status": "healthy",
+        "timestamp": time.time(),
+        "service": "api-gateway",
+        "database": "not_configured",
+        "version": "1.0.0"
     }
 
 @app.get("/metrics")

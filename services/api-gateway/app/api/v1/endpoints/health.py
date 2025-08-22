@@ -4,6 +4,7 @@ Health check endpoints
 
 from fastapi import APIRouter
 import time
+from app.database import check_db_connection
 
 router = APIRouter()
 
@@ -18,11 +19,12 @@ async def health_check():
 
 @router.get("/detailed")
 async def detailed_health_check():
-    """Detailed health check without database dependency for now"""
+    """Detailed health check with database connectivity"""
+    db_status = "connected" if check_db_connection() else "disconnected"
     return {
         "status": "healthy",
         "timestamp": time.time(),
         "service": "api-gateway",
-        "database": "not_configured",
+        "database": db_status,
         "version": "1.0.0"
     }
