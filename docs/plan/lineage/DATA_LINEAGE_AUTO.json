@@ -1,0 +1,322 @@
+{
+  "db": [
+    {
+      "file": "artifacts/db/pass1/database_validation_report.md",
+      "tables": [
+        "Details",
+        "Multi",
+        "OpenParliament"
+      ],
+      "columns": []
+    },
+    {
+      "file": "artifacts/db/pass1/scraper_validation_report.md",
+      "tables": [
+        "Compliance"
+      ],
+      "columns": []
+    }
+  ],
+  "api": [
+    {
+      "method": "GET",
+      "path": "/api/v1/bills"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/bills/{bill_id}"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/bills/{bill_id}/cast-vote"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/members"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/members/{member_id}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/members/{member_id}/votes"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/votes"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/votes/{session_id}/{vote_number}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/debates"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/debates/{year}/{month}/{day}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/debates/speeches/{speech_id}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/committees"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/committees/{committee_slug}"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/jurisdictions"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/representatives"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/offices"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/search"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/search/postcode/{postcode}"
+    }
+  ],
+  "ui": {
+    "routes": [],
+    "screens": [
+      "reader"
+    ],
+    "components": [
+      "Library",
+      "consistency"
+    ]
+  },
+  "mappings": [
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/bills"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/bills/{bill_id}"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "POST",
+        "path": "/api/v1/bills/{bill_id}/cast-vote"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/members"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/members/{member_id}"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/members/{member_id}/votes"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/votes"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/votes/{session_id}/{vote_number}"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/debates"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/debates/{year}/{month}/{day}"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/debates/speeches/{speech_id}"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/committees"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/committees/{committee_slug}"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/jurisdictions"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/representatives"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/offices"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/search"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    },
+    {
+      "endpoint": {
+        "method": "GET",
+        "path": "/api/v1/search/postcode/{postcode}"
+      },
+      "db_candidates": [],
+      "ui_candidates": {
+        "routes": [],
+        "screens": [],
+        "components": []
+      }
+    }
+  ]
+}

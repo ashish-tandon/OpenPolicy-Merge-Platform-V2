@@ -4,14 +4,36 @@
 Authoritative plan aligning features, data flows, architecture, checklists, tests, and bugs.
 
 ## Golden Index
-- Validation Suite (27+ docs): /workspace/docs/validation/
-- Artifacts: /workspace/artifacts/{api,ui,db}/pass1/
-- Execution Checklist (primary): UPDATED_MASTER_EXECUTION_CHECKLIST.md
-- Architecture: FUTURE_STATE_ARCHITECTURE.md, API_DESIGN_SPECIFICATION.md
-- Testing: COMPREHENSIVE_TESTING_STRATEGIES.md
-- Repo Mapping: COMPREHENSIVE_REPO_ANALYSIS_pass1.md
-- Technical Debt: CODE_DEVIATIONS_ANALYSIS.md
-- Feature Inventory: FEATURE_COMPARISON_pass1.csv
+
+### Core Documentation
+- **Execution Checklist**: /workspace/docs/validation/UPDATED_MASTER_EXECUTION_CHECKLIST.md
+- **API Specification**: /workspace/docs/validation/API_DESIGN_SPECIFICATION.md
+
+### Validation Reports
+- **Database Validation**: /workspace/artifacts/db/pass1/database_validation_report.md
+- **API Validation**: /workspace/artifacts/api/pass1/api_validation_report.md
+- **UI Validation**: /workspace/artifacts/ui/pass1/ui_validation_report.md
+- **Scraper Validation**: /workspace/artifacts/db/pass1/scraper_validation_report.md
+
+### Plan Documents
+- **Feature Mapping**: /workspace/docs/plan/features/FEATURE_MAPPING_UNIFIED.md
+- **Data Lineage Map**: /workspace/docs/plan/lineage/DATA_LINEAGE_MAP.md
+- **Data Lineage Auto**: /workspace/docs/plan/lineage/DATA_LINEAGE_AUTO.md
+- **Architecture Alignment**: /workspace/docs/plan/architecture/ARCHITECTURE_ALIGNMENT.md
+- **Bug Reconciliation**: /workspace/docs/bugs/BUGS_RECONCILIATION.md
+- **Review Gates**: /workspace/docs/reviews/ALIGNMENT_GATES_LOG.md
+
+### Implementation Documentation
+- **API Gateway README**: /workspace/services/api-gateway/README.md
+- **ETL Data Mapping**: /workspace/services/etl/docs/COMPREHENSIVE_DATA_MAPPING_AND_SCHEMA_REPORT.md
+- **Web UI Status**: /workspace/services/web-ui/FINAL_IMPLEMENTATION_STATUS.md
+- **Admin UI Summary**: /workspace/services/admin-ui/docs/ADMIN_UI_IMPLEMENTATION_SUMMARY.md
+- **Project Setup Guide**: /workspace/docs/PROJECT_SETUP_AND_DEPLOYMENT_GUIDE.md
+
+### Migration & Legacy
+- **Migration Plan**: /workspace/docs/Open Parliament Migration Plan/README.md
+- **Legacy Code Mapping**: /workspace/docs/Open Parliament Migration Plan/13-LEGACY-CODE-MAPPING.md
+- **Data Flow Mapping**: /workspace/docs/Open Parliament Migration Plan/12-DATA-FLOW-MAPPING.md
 
 ## Alignment Model
 - Feature → Data Entities → APIs → UI Flows → Tests → Rollout → Ops
@@ -24,5 +46,14 @@ Authoritative plan aligning features, data flows, architecture, checklists, test
 - G4 Test Strategy: Coverage plan ≥ 80%, CI jobs defined
 - G5 Release Readiness: PRD-ready docs, runbooks, rollback plans
 
+## Implementation Status
+- **Features Implemented**: 84/120+ (70%)
+- **API Endpoints**: 137 validated
+- **Database Schemas**: 3 schemas, 12+ tables
+- **Scrapers**: 100+ jurisdictions covered
+- **UI Components**: 84 features across 6 phases
+
 ## Change Log
-- Track all alignment decisions and deltas with YYYY-MM-DD entries.
+- 2025-01-20: Initial SoT creation with validation artifacts
+- 2025-01-20: Added implementation documentation references
+- 2025-01-20: Linked feature mapping with execution checklist IDs
