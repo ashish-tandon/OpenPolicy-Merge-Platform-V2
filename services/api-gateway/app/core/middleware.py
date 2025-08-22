@@ -11,7 +11,7 @@ from starlette.types import ASGIApp
 logger = structlog.get_logger()
 
 class RequestLoggingMiddleware(BaseHTTPMiddleware):
-    """Middleware for logging HTTP requests"""
+    """Middleware for logging HTTP requests and responses."""
     
     def __init__(self, app: ASGIApp):
         super().__init__(app)
@@ -49,38 +49,41 @@ class RequestLoggingMiddleware(BaseHTTPMiddleware):
         return response
 
 class RateLimitMiddleware(BaseHTTPMiddleware):
-    """Middleware for rate limiting"""
+    """Middleware for implementing IP-based rate limiting."""
     
     def __init__(self, app: ASGIApp, requests_per_minute: int = 60):
         super().__init__(app)
         self.requests_per_minute = requests_per_minute
-        self.requests = {}
+        self.request_counts = {}
     
     async def dispatch(self, request: Request, call_next):
         client_ip = request.client.host if request.client else "unknown"
         current_time = time.time()
         
-        # Clean old requests
-        self.requests = {
-            ip: times for ip, times in self.requests.items()
-            if current_time - times[-1] < 60
+        # Clean old entries (older than 1 minute)
+        self.request_counts = {
+            ip: count for ip, count in self.request_counts.items()
+            if current_time - count["timestamp"] < 60
         }
         
         # Check rate limit
-        if client_ip in self.requests:
-            if len(self.requests[client_ip]) >= self.requests_per_minute:
+        if client_ip in self.request_counts:
+            if self.request_counts[client_ip]["count"] >= self.requests_per_minute:
                 logger.warning(
                     "Rate limit exceeded",
                     client_ip=client_ip,
-                    requests=len(self.requests[client_ip])
+                    requests=self.request_counts[client_ip]["count"]
                 )
                 return Response(
                     content="Rate limit exceeded",
                     status_code=429,
                     media_type="text/plain"
                 )
-            self.requests[client_ip].append(current_time)
+            self.request_counts[client_ip]["count"] += 1
         else:
-            self.requests[client_ip] = [current_time]
+            self.request_counts[client_ip] = {
+                "count": 1,
+                "timestamp": current_time
+            }
         
         return await call_next(request)

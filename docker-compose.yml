@@ -140,7 +140,7 @@ services:
     ports:
       - "8585:8585"
     environment:
-      # PostgreSQL Database Configuration
+      # Database configuration for PostgreSQL
       - DB_DRIVER_CLASS=org.postgresql.Driver
       - DB_SCHEME=postgresql
       - DB_PARAMS=allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
@@ -149,12 +149,13 @@ services:
       - DB_HOST=db
       - DB_PORT=5432
       - OM_DATABASE=openmetadata
-      # Elasticsearch Configuration
+      # ElasticSearch Configurations
       - ELASTICSEARCH_HOST=elasticsearch
       - ELASTICSEARCH_PORT=9200
       - ELASTICSEARCH_SCHEME=http
-      - ELASTICSEARCH_USER=elastic
+      - ELASTICSEARCH_USERNAME=elastic
       - ELASTICSEARCH_PASSWORD=changeme
+      - SEARCH_TYPE=elasticsearch
       # OpenMetadata Configuration
       - OPENMETADATA_CLUSTER_NAME=openmetadata
       - SERVER_PORT=8585
@@ -176,6 +177,20 @@ services:
       - elasticsearch
     profiles:
       - openmetadata
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8585/api/v1/system/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1.0'
+        reservations:
+          memory: 1G
+          cpus: '0.5'
 
 
   openmetadata-ingestion:
@@ -201,6 +216,11 @@ services:
       - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_EMAIL=admin@openpolicy.com
       - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_FIRSTNAME=Admin
       - AIRFLOW__WEBSERVER__AUTH_USER_CREATION_LASTNAME=User
+      # Additional Airflow settings for stability
+      - AIRFLOW__CORE__FERNET_KEY=u8yPTF7NOEWUvTQtsypXEoLa3hFWjxoxPCAo/Rd3WSU=
+      - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=true
+      - AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK=true
+      - AIRFLOW__SCHEDULER__HEARTBEAT_SEC=30
     volumes:
       - openmetadata_ingestion_dags:/opt/airflow/dags
       - openmetadata_ingestion_logs:/opt/airflow/logs
@@ -209,6 +229,21 @@ services:
       - db
     profiles:
       - openmetadata
+    command: ["airflow", "standalone"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 120s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+        reservations:
+          memory: 512M
+          cpus: '0.25'
 
   # MCP Server removed - Cursor will run it directly
 
@@ -245,6 +280,20 @@ services:
       - elasticsearch_data:/usr/share/elasticsearch/data
     profiles:
       - openmetadata
+    healthcheck:
+      test: ["CMD-SHELL", "curl -s http://localhost:9200/_cluster/health | grep -q 'status.*green\\|status.*yellow'"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: '0.5'
+        reservations:
+          memory: 512M
+          cpus: '0.25'
 
 volumes:
   db_data:

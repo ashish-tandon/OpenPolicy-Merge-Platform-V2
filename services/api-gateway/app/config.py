@@ -14,9 +14,9 @@ class Settings(BaseSettings):
     VERSION: str = "1.0.0"
     DEBUG: bool = False
     LOG_LEVEL: str = "INFO"
+    SECRET_KEY: str = "dev_secret_key_change_in_production"
     
     # Security settings
-    SECRET_KEY: str = "dev_secret_key_change_in_production"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
     
@@ -41,9 +41,19 @@ class Settings(BaseSettings):
     # API settings
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME: str = "Merge V2"
+    API_HOST: str = "0.0.0.0"
+    API_PORT: int = 8000
+    API_RELOAD: bool = True
+    API_WORKERS: int = 1
+    
+    # Security settings
+    ALLOWED_HOSTS: List[str] = ["*"]
     
     # Rate limiting
     RATE_LIMIT_PER_MINUTE: int = 60
+    
+    # Monitoring
+    ENABLE_METRICS: bool = True
     
     # External APIs
     OPENPARLIAMENT_API_KEY: str = ""

@@ -4,6 +4,8 @@ Metrics for Merge V2 API Gateway
 
 from prometheus_client import Counter, Histogram, Gauge, generate_latest
 from fastapi import FastAPI
+from starlette.requests import Request
+from starlette.responses import Response
 import time
 
 # Request metrics
@@ -63,7 +65,7 @@ def setup_metrics(app: FastAPI):
     """Setup metrics for the FastAPI application"""
     
     @app.middleware("http")
-    async def metrics_middleware(request, call_next):
+    async def metrics_middleware(request: Request, call_next):
         start_time = time.time()
         
         # Process request
@@ -71,9 +73,11 @@ def setup_metrics(app: FastAPI):
         
         # Record metrics
         duration = time.time() - start_time
+        endpoint = request.url.path
+        
         REQUEST_COUNT.labels(
             method=request.method,
-            endpoint=request.url.path,
+            endpoint=endpoint,
             status=response.status_code
         ).inc()
         
