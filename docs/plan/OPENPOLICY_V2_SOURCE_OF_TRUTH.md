@@ -8,6 +8,7 @@ Authoritative plan aligning features, data flows, architecture, checklists, test
 ### Core Documentation
 - **Execution Checklist**: /workspace/docs/validation/UPDATED_MASTER_EXECUTION_CHECKLIST.md
 - **API Specification**: /workspace/docs/validation/API_DESIGN_SPECIFICATION.md
+- **Testing Strategies**: /workspace/docs/validation/COMPREHENSIVE_TESTING_STRATEGIES.md
 
 ### Validation Reports
 - **Database Validation**: /workspace/artifacts/db/pass1/database_validation_report.md
@@ -29,6 +30,12 @@ Authoritative plan aligning features, data flows, architecture, checklists, test
 - **Web UI Status**: /workspace/services/web-ui/FINAL_IMPLEMENTATION_STATUS.md
 - **Admin UI Summary**: /workspace/services/admin-ui/docs/ADMIN_UI_IMPLEMENTATION_SUMMARY.md
 - **Project Setup Guide**: /workspace/docs/PROJECT_SETUP_AND_DEPLOYMENT_GUIDE.md
+
+### Operational Documentation
+- **Operational Runbooks**: /workspace/docs/OPERATIONAL_RUNBOOKS.md
+- **Monitoring & Observability**: /workspace/docs/MONITORING_AND_OBSERVABILITY.md
+- **Security & Compliance**: /workspace/docs/SECURITY_AND_COMPLIANCE.md
+- **API Versioning Strategy**: /workspace/docs/API_VERSIONING_STRATEGY.md
 
 ### Migration & Legacy
 - **Migration Plan**: /workspace/docs/Open Parliament Migration Plan/README.md
@@ -52,8 +59,11 @@ Authoritative plan aligning features, data flows, architecture, checklists, test
 - **Database Schemas**: 3 schemas, 12+ tables
 - **Scrapers**: 100+ jurisdictions covered
 - **UI Components**: 84 features across 6 phases
+- **Documentation**: 30+ comprehensive documents
 
 ## Change Log
 - 2025-01-20: Initial SoT creation with validation artifacts
 - 2025-01-20: Added implementation documentation references
 - 2025-01-20: Linked feature mapping with execution checklist IDs
+- 2025-01-20: Added operational documentation suite
+- 2025-01-20: Achieved 100% validation doc coverage
