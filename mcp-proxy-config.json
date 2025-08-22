@@ -1,0 +1,37 @@
+{
+  "port": 8096,
+  "host": "127.0.0.1",
+  "passEnvironment": true,
+  "servers": {
+    "fetch": {
+      "command": "/opt/homebrew/bin/uvx",
+      "args": ["mcp-server-fetch"],
+      "transportType": "stdio"
+    },
+    "ha": {
+      "command": "/opt/homebrew/bin/uvx",
+      "args": [
+        "mcp-server-fetch",
+        "--user-agent",
+        "CursorMCP-HA",
+        "--ignore-robots-txt"
+      ],
+      "env": {
+        "HOME_ASSISTANT_TOKEN": "${HOME_ASSISTANT_TOKEN}",
+        "HOME_ASSISTANT_CLOUD_URL": "${HOME_ASSISTANT_CLOUD_URL}",
+        "HOME_ASSISTANT_LOCAL_URL": "${HOME_ASSISTANT_LOCAL_URL}"
+      },
+      "transportType": "stdio"
+    },
+    "openmetadata": {
+      "command": "python3",
+      "args": ["mcp-openmetadata-server.py"],
+      "env": {
+        "OPENMETADATA_SERVER_URL": "http://localhost:8585",
+        "OPENMETADATA_AUTH_TOKEN": "admin",
+        "OPENMETADATA_USERNAME": "admin@open-metadata.org"
+      },
+      "transportType": "stdio"
+    }
+  }
+}

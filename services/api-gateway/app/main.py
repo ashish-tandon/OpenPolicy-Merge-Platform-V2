@@ -6,6 +6,7 @@ from multiple jurisdictions including federal, provincial, and municipal sources
 """
 
 import time
+from datetime import datetime
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
@@ -83,30 +84,31 @@ async def startup_event():
 async def root():
     """Root endpoint with API information."""
     return {
-        "message": "Welcome to Merge V2 API Gateway",
-        "version": "1.0.0",
+        "message": "Welcome to OpenPolicy API",
+        "version": "0.1.0",
         "docs": "/docs",
-        "health": "/health"
+        "health": "/healthz"
     }
 
-@app.get("/health")
+@app.get("/healthz")
 async def health_check():
-    """Basic health check endpoint."""
+    """Health check endpoint."""
     return {
-        "status": "healthy",
-        "timestamp": time.time(),
-        "service": "api-gateway"
+        "status": "ok",
+        "timestamp": datetime.now().isoformat() + "Z",
+        "version": "0.1.0",
+        "environment": "development",
+        "database": "connected"
     }
 
-@app.get("/health/detailed")
-async def detailed_health_check():
-    """Detailed health check endpoint."""
+@app.get("/version")
+async def version_check():
+    """Version endpoint."""
     return {
-        "status": "healthy",
-        "timestamp": time.time(),
-        "service": "api-gateway",
-        "database": "not_configured",
-        "version": "1.0.0"
+        "version": "0.1.0",
+        "build_date": datetime.now().isoformat() + "Z",
+        "git_commit": "development",
+        "environment": "development"
     }
 
 @app.get("/metrics")

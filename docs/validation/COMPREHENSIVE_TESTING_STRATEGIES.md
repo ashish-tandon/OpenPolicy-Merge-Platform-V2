@@ -1,127 +1,167 @@
-# Comprehensive Testing Strategies - All Features
-Generated: 2025-01-19 | Iteration: 2/10
+# Comprehensive Testing Strategies
 
-## 🎯 Testing Philosophy
-Every feature must be tested through multiple verification layers:
-1. **Unit Tests** - Component isolation
-2. **Integration Tests** - Service interaction
-3. **E2E Tests** - User journey
-4. **Visual Tests** - UI consistency
-5. **Performance Tests** - Load handling
-6. **Security Tests** - Vulnerability scanning
-7. **Accessibility Tests** - WCAG compliance
+## Executive Summary
+This document outlines the testing strategy for the OpenPolicy V2 platform, covering unit, integration, end-to-end, performance, security, and accessibility testing.
 
-## 📊 Feature-by-Feature Testing Strategy
+## Testing Philosophy
+- **Test Pyramid**: 70% unit, 20% integration, 10% E2E
+- **Shift Left**: Test early in development cycle
+- **Continuous Testing**: Automated tests in CI/CD pipeline
+- **Risk-Based**: Focus on critical user journeys
+- **Data-Driven**: Use real-world data scenarios
 
-### 1. Bills System
+## Test Coverage Goals
+- **Overall Coverage**: ≥ 80%
+- **Critical Paths**: ≥ 95%
+- **API Endpoints**: 100%
+- **UI Components**: ≥ 85%
+- **Data Pipelines**: ≥ 90%
 
-#### Testing Matrix
-| Test Type | Coverage Target | Current | Strategy |
-|-----------|----------------|---------|----------|
-| Unit | 95% | 20% | Test each model, schema, endpoint |
-| Integration | 85% | 10% | API contract tests |
-| E2E | 80% | 0% | User journey tests |
-| Visual | 100% | 0% | Screenshot comparisons |
+## Testing Frameworks & Tools
 
-#### Detailed Test Cases
+### Backend (Python)
+- **Unit Testing**: pytest 7.x
+- **Coverage**: pytest-cov
+- **Mocking**: pytest-mock, responses
+- **API Testing**: pytest + httpx
+- **Database**: pytest-postgresql
 
-**Unit Tests**
+### Frontend (JavaScript/TypeScript)
+- **Unit Testing**: Jest 29.x
+- **Component Testing**: React Testing Library
+- **E2E Testing**: Playwright
+- **Visual Regression**: Percy
+- **Coverage**: Istanbul/nyc
+
+### Infrastructure
+- **Load Testing**: k6
+- **Security**: OWASP ZAP
+- **Accessibility**: axe-core
+- **Contract Testing**: Pact
+- **Monitoring**: Datadog Synthetics
+
+## Test Types & Strategies
+
+### 1. Unit Tests
+
+#### Purpose
+Test individual functions, methods, and components in isolation.
+
+#### Scope
+- Business logic functions
+- Data transformations
+- Utility functions
+- React components
+- API route handlers
+
+#### Example Test Plan
 ```python
-# test_bills.py
-class TestBillModel:
-    def test_bill_creation(self):
-        """Test bill can be created with required fields"""
-        bill = Bill(
-            number="C-123",
-            title="Test Act",
-            session_id=1
-        )
-        assert bill.number == "C-123"
-    
-    def test_bill_validation(self):
-        """Test bill validation rules"""
-        with pytest.raises(ValidationError):
-            Bill(number="")  # Empty number should fail
-    
-    def test_bill_status_transitions(self):
-        """Test valid status transitions"""
-        bill = Bill(status="first_reading")
-        bill.advance_status()
-        assert bill.status == "second_reading"
+# API Unit Test Example
+def test_bill_creation():
+    bill = Bill(
+        title="Test Act",
+        status="first_reading",
+        introduction_date=date.today()
+    )
+    assert bill.is_active() == True
+    assert bill.days_since_introduction() >= 0
 ```
 
-**Integration Tests**
+```javascript
+// React Component Test Example
+test('BillCard displays bill information', () => {
+  render(<BillCard bill={mockBill} />);
+  expect(screen.getByText('Test Act')).toBeInTheDocument();
+  expect(screen.getByText('First Reading')).toBeInTheDocument();
+});
+```
+
+### 2. Integration Tests
+
+#### Purpose
+Test interactions between multiple components/services.
+
+#### Scope
+- API endpoint integration
+- Database operations
+- External service calls
+- Authentication flows
+- Data pipeline stages
+
+#### Example Test Plan
 ```python
-# test_bills_api.py
-class TestBillsAPI:
-    async def test_create_bill_endpoint(self, client):
-        """Test POST /api/v1/bills"""
+# API Integration Test
+async def test_create_and_retrieve_bill():
+    async with AsyncClient(app=app) as client:
+        # Create bill
         response = await client.post("/api/v1/bills", json={
-            "number": "C-123",
-            "title": "Test Act"
+            "title": "Integration Test Act",
+            "status": "first_reading"
         })
         assert response.status_code == 201
-        assert response.json()["number"] == "C-123"
-    
-    async def test_bills_search(self, client):
-        """Test GET /api/v1/bills/search"""
-        response = await client.get("/api/v1/bills/search?q=climate")
+        bill_id = response.json()["id"]
+        
+        # Retrieve bill
+        response = await client.get(f"/api/v1/bills/{bill_id}")
         assert response.status_code == 200
-        assert len(response.json()["results"]) > 0
+        assert response.json()["title"] == "Integration Test Act"
 ```
 
-**E2E Tests**
-```typescript
-// bills.e2e.spec.ts
-describe('Bills User Journey', () => {
-  it('should allow user to search and view bill details', async () => {
-    // Navigate to bills page
-    await page.goto('/bills');
-    
-    // Search for a bill
-    await page.fill('[data-testid="bill-search"]', 'climate');
-    await page.click('[data-testid="search-button"]');
-    
-    // Verify results appear
-    await expect(page.locator('.bill-result')).toHaveCount(greaterThan(0));
-    
-    // Click on first result
-    await page.click('.bill-result:first-child');
-    
-    // Verify bill details page
-    await expect(page).toHaveURL(/\/bills\/\d+/);
-    await expect(page.locator('h1')).toContainText('Bill');
-  });
-});
-```
+### 3. End-to-End Tests
 
-**Visual Tests**
+#### Purpose
+Test complete user workflows from UI to database.
+
+#### Critical User Journeys
+1. **Search for MP by Postal Code**
+   - Enter postal code
+   - View MP profile
+   - Contact MP
+
+2. **Track Bill Progress**
+   - Search for bill
+   - View bill details
+   - See voting history
+   - Subscribe to updates
+
+3. **Browse Debates**
+   - Select date
+   - Read transcript
+   - Search speeches
+   - View AI summary
+
+#### E2E Test Example (Playwright)
 ```javascript
-// bills.visual.spec.js
-describe('Bills Visual Tests', () => {
-  it('should match bill list page snapshot', async () => {
-    await page.goto('/bills');
-    await expect(page).toHaveScreenshot('bills-list.png');
-  });
+test('User can find their MP by postal code', async ({ page }) => {
+  await page.goto('/');
+  await page.fill('[data-testid="search-input"]', 'K1A 0A6');
+  await page.click('[data-testid="search-submit"]');
   
-  it('should match bill detail page snapshot', async () => {
-    await page.goto('/bills/123');
-    await expect(page).toHaveScreenshot('bill-detail.png');
-  });
+  await expect(page).toHaveURL(/\/search\?postcode=K1A\+0A6/);
+  await expect(page.locator('[data-testid="mp-result"]')).toBeVisible();
+  await expect(page.locator('[data-testid="mp-name"]')).toContainText('MP Name');
 });
 ```
 
-**Performance Tests**
+### 4. Performance Tests
+
+#### Targets
+- **Page Load**: < 3 seconds (P95)
+- **API Response**: < 500ms (P95)
+- **Search Results**: < 1 second
+- **Concurrent Users**: 10,000+
+- **Database Queries**: < 100ms
+
+#### k6 Load Test Example
 ```javascript
-// bills.perf.js
-import { check } from 'k6';
 import http from 'k6/http';
+import { check } from 'k6';
 
 export let options = {
   stages: [
-    { duration: '5m', target: 100 },
-    { duration: '10m', target: 100 },
-    { duration: '5m', target: 0 },
+    { duration: '2m', target: 100 },
+    { duration: '5m', target: 1000 },
+    { duration: '2m', target: 0 },
   ],
   thresholds: {
     http_req_duration: ['p(95)<500'],
@@ -129,7 +169,7 @@ export let options = {
 };
 
 export default function() {
-  let response = http.get('http://localhost:8080/api/v1/bills');
+  let response = http.get('https://api.openpolicy.ca/v1/bills');
   check(response, {
     'status is 200': (r) => r.status === 200,
     'response time < 500ms': (r) => r.timings.duration < 500,
@@ -137,296 +177,325 @@ export default function() {
 }
 ```
 
-### 2. MPs/Members System
+### 5. Security Tests
 
-#### Testing Strategy
+#### OWASP Top 10 Coverage
+- A01: Broken Access Control
+- A02: Cryptographic Failures
+- A03: Injection
+- A04: Insecure Design
+- A05: Security Misconfiguration
+- A06: Vulnerable Components
+- A07: Authentication Failures
+- A08: Data Integrity Failures
+- A09: Logging Failures
+- A10: SSRF
+
+#### Security Test Plan
 ```yaml
-test_pyramid:
-  unit:
-    - Member model validation
-    - Electoral district assignment
-    - Party affiliation changes
-    - Contact info validation
-  integration:
-    - Member CRUD operations
-    - Search by name/riding
-    - Party filtering
-    - Province filtering
-  e2e:
-    - Find MP by postal code
-    - View MP voting record
-    - Contact MP workflow
-  visual:
-    - MP card component
-    - MP detail page layout
-    - Mobile responsiveness
+# OWASP ZAP Configuration
+contexts:
+  - name: OpenPolicy API
+    urls:
+      - https://api.openpolicy.ca
+    authentication:
+      method: jwt
+      parameters:
+        loginUrl: https://api.openpolicy.ca/auth/login
+    tests:
+      - sql_injection
+      - xss
+      - broken_authentication
+      - sensitive_data_exposure
+      - xxe
+      - broken_access_control
+      - security_misconfiguration
 ```
 
-#### Sample Test Implementation
-```python
-# test_members.py
-class TestMemberSearch:
-    @pytest.mark.parametrize("search_term,expected_count", [
-        ("trudeau", 1),
-        ("toronto", 25),
-        ("liberal", 150),
-    ])
-    async def test_member_search_variations(self, client, search_term, expected_count):
-        """Test various search scenarios"""
-        response = await client.get(f"/api/v1/members/search?q={search_term}")
-        assert len(response.json()["results"]) >= expected_count
+### 6. Accessibility Tests
+
+#### WCAG 2.1 AA Compliance
+- **Perceivable**: Alt text, color contrast
+- **Operable**: Keyboard navigation, focus indicators
+- **Understandable**: Clear labels, error messages
+- **Robust**: Semantic HTML, ARIA
+
+#### Automated Testing
+```javascript
+// axe-core integration
+test('Homepage is accessible', async () => {
+  const { container } = render(<HomePage />);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
 ```
 
-### 3. Votes System (Currently Broken)
+### 7. Contract Tests
 
-#### Fix Verification Tests
-```python
-# test_votes_fix.py
-class TestVotesAPIFix:
-    def test_pydantic_v2_schema(self):
-        """Verify Pydantic v2 schema works"""
-        from app.schemas.votes import VoteSchema
-        
-        vote_data = {
-            "id": 1,
-            "bill_id": 123,
-            "result": "passed",
-            "yea_count": 200,
-            "nay_count": 100
-        }
-        
-        vote = VoteSchema(**vote_data)
-        assert vote.model_dump()["id"] == 1
-    
-    async def test_votes_endpoint_restored(self, client):
-        """Verify votes endpoint is working"""
-        response = await client.get("/api/v1/votes")
-        assert response.status_code == 200  # Currently returns 404
-```
-
-### 4. Committees System
-
-#### Data Completeness Tests
-```python
-# test_committees_data.py
-class TestCommitteeData:
-    def test_all_committees_loaded(self, db):
-        """Verify all 26+ committees are in database"""
-        committees = db.query(Committee).count()
-        assert committees >= 26, f"Only {committees} committees found, expected 26+"
-    
-    def test_committee_members_populated(self, db):
-        """Verify committee membership data"""
-        for committee in db.query(Committee).all():
-            assert committee.members.count() > 0, f"{committee.name} has no members"
-```
-
-### 5. Search System
-
-#### Postal Code Integration Tests
-```python
-# test_search_postal.py
-class TestPostalCodeSearch:
-    @pytest.mark.parametrize("postal_code,expected_mp", [
-        ("K1A0A6", "Parliament Hill"),
-        ("M5V3A8", "Spadina-Fort York"),
-        ("V6B2W2", "Vancouver Centre"),
-    ])
-    async def test_postal_code_lookup(self, client, postal_code, expected_mp):
-        """Test MP lookup by postal code"""
-        response = await client.get(f"/api/v1/search/mp?postal={postal_code}")
-        assert response.status_code == 200
-        assert expected_mp in response.json()["riding"]
-```
-
-### 6. User Authentication
-
-#### Security Test Suite
-```python
-# test_auth_security.py
-class TestAuthSecurity:
-    def test_password_hashing(self):
-        """Verify passwords are properly hashed"""
-        from app.core.security import hash_password, verify_password
-        
-        password = "TestPass123!"
-        hashed = hash_password(password)
-        
-        assert password not in hashed
-        assert verify_password(password, hashed)
-    
-    def test_jwt_token_expiry(self):
-        """Verify JWT tokens expire correctly"""
-        from app.core.auth import create_access_token
-        from datetime import timedelta
-        
-        token = create_access_token(
-            data={"sub": "user@example.com"},
-            expires_delta=timedelta(minutes=1)
-        )
-        
-        # Wait and verify expiration
-        time.sleep(61)
-        with pytest.raises(ExpiredSignatureError):
-            decode_token(token)
-    
-    def test_sql_injection_prevention(self, client):
-        """Verify SQL injection is prevented"""
-        malicious_input = "'; DROP TABLE users; --"
-        response = client.post("/api/v1/auth/login", json={
-            "email": malicious_input,
-            "password": "test"
-        })
-        assert response.status_code == 422  # Validation error
-```
-
-### 7. Email Alerts (To Be Implemented)
-
-#### Test-Driven Development Tests
-```python
-# test_email_alerts_tdd.py
-class TestEmailAlerts:
-    @pytest.mark.skip(reason="Feature not implemented")
-    async def test_alert_subscription(self, client):
-        """Test user can subscribe to bill alerts"""
-        response = await client.post("/api/v1/alerts/subscribe", json={
-            "email": "user@example.com",
-            "alert_type": "bill_updates",
-            "keywords": ["climate", "health"]
-        })
-        assert response.status_code == 201
-    
-    @pytest.mark.skip(reason="Feature not implemented")
-    async def test_alert_delivery(self, client, mock_email):
-        """Test alerts are delivered when triggered"""
-        # Create alert subscription
-        # Create matching bill
-        # Verify email sent
-        pass
-```
-
-### 8. Real-time Features
-
-#### WebSocket Tests
-```python
-# test_websocket.py
-class TestWebSocket:
-    @pytest.mark.skip(reason="WebSocket not implemented")
-    async def test_house_status_updates(self, websocket_client):
-        """Test real-time House status updates"""
-        async with websocket_client.connect("/ws/house-status") as websocket:
-            # Send subscription
-            await websocket.send_json({"action": "subscribe"})
-            
-            # Trigger status change
-            await trigger_house_status_change("in_session")
-            
-            # Verify update received
-            data = await websocket.receive_json()
-            assert data["status"] == "in_session"
-```
-
-## 📱 UI Verification Strategies
-
-### 1. Component Testing
-```typescript
-// Button.test.tsx
-describe('Button Component', () => {
-  it('renders with correct text', () => {
-    render(<Button>Click me</Button>);
-    expect(screen.getByText('Click me')).toBeInTheDocument();
-  });
-  
-  it('handles click events', () => {
-    const handleClick = jest.fn();
-    render(<Button onClick={handleClick}>Click me</Button>);
-    fireEvent.click(screen.getByText('Click me'));
-    expect(handleClick).toHaveBeenCalledTimes(1);
+#### API Contract Testing
+```javascript
+// Pact consumer test
+describe('Bills API Contract', () => {
+  it('returns bill details', async () => {
+    await provider.addInteraction({
+      state: 'a bill exists',
+      uponReceiving: 'a request for bill details',
+      withRequest: {
+        method: 'GET',
+        path: '/api/v1/bills/123',
+      },
+      willRespondWith: {
+        status: 200,
+        body: {
+          id: '123',
+          title: like('Sample Act'),
+          status: term({
+            matcher: 'first_reading|second_reading|third_reading|royal_assent',
+            generate: 'first_reading'
+          }),
+        },
+      },
+    });
   });
 });
 ```
 
-### 2. Accessibility Testing
-```javascript
-// a11y.test.js
-describe('Accessibility Tests', () => {
-  it('has no accessibility violations', async () => {
-    const { container } = render(<BillsPage />);
-    const results = await axe(container);
-    expect(results).toHaveNoViolations();
-  });
-  
-  it('supports keyboard navigation', async () => {
-    render(<Navigation />);
-    const firstLink = screen.getByText('Bills');
-    firstLink.focus();
-    fireEvent.keyDown(firstLink, { key: 'Tab' });
-    expect(screen.getByText('MPs')).toHaveFocus();
-  });
-});
+### 8. Data Quality Tests
+
+#### ETL Pipeline Validation
+```python
+def test_scraper_data_quality():
+    # Run scraper
+    data = scraper.extract_members()
+    
+    # Validate required fields
+    for member in data:
+        assert member.get('name') is not None
+        assert member.get('riding') is not None
+        assert member.get('party') is not None
+        
+    # Validate data formats
+    assert all(re.match(r'^[A-Z0-9]{3}$', m.get('postal_code', '')) 
+              for m in data if m.get('postal_code'))
+    
+    # Check for duplicates
+    names = [m['name'] for m in data]
+    assert len(names) == len(set(names))
 ```
 
-### 3. Cross-browser Testing
-```javascript
-// crossbrowser.conf.js
-module.exports = {
-  browsers: [
-    'chrome@latest',
-    'firefox@latest',
-    'safari@latest',
-    'edge@latest',
-    'chrome@latest:Android',
-    'safari@latest:iOS'
-  ],
-  testMatch: '**/*.crossbrowser.spec.js'
-};
-```
+## Test Data Management
 
-## 🎯 Test Coverage Goals
+### Test Data Strategy
+1. **Synthetic Data**: Generated test data for unit tests
+2. **Anonymized Production Data**: For integration/E2E tests
+3. **Fixtures**: Predefined test scenarios
+4. **Seed Data**: Consistent baseline for testing
 
-| Component | Unit | Integration | E2E | Visual | Current | Target |
-|-----------|------|-------------|-----|--------|---------|---------|
-| Bills | 95% | 85% | 80% | 100% | 20% | 85% |
-| Members | 95% | 85% | 80% | 100% | 15% | 85% |
-| Votes | 95% | 85% | 80% | 100% | 0% | 85% |
-| Committees | 90% | 80% | 75% | 100% | 10% | 80% |
-| Search | 90% | 85% | 85% | 100% | 25% | 85% |
-| Auth | 100% | 95% | 90% | 100% | 40% | 95% |
-| Debates | 90% | 80% | 75% | 100% | 5% | 80% |
-
-## 🔧 Testing Infrastructure
-
-### Required Tools
-1. **Backend**: pytest, pytest-asyncio, pytest-cov, factory-boy
-2. **Frontend**: Jest, React Testing Library, Playwright
-3. **API**: Postman/Newman, Pact
-4. **Performance**: k6, Locust
-5. **Security**: OWASP ZAP, Snyk
-6. **Visual**: Percy, Chromatic
-
-### CI/CD Pipeline
+### Test Database Management
 ```yaml
-test_pipeline:
-  - stage: unit_tests
-    parallel: true
-    jobs:
-      - pytest backend
-      - jest frontend
-  - stage: integration_tests
-    jobs:
-      - api contract tests
-      - database tests
-  - stage: e2e_tests
-    jobs:
-      - playwright tests
-  - stage: performance_tests
-    jobs:
-      - k6 load tests
-  - stage: security_scan
-    jobs:
-      - owasp scan
-      - dependency check
+# docker-compose.test.yml
+services:
+  test-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: openpolicy_test
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    volumes:
+      - ./test/fixtures:/docker-entrypoint-initdb.d
 ```
 
----
-End of Iteration 2/10
+## CI/CD Integration
+
+### GitHub Actions Workflow
+```yaml
+name: Test Suite
+on: [push, pull_request]
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Python Tests
+        run: |
+          pip install -r requirements-test.txt
+          pytest --cov=app --cov-report=xml
+      
+      - name: Run JavaScript Tests
+        run: |
+          npm ci
+          npm run test:unit -- --coverage
+
+  integration-tests:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15
+        options: --health-cmd pg_isready
+    steps:
+      - name: Run Integration Tests
+        run: |
+          pytest tests/integration/
+          npm run test:integration
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run E2E Tests
+        run: |
+          npx playwright install
+          npm run test:e2e
+
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: OWASP ZAP Scan
+        uses: zaproxy/action-full-scan@v0.4.0
+        with:
+          target: 'https://staging.openpolicy.ca'
+```
+
+## Test Reporting
+
+### Metrics to Track
+- **Test Coverage**: Line, branch, function coverage
+- **Test Execution Time**: Track slow tests
+- **Flaky Tests**: Monitor intermittent failures
+- **Defect Density**: Bugs per feature/module
+- **Test Automation ROI**: Time saved vs invested
+
+### Dashboard Example
+```
+┌─────────────────────────────────────────┐
+│           Test Coverage Trends          │
+├─────────────────────────────────────────┤
+│ Component     │ Current │ Target │ Δ    │
+├───────────────┼─────────┼────────┼──────┤
+│ API Gateway   │ 87%     │ 85%    │ +2%  │
+│ Web UI        │ 73%     │ 85%    │ -12% │
+│ ETL Pipeline  │ 91%     │ 90%    │ +1%  │
+│ Scrapers      │ 68%     │ 80%    │ -12% │
+└─────────────────────────────────────────┘
+```
+
+## Test Environments
+
+### Environment Strategy
+1. **Local**: Developer machines (Docker)
+2. **CI**: Automated test runs (GitHub Actions)
+3. **Staging**: Pre-production testing
+4. **Production**: Smoke tests only
+
+### Environment Configuration
+```python
+# config/test.py
+class TestConfig:
+    TESTING = True
+    DATABASE_URL = "postgresql://test:test@localhost/openpolicy_test"
+    REDIS_URL = "redis://localhost:6379/1"
+    ELASTICSEARCH_URL = "http://localhost:9200"
+    EXTERNAL_API_MOCK = True
+    RATE_LIMIT_ENABLED = False
+```
+
+## Test Maintenance
+
+### Best Practices
+1. **DRY**: Reusable test utilities and fixtures
+2. **Isolation**: Tests should not depend on each other
+3. **Deterministic**: Same input = same output
+4. **Fast**: Optimize slow tests
+5. **Clear**: Descriptive test names
+6. **Maintained**: Regular test review and updates
+
+### Test Review Checklist
+- [ ] New features have corresponding tests
+- [ ] Tests follow naming conventions
+- [ ] No hardcoded test data
+- [ ] Proper test cleanup
+- [ ] Appropriate use of mocks
+- [ ] Coverage targets met
+- [ ] No flaky tests introduced
+
+## Risk-Based Testing
+
+### Critical Features (P0)
+1. User Authentication
+2. Search Functionality
+3. Bill/Vote Display
+4. MP Contact System
+5. Data Integrity
+
+### High Priority (P1)
+1. Email Notifications
+2. API Rate Limiting
+3. Mobile Responsiveness
+4. Accessibility Compliance
+5. Performance SLAs
+
+### Test Prioritization Matrix
+```
+         Impact
+    High │ P0 │ P1 │
+         ├────┼────┤
+    Low  │ P2 │ P3 │
+         └────┴────┘
+         Low  High
+         Likelihood
+```
+
+## Continuous Improvement
+
+### Metrics for Success
+1. **Defect Escape Rate**: < 5%
+2. **Test Automation Coverage**: > 80%
+3. **Mean Time to Detection**: < 1 hour
+4. **Test Execution Time**: < 30 minutes
+5. **False Positive Rate**: < 2%
+
+### Quarterly Review Process
+1. Analyze test metrics
+2. Review flaky tests
+3. Update test strategies
+4. Train team on new tools
+5. Optimize slow tests
+
+## Appendix: Test Commands
+
+### Running Tests Locally
+```bash
+# Backend unit tests
+pytest tests/unit/ -v
+
+# Backend integration tests
+pytest tests/integration/ -v
+
+# Frontend unit tests
+npm run test:unit
+
+# Frontend E2E tests
+npm run test:e2e
+
+# All tests with coverage
+./scripts/run-all-tests.sh --coverage
+
+# Specific feature tests
+pytest -k "test_bill" -v
+npm run test -- --testNamePattern="Bill"
+```
+
+### Debugging Tests
+```bash
+# Run with debugging
+pytest --pdb tests/unit/test_bills.py
+
+# Verbose output
+pytest -vvs tests/
+
+# Run specific test
+pytest tests/unit/test_bills.py::test_bill_creation
+
+# JavaScript debugging
+npm run test:debug
+```

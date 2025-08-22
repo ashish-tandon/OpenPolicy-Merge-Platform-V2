@@ -1,0 +1,54 @@
+name: Docs Guard
+
+on:
+  pull_request:
+    branches: [ "main", "master" ]
+    paths:
+      - "docs/**"
+      - "artifacts/**"
+      - "scripts/**"
+      - ".gitattributes"
+      - ".github/workflows/docs-guard.yml"
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure union strategy configured
+        run: |
+          grep -E '^\*\.md[[:space:]]+merge=union' .gitattributes
+          grep -E '^\*\.csv[[:space:]]+merge=union' .gitattributes
+
+      - name: Detect deletions in docs/*
+        run: |
+          base_sha="$(git merge-base origin/${{ github.base_ref }} HEAD)"
+          echo "Base: $base_sha"
+          # Any pure deletions in docs/*.md or *.csv?
+          if git diff --numstat "$base_sha"...HEAD -- docs/ | awk '{ if (($3 ~ /\.md$|\.csv$/) && $1==0 && $2>0) del++ } END { exit del>0 }'; then
+            echo "✅ No deletions in docs/*"
+          else
+            echo "❌ Detected line deletions in docs/*"
+            exit 1
+          fi
+
+      - name: Run docs audit (strict, enforces ≥95% SoT coverage)
+        run: |
+          chmod +x scripts/docs_audit.sh
+          STRICT=1 ROOT=. bash scripts/docs_audit.sh
+
+      - name: Verify 'Execution Checklist IDs' field exists per feature
+        run: |
+          python3 scripts/verify_feature_checklist_ids.py
+
+      - name: Block unresolved MERGE_NOTE (strict)
+        run: |
+          if grep -R "MERGE_NOTE" -n docs/ | grep -v "RESOLVED" ; then
+            echo "❌ Unresolved MERGE_NOTE markers found"
+            exit 1
+          fi
+          echo "✅ No unresolved MERGE_NOTE markers"

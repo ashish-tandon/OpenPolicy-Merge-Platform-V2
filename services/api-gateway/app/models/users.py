@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, DateTime, Boolean, Text, Index
+from sqlalchemy import Column, String, DateTime, Boolean, Text, Index, ForeignKey
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
@@ -7,9 +7,9 @@ import uuid
 
 class User(Base):
     """Model for storing user accounts."""
-    
+
     __tablename__ = "users"
-    
+
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     username = Column(String(50), unique=True, nullable=False, index=True)
     email = Column(String(255), unique=True, nullable=False, index=True)
@@ -19,20 +19,21 @@ class User(Base):
     is_verified = Column(Boolean, default=False, nullable=False)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
-    
+
     # Relationships
     sessions = relationship("UserSession", back_populates="user", cascade="all, delete-orphan")
-    
+    password_reset_tokens = relationship("PasswordResetToken", back_populates="user", cascade="all, delete-orphan")
+
     # Create indexes for efficient queries
     __table_args__ = (
         Index('idx_user_username', 'username'),
         Index('idx_user_email', 'email'),
         Index('idx_user_active', 'is_active'),
     )
-    
+
     def __repr__(self):
         return f"<User(id={self.id}, username='{self.username}', email='{self.email}')>"
-    
+
     def to_dict(self):
         """Convert model to dictionary (excluding sensitive data)."""
         return {
@@ -48,30 +49,30 @@ class User(Base):
 
 class UserSession(Base):
     """Model for storing user sessions."""
-    
+
     __tablename__ = "user_sessions"
-    
+
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    user_id = Column(UUID(as_uuid=True), nullable=False, index=True)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False, index=True)
     session_token = Column(String(255), unique=True, nullable=False, index=True)
     expires_at = Column(DateTime(timezone=True), nullable=False)
     ip_address = Column(String(45), nullable=True)
     user_agent = Column(Text, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
-    
+
     # Relationships
     user = relationship("User", back_populates="sessions")
-    
+
     # Create indexes for efficient queries
     __table_args__ = (
         Index('idx_session_user_id', 'user_id'),
         Index('idx_session_token', 'session_token'),
         Index('idx_session_expires', 'expires_at'),
     )
-    
+
     def __repr__(self):
         return f"<UserSession(id={self.id}, user_id={self.user_id})>"
-    
+
     def to_dict(self):
         """Convert model to dictionary."""
         return {
@@ -80,5 +81,52 @@ class UserSession(Base):
             "expires_at": self.expires_at.isoformat() if self.expires_at else None,
             "ip_address": self.ip_address,
             "user_agent": self.user_agent,
+            "created_at": self.created_at.isoformat() if self.created_at else None
+        }
+
+
+class PasswordResetToken(Base):
+    """Model for storing password reset tokens."""
+
+    __tablename__ = "password_reset_tokens"
+
+    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+    user_id = Column(UUID(as_uuid=True), ForeignKey("users.id"), nullable=False, index=True)
+    token = Column(String(255), unique=True, nullable=False, index=True)
+    expires_at = Column(DateTime(timezone=True), nullable=False)
+    used_at = Column(DateTime(timezone=True), nullable=True)
+    ip_address = Column(String(45), nullable=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+
+    # Relationships
+    user = relationship("User", back_populates="password_reset_tokens")
+
+    # Create indexes for efficient queries
+    __table_args__ = (
+        Index('idx_reset_user_id', 'user_id'),
+        Index('idx_reset_token', 'token'),
+        Index('idx_reset_expires', 'expires_at'),
+        Index('idx_reset_used', 'used_at'),
+    )
+
+    def __repr__(self):
+        return f"<PasswordResetToken(id={self.id}, user_id={self.user_id})>"
+
+    def is_valid(self):
+        """Check if token is still valid (not expired and not used)."""
+        from datetime import datetime, timezone
+        return (
+            self.used_at is None and
+            self.expires_at > datetime.now(timezone.utc)
+        )
+
+    def to_dict(self):
+        """Convert model to dictionary."""
+        return {
+            "id": str(self.id),
+            "user_id": str(self.user_id),
+            "expires_at": self.expires_at.isoformat() if self.expires_at else None,
+            "used_at": self.used_at.isoformat() if self.used_at else None,
+            "ip_address": self.ip_address,
             "created_at": self.created_at.isoformat() if self.created_at else None
         }

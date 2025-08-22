@@ -49,6 +49,7 @@ class DebateDetail(BaseModel):
     number: int = Field(..., description="Hansard number/sitting ID")
     statement_count: int = Field(..., description="Number of statements in the debate")
     speaker_count: int = Field(..., description="Number of unique speakers")
+    topics: List[str] = Field(default_factory=list, description="Topics discussed in the debate")
     url: str = Field(..., description="URL to debate detail")
     
     model_config = {"from_attributes": True}
@@ -105,7 +106,12 @@ class SpeechDetail(BaseModel):
     constituency: Optional[str] = Field(None, description="Speaker's constituency")
     date: Optional[str] = Field(None, description="Date of the speech (YYYY-MM-DD)")
     time: Optional[str] = Field(None, description="Time of the speech (HH:MM:SS)")
-    text: str = Field(..., description="Full text of the speech")
+    text_en: str = Field(..., description="Full text of the speech in English")
+    text_fr: Optional[str] = Field(None, description="Full text of the speech in French")
+    h1_en: Optional[str] = Field(None, description="Main heading in English")
+    h1_fr: Optional[str] = Field(None, description="Main heading in French")
+    h2_en: Optional[str] = Field(None, description="Sub-heading in English")
+    h2_fr: Optional[str] = Field(None, description="Sub-heading in French")
     bill_mentioned: Optional[str] = Field(None, description="Bill number if mentioned")
     sitting_id: int = Field(..., description="Sitting/debate identifier")
     sequence: int = Field(..., description="Sequence number in the debate")

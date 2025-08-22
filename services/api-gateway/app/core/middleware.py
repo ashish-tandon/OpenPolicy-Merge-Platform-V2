@@ -60,7 +60,6 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
         client_ip = request.client.host if request.client else "unknown"
         current_time = time.time()
         
-<<<<<<< HEAD
         # Clean old entries (older than 1 minute)
         self.request_counts = {
             ip: count for ip, count in self.request_counts.items()
@@ -80,7 +79,6 @@ class RateLimitMiddleware(BaseHTTPMiddleware):
                     status_code=429,
                     media_type="text/plain"
                 )
-<<<<<<< HEAD
             self.request_counts[client_ip]["count"] += 1
         else:
             self.request_counts[client_ip] = {

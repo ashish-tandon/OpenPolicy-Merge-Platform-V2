@@ -1,0 +1,24 @@
+{
+  "total_passes": 10,
+  "merge_notes": 0,
+  "gaps": {
+    "features": [
+      "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
+      "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
+      "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
+      "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):"
+    ],
+    "cross_refs": [
+      "SoT coverage only 66.7% (need \u226595%)",
+      "SoT coverage only 66.7% (need \u226595%)",
+      "SoT coverage only 66.7% (need \u226595%)",
+      "SoT coverage only 66.7% (need \u226595%)"
+    ]
+  },
+  "files_processed": 204,
+  "validation_summary": {
+    "features_validated": 204,
+    "cross_references_checked": true,
+    "lineage_validated": true
+  }
+}

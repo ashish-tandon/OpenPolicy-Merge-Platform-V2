@@ -1,4 +1,4 @@
-.PHONY: help setup dev test migrate seed api fmt lint clean legacy legacy-setup openparliament-focus
+.PHONY: help setup dev test migrate seed api fmt lint clean legacy legacy-setup openparliament-focus docs-audit docs-audit-strict lineage-auto features-stub verify-features ci-verify ten-pass-merge
 
 # Default target
 help:
@@ -205,3 +205,28 @@ rebuild:
 	@echo "Rebuilding all services..."
 	docker compose down
 	docker compose up -d --build
+<<<<<<< Current (Your changes)
+=======
+
+docs-audit:
+	@bash scripts/docs_audit.sh
+
+# Fails with non-zero exit if any checks fail (for CI use)
+docs-audit-strict:
+	@STRICT=1 bash scripts/docs_audit.sh
+
+lineage-auto:
+	@python3 scripts/generate_lineage.py
+
+features-stub:
+	@python3 scripts/ensure_feature_stubs.py
+
+verify-features:
+	@python3 scripts/verify_feature_checklist_ids.py
+
+ten-pass-merge:
+	@python3 scripts/ten_pass_merge.py
+
+ci-verify: docs-audit-strict
+	@echo "CI verify done."
+>>>>>>> Incoming (Background Agent changes)
