@@ -4,30 +4,20 @@
   "gaps": {
     "features": [
       "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
-      "Feature 'For each Feature:' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
       "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
-      "Feature 'For each Feature:' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
       "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
-      "Feature 'For each Feature:' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
-      "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):",
-      "Feature 'For each Feature:' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):"
+      "Feature 'Master Inventory' missing: Execution Checklist IDs:, Data Entities (tables/indices):, API Endpoints (with methods):, UI Views/Components:, Tests Required (unit/int/e2e/contract):"
     ],
     "lineage": [
       "Found 1 unresolved merge notes",
       "Found 1 unresolved merge notes",
       "Found 1 unresolved merge notes",
       "Found 1 unresolved merge notes"
-    ],
-    "cross_refs": [
-      "SoT coverage only 0.0% (need \u226595%)",
-      "SoT coverage only 0.0% (need \u226595%)",
-      "SoT coverage only 0.0% (need \u226595%)",
-      "SoT coverage only 0.0% (need \u226595%)"
     ]
   },
-  "files_processed": 8,
+  "files_processed": 52,
   "validation_summary": {
-    "features_validated": 8,
+    "features_validated": 52,
     "cross_references_checked": true,
     "lineage_validated": true
   }
