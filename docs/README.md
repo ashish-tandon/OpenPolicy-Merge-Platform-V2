@@ -4,6 +4,8 @@
 
 Welcome to the comprehensive documentation for OpenParliament.ca V2, a modern parliamentary data platform that follows the **FUNDAMENTAL RULE: NEVER REINVENT THE WHEEL**. This platform integrates existing, proven legacy OpenParliament importers and the Represent Canada platform to provide comprehensive Canadian parliamentary data.
 
+> **📚 Quick Navigation**: For a complete index of all documentation, see [ACTIVE_DOCUMENTATION_INDEX.md](ACTIVE_DOCUMENTATION_INDEX.md)
+
 ## 🏗️ **System Architecture**
 
 ```
@@ -18,44 +20,37 @@ Welcome to the comprehensive documentation for OpenParliament.ca V2, a modern pa
   • LEGISinfo             • Data Ingestion         • Extended Schema    • Tailwind CSS
 ```
 
-## 📚 **Documentation Index**
+## 📚 **Documentation Structure**
 
-### **1. [Data Pipeline Documentation](DATA_PIPELINE_DOCUMENTATION.md)**
-- **Purpose**: Complete overview of the data pipeline architecture
-- **Contents**: 
-  - Data sources and scrapers mapping
-  - Data flow and processing pipeline
-  - Database schema mapping
-  - Running and maintenance procedures
-- **Use When**: Understanding the overall system architecture and data flow
+### **Organization**
+- **Active Documentation** (`/docs/`) - Current documentation for development and operations
+- **Legacy Documentation** (`/docs/legacy/`) - Historical documentation and completed implementations
+- **Reference Documentation** (`/docs/REFERENCE/`) - Stable technical references
+- **Validation Reports** (`/docs/validation/`) - Data validation and audit results
 
-### **2. [Scraper Mapping & Data Flow](SCRAPER_MAPPING.md)**
-- **Purpose**: Detailed mapping of parliamentary scrapers and their data sources
-- **Contents**:
-  - Individual scraper analysis (Represent API, OurCommons.ca, LEGISinfo)
-  - Exact data collected from each source
-  - Database table mapping for each data type
-  - Performance metrics and monitoring
-- **Use When**: Need to understand parliamentary data sources or troubleshoot collection issues
+### **Key Documentation**
 
-### **3. [Complete Scraper Inventory](COMPLETE_SCRAPER_INVENTORY.md)**
-- **Purpose**: **COMPLETE INVENTORY** of ALL scrapers in the system (109+ scrapers)
-- **Contents**:
-  - Parliamentary scrapers (3 active)
-  - Municipal scrapers (100+ across all provinces)
-  - Civic platform scrapers (5 platforms)
-  - Electoral scrapers (1 active)
-  - Future integration opportunities
-- **Use When**: Need to understand the full scope of available scrapers or plan future integrations
+#### **Master Planning & Architecture**
+- **[ACTIVE_DOCUMENTATION_INDEX.md](ACTIVE_DOCUMENTATION_INDEX.md)** - Complete index of all active documentation
+- **[MASTER_PLANNING_FRAMEWORK.md](MASTER_PLANNING_FRAMEWORK.md)** - Overall planning framework and iteration tracking
+- **[SYSTEM_ARCHITECTURE_DESIGN.md](SYSTEM_ARCHITECTURE_DESIGN.md)** - Target system architecture
 
-### **4. [Maintenance & Operations Guide](MAINTENANCE_AND_OPERATIONS.md)**
-- **Purpose**: Step-by-step procedures for running and maintaining the system
-- **Contents**:
-  - Daily, weekly, and monthly operations
-  - Troubleshooting procedures
-  - Emergency procedures
-  - Monitoring and alerting
-- **Use When**: Operating the system day-to-day or handling issues
+#### **Data Management**
+- **[DATA_MAP.md](DATA_MAP.md)** - Comprehensive data mapping and lineage
+- **[DATA_PIPELINE_DOCUMENTATION.md](DATA_PIPELINE_DOCUMENTATION.md)** - Complete data pipeline architecture
+- **[SCRAPER_MAPPING.md](SCRAPER_MAPPING.md)** - Parliamentary scraper details
+- **[COMPLETE_SCRAPER_INVENTORY.md](COMPLETE_SCRAPER_INVENTORY.md)** - All 109+ scrapers inventory
+
+#### **Operations & Security**
+- **[DEPLOYMENT_AND_OPERATIONS_GUIDE.md](DEPLOYMENT_AND_OPERATIONS_GUIDE.md)** - Deployment procedures
+- **[PERFORMANCE_OPTIMIZATION_GUIDE.md](PERFORMANCE_OPTIMIZATION_GUIDE.md)** - Performance tuning
+- **[SECURITY_AUDIT_AND_COMPLIANCE.md](SECURITY_AUDIT_AND_COMPLIANCE.md)** - Security guidelines
+- **[MAINTENANCE_AND_OPERATIONS.md](MAINTENANCE_AND_OPERATIONS.md)** - Day-to-day operations
+
+#### **Development**
+- **[CODE_DEVIATION_AUDIT.md](CODE_DEVIATION_AUDIT.md)** - Code quality analysis
+- **[COMPREHENSIVE_TESTING_VERIFICATION_STRATEGY.md](COMPREHENSIVE_TESTING_VERIFICATION_STRATEGY.md)** - Testing strategies
+- **[FEATURE_PRIORITY_ANALYSIS.md](FEATURE_PRIORITY_ANALYSIS.md)** - Feature prioritization
 
 ## 🚀 **Quick Start Guide**
 
@@ -346,7 +341,8 @@ watch -n 30 'psql $DATABASE_URL -c "SELECT schemaname, tablename, pg_size_pretty
 
 ---
 
-**Last Updated**: 2025-08-20
-**Version**: 1.0
+**Last Updated**: 2025-01-10
+**Version**: 2.0
 **Maintainer**: OpenParliament.ca V2 Team
 **Status**: ✅ **Production Ready** - Following FUNDAMENTAL RULE with comprehensive documentation
+**Documentation**: Reorganized with active/legacy separation for better navigation
