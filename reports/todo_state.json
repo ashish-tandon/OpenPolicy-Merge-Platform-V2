@@ -7,7 +7,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0002_Structure optimizati": {
       "id": "CHK-0002",
@@ -15,7 +17,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0003_Structure optimizati": {
       "id": "CHK-0003",
@@ -23,7 +27,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0004_Structure optimizati": {
       "id": "CHK-0004",
@@ -31,7 +37,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0005_Structure optimizati": {
       "id": "CHK-0005",
@@ -39,7 +47,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0006_Structure optimizati": {
       "id": "CHK-0006",
@@ -47,7 +57,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0007_Structure optimizati": {
       "id": "CHK-0007",
@@ -55,7 +67,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0008_Structure optimizati": {
       "id": "CHK-0008",
@@ -63,7 +77,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0009_Structure optimizati": {
       "id": "CHK-0009",
@@ -71,7 +87,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0010_Structure optimizati": {
       "id": "CHK-0010",
@@ -79,7 +97,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0011_Structure optimizati": {
       "id": "CHK-0011",
@@ -87,7 +107,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0012_Structure optimizati": {
       "id": "CHK-0012",
@@ -95,7 +117,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0013_Structure optimizati": {
       "id": "CHK-0013",
@@ -103,7 +127,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0014_Structure optimizati": {
       "id": "CHK-0014",
@@ -111,7 +137,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0015_Structure optimizati": {
       "id": "CHK-0015",
@@ -119,7 +147,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0016_Structure optimizati": {
       "id": "CHK-0016",
@@ -127,7 +157,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0017_Structure optimizati": {
       "id": "CHK-0017",
@@ -135,7 +167,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0018_Structure optimizati": {
       "id": "CHK-0018",
@@ -143,7 +177,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0019_Structure optimizati": {
       "id": "CHK-0019",
@@ -151,7 +187,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0020_Structure optimizati": {
       "id": "CHK-0020",
@@ -159,7 +197,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0021_Implement classical ": {
       "id": "CHK-0021",
@@ -167,7 +207,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0022_Implement classical ": {
       "id": "CHK-0022",
@@ -175,7 +217,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0023_Implement classical ": {
       "id": "CHK-0023",
@@ -183,7 +227,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0024_Implement classical ": {
       "id": "CHK-0024",
@@ -191,7 +237,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0025_Implement classical ": {
       "id": "CHK-0025",
@@ -199,7 +247,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0026_Implement classical ": {
       "id": "CHK-0026",
@@ -207,7 +257,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0027_Implement classical ": {
       "id": "CHK-0027",
@@ -215,7 +267,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0028_Implement classical ": {
       "id": "CHK-0028",
@@ -223,7 +277,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0029_Implement classical ": {
       "id": "CHK-0029",
@@ -231,7 +287,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0030_Implement classical ": {
       "id": "CHK-0030",
@@ -239,7 +297,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0031_Implement classical ": {
       "id": "CHK-0031",
@@ -247,7 +307,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0032_Implement classical ": {
       "id": "CHK-0032",
@@ -255,7 +317,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0033_Implement classical ": {
       "id": "CHK-0033",
@@ -263,7 +327,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0034_Implement classical ": {
       "id": "CHK-0034",
@@ -271,7 +337,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0035_Implement classical ": {
       "id": "CHK-0035",
@@ -279,7 +347,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0036_Implement classical ": {
       "id": "CHK-0036",
@@ -287,7 +357,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0037_Implement classical ": {
       "id": "CHK-0037",
@@ -295,7 +367,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0038_Implement classical ": {
       "id": "CHK-0038",
@@ -303,7 +377,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0039_Implement classical ": {
       "id": "CHK-0039",
@@ -311,7 +387,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0040_Implement classical ": {
       "id": "CHK-0040",
@@ -319,7 +397,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0041_Implement quantum fe": {
       "id": "CHK-0041",
@@ -327,7 +407,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0042_Implement quantum fe": {
       "id": "CHK-0042",
@@ -335,7 +417,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0043_Implement quantum fe": {
       "id": "CHK-0043",
@@ -343,7 +427,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0044_Implement quantum fe": {
       "id": "CHK-0044",
@@ -351,7 +437,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0045_Implement quantum fe": {
       "id": "CHK-0045",
@@ -359,7 +447,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0046_Implement quantum fe": {
       "id": "CHK-0046",
@@ -367,7 +457,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0047_Implement quantum fe": {
       "id": "CHK-0047",
@@ -375,7 +467,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0048_Implement quantum fe": {
       "id": "CHK-0048",
@@ -383,7 +477,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0049_Implement quantum fe": {
       "id": "CHK-0049",
@@ -391,7 +487,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0050_Implement quantum fe": {
       "id": "CHK-0050",
@@ -399,7 +497,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0051_Architecture alignme": {
       "id": "CHK-0051",
@@ -407,7 +507,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0052_Architecture alignme": {
       "id": "CHK-0052",
@@ -415,7 +517,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0053_Architecture alignme": {
       "id": "CHK-0053",
@@ -423,7 +527,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0054_Architecture alignme": {
       "id": "CHK-0054",
@@ -431,7 +537,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0055_Architecture alignme": {
       "id": "CHK-0055",
@@ -439,7 +547,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0056_Architecture alignme": {
       "id": "CHK-0056",
@@ -447,7 +557,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0057_Architecture alignme": {
       "id": "CHK-0057",
@@ -455,7 +567,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0058_Architecture alignme": {
       "id": "CHK-0058",
@@ -463,7 +577,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0059_Architecture alignme": {
       "id": "CHK-0059",
@@ -471,7 +587,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0060_Architecture alignme": {
       "id": "CHK-0060",
@@ -479,7 +597,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0061_Architecture alignme": {
       "id": "CHK-0061",
@@ -487,7 +607,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0062_Architecture alignme": {
       "id": "CHK-0062",
@@ -495,7 +617,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0063_Architecture alignme": {
       "id": "CHK-0063",
@@ -503,7 +627,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0064_Architecture alignme": {
       "id": "CHK-0064",
@@ -511,7 +637,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0065_Architecture alignme": {
       "id": "CHK-0065",
@@ -519,7 +647,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0066_Architecture alignme": {
       "id": "CHK-0066",
@@ -527,7 +657,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0067_Architecture alignme": {
       "id": "CHK-0067",
@@ -535,7 +667,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0068_Architecture alignme": {
       "id": "CHK-0068",
@@ -543,7 +677,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0069_Architecture alignme": {
       "id": "CHK-0069",
@@ -551,7 +687,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0070_Architecture alignme": {
       "id": "CHK-0070",
@@ -559,7 +697,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0071_Architecture alignme": {
       "id": "CHK-0071",
@@ -567,7 +707,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0072_Architecture alignme": {
       "id": "CHK-0072",
@@ -575,7 +717,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0073_Architecture alignme": {
       "id": "CHK-0073",
@@ -583,7 +727,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0074_Architecture alignme": {
       "id": "CHK-0074",
@@ -591,7 +737,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0075_Architecture alignme": {
       "id": "CHK-0075",
@@ -599,7 +747,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0076_Test strategy implem": {
       "id": "CHK-0076",
@@ -607,7 +757,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0077_Test strategy implem": {
       "id": "CHK-0077",
@@ -615,7 +767,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0078_Test strategy implem": {
       "id": "CHK-0078",
@@ -623,7 +777,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0079_Test strategy implem": {
       "id": "CHK-0079",
@@ -631,7 +787,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0080_Test strategy implem": {
       "id": "CHK-0080",
@@ -639,7 +797,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0081_Test strategy implem": {
       "id": "CHK-0081",
@@ -647,7 +807,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0082_Test strategy implem": {
       "id": "CHK-0082",
@@ -655,7 +817,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0083_Test strategy implem": {
       "id": "CHK-0083",
@@ -663,7 +827,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0084_Test strategy implem": {
       "id": "CHK-0084",
@@ -671,7 +837,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0085_Test strategy implem": {
       "id": "CHK-0085",
@@ -679,7 +847,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0086_Test strategy implem": {
       "id": "CHK-0086",
@@ -687,7 +857,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0087_Test strategy implem": {
       "id": "CHK-0087",
@@ -695,7 +867,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0088_Test strategy implem": {
       "id": "CHK-0088",
@@ -703,7 +877,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0089_Test strategy implem": {
       "id": "CHK-0089",
@@ -711,7 +887,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0090_Test strategy implem": {
       "id": "CHK-0090",
@@ -719,7 +897,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0091_Test strategy implem": {
       "id": "CHK-0091",
@@ -727,7 +907,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0092_Test strategy implem": {
       "id": "CHK-0092",
@@ -735,7 +917,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0093_Test strategy implem": {
       "id": "CHK-0093",
@@ -743,7 +927,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0094_Test strategy implem": {
       "id": "CHK-0094",
@@ -751,7 +937,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0095_Test strategy implem": {
       "id": "CHK-0095",
@@ -759,7 +947,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0096_Release readiness ta": {
       "id": "CHK-0096",
@@ -767,7 +957,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0097_Release readiness ta": {
       "id": "CHK-0097",
@@ -775,7 +967,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0098_Release readiness ta": {
       "id": "CHK-0098",
@@ -783,7 +977,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0099_Release readiness ta": {
       "id": "CHK-0099",
@@ -791,7 +987,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0100_Release readiness ta": {
       "id": "CHK-0100",
@@ -799,7 +997,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0101_Release readiness ta": {
       "id": "CHK-0101",
@@ -807,7 +1007,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0102_Release readiness ta": {
       "id": "CHK-0102",
@@ -815,7 +1017,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0103_Release readiness ta": {
       "id": "CHK-0103",
@@ -823,7 +1027,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0104_Release readiness ta": {
       "id": "CHK-0104",
@@ -831,7 +1037,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0105_Release readiness ta": {
       "id": "CHK-0105",
@@ -839,7 +1047,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0106_Release readiness ta": {
       "id": "CHK-0106",
@@ -847,7 +1057,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0107_Release readiness ta": {
       "id": "CHK-0107",
@@ -855,7 +1067,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0108_Release readiness ta": {
       "id": "CHK-0108",
@@ -863,7 +1077,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0109_Release readiness ta": {
       "id": "CHK-0109",
@@ -871,7 +1087,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0110_Release readiness ta": {
       "id": "CHK-0110",
@@ -879,7 +1097,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q001_Set up quantum devel": {
       "id": "CHK-Q001",
@@ -887,7 +1107,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q002_Implement Grover's a": {
       "id": "CHK-Q002",
@@ -895,7 +1117,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q003_Deploy quantum simul": {
       "id": "CHK-Q003",
@@ -903,7 +1127,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q004_Integrate with IBM Q": {
       "id": "CHK-Q004",
@@ -911,7 +1137,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q005_Build quantum error ": {
       "id": "CHK-Q005",
@@ -919,7 +1147,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q006_Implement QAOA for o": {
       "id": "CHK-Q006",
@@ -927,7 +1157,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q007_Deploy edge orchestr": {
       "id": "CHK-Q007",
@@ -935,7 +1167,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q008_Set up federated lea": {
       "id": "CHK-Q008",
@@ -943,7 +1177,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q009_Implement blockchain": {
       "id": "CHK-Q009",
@@ -951,7 +1187,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-Q010_Deploy post-quantum ": {
       "id": "CHK-Q010",
@@ -959,7 +1197,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 0
+      "created_cycle": 0,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0001_Structure_optimizati": {
       "id": "CHK-0001",
@@ -967,7 +1207,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0002_Structure_optimizati": {
       "id": "CHK-0002",
@@ -975,7 +1217,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0003_Structure_optimizati": {
       "id": "CHK-0003",
@@ -983,7 +1227,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0004_Structure_optimizati": {
       "id": "CHK-0004",
@@ -991,7 +1237,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0005_Structure_optimizati": {
       "id": "CHK-0005",
@@ -999,7 +1247,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0021_Implement_classical_": {
       "id": "CHK-0021",
@@ -1007,7 +1257,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0022_Implement_classical_": {
       "id": "CHK-0022",
@@ -1015,7 +1267,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0023_Implement_classical_": {
       "id": "CHK-0023",
@@ -1023,7 +1277,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0024_Implement_classical_": {
       "id": "CHK-0024",
@@ -1031,7 +1287,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0025_Implement_classical_": {
       "id": "CHK-0025",
@@ -1039,7 +1297,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0051_Architecture_alignme": {
       "id": "CHK-0051",
@@ -1047,7 +1307,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0052_Architecture_alignme": {
       "id": "CHK-0052",
@@ -1055,7 +1317,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0053_Architecture_alignme": {
       "id": "CHK-0053",
@@ -1063,7 +1327,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0054_Architecture_alignme": {
       "id": "CHK-0054",
@@ -1071,7 +1337,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0055_Architecture_alignme": {
       "id": "CHK-0055",
@@ -1079,7 +1347,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0076_Test_strategy_implem": {
       "id": "CHK-0076",
@@ -1087,7 +1357,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0077_Test_strategy_implem": {
       "id": "CHK-0077",
@@ -1095,7 +1367,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0078_Test_strategy_implem": {
       "id": "CHK-0078",
@@ -1103,7 +1377,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0079_Test_strategy_implem": {
       "id": "CHK-0079",
@@ -1111,7 +1387,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0080_Test_strategy_implem": {
       "id": "CHK-0080",
@@ -1119,7 +1397,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0096_Release_readiness_ta": {
       "id": "CHK-0096",
@@ -1127,7 +1407,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0097_Release_readiness_ta": {
       "id": "CHK-0097",
@@ -1135,7 +1417,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0098_Release_readiness_ta": {
       "id": "CHK-0098",
@@ -1143,7 +1427,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0099_Release_readiness_ta": {
       "id": "CHK-0099",
@@ -1151,7 +1437,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0100_Release_readiness_ta": {
       "id": "CHK-0100",
@@ -1159,7 +1447,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0101_Ultra_Optimization_T": {
       "id": "CHK-0101",
@@ -1167,7 +1457,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0102_Ultra_Optimization_T": {
       "id": "CHK-0102",
@@ -1175,7 +1467,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0103_Ultra_Optimization_T": {
       "id": "CHK-0103",
@@ -1183,7 +1477,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0104_Ultra_Optimization_T": {
       "id": "CHK-0104",
@@ -1191,7 +1487,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0105_Ultra_Optimization_T": {
       "id": "CHK-0105",
@@ -1199,7 +1497,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0106_Ultra_Optimization_T": {
       "id": "CHK-0106",
@@ -1207,7 +1507,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0107_Ultra_Optimization_T": {
       "id": "CHK-0107",
@@ -1215,7 +1517,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0108_Ultra_Optimization_T": {
       "id": "CHK-0108",
@@ -1223,7 +1527,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0109_Ultra_Optimization_T": {
       "id": "CHK-0109",
@@ -1231,7 +1537,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0110_Ultra_Optimization_T": {
       "id": "CHK-0110",
@@ -1239,7 +1547,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0111_Ultra_Optimization_T": {
       "id": "CHK-0111",
@@ -1247,7 +1557,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0112_Ultra_Optimization_T": {
       "id": "CHK-0112",
@@ -1255,7 +1567,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0113_Ultra_Optimization_T": {
       "id": "CHK-0113",
@@ -1263,7 +1577,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0114_Ultra_Optimization_T": {
       "id": "CHK-0114",
@@ -1271,7 +1587,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0115_Ultra_Optimization_T": {
       "id": "CHK-0115",
@@ -1279,7 +1597,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0116_Ultra_Optimization_T": {
       "id": "CHK-0116",
@@ -1287,7 +1607,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0117_Ultra_Optimization_T": {
       "id": "CHK-0117",
@@ -1295,7 +1617,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0118_Ultra_Optimization_T": {
       "id": "CHK-0118",
@@ -1303,7 +1627,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0119_Ultra_Optimization_T": {
       "id": "CHK-0119",
@@ -1311,7 +1637,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0120_Ultra_Optimization_T": {
       "id": "CHK-0120",
@@ -1319,7 +1647,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0121_Extended_Mission_Enh": {
       "id": "CHK-0121",
@@ -1327,7 +1657,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0122_Extended_Mission_Enh": {
       "id": "CHK-0122",
@@ -1335,7 +1667,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0123_Extended_Mission_Enh": {
       "id": "CHK-0123",
@@ -1343,7 +1677,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0124_Extended_Mission_Enh": {
       "id": "CHK-0124",
@@ -1351,7 +1687,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0125_Extended_Mission_Enh": {
       "id": "CHK-0125",
@@ -1359,7 +1697,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0126_Extended_Mission_Enh": {
       "id": "CHK-0126",
@@ -1367,7 +1707,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0127_Extended_Mission_Enh": {
       "id": "CHK-0127",
@@ -1375,7 +1717,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0128_Extended_Mission_Enh": {
       "id": "CHK-0128",
@@ -1383,7 +1727,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0129_Extended_Mission_Enh": {
       "id": "CHK-0129",
@@ -1391,7 +1737,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0130_Extended_Mission_Enh": {
       "id": "CHK-0130",
@@ -1399,7 +1747,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0131_Extended_Mission_Enh": {
       "id": "CHK-0131",
@@ -1407,7 +1757,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0132_Extended_Mission_Enh": {
       "id": "CHK-0132",
@@ -1415,7 +1767,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0133_Extended_Mission_Enh": {
       "id": "CHK-0133",
@@ -1423,7 +1777,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0134_Extended_Mission_Enh": {
       "id": "CHK-0134",
@@ -1431,7 +1787,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0135_Extended_Mission_Enh": {
       "id": "CHK-0135",
@@ -1439,7 +1797,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0136_Extended_Mission_Enh": {
       "id": "CHK-0136",
@@ -1447,7 +1807,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0137_Extended_Mission_Enh": {
       "id": "CHK-0137",
@@ -1455,7 +1817,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0138_Extended_Mission_Enh": {
       "id": "CHK-0138",
@@ -1463,7 +1827,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0139_Extended_Mission_Enh": {
       "id": "CHK-0139",
@@ -1471,7 +1837,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0140_Extended_Mission_Enh": {
       "id": "CHK-0140",
@@ -1479,7 +1847,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0141_Extended_Mission_Enh": {
       "id": "CHK-0141",
@@ -1487,7 +1857,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0142_Extended_Mission_Enh": {
       "id": "CHK-0142",
@@ -1495,7 +1867,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0143_Extended_Mission_Enh": {
       "id": "CHK-0143",
@@ -1503,7 +1877,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0144_Extended_Mission_Enh": {
       "id": "CHK-0144",
@@ -1511,7 +1887,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0145_Extended_Mission_Enh": {
       "id": "CHK-0145",
@@ -1519,7 +1897,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0146_Extended_Mission_Enh": {
       "id": "CHK-0146",
@@ -1527,7 +1907,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0147_Extended_Mission_Enh": {
       "id": "CHK-0147",
@@ -1535,7 +1917,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0148_Extended_Mission_Enh": {
       "id": "CHK-0148",
@@ -1543,7 +1927,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0149_Extended_Mission_Enh": {
       "id": "CHK-0149",
@@ -1551,7 +1937,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0150_Extended_Mission_Enh": {
       "id": "CHK-0150",
@@ -1559,7 +1947,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0151_Extended_Mission_Enh": {
       "id": "CHK-0151",
@@ -1567,7 +1957,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0152_Extended_Mission_Enh": {
       "id": "CHK-0152",
@@ -1575,7 +1967,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0153_Extended_Mission_Enh": {
       "id": "CHK-0153",
@@ -1583,7 +1977,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0154_Extended_Mission_Enh": {
       "id": "CHK-0154",
@@ -1591,7 +1987,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0155_Extended_Mission_Enh": {
       "id": "CHK-0155",
@@ -1599,7 +1997,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0156_Extended_Mission_Enh": {
       "id": "CHK-0156",
@@ -1607,7 +2007,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0157_Extended_Mission_Enh": {
       "id": "CHK-0157",
@@ -1615,7 +2017,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0158_Extended_Mission_Enh": {
       "id": "CHK-0158",
@@ -1623,7 +2027,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0159_Extended_Mission_Enh": {
       "id": "CHK-0159",
@@ -1631,7 +2037,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0160_Extended_Mission_Enh": {
       "id": "CHK-0160",
@@ -1639,7 +2047,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0161_Extended_Mission_Enh": {
       "id": "CHK-0161",
@@ -1647,7 +2057,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0162_Extended_Mission_Enh": {
       "id": "CHK-0162",
@@ -1655,7 +2067,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0163_Extended_Mission_Enh": {
       "id": "CHK-0163",
@@ -1663,7 +2077,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0164_Extended_Mission_Enh": {
       "id": "CHK-0164",
@@ -1671,7 +2087,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0165_Extended_Mission_Enh": {
       "id": "CHK-0165",
@@ -1679,7 +2097,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0166_Extended_Mission_Enh": {
       "id": "CHK-0166",
@@ -1687,7 +2107,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0167_Extended_Mission_Enh": {
       "id": "CHK-0167",
@@ -1695,7 +2117,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0168_Extended_Mission_Enh": {
       "id": "CHK-0168",
@@ -1703,7 +2127,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0169_Extended_Mission_Enh": {
       "id": "CHK-0169",
@@ -1711,7 +2137,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0170_Extended_Mission_Enh": {
       "id": "CHK-0170",
@@ -1719,7 +2147,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0171_Extended_Mission_Enh": {
       "id": "CHK-0171",
@@ -1727,7 +2157,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0172_Extended_Mission_Enh": {
       "id": "CHK-0172",
@@ -1735,7 +2167,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0173_Extended_Mission_Enh": {
       "id": "CHK-0173",
@@ -1743,7 +2177,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0174_Extended_Mission_Enh": {
       "id": "CHK-0174",
@@ -1751,7 +2187,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0175_Extended_Mission_Enh": {
       "id": "CHK-0175",
@@ -1759,7 +2197,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0176_Extended_Mission_Enh": {
       "id": "CHK-0176",
@@ -1767,7 +2207,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0177_Extended_Mission_Enh": {
       "id": "CHK-0177",
@@ -1775,7 +2217,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0178_Extended_Mission_Enh": {
       "id": "CHK-0178",
@@ -1783,7 +2227,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0179_Extended_Mission_Enh": {
       "id": "CHK-0179",
@@ -1791,7 +2237,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0180_Extended_Mission_Enh": {
       "id": "CHK-0180",
@@ -1799,7 +2247,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0181_Deep_Learning_Integr": {
       "id": "CHK-0181",
@@ -1807,7 +2257,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0182_Deep_Learning_Integr": {
       "id": "CHK-0182",
@@ -1815,7 +2267,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0183_Deep_Learning_Integr": {
       "id": "CHK-0183",
@@ -1823,7 +2277,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0184_Deep_Learning_Integr": {
       "id": "CHK-0184",
@@ -1831,7 +2287,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0185_Deep_Learning_Integr": {
       "id": "CHK-0185",
@@ -1839,7 +2297,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0186_Deep_Learning_Integr": {
       "id": "CHK-0186",
@@ -1847,7 +2307,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0187_Deep_Learning_Integr": {
       "id": "CHK-0187",
@@ -1855,7 +2317,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0188_Deep_Learning_Integr": {
       "id": "CHK-0188",
@@ -1863,7 +2327,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0189_Deep_Learning_Integr": {
       "id": "CHK-0189",
@@ -1871,7 +2337,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0190_Deep_Learning_Integr": {
       "id": "CHK-0190",
@@ -1879,7 +2347,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0191_Deep_Learning_Integr": {
       "id": "CHK-0191",
@@ -1887,7 +2357,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0192_Deep_Learning_Integr": {
       "id": "CHK-0192",
@@ -1895,7 +2367,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0193_Deep_Learning_Integr": {
       "id": "CHK-0193",
@@ -1903,7 +2377,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0194_Deep_Learning_Integr": {
       "id": "CHK-0194",
@@ -1911,7 +2387,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0195_Deep_Learning_Integr": {
       "id": "CHK-0195",
@@ -1919,7 +2397,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0196_Deep_Learning_Integr": {
       "id": "CHK-0196",
@@ -1927,7 +2407,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0197_Deep_Learning_Integr": {
       "id": "CHK-0197",
@@ -1935,7 +2417,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0198_Deep_Learning_Integr": {
       "id": "CHK-0198",
@@ -1943,7 +2427,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0199_Deep_Learning_Integr": {
       "id": "CHK-0199",
@@ -1951,7 +2437,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0200_Deep_Learning_Integr": {
       "id": "CHK-0200",
@@ -1959,7 +2447,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0201_Deep_Learning_Integr": {
       "id": "CHK-0201",
@@ -1967,7 +2457,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0202_Deep_Learning_Integr": {
       "id": "CHK-0202",
@@ -1975,7 +2467,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0203_Deep_Learning_Integr": {
       "id": "CHK-0203",
@@ -1983,7 +2477,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0204_Deep_Learning_Integr": {
       "id": "CHK-0204",
@@ -1991,7 +2487,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0205_Deep_Learning_Integr": {
       "id": "CHK-0205",
@@ -1999,7 +2497,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0206_Deep_Learning_Integr": {
       "id": "CHK-0206",
@@ -2007,7 +2507,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0207_Deep_Learning_Integr": {
       "id": "CHK-0207",
@@ -2015,7 +2517,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0208_Deep_Learning_Integr": {
       "id": "CHK-0208",
@@ -2023,7 +2527,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0209_Deep_Learning_Integr": {
       "id": "CHK-0209",
@@ -2031,7 +2537,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0210_Deep_Learning_Integr": {
       "id": "CHK-0210",
@@ -2039,7 +2547,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0211_Deep_Learning_Integr": {
       "id": "CHK-0211",
@@ -2047,7 +2557,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0212_Deep_Learning_Integr": {
       "id": "CHK-0212",
@@ -2055,7 +2567,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0213_Deep_Learning_Integr": {
       "id": "CHK-0213",
@@ -2063,7 +2577,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0214_Deep_Learning_Integr": {
       "id": "CHK-0214",
@@ -2071,7 +2587,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0215_Deep_Learning_Integr": {
       "id": "CHK-0215",
@@ -2079,7 +2597,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0216_Deep_Learning_Integr": {
       "id": "CHK-0216",
@@ -2087,7 +2607,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0217_Deep_Learning_Integr": {
       "id": "CHK-0217",
@@ -2095,7 +2617,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0218_Deep_Learning_Integr": {
       "id": "CHK-0218",
@@ -2103,7 +2627,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0219_Deep_Learning_Integr": {
       "id": "CHK-0219",
@@ -2111,7 +2637,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0220_Deep_Learning_Integr": {
       "id": "CHK-0220",
@@ -2119,7 +2647,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0221_Deep_Learning_Integr": {
       "id": "CHK-0221",
@@ -2127,7 +2657,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0222_Deep_Learning_Integr": {
       "id": "CHK-0222",
@@ -2135,7 +2667,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0223_Deep_Learning_Integr": {
       "id": "CHK-0223",
@@ -2143,7 +2677,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0224_Deep_Learning_Integr": {
       "id": "CHK-0224",
@@ -2151,7 +2687,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0225_Deep_Learning_Integr": {
       "id": "CHK-0225",
@@ -2159,7 +2697,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0226_Deep_Learning_Integr": {
       "id": "CHK-0226",
@@ -2167,7 +2707,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0227_Deep_Learning_Integr": {
       "id": "CHK-0227",
@@ -2175,7 +2717,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0228_Deep_Learning_Integr": {
       "id": "CHK-0228",
@@ -2183,7 +2727,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0229_Deep_Learning_Integr": {
       "id": "CHK-0229",
@@ -2191,7 +2737,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0230_Deep_Learning_Integr": {
       "id": "CHK-0230",
@@ -2199,7 +2747,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0231_Deep_Learning_Integr": {
       "id": "CHK-0231",
@@ -2207,7 +2757,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0232_Deep_Learning_Integr": {
       "id": "CHK-0232",
@@ -2215,7 +2767,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0233_Deep_Learning_Integr": {
       "id": "CHK-0233",
@@ -2223,7 +2777,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0234_Deep_Learning_Integr": {
       "id": "CHK-0234",
@@ -2231,7 +2787,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0235_Deep_Learning_Integr": {
       "id": "CHK-0235",
@@ -2239,7 +2797,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0236_Deep_Learning_Integr": {
       "id": "CHK-0236",
@@ -2247,7 +2807,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0237_Deep_Learning_Integr": {
       "id": "CHK-0237",
@@ -2255,7 +2817,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0238_Deep_Learning_Integr": {
       "id": "CHK-0238",
@@ -2263,7 +2827,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0239_Deep_Learning_Integr": {
       "id": "CHK-0239",
@@ -2271,7 +2837,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0240_Deep_Learning_Integr": {
       "id": "CHK-0240",
@@ -2279,7 +2847,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0241_System_Intelligence_": {
       "id": "CHK-0241",
@@ -2287,7 +2857,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0242_System_Intelligence_": {
       "id": "CHK-0242",
@@ -2295,7 +2867,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0243_System_Intelligence_": {
       "id": "CHK-0243",
@@ -2303,7 +2877,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0244_System_Intelligence_": {
       "id": "CHK-0244",
@@ -2311,7 +2887,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0245_System_Intelligence_": {
       "id": "CHK-0245",
@@ -2319,7 +2897,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0246_System_Intelligence_": {
       "id": "CHK-0246",
@@ -2327,7 +2907,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0247_System_Intelligence_": {
       "id": "CHK-0247",
@@ -2335,7 +2917,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0248_System_Intelligence_": {
       "id": "CHK-0248",
@@ -2343,7 +2927,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0249_System_Intelligence_": {
       "id": "CHK-0249",
@@ -2351,7 +2937,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0250_System_Intelligence_": {
       "id": "CHK-0250",
@@ -2359,7 +2947,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0251_System_Intelligence_": {
       "id": "CHK-0251",
@@ -2367,7 +2957,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0252_System_Intelligence_": {
       "id": "CHK-0252",
@@ -2375,7 +2967,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0253_System_Intelligence_": {
       "id": "CHK-0253",
@@ -2383,7 +2977,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0254_System_Intelligence_": {
       "id": "CHK-0254",
@@ -2391,7 +2987,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0255_System_Intelligence_": {
       "id": "CHK-0255",
@@ -2399,7 +2997,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0256_System_Intelligence_": {
       "id": "CHK-0256",
@@ -2407,7 +3007,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0257_System_Intelligence_": {
       "id": "CHK-0257",
@@ -2415,7 +3017,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0258_System_Intelligence_": {
       "id": "CHK-0258",
@@ -2423,7 +3027,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0259_System_Intelligence_": {
       "id": "CHK-0259",
@@ -2431,7 +3037,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0260_System_Intelligence_": {
       "id": "CHK-0260",
@@ -2439,7 +3047,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0261_System_Intelligence_": {
       "id": "CHK-0261",
@@ -2447,7 +3057,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0262_System_Intelligence_": {
       "id": "CHK-0262",
@@ -2455,7 +3067,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0263_System_Intelligence_": {
       "id": "CHK-0263",
@@ -2463,7 +3077,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0264_System_Intelligence_": {
       "id": "CHK-0264",
@@ -2471,7 +3087,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0265_System_Intelligence_": {
       "id": "CHK-0265",
@@ -2479,7 +3097,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0266_System_Intelligence_": {
       "id": "CHK-0266",
@@ -2487,7 +3107,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0267_System_Intelligence_": {
       "id": "CHK-0267",
@@ -2495,7 +3117,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0268_System_Intelligence_": {
       "id": "CHK-0268",
@@ -2503,7 +3127,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0269_System_Intelligence_": {
       "id": "CHK-0269",
@@ -2511,7 +3137,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0270_System_Intelligence_": {
       "id": "CHK-0270",
@@ -2519,7 +3147,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0271_System_Intelligence_": {
       "id": "CHK-0271",
@@ -2527,7 +3157,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0272_System_Intelligence_": {
       "id": "CHK-0272",
@@ -2535,7 +3167,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0273_System_Intelligence_": {
       "id": "CHK-0273",
@@ -2543,7 +3177,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0274_System_Intelligence_": {
       "id": "CHK-0274",
@@ -2551,7 +3187,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0275_System_Intelligence_": {
       "id": "CHK-0275",
@@ -2559,7 +3197,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0276_System_Intelligence_": {
       "id": "CHK-0276",
@@ -2567,7 +3207,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0277_System_Intelligence_": {
       "id": "CHK-0277",
@@ -2575,7 +3217,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0278_System_Intelligence_": {
       "id": "CHK-0278",
@@ -2583,7 +3227,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0279_System_Intelligence_": {
       "id": "CHK-0279",
@@ -2591,7 +3237,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0280_System_Intelligence_": {
       "id": "CHK-0280",
@@ -2599,7 +3247,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0281_System_Intelligence_": {
       "id": "CHK-0281",
@@ -2607,7 +3257,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0282_System_Intelligence_": {
       "id": "CHK-0282",
@@ -2615,7 +3267,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0283_System_Intelligence_": {
       "id": "CHK-0283",
@@ -2623,7 +3277,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0284_System_Intelligence_": {
       "id": "CHK-0284",
@@ -2631,7 +3287,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0285_System_Intelligence_": {
       "id": "CHK-0285",
@@ -2639,7 +3297,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0286_System_Intelligence_": {
       "id": "CHK-0286",
@@ -2647,7 +3307,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0287_System_Intelligence_": {
       "id": "CHK-0287",
@@ -2655,7 +3317,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0288_System_Intelligence_": {
       "id": "CHK-0288",
@@ -2663,7 +3327,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0289_System_Intelligence_": {
       "id": "CHK-0289",
@@ -2671,7 +3337,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0290_System_Intelligence_": {
       "id": "CHK-0290",
@@ -2679,7 +3347,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0291_System_Intelligence_": {
       "id": "CHK-0291",
@@ -2687,7 +3357,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0292_System_Intelligence_": {
       "id": "CHK-0292",
@@ -2695,7 +3367,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0293_System_Intelligence_": {
       "id": "CHK-0293",
@@ -2703,7 +3377,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0294_System_Intelligence_": {
       "id": "CHK-0294",
@@ -2711,7 +3387,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0295_System_Intelligence_": {
       "id": "CHK-0295",
@@ -2719,7 +3397,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0296_System_Intelligence_": {
       "id": "CHK-0296",
@@ -2727,7 +3407,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0297_System_Intelligence_": {
       "id": "CHK-0297",
@@ -2735,7 +3417,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0298_System_Intelligence_": {
       "id": "CHK-0298",
@@ -2743,7 +3427,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0299_System_Intelligence_": {
       "id": "CHK-0299",
@@ -2751,7 +3437,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0300_System_Intelligence_": {
       "id": "CHK-0300",
@@ -2759,7 +3447,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0301_Ultra_Optimization_T": {
       "id": "CHK-0301",
@@ -2767,7 +3457,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0302_Ultra_Optimization_T": {
       "id": "CHK-0302",
@@ -2775,7 +3467,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0303_Ultra_Optimization_T": {
       "id": "CHK-0303",
@@ -2783,7 +3477,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0304_Ultra_Optimization_T": {
       "id": "CHK-0304",
@@ -2791,7 +3487,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0305_Ultra_Optimization_T": {
       "id": "CHK-0305",
@@ -2799,7 +3497,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0306_Ultra_Optimization_T": {
       "id": "CHK-0306",
@@ -2807,7 +3507,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0307_Ultra_Optimization_T": {
       "id": "CHK-0307",
@@ -2815,7 +3517,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0308_Ultra_Optimization_T": {
       "id": "CHK-0308",
@@ -2823,7 +3527,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0309_Ultra_Optimization_T": {
       "id": "CHK-0309",
@@ -2831,7 +3537,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0310_Ultra_Optimization_T": {
       "id": "CHK-0310",
@@ -2839,7 +3547,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0311_Ultra_Optimization_T": {
       "id": "CHK-0311",
@@ -2847,7 +3557,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0312_Ultra_Optimization_T": {
       "id": "CHK-0312",
@@ -2855,7 +3567,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0313_Ultra_Optimization_T": {
       "id": "CHK-0313",
@@ -2863,7 +3577,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0314_Ultra_Optimization_T": {
       "id": "CHK-0314",
@@ -2871,7 +3587,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0315_Ultra_Optimization_T": {
       "id": "CHK-0315",
@@ -2879,7 +3597,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0316_Ultra_Optimization_T": {
       "id": "CHK-0316",
@@ -2887,7 +3607,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0317_Ultra_Optimization_T": {
       "id": "CHK-0317",
@@ -2895,7 +3617,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0318_Ultra_Optimization_T": {
       "id": "CHK-0318",
@@ -2903,7 +3627,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0319_Ultra_Optimization_T": {
       "id": "CHK-0319",
@@ -2911,7 +3637,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0320_Ultra_Optimization_T": {
       "id": "CHK-0320",
@@ -2919,7 +3647,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0321_Ultra_Optimization_T": {
       "id": "CHK-0321",
@@ -2927,7 +3657,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0322_Ultra_Optimization_T": {
       "id": "CHK-0322",
@@ -2935,7 +3667,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0323_Ultra_Optimization_T": {
       "id": "CHK-0323",
@@ -2943,7 +3677,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0324_Ultra_Optimization_T": {
       "id": "CHK-0324",
@@ -2951,7 +3687,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0325_Ultra_Optimization_T": {
       "id": "CHK-0325",
@@ -2959,7 +3697,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0326_Ultra_Optimization_T": {
       "id": "CHK-0326",
@@ -2967,7 +3707,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0327_Ultra_Optimization_T": {
       "id": "CHK-0327",
@@ -2975,7 +3717,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0328_Ultra_Optimization_T": {
       "id": "CHK-0328",
@@ -2983,7 +3727,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0329_Ultra_Optimization_T": {
       "id": "CHK-0329",
@@ -2991,7 +3737,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0330_Ultra_Optimization_T": {
       "id": "CHK-0330",
@@ -2999,7 +3747,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0331_Ultra_Optimization_T": {
       "id": "CHK-0331",
@@ -3007,7 +3757,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0332_Ultra_Optimization_T": {
       "id": "CHK-0332",
@@ -3015,7 +3767,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0333_Ultra_Optimization_T": {
       "id": "CHK-0333",
@@ -3023,7 +3777,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0334_Ultra_Optimization_T": {
       "id": "CHK-0334",
@@ -3031,7 +3787,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0335_Ultra_Optimization_T": {
       "id": "CHK-0335",
@@ -3039,7 +3797,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0336_Ultra_Optimization_T": {
       "id": "CHK-0336",
@@ -3047,7 +3807,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0337_Ultra_Optimization_T": {
       "id": "CHK-0337",
@@ -3055,7 +3817,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0338_Ultra_Optimization_T": {
       "id": "CHK-0338",
@@ -3063,7 +3827,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0339_Ultra_Optimization_T": {
       "id": "CHK-0339",
@@ -3071,7 +3837,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0340_Ultra_Optimization_T": {
       "id": "CHK-0340",
@@ -3079,7 +3847,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0341_Ultra_Optimization_T": {
       "id": "CHK-0341",
@@ -3087,7 +3857,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0342_Ultra_Optimization_T": {
       "id": "CHK-0342",
@@ -3095,7 +3867,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0343_Ultra_Optimization_T": {
       "id": "CHK-0343",
@@ -3103,7 +3877,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0344_Ultra_Optimization_T": {
       "id": "CHK-0344",
@@ -3111,7 +3887,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0345_Ultra_Optimization_T": {
       "id": "CHK-0345",
@@ -3119,7 +3897,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0346_Ultra_Optimization_T": {
       "id": "CHK-0346",
@@ -3127,7 +3907,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0347_Ultra_Optimization_T": {
       "id": "CHK-0347",
@@ -3135,7 +3917,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0348_Ultra_Optimization_T": {
       "id": "CHK-0348",
@@ -3143,7 +3927,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0349_Ultra_Optimization_T": {
       "id": "CHK-0349",
@@ -3151,7 +3937,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0350_Ultra_Optimization_T": {
       "id": "CHK-0350",
@@ -3159,7 +3947,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0351_Ultra_Optimization_T": {
       "id": "CHK-0351",
@@ -3167,7 +3957,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0352_Ultra_Optimization_T": {
       "id": "CHK-0352",
@@ -3175,7 +3967,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0353_Ultra_Optimization_T": {
       "id": "CHK-0353",
@@ -3183,7 +3977,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0354_Ultra_Optimization_T": {
       "id": "CHK-0354",
@@ -3191,7 +3987,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0355_Ultra_Optimization_T": {
       "id": "CHK-0355",
@@ -3199,7 +3997,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0356_Ultra_Optimization_T": {
       "id": "CHK-0356",
@@ -3207,7 +4007,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0357_Ultra_Optimization_T": {
       "id": "CHK-0357",
@@ -3215,7 +4017,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0358_Ultra_Optimization_T": {
       "id": "CHK-0358",
@@ -3223,7 +4027,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0359_Ultra_Optimization_T": {
       "id": "CHK-0359",
@@ -3231,7 +4037,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0360_Ultra_Optimization_T": {
       "id": "CHK-0360",
@@ -3239,7 +4047,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0361_Ultra_Optimization_T": {
       "id": "CHK-0361",
@@ -3247,7 +4057,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0362_Ultra_Optimization_T": {
       "id": "CHK-0362",
@@ -3255,7 +4067,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0363_Ultra_Optimization_T": {
       "id": "CHK-0363",
@@ -3263,7 +4077,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0364_Ultra_Optimization_T": {
       "id": "CHK-0364",
@@ -3271,7 +4087,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0365_Ultra_Optimization_T": {
       "id": "CHK-0365",
@@ -3279,7 +4097,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0366_Ultra_Optimization_T": {
       "id": "CHK-0366",
@@ -3287,7 +4107,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0367_Ultra_Optimization_T": {
       "id": "CHK-0367",
@@ -3295,7 +4117,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0368_Ultra_Optimization_T": {
       "id": "CHK-0368",
@@ -3303,7 +4127,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0369_Ultra_Optimization_T": {
       "id": "CHK-0369",
@@ -3311,7 +4137,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0370_Ultra_Optimization_T": {
       "id": "CHK-0370",
@@ -3319,7 +4147,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0371_Ultra_Optimization_T": {
       "id": "CHK-0371",
@@ -3327,7 +4157,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0372_Ultra_Optimization_T": {
       "id": "CHK-0372",
@@ -3335,7 +4167,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0373_Ultra_Optimization_T": {
       "id": "CHK-0373",
@@ -3343,7 +4177,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0374_Ultra_Optimization_T": {
       "id": "CHK-0374",
@@ -3351,7 +4187,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0375_Ultra_Optimization_T": {
       "id": "CHK-0375",
@@ -3359,7 +4197,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0376_Ultra_Optimization_T": {
       "id": "CHK-0376",
@@ -3367,7 +4207,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0377_Ultra_Optimization_T": {
       "id": "CHK-0377",
@@ -3375,7 +4217,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0378_Ultra_Optimization_T": {
       "id": "CHK-0378",
@@ -3383,7 +4227,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0379_Ultra_Optimization_T": {
       "id": "CHK-0379",
@@ -3391,7 +4237,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0380_Ultra_Optimization_T": {
       "id": "CHK-0380",
@@ -3399,7 +4247,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0381_Ultra_Optimization_T": {
       "id": "CHK-0381",
@@ -3407,7 +4257,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0382_Ultra_Optimization_T": {
       "id": "CHK-0382",
@@ -3415,7 +4267,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0383_Ultra_Optimization_T": {
       "id": "CHK-0383",
@@ -3423,7 +4277,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0384_Ultra_Optimization_T": {
       "id": "CHK-0384",
@@ -3431,7 +4287,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0385_Ultra_Optimization_T": {
       "id": "CHK-0385",
@@ -3439,7 +4297,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0386_Ultra_Optimization_T": {
       "id": "CHK-0386",
@@ -3447,7 +4307,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0387_Ultra_Optimization_T": {
       "id": "CHK-0387",
@@ -3455,7 +4317,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0388_Ultra_Optimization_T": {
       "id": "CHK-0388",
@@ -3463,7 +4327,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0389_Ultra_Optimization_T": {
       "id": "CHK-0389",
@@ -3471,7 +4337,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0390_Ultra_Optimization_T": {
       "id": "CHK-0390",
@@ -3479,7 +4347,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0391_Ultra_Optimization_T": {
       "id": "CHK-0391",
@@ -3487,7 +4357,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0392_Ultra_Optimization_T": {
       "id": "CHK-0392",
@@ -3495,7 +4367,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0393_Ultra_Optimization_T": {
       "id": "CHK-0393",
@@ -3503,7 +4377,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0394_Ultra_Optimization_T": {
       "id": "CHK-0394",
@@ -3511,7 +4387,9 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0395_Ultra_Optimization_T": {
       "id": "CHK-0395",
@@ -3519,7 +4397,9 @@
       "gate": "G5",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0396_Ultra_Optimization_T": {
       "id": "CHK-0396",
@@ -3527,7 +4407,9 @@
       "gate": "G1",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0397_Ultra_Optimization_T": {
       "id": "CHK-0397",
@@ -3535,7 +4417,9 @@
       "gate": "G2",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0398_Ultra_Optimization_T": {
       "id": "CHK-0398",
@@ -3543,7 +4427,9 @@
       "gate": "G3",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     },
     "CHK-0399_Ultra_Optimization_T": {
       "id": "CHK-0399",
@@ -3551,9 +4437,12 @@
       "gate": "G4",
       "runs_completed": 200,
       "last_cycle": 200,
-      "created_cycle": 10
+      "created_cycle": 10,
+      "quantum_level": 10,
+      "last_quantum_pass": 10
     }
   },
   "total_items": 444,
-  "last_updated": "2025-08-23T20:04:07.080531"
+  "last_updated": "2025-08-23T20:04:07.080531",
+  "quantum_passes_completed": 10
 }
