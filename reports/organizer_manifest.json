@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-08-23T18:57:48.505760",
+  "generated_at": "2025-08-23T19:13:29.818114",
   "pass_number": 2,
   "reports_generated": [
     {
@@ -20,12 +20,12 @@
     {
       "name": "organizer_manifest.json",
       "path": "reports/organizer_manifest.json",
-      "size": 6075
+      "size": 9859
     },
     {
       "name": "todo_state.json",
       "path": "reports/todo_state.json",
-      "size": 65484
+      "size": 46986
     },
     {
       "name": "execution_plan.json",
@@ -43,6 +43,11 @@
       "size": 3490760
     },
     {
+      "name": "complete_mission_results.json",
+      "path": "reports/complete_mission_results.json",
+      "size": 31934
+    },
+    {
       "name": "VAR_FUNC_MAP.json",
       "path": "reports/VAR_FUNC_MAP.json",
       "size": 15641888
@@ -53,14 +58,34 @@
       "size": 443950
     },
     {
+      "name": "complete_mission_pass_5.md",
+      "path": "reports/complete_mission_pass_5.md",
+      "size": 958
+    },
+    {
+      "name": "complete_mission_pass_1.md",
+      "path": "reports/complete_mission_pass_1.md",
+      "size": 956
+    },
+    {
       "name": "todo_summary.md",
       "path": "reports/todo_summary.md",
       "size": 580
     },
     {
+      "name": "complete_mission_pass_7.md",
+      "path": "reports/complete_mission_pass_7.md",
+      "size": 958
+    },
+    {
       "name": "legacy_vs_current_diff.md",
       "path": "reports/legacy_vs_current_diff.md",
-      "size": 9053
+      "size": 352
+    },
+    {
+      "name": "complete_mission_pass_3.md",
+      "path": "reports/complete_mission_pass_3.md",
+      "size": 957
     },
     {
       "name": "todo_cycle_report_cycle9.md",
@@ -88,6 +113,11 @@
       "size": 4082
     },
     {
+      "name": "complete_mission_pass_8.md",
+      "path": "reports/complete_mission_pass_8.md",
+      "size": 958
+    },
+    {
       "name": "DATA_JOURNEY_MAP.md",
       "path": "reports/DATA_JOURNEY_MAP.md",
       "size": 11444
@@ -98,9 +128,14 @@
       "size": 960
     },
     {
+      "name": "complete_mission_pass_4.md",
+      "path": "reports/complete_mission_pass_4.md",
+      "size": 958
+    },
+    {
       "name": "COMPREHENSIVE_ALIGNMENT_REPORT.md",
       "path": "reports/COMPREHENSIVE_ALIGNMENT_REPORT.md",
-      "size": 6310
+      "size": 7153
     },
     {
       "name": "todo_cycle_report_cycle4.md",
@@ -115,7 +150,7 @@
     {
       "name": "ENV_BUG_DATA_AUDIT.md",
       "path": "reports/ENV_BUG_DATA_AUDIT.md",
-      "size": 2519
+      "size": 302
     },
     {
       "name": "todo_cycle_report_cycle7.md",
@@ -126,6 +161,16 @@
       "name": "todo_cycle_report_cycle8.md",
       "path": "reports/todo_cycle_report_cycle8.md",
       "size": 961
+    },
+    {
+      "name": "complete_mission_pass_9.md",
+      "path": "reports/complete_mission_pass_9.md",
+      "size": 958
+    },
+    {
+      "name": "complete_mission_pass_2.md",
+      "path": "reports/complete_mission_pass_2.md",
+      "size": 957
     },
     {
       "name": "TODO_ENHANCEMENT_FINAL_REPORT.md",
@@ -141,6 +186,11 @@
       "name": "ENVIRONMENT_AUDIT.md",
       "path": "reports/ENVIRONMENT_AUDIT.md",
       "size": 1869
+    },
+    {
+      "name": "complete_mission_pass_6.md",
+      "path": "reports/complete_mission_pass_6.md",
+      "size": 958
     },
     {
       "name": "todo_cycle_report_cycle1.md",
@@ -187,22 +237,22 @@
     {
       "name": "DATA_CYCLE_MAP.md",
       "path": "docs/plan/DATA_CYCLE_MAP.md",
-      "size": 9271
+      "size": 265
     },
     {
       "name": "ARCH_DECISIONS.md",
       "path": "docs/plan/ARCH_DECISIONS.md",
-      "size": 9623
+      "size": 307
     },
     {
       "name": "IMPLEMENTATION_CHECKLIST.md",
       "path": "docs/plan/IMPLEMENTATION_CHECKLIST.md",
-      "size": 165813
+      "size": 672
     },
     {
       "name": "ARCH_BLUEPRINT.md",
       "path": "docs/plan/ARCH_BLUEPRINT.md",
-      "size": 12346
+      "size": 297
     },
     {
       "name": "IMPLEMENTATION_CHECKLIST_OLD.md",

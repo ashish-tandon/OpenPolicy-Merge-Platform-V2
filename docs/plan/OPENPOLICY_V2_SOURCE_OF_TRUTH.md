@@ -1,6 +1,6 @@
 # OpenPolicy V2 Source of Truth
 
-Generated: 2025-08-23T18:57:48.505534
+Generated: 2025-08-23T19:13:29.817929
 
 This document serves as the comprehensive source of truth for the OpenPolicy V2 platform, aggregating all analysis, planning, and alignment information.
 
@@ -236,18 +236,18 @@ This appendix provides comprehensive crosslinks between all system components, e
 
 ### API Routes → Components
 
-- **GET:/{session_id}/{vote_number}**: MPProfile, LoadingCard, DebateSearch, Mps, FormerMps, BillSearch, GovernmentBills, LoadingMPCard
-- **GET:/{year}/{month}/{day}/**: Bills, HouseCommitte, Debates, Speech
-- **GET:/{committee_slug}/{session_id}/{number}/**: Bills, Debates, Speech, HouseCommitte
+- **GET:/{year}/{month}/{day}/**: Bills, Debates, HouseCommitte, Speech
+- **GET:/{session_id}/{vote_number}**: MPProfile, LoadingCard, LoadingMPCard, DebateSearch, BillSearch, FormerMps, GovernmentBills, Mps
+- **GET:/{committee_slug}/{session_id}/{number}/**: Speech, Bills, HouseCommitte, Debates
 
 ### Task Dependencies
 
-- **EXEC-0093** depends on: EXEC-0113
-- **EXEC-0116** depends on: EXEC-0113
-- **EXEC-0118** depends on: EXEC-0113
 - **EXEC-0097** depends on: EXEC-0113
+- **EXEC-0116** depends on: EXEC-0113
 - **EXEC-0113** depends on: EXEC-0113
+- **EXEC-0118** depends on: EXEC-0113
 - **EXEC-0119** depends on: EXEC-0113
+- **EXEC-0093** depends on: EXEC-0113
 
 ### Crosslink Statistics
 
