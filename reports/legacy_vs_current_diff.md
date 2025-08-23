@@ -1,12 +1,14 @@
 # Legacy vs Current Feature Diff Report
 
-Generated: 2025-08-23T18:05:24.643754
+Generated: 2025-08-23 (Enhanced)
 
 ## Summary
 
 - **Total Legacy Features**: 191
 - **Matched Features**: 0
 - **Unmatched Features**: 139
+- **Implementation Priority**: Provincial/Municipal Scrapers
+- **Checklist Range**: CHK-0179 through CHK-0317
 
 ## Unmatched Legacy Features
 
@@ -71,3 +73,95 @@ Generated: 2025-08-23T18:05:24.643754
 | 2.1.20 | WaterlooPersonScraper | scraper | P2 | Implement scraper for WaterlooPersonScraper |
 
 ... and 59 more gaps
+
+## Enhanced Implementation Checklist Mapping
+
+### Provincial Scrapers (CHK-0179.1 to CHK-0179.13)
+- CHK-0179.1: Implement CanadianScraper base class migration
+- CHK-0179.2: Implement Alberta provincial scraper
+- CHK-0179.3: Implement British Columbia provincial scraper
+- CHK-0179.4: Implement Manitoba provincial scraper
+- CHK-0179.5: Implement New Brunswick provincial scraper
+- CHK-0179.6: Implement Newfoundland and Labrador provincial scraper
+- CHK-0179.7: Implement Northwest Territories scraper
+- CHK-0179.8: Implement Nova Scotia provincial scraper
+- CHK-0179.9: Implement Nunavut scraper
+- CHK-0179.10: Implement Ontario provincial scraper
+- CHK-0179.11: Implement Prince Edward Island scraper
+- CHK-0179.12: Implement Quebec provincial scraper
+- CHK-0179.13: Implement Saskatchewan provincial scraper
+
+### Municipal Scrapers by Province
+
+#### Alberta Municipalities (CHK-0180.1 to CHK-0180.6)
+- CHK-0180.1: Calgary scraper implementation
+- CHK-0180.2: Edmonton scraper implementation
+- CHK-0180.3: Grande Prairie scraper implementation
+- CHK-0180.4: Lethbridge scraper implementation
+- CHK-0180.5: Strathcona County scraper implementation
+- CHK-0180.6: Wood Buffalo scraper implementation
+
+#### British Columbia Municipalities (CHK-0181.1 to CHK-0181.12)
+- CHK-0181.1: Abbotsford scraper implementation
+- CHK-0181.2: Burnaby scraper implementation
+- CHK-0181.3: Coquitlam scraper implementation
+- CHK-0181.4: Kelowna scraper implementation
+- CHK-0181.5: Langley scraper implementation
+- CHK-0181.6: Langley City scraper implementation
+- CHK-0181.7: New Westminster scraper implementation
+- CHK-0181.8: Richmond scraper implementation
+- CHK-0181.9: Saanich scraper implementation
+- CHK-0181.10: Surrey scraper implementation
+- CHK-0181.11: Vancouver scraper implementation
+- CHK-0181.12: Victoria scraper implementation
+
+#### Ontario Municipalities (CHK-0182.1 to CHK-0182.40)
+Major cities requiring individual implementation:
+- CHK-0182.1: Toronto scraper implementation
+- CHK-0182.2: Ottawa scraper implementation
+- CHK-0182.3: Mississauga scraper implementation
+- CHK-0182.4: Hamilton scraper implementation
+- CHK-0182.5: London scraper implementation
+- CHK-0182.6: Waterloo scraper implementation
+- CHK-0182.7: Kitchener scraper implementation
+- CHK-0182.8: Windsor scraper implementation
+- CHK-0182.9: Markham scraper implementation
+- CHK-0182.10: Vaughan scraper implementation
+(... and 30 more Ontario municipalities)
+
+### Scraper Framework Components (CHK-0183.1 to CHK-0183.10)
+- CHK-0183.1: Base scraper class with retry logic
+- CHK-0183.2: CSV data parser implementation
+- CHK-0183.3: Person data normalizer
+- CHK-0183.4: Contact info extractor
+- CHK-0183.5: Photo downloader with caching
+- CHK-0183.6: Social media link resolver
+- CHK-0183.7: Duplicate detection system
+- CHK-0183.8: Data validation framework
+- CHK-0183.9: Scraper scheduling system
+- CHK-0183.10: Error reporting and monitoring
+
+## Migration Strategy
+
+1. **Phase 1**: Framework Components (CHK-0183.*)
+   - Build reusable base classes
+   - Implement common utilities
+   - Set up testing framework
+
+2. **Phase 2**: Provincial Scrapers (CHK-0179.*)
+   - Start with provinces that have APIs
+   - Implement data normalization
+
+3. **Phase 3**: Major Cities (CHK-0180-0182 subsets)
+   - Toronto, Vancouver, Montreal first
+   - Cities with >500k population
+
+4. **Phase 4**: Remaining Municipalities
+   - Batch by similar website structures
+   - Use template patterns
+
+## Technical Debt Addressed
+- Consolidate 139 individual scrapers into ~50 configurable scrapers
+- Implement proper error handling and retry logic
+- Add comprehensive logging and monitoring
+- Create unified data model for all jurisdictions
