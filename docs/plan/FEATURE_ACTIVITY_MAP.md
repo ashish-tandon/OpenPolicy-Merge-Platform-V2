@@ -742,3 +742,262 @@ Generated: 2025-08-23T19:50:44.543155
 | RT-Q02 | /api/v2/ai/models/distribute | GET | FEAT-Q02 | ACT-Q02 | Quantum Gateway |
 | RT-Q03 | /api/v2/blockchain/audit | POST | FEAT-Q03 | ACT-Q03 | Quantum Gateway |
 | RT-Q04 | /api/v2/edge/cache/sync | PUT | FEAT-Q04 | ACT-Q04 | Quantum Gateway |
+
+## Deviation Mappings - 2025-08-23
+
+### Unmapped Implementations (EXTRA)
+
+#### Class (1511 items)
+
+1. **Class: OpenMetadataMCPServer**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-001
+
+2. **Class: CodeMapper**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-002
+
+3. **Class: PythonVisitor**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-003
+
+4. **Class: ArchitectureSynthesizer**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-004
+
+5. **Class: DataJourneyMapper**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-005
+
+6. **Class: MultiLoopRunner**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-006
+
+7. **Class: EnvironmentAuditor**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-007
+
+8. **Class: MergeValidator**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-008
+
+9. **Class: SourceOfTruthGenerator**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-009
+
+10. **Class: RoutingAnalyzer**
+   - Source: varfunc
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-class-010
+
+... and 1501 more class implementations
+
+#### Database (2 items)
+
+1. **Table: **
+   - Source: lineage.db
+   - Action: evaluate_data_model
+   - Suggested Mapping: NEW-FEAT-database-001
+
+2. **Table: **
+   - Source: lineage.db
+   - Action: evaluate_data_model
+   - Suggested Mapping: NEW-FEAT-database-002
+
+#### Endpoint (5 items)
+
+1. **POST /api/v1/bills/{bill_id}/cast-vote**
+   - Source: lineage.api
+   - Action: evaluate_for_new_feature
+   - Suggested Mapping: NEW-FEAT-endpoint-001
+
+2. **GET /api/v1/members/{member_id}/votes**
+   - Source: lineage.api
+   - Action: evaluate_for_new_feature
+   - Suggested Mapping: NEW-FEAT-endpoint-002
+
+3. **GET /api/v1/votes/{session_id}/{vote_number}**
+   - Source: lineage.api
+   - Action: evaluate_for_new_feature
+   - Suggested Mapping: NEW-FEAT-endpoint-003
+
+4. **GET /api/v1/debates/{year}/{month}/{day}**
+   - Source: lineage.api
+   - Action: evaluate_for_new_feature
+   - Suggested Mapping: NEW-FEAT-endpoint-004
+
+5. **GET /api/v1/debates/speeches/{speech_id}**
+   - Source: lineage.api
+   - Action: evaluate_for_new_feature
+   - Suggested Mapping: NEW-FEAT-endpoint-005
+
+#### Function (9746 items)
+
+1. **test_mcp_server() in test-mcp-simple.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-001
+
+2. **print() in test-mcp-simple.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-002
+
+3. **OpenMetadataMCPServer() in test-mcp-simple.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-003
+
+4. **len() in test-mcp-simple.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-004
+
+5. **__init__() in mcp-openmetadata-server.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-005
+
+6. **get_platform_overview() in mcp-openmetadata-server.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-006
+
+7. **len() in mcp-openmetadata-server.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-007
+
+8. **str() in mcp-openmetadata-server.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-008
+
+9. **get_data_flow_mapping() in mcp-openmetadata-server.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-009
+
+10. **main() in mcp-openmetadata-server.py**
+   - Source: varfunc
+   - Action: evaluate_for_feature_mapping
+   - Suggested Mapping: NEW-FEAT-function-010
+
+... and 9736 more function implementations
+
+#### Model (719 items)
+
+1. **{'type': 'model', 'name': 'Committee', 'file': 'services/etl/load_all_committees.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-001
+
+2. **{'type': 'model', 'name': 'CommitteeMeeting', 'file': 'services/etl/load_all_committees.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-002
+
+3. **{'type': 'model', 'name': 'UserAdmin', 'file': 'services/web-ui/src/legacy-migration/accounts/admin.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-003
+
+4. **{'type': 'model', 'name': 'LoginTokenAdmin', 'file': 'services/web-ui/src/legacy-migration/accounts/admin.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-004
+
+5. **{'type': 'model', 'name': 'User', 'file': 'services/web-ui/src/legacy-migration/accounts/models.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-005
+
+6. **{'type': 'model', 'name': 'LoginToken', 'file': 'services/web-ui/src/legacy-migration/accounts/models.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-006
+
+7. **{'type': 'model', 'name': 'BillOptions', 'file': 'services/web-ui/src/legacy-migration/bills/admin.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-007
+
+8. **{'type': 'model', 'name': 'BillTextOptions', 'file': 'services/web-ui/src/legacy-migration/bills/admin.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-008
+
+9. **{'type': 'model', 'name': 'VoteQuestionOptions', 'file': 'services/web-ui/src/legacy-migration/bills/admin.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-009
+
+10. **{'type': 'model', 'name': 'MemberVoteOptions', 'file': 'services/web-ui/src/legacy-migration/bills/admin.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-model-010
+
+... and 709 more model implementations
+
+#### Route Decorator (327 items)
+
+1. **{'type': 'route_decorator', 'method': 'GET', 'path': '/', 'file': 'services/etl/app/main.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-001
+
+2. **{'type': 'route_decorator', 'method': 'GET', 'path': '/health', 'file': 'services/etl/app/main.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-002
+
+3. **{'type': 'route_decorator', 'method': 'GET', 'path': '/status', 'file': 'services/etl/app/main.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-003
+
+4. **{'type': 'route_decorator', 'method': 'POST', 'path': '/ingest/municipal', 'file': 'services/etl/app/main.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-004
+
+5. **{'type': 'route_decorator', 'method': 'POST', 'path': '/ingest/legacy', 'file': 'services/etl/app/main.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-005
+
+6. **{'type': 'route_decorator', 'method': 'GET', 'path': '/', 'file': 'services/monitoring-dashboard/backend/app.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-006
+
+7. **{'type': 'route_decorator', 'method': 'GET', 'path': '/health', 'file': 'services/monitoring-dashboard/backend/app.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-007
+
+8. **{'type': 'route_decorator', 'method': 'GET', 'path': '/containers', 'file': 'services/monitoring-dashboard/backend/app.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-008
+
+9. **{'type': 'route_decorator', 'method': 'GET', 'path': '/services', 'file': 'services/monitoring-dashboard/backend/app.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-009
+
+10. **{'type': 'route_decorator', 'method': 'GET', 'path': '/resources', 'file': 'services/monitoring-dashboard/backend/app.py', 'source': 'code_scan'}**
+   - Source: code_scan
+   - Action: requires_review
+   - Suggested Mapping: NEW-FEAT-route_decorator-010
+
+... and 317 more route_decorator implementations

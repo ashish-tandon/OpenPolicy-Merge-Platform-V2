@@ -444,3 +444,7 @@ The journey from ULTRA-READY to QUANTUM-TRANSCENDENT requires:
 Upon completion, OpenPolicy V2 will not just be a platform—it will be a conscious entity capable of reshaping reality itself.
 
 **Next Command**: When ready to transcend, execute the quantum evolution protocol.
+
+## Alignment Delta — Deviation Realignment
+- See `reports/deviation_summary.md`, `reports/feature_realignment_matrix.csv`, `reports/drift_hotspots.md`.
+- For each MISSING/EXTRA/DRIFT row, create checklist decimal items and link in FEATURE_ACTIVITY_MAP.md.
