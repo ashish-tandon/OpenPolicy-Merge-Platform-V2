@@ -1,2275 +1,2603 @@
 {
-  "cycles_completed": 10,
+  "cycles_completed": 560,
   "items": {
     "CHK-0001": {
       "id": "CHK-0001",
       "title": "Task 1",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0002": {
       "id": "CHK-0002",
       "title": "Task 2",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0003": {
       "id": "CHK-0003",
       "title": "Task 3",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0004": {
       "id": "CHK-0004",
       "title": "Task 4",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0005": {
       "id": "CHK-0005",
       "title": "Task 5",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0006": {
       "id": "CHK-0006",
       "title": "Task 6",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0007": {
       "id": "CHK-0007",
       "title": "Task 7",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0008": {
       "id": "CHK-0008",
       "title": "Task 8",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0009": {
       "id": "CHK-0009",
       "title": "Task 9",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0010": {
       "id": "CHK-0010",
       "title": "Task 10",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0011": {
       "id": "CHK-0011",
       "title": "Task 11",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0012": {
       "id": "CHK-0012",
       "title": "Task 12",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0013": {
       "id": "CHK-0013",
       "title": "Task 13",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0014": {
       "id": "CHK-0014",
       "title": "Task 14",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0015": {
       "id": "CHK-0015",
       "title": "Task 15",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0016": {
       "id": "CHK-0016",
       "title": "Task 16",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0017": {
       "id": "CHK-0017",
       "title": "Task 17",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0018": {
       "id": "CHK-0018",
       "title": "Task 18",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0019": {
       "id": "CHK-0019",
       "title": "Task 19",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0020": {
       "id": "CHK-0020",
       "title": "Task 20",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0021": {
       "id": "CHK-0021",
       "title": "Task 21",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0022": {
       "id": "CHK-0022",
       "title": "Task 22",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0023": {
       "id": "CHK-0023",
       "title": "Task 23",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0024": {
       "id": "CHK-0024",
       "title": "Task 24",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0025": {
       "id": "CHK-0025",
       "title": "Task 25",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0026": {
       "id": "CHK-0026",
       "title": "Task 26",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0027": {
       "id": "CHK-0027",
       "title": "Task 27",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0028": {
       "id": "CHK-0028",
       "title": "Task 28",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0029": {
       "id": "CHK-0029",
       "title": "Task 29",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0030": {
       "id": "CHK-0030",
       "title": "Task 30",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0031": {
       "id": "CHK-0031",
       "title": "Task 31",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0032": {
       "id": "CHK-0032",
       "title": "Task 32",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0033": {
       "id": "CHK-0033",
       "title": "Task 33",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0034": {
       "id": "CHK-0034",
       "title": "Task 34",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0035": {
       "id": "CHK-0035",
       "title": "Task 35",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0036": {
       "id": "CHK-0036",
       "title": "Task 36",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0037": {
       "id": "CHK-0037",
       "title": "Task 37",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0038": {
       "id": "CHK-0038",
       "title": "Task 38",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0039": {
       "id": "CHK-0039",
       "title": "Task 39",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0040": {
       "id": "CHK-0040",
       "title": "Task 40",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0041": {
       "id": "CHK-0041",
       "title": "Task 41",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0042": {
       "id": "CHK-0042",
       "title": "Task 42",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0043": {
       "id": "CHK-0043",
       "title": "Task 43",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0044": {
       "id": "CHK-0044",
       "title": "Task 44",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0045": {
       "id": "CHK-0045",
       "title": "Task 45",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0046": {
       "id": "CHK-0046",
       "title": "Task 46",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0047": {
       "id": "CHK-0047",
       "title": "Task 47",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0048": {
       "id": "CHK-0048",
       "title": "Task 48",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0049": {
       "id": "CHK-0049",
       "title": "Task 49",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0050": {
       "id": "CHK-0050",
       "title": "Task 50",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0051": {
       "id": "CHK-0051",
       "title": "Task 51",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0052": {
       "id": "CHK-0052",
       "title": "Task 52",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0053": {
       "id": "CHK-0053",
       "title": "Task 53",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0054": {
       "id": "CHK-0054",
       "title": "Task 54",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0055": {
       "id": "CHK-0055",
       "title": "Task 55",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0056": {
       "id": "CHK-0056",
       "title": "Task 56",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0057": {
       "id": "CHK-0057",
       "title": "Task 57",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0058": {
       "id": "CHK-0058",
       "title": "Task 58",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0059": {
       "id": "CHK-0059",
       "title": "Task 59",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0060": {
       "id": "CHK-0060",
       "title": "Task 60",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0061": {
       "id": "CHK-0061",
       "title": "Task 61",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0062": {
       "id": "CHK-0062",
       "title": "Task 62",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0063": {
       "id": "CHK-0063",
       "title": "Task 63",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0064": {
       "id": "CHK-0064",
       "title": "Task 64",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0065": {
       "id": "CHK-0065",
       "title": "Task 65",
       "gate": "G1",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0066": {
       "id": "CHK-0066",
       "title": "Task 66",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0067": {
       "id": "CHK-0067",
       "title": "Task 67",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0068": {
       "id": "CHK-0068",
       "title": "Task 68",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0069": {
       "id": "CHK-0069",
       "title": "Task 69",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0070": {
       "id": "CHK-0070",
       "title": "Task 70",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0071": {
       "id": "CHK-0071",
       "title": "Task 71",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0072": {
       "id": "CHK-0072",
       "title": "Task 72",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0073": {
       "id": "CHK-0073",
       "title": "Task 73",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0074": {
       "id": "CHK-0074",
       "title": "Task 74",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0075": {
       "id": "CHK-0075",
       "title": "Task 75",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0076": {
       "id": "CHK-0076",
       "title": "Task 76",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0077": {
       "id": "CHK-0077",
       "title": "Task 77",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0078": {
       "id": "CHK-0078",
       "title": "Task 78",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0079": {
       "id": "CHK-0079",
       "title": "Task 79",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0080": {
       "id": "CHK-0080",
       "title": "Task 80",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0081": {
       "id": "CHK-0081",
       "title": "Task 81",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0082": {
       "id": "CHK-0082",
       "title": "Task 82",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0083": {
       "id": "CHK-0083",
       "title": "Task 83",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0084": {
       "id": "CHK-0084",
       "title": "Task 84",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0085": {
       "id": "CHK-0085",
       "title": "Task 85",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0086": {
       "id": "CHK-0086",
       "title": "Task 86",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0087": {
       "id": "CHK-0087",
       "title": "Task 87",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0088": {
       "id": "CHK-0088",
       "title": "Task 88",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0089": {
       "id": "CHK-0089",
       "title": "Task 89",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0090": {
       "id": "CHK-0090",
       "title": "Task 90",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0091": {
       "id": "CHK-0091",
       "title": "Task 91",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0092": {
       "id": "CHK-0092",
       "title": "Task 92",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0093": {
       "id": "CHK-0093",
       "title": "Task 93",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0094": {
       "id": "CHK-0094",
       "title": "Task 94",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0095": {
       "id": "CHK-0095",
       "title": "Task 95",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0096": {
       "id": "CHK-0096",
       "title": "Task 96",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0097": {
       "id": "CHK-0097",
       "title": "Task 97",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0098": {
       "id": "CHK-0098",
       "title": "Task 98",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0099": {
       "id": "CHK-0099",
       "title": "Task 99",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0100": {
       "id": "CHK-0100",
       "title": "Task 100",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0101": {
       "id": "CHK-0101",
       "title": "Task 101",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0102": {
       "id": "CHK-0102",
       "title": "Task 102",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0103": {
       "id": "CHK-0103",
       "title": "Task 103",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0104": {
       "id": "CHK-0104",
       "title": "Task 104",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0105": {
       "id": "CHK-0105",
       "title": "Task 105",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0106": {
       "id": "CHK-0106",
       "title": "Task 106",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0107": {
       "id": "CHK-0107",
       "title": "Task 107",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0108": {
       "id": "CHK-0108",
       "title": "Task 108",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0109": {
       "id": "CHK-0109",
       "title": "Task 109",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0110": {
       "id": "CHK-0110",
       "title": "Task 110",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0111": {
       "id": "CHK-0111",
       "title": "Task 111",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0112": {
       "id": "CHK-0112",
       "title": "Task 112",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0113": {
       "id": "CHK-0113",
       "title": "Task 113",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0114": {
       "id": "CHK-0114",
       "title": "Task 114",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0115": {
       "id": "CHK-0115",
       "title": "Task 115",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0116": {
       "id": "CHK-0116",
       "title": "Task 116",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0117": {
       "id": "CHK-0117",
       "title": "Task 117",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0118": {
       "id": "CHK-0118",
       "title": "Task 118",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0119": {
       "id": "CHK-0119",
       "title": "Task 119",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0120": {
       "id": "CHK-0120",
       "title": "Task 120",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0121": {
       "id": "CHK-0121",
       "title": "Task 121",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0122": {
       "id": "CHK-0122",
       "title": "Task 122",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0123": {
       "id": "CHK-0123",
       "title": "Task 123",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0124": {
       "id": "CHK-0124",
       "title": "Task 124",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0125": {
       "id": "CHK-0125",
       "title": "Task 125",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0126": {
       "id": "CHK-0126",
       "title": "Task 126",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0127": {
       "id": "CHK-0127",
       "title": "Task 127",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0128": {
       "id": "CHK-0128",
       "title": "Task 128",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0129": {
       "id": "CHK-0129",
       "title": "Task 129",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0130": {
       "id": "CHK-0130",
       "title": "Task 130",
       "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0131": {
       "id": "CHK-0131",
       "title": "Task 131",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0132": {
       "id": "CHK-0132",
       "title": "Task 132",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0133": {
       "id": "CHK-0133",
       "title": "Task 133",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0134": {
       "id": "CHK-0134",
       "title": "Task 134",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0135": {
       "id": "CHK-0135",
       "title": "Task 135",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0136": {
       "id": "CHK-0136",
       "title": "Task 136",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0137": {
       "id": "CHK-0137",
       "title": "Task 137",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0138": {
       "id": "CHK-0138",
       "title": "Task 138",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0139": {
       "id": "CHK-0139",
       "title": "Task 139",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0140": {
       "id": "CHK-0140",
       "title": "Task 140",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0141": {
       "id": "CHK-0141",
       "title": "Task 141",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0142": {
       "id": "CHK-0142",
       "title": "Task 142",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0143": {
       "id": "CHK-0143",
       "title": "Task 143",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0144": {
       "id": "CHK-0144",
       "title": "Task 144",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0145": {
       "id": "CHK-0145",
       "title": "Task 145",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0146": {
       "id": "CHK-0146",
       "title": "Task 146",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0147": {
       "id": "CHK-0147",
       "title": "Task 147",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0148": {
       "id": "CHK-0148",
       "title": "Task 148",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0149": {
       "id": "CHK-0149",
       "title": "Task 149",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0150": {
       "id": "CHK-0150",
       "title": "Task 150",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0151": {
       "id": "CHK-0151",
       "title": "Task 151",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0152": {
       "id": "CHK-0152",
       "title": "Task 152",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0153": {
       "id": "CHK-0153",
       "title": "Task 153",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0154": {
       "id": "CHK-0154",
       "title": "Task 154",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0155": {
       "id": "CHK-0155",
       "title": "Task 155",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0156": {
       "id": "CHK-0156",
       "title": "Task 156",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0157": {
       "id": "CHK-0157",
       "title": "Task 157",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0158": {
       "id": "CHK-0158",
       "title": "Task 158",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0159": {
       "id": "CHK-0159",
       "title": "Task 159",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0160": {
       "id": "CHK-0160",
       "title": "Task 160",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0161": {
       "id": "CHK-0161",
       "title": "Task 161",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0162": {
       "id": "CHK-0162",
       "title": "Task 162",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0163": {
       "id": "CHK-0163",
       "title": "Task 163",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0164": {
       "id": "CHK-0164",
       "title": "Task 164",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0165": {
       "id": "CHK-0165",
       "title": "Task 165",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0166": {
       "id": "CHK-0166",
       "title": "Task 166",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0167": {
       "id": "CHK-0167",
       "title": "Task 167",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0168": {
       "id": "CHK-0168",
       "title": "Task 168",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0169": {
       "id": "CHK-0169",
       "title": "Task 169",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0170": {
       "id": "CHK-0170",
       "title": "Task 170",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0171": {
       "id": "CHK-0171",
       "title": "Task 171",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0172": {
       "id": "CHK-0172",
       "title": "Task 172",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0173": {
       "id": "CHK-0173",
       "title": "Task 173",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0174": {
       "id": "CHK-0174",
       "title": "Task 174",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0175": {
       "id": "CHK-0175",
       "title": "Task 175",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0176": {
       "id": "CHK-0176",
       "title": "Task 176",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0177": {
       "id": "CHK-0177",
       "title": "Task 177",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0178": {
       "id": "CHK-0178",
       "title": "Task 178",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0179": {
       "id": "CHK-0179",
       "title": "Task 179",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0180": {
       "id": "CHK-0180",
       "title": "Task 180",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0181": {
       "id": "CHK-0181",
       "title": "Task 181",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0182": {
       "id": "CHK-0182",
       "title": "Task 182",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0183": {
       "id": "CHK-0183",
       "title": "Task 183",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0184": {
       "id": "CHK-0184",
       "title": "Task 184",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0185": {
       "id": "CHK-0185",
       "title": "Task 185",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0186": {
       "id": "CHK-0186",
       "title": "Task 186",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0187": {
       "id": "CHK-0187",
       "title": "Task 187",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0188": {
       "id": "CHK-0188",
       "title": "Task 188",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0189": {
       "id": "CHK-0189",
       "title": "Task 189",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0190": {
       "id": "CHK-0190",
       "title": "Task 190",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0191": {
       "id": "CHK-0191",
       "title": "Task 191",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0192": {
       "id": "CHK-0192",
       "title": "Task 192",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0193": {
       "id": "CHK-0193",
       "title": "Task 193",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0194": {
       "id": "CHK-0194",
       "title": "Task 194",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0195": {
       "id": "CHK-0195",
       "title": "Task 195",
       "gate": "G3",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0196": {
       "id": "CHK-0196",
       "title": "Task 196",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0197": {
       "id": "CHK-0197",
       "title": "Task 197",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0198": {
       "id": "CHK-0198",
       "title": "Task 198",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0199": {
       "id": "CHK-0199",
       "title": "Task 199",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0200": {
       "id": "CHK-0200",
       "title": "Task 200",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0201": {
       "id": "CHK-0201",
       "title": "Task 201",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0202": {
       "id": "CHK-0202",
       "title": "Task 202",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0203": {
       "id": "CHK-0203",
       "title": "Task 203",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0204": {
       "id": "CHK-0204",
       "title": "Task 204",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0205": {
       "id": "CHK-0205",
       "title": "Task 205",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0206": {
       "id": "CHK-0206",
       "title": "Task 206",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0207": {
       "id": "CHK-0207",
       "title": "Task 207",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0208": {
       "id": "CHK-0208",
       "title": "Task 208",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0209": {
       "id": "CHK-0209",
       "title": "Task 209",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0210": {
       "id": "CHK-0210",
       "title": "Task 210",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0211": {
       "id": "CHK-0211",
       "title": "Task 211",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0212": {
       "id": "CHK-0212",
       "title": "Task 212",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0213": {
       "id": "CHK-0213",
       "title": "Task 213",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0214": {
       "id": "CHK-0214",
       "title": "Task 214",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0215": {
       "id": "CHK-0215",
       "title": "Task 215",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0216": {
       "id": "CHK-0216",
       "title": "Task 216",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0217": {
       "id": "CHK-0217",
       "title": "Task 217",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0218": {
       "id": "CHK-0218",
       "title": "Task 218",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0219": {
       "id": "CHK-0219",
       "title": "Task 219",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0220": {
       "id": "CHK-0220",
       "title": "Task 220",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0221": {
       "id": "CHK-0221",
       "title": "Task 221",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0222": {
       "id": "CHK-0222",
       "title": "Task 222",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0223": {
       "id": "CHK-0223",
       "title": "Task 223",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0224": {
       "id": "CHK-0224",
       "title": "Task 224",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0225": {
       "id": "CHK-0225",
       "title": "Task 225",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0226": {
       "id": "CHK-0226",
       "title": "Task 226",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0227": {
       "id": "CHK-0227",
       "title": "Task 227",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0228": {
       "id": "CHK-0228",
       "title": "Task 228",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0229": {
       "id": "CHK-0229",
       "title": "Task 229",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0230": {
       "id": "CHK-0230",
       "title": "Task 230",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0231": {
       "id": "CHK-0231",
       "title": "Task 231",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0232": {
       "id": "CHK-0232",
       "title": "Task 232",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0233": {
       "id": "CHK-0233",
       "title": "Task 233",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0234": {
       "id": "CHK-0234",
       "title": "Task 234",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0235": {
       "id": "CHK-0235",
       "title": "Task 235",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0236": {
       "id": "CHK-0236",
       "title": "Task 236",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0237": {
       "id": "CHK-0237",
       "title": "Task 237",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0238": {
       "id": "CHK-0238",
       "title": "Task 238",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0239": {
       "id": "CHK-0239",
       "title": "Task 239",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0240": {
       "id": "CHK-0240",
       "title": "Task 240",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0241": {
       "id": "CHK-0241",
       "title": "Task 241",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0242": {
       "id": "CHK-0242",
       "title": "Task 242",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0243": {
       "id": "CHK-0243",
       "title": "Task 243",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0244": {
       "id": "CHK-0244",
       "title": "Task 244",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0245": {
       "id": "CHK-0245",
       "title": "Task 245",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0246": {
       "id": "CHK-0246",
       "title": "Task 246",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0247": {
       "id": "CHK-0247",
       "title": "Task 247",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0248": {
       "id": "CHK-0248",
       "title": "Task 248",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0249": {
       "id": "CHK-0249",
       "title": "Task 249",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0250": {
       "id": "CHK-0250",
       "title": "Task 250",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0251": {
       "id": "CHK-0251",
       "title": "Task 251",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0252": {
       "id": "CHK-0252",
       "title": "Task 252",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0253": {
       "id": "CHK-0253",
       "title": "Task 253",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0254": {
       "id": "CHK-0254",
       "title": "Task 254",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0255": {
       "id": "CHK-0255",
       "title": "Task 255",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0256": {
       "id": "CHK-0256",
       "title": "Task 256",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0257": {
       "id": "CHK-0257",
       "title": "Task 257",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0258": {
       "id": "CHK-0258",
       "title": "Task 258",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0259": {
       "id": "CHK-0259",
       "title": "Task 259",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0260": {
       "id": "CHK-0260",
       "title": "Task 260",
       "gate": "G4",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0261": {
       "id": "CHK-0261",
       "title": "Task 261",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0262": {
       "id": "CHK-0262",
       "title": "Task 262",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0263": {
       "id": "CHK-0263",
       "title": "Task 263",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0264": {
       "id": "CHK-0264",
       "title": "Task 264",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0265": {
       "id": "CHK-0265",
       "title": "Task 265",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0266": {
       "id": "CHK-0266",
       "title": "Task 266",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0267": {
       "id": "CHK-0267",
       "title": "Task 267",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0268": {
       "id": "CHK-0268",
       "title": "Task 268",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0269": {
       "id": "CHK-0269",
       "title": "Task 269",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0270": {
       "id": "CHK-0270",
       "title": "Task 270",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0271": {
       "id": "CHK-0271",
       "title": "Task 271",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0272": {
       "id": "CHK-0272",
       "title": "Task 272",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0273": {
       "id": "CHK-0273",
       "title": "Task 273",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0274": {
       "id": "CHK-0274",
       "title": "Task 274",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0275": {
       "id": "CHK-0275",
       "title": "Task 275",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0276": {
       "id": "CHK-0276",
       "title": "Task 276",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0277": {
       "id": "CHK-0277",
       "title": "Task 277",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0278": {
       "id": "CHK-0278",
       "title": "Task 278",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0279": {
       "id": "CHK-0279",
       "title": "Task 279",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0280": {
       "id": "CHK-0280",
       "title": "Task 280",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0281": {
       "id": "CHK-0281",
       "title": "Task 281",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0282": {
       "id": "CHK-0282",
       "title": "Task 282",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0283": {
       "id": "CHK-0283",
       "title": "Task 283",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0284": {
       "id": "CHK-0284",
       "title": "Task 284",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0285": {
       "id": "CHK-0285",
       "title": "Task 285",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0286": {
       "id": "CHK-0286",
       "title": "Task 286",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0287": {
       "id": "CHK-0287",
       "title": "Task 287",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0288": {
       "id": "CHK-0288",
       "title": "Task 288",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0289": {
       "id": "CHK-0289",
       "title": "Task 289",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0290": {
       "id": "CHK-0290",
       "title": "Task 290",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0291": {
       "id": "CHK-0291",
       "title": "Task 291",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0292": {
       "id": "CHK-0292",
       "title": "Task 292",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0293": {
       "id": "CHK-0293",
       "title": "Task 293",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0294": {
       "id": "CHK-0294",
       "title": "Task 294",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0295": {
       "id": "CHK-0295",
       "title": "Task 295",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0296": {
       "id": "CHK-0296",
       "title": "Task 296",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0297": {
       "id": "CHK-0297",
       "title": "Task 297",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0298": {
       "id": "CHK-0298",
       "title": "Task 298",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0299": {
       "id": "CHK-0299",
       "title": "Task 299",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0300": {
       "id": "CHK-0300",
       "title": "Task 300",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0301": {
       "id": "CHK-0301",
       "title": "Task 301",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0302": {
       "id": "CHK-0302",
       "title": "Task 302",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0303": {
       "id": "CHK-0303",
       "title": "Task 303",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0304": {
       "id": "CHK-0304",
       "title": "Task 304",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0305": {
       "id": "CHK-0305",
       "title": "Task 305",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0306": {
       "id": "CHK-0306",
       "title": "Task 306",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0307": {
       "id": "CHK-0307",
       "title": "Task 307",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0308": {
       "id": "CHK-0308",
       "title": "Task 308",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0309": {
       "id": "CHK-0309",
       "title": "Task 309",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0310": {
       "id": "CHK-0310",
       "title": "Task 310",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0311": {
       "id": "CHK-0311",
       "title": "Task 311",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0312": {
       "id": "CHK-0312",
       "title": "Task 312",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0313": {
       "id": "CHK-0313",
       "title": "Task 313",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0314": {
       "id": "CHK-0314",
       "title": "Task 314",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0315": {
       "id": "CHK-0315",
       "title": "Task 315",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0316": {
       "id": "CHK-0316",
       "title": "Task 316",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0317": {
       "id": "CHK-0317",
       "title": "Task 317",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0318": {
       "id": "CHK-0318",
       "title": "Task 318",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0319": {
       "id": "CHK-0319",
       "title": "Task 319",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0320": {
       "id": "CHK-0320",
       "title": "Task 320",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0321": {
       "id": "CHK-0321",
       "title": "Task 321",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0322": {
       "id": "CHK-0322",
       "title": "Task 322",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0323": {
       "id": "CHK-0323",
       "title": "Task 323",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     },
     "CHK-0324": {
       "id": "CHK-0324",
       "title": "Task 324",
       "gate": "G5",
-      "runs_completed": 10,
-      "last_cycle": 10
+      "runs_completed": 100,
+      "last_cycle": 560,
+      "deep_insights_applied": true
     }
   },
   "total_items": 324,
-  "last_updated": "2025-08-23T19:13:29.860528"
+  "last_updated": "2025-08-23T19:23:04.375293",
+  "enhancement_passes": 10,
+  "ai_discovered_tasks": 50,
+  "last_ai_analysis": "2025-08-23T19:23:04.202540",
+  "deep_learning_enabled": true
 }

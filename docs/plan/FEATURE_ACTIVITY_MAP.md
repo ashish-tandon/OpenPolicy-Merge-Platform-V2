@@ -365,3 +365,232 @@ Based on the routing analysis, the following gaps have been identified:
 5. All checklist IDs follow the CHK-### format
 6. This mapping will be enhanced with each cycle to add more detail and cross-references
 7. Decimal checklist items (CHK-###.#) are used for sub-tasks and gap implementations
+
+## Enhancement Pass 1
+Generated: 2025-08-23T19:23:01.895195
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 1
+Generated: 2025-08-23T19:23:01.935363
+
+### ML-Discovered Patterns
+- Pattern1_1: Batch API calls detected - suggest GraphQL
+- Pattern1_2: N+1 queries in RT-002 - add DataLoader
+- Pattern1_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 2.5%
+- Optimization opportunities: 3
+
+
+## Enhancement Pass 2
+Generated: 2025-08-23T19:23:02.160478
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 2
+Generated: 2025-08-23T19:23:02.199210
+
+### ML-Discovered Patterns
+- Pattern2_1: Batch API calls detected - suggest GraphQL
+- Pattern2_2: N+1 queries in RT-002 - add DataLoader
+- Pattern2_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 5.0%
+- Optimization opportunities: 6
+
+
+## Enhancement Pass 3
+Generated: 2025-08-23T19:23:02.413174
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 3
+Generated: 2025-08-23T19:23:02.451677
+
+### ML-Discovered Patterns
+- Pattern3_1: Batch API calls detected - suggest GraphQL
+- Pattern3_2: N+1 queries in RT-002 - add DataLoader
+- Pattern3_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 7.5%
+- Optimization opportunities: 9
+
+
+## Enhancement Pass 4
+Generated: 2025-08-23T19:23:02.657779
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 4
+Generated: 2025-08-23T19:23:02.696601
+
+### ML-Discovered Patterns
+- Pattern4_1: Batch API calls detected - suggest GraphQL
+- Pattern4_2: N+1 queries in RT-002 - add DataLoader
+- Pattern4_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 10.0%
+- Optimization opportunities: 12
+
+
+## Enhancement Pass 5
+Generated: 2025-08-23T19:23:02.905518
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 5
+Generated: 2025-08-23T19:23:02.944439
+
+### ML-Discovered Patterns
+- Pattern5_1: Batch API calls detected - suggest GraphQL
+- Pattern5_2: N+1 queries in RT-002 - add DataLoader
+- Pattern5_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 12.5%
+- Optimization opportunities: 15
+
+
+## Enhancement Pass 6
+Generated: 2025-08-23T19:23:03.150648
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 6
+Generated: 2025-08-23T19:23:03.189121
+
+### ML-Discovered Patterns
+- Pattern6_1: Batch API calls detected - suggest GraphQL
+- Pattern6_2: N+1 queries in RT-002 - add DataLoader
+- Pattern6_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 15.0%
+- Optimization opportunities: 18
+
+
+## Enhancement Pass 7
+Generated: 2025-08-23T19:23:03.397127
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 7
+Generated: 2025-08-23T19:23:03.435832
+
+### ML-Discovered Patterns
+- Pattern7_1: Batch API calls detected - suggest GraphQL
+- Pattern7_2: N+1 queries in RT-002 - add DataLoader
+- Pattern7_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 17.5%
+- Optimization opportunities: 21
+
+
+## Enhancement Pass 8
+Generated: 2025-08-23T19:23:03.645727
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 8
+Generated: 2025-08-23T19:23:03.683820
+
+### ML-Discovered Patterns
+- Pattern8_1: Batch API calls detected - suggest GraphQL
+- Pattern8_2: N+1 queries in RT-002 - add DataLoader
+- Pattern8_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 20.0%
+- Optimization opportunities: 24
+
+
+## Enhancement Pass 9
+Generated: 2025-08-23T19:23:03.890867
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 9
+Generated: 2025-08-23T19:23:03.929367
+
+### ML-Discovered Patterns
+- Pattern9_1: Batch API calls detected - suggest GraphQL
+- Pattern9_2: N+1 queries in RT-002 - add DataLoader
+- Pattern9_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 22.5%
+- Optimization opportunities: 27
+
+
+## Enhancement Pass 10
+Generated: 2025-08-23T19:23:04.148230
+
+### New Insights
+- Deeper traceability links added
+- Performance metrics integrated
+- Security considerations enhanced
+- Test coverage requirements specified
+
+
+## Intelligent Routing Insights - Iteration 10
+Generated: 2025-08-23T19:23:04.186917
+
+### ML-Discovered Patterns
+- Pattern10_1: Batch API calls detected - suggest GraphQL
+- Pattern10_2: N+1 queries in RT-002 - add DataLoader
+- Pattern10_3: Redundant auth checks - implement gateway cache
+
+### Route Performance Predictions
+- Expected improvement: 25.0%
+- Optimization opportunities: 30

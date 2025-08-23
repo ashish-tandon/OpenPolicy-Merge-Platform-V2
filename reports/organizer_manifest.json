@@ -1,11 +1,21 @@
 {
-  "generated_at": "2025-08-23T19:13:29.818114",
+  "generated_at": "2025-08-23T19:23:04.331523",
   "pass_number": 2,
   "reports_generated": [
     {
       "name": "ENVIRONMENT_AUDIT.json",
       "path": "reports/ENVIRONMENT_AUDIT.json",
       "size": 4468
+    },
+    {
+      "name": "ROUTING_INSIGHTS_6.json",
+      "path": "reports/ROUTING_INSIGHTS_6.json",
+      "size": 663
+    },
+    {
+      "name": "ROUTING_INSIGHTS_7.json",
+      "path": "reports/ROUTING_INSIGHTS_7.json",
+      "size": 663
     },
     {
       "name": "multi_loop_results.json",
@@ -18,19 +28,69 @@
       "size": 2908351
     },
     {
+      "name": "deep_learning_insights.json",
+      "path": "reports/deep_learning_insights.json",
+      "size": 56579
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_7.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_7.json",
+      "size": 789
+    },
+    {
+      "name": "ROUTING_INSIGHTS_9.json",
+      "path": "reports/ROUTING_INSIGHTS_9.json",
+      "size": 663
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_6.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_6.json",
+      "size": 787
+    },
+    {
+      "name": "ROUTING_INSIGHTS_8.json",
+      "path": "reports/ROUTING_INSIGHTS_8.json",
+      "size": 663
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_10.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_10.json",
+      "size": 794
+    },
+    {
       "name": "organizer_manifest.json",
       "path": "reports/organizer_manifest.json",
-      "size": 9859
+      "size": 16441
+    },
+    {
+      "name": "CUMULATIVE_MISSION_RESULTS.json",
+      "path": "reports/CUMULATIVE_MISSION_RESULTS.json",
+      "size": 580
     },
     {
       "name": "todo_state.json",
       "path": "reports/todo_state.json",
-      "size": 46986
+      "size": 60414
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_1.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_1.json",
+      "size": 799
+    },
+    {
+      "name": "ROUTING_INSIGHTS_1.json",
+      "path": "reports/ROUTING_INSIGHTS_1.json",
+      "size": 661
     },
     {
       "name": "execution_plan.json",
       "path": "reports/execution_plan.json",
       "size": 54086
+    },
+    {
+      "name": "extended_mission_results.json",
+      "path": "reports/extended_mission_results.json",
+      "size": 29341
     },
     {
       "name": "BUG_AUDIT.json",
@@ -45,7 +105,27 @@
     {
       "name": "complete_mission_results.json",
       "path": "reports/complete_mission_results.json",
-      "size": 31934
+      "size": 35514
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_4.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_4.json",
+      "size": 787
+    },
+    {
+      "name": "ROUTING_INSIGHTS_3.json",
+      "path": "reports/ROUTING_INSIGHTS_3.json",
+      "size": 661
+    },
+    {
+      "name": "ROUTING_INSIGHTS_5.json",
+      "path": "reports/ROUTING_INSIGHTS_5.json",
+      "size": 663
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_9.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_9.json",
+      "size": 790
     },
     {
       "name": "VAR_FUNC_MAP.json",
@@ -53,9 +133,44 @@
       "size": 15641888
     },
     {
+      "name": "SYSTEM_INTELLIGENCE_8.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_8.json",
+      "size": 788
+    },
+    {
       "name": "DATA_JOURNEY_MAP.json",
       "path": "reports/DATA_JOURNEY_MAP.json",
       "size": 443950
+    },
+    {
+      "name": "ROUTING_INSIGHTS_10.json",
+      "path": "reports/ROUTING_INSIGHTS_10.json",
+      "size": 667
+    },
+    {
+      "name": "ROUTING_INSIGHTS_4.json",
+      "path": "reports/ROUTING_INSIGHTS_4.json",
+      "size": 663
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_2.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_2.json",
+      "size": 787
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_3.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_3.json",
+      "size": 801
+    },
+    {
+      "name": "ROUTING_INSIGHTS_2.json",
+      "path": "reports/ROUTING_INSIGHTS_2.json",
+      "size": 661
+    },
+    {
+      "name": "SYSTEM_INTELLIGENCE_5.json",
+      "path": "reports/SYSTEM_INTELLIGENCE_5.json",
+      "size": 788
     },
     {
       "name": "complete_mission_pass_5.md",
@@ -70,7 +185,12 @@
     {
       "name": "todo_summary.md",
       "path": "reports/todo_summary.md",
-      "size": 580
+      "size": 1455
+    },
+    {
+      "name": "deep_enhancement_summary_20250823_192302.md",
+      "path": "reports/deep_enhancement_summary_20250823_192302.md",
+      "size": 1453
     },
     {
       "name": "complete_mission_pass_7.md",
@@ -83,9 +203,24 @@
       "size": 352
     },
     {
+      "name": "extended_mission_pass_3.md",
+      "path": "reports/extended_mission_pass_3.md",
+      "size": 1577
+    },
+    {
       "name": "complete_mission_pass_3.md",
       "path": "reports/complete_mission_pass_3.md",
       "size": 957
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT_pass10.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass10.md",
+      "size": 827
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT_pass4.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass4.md",
+      "size": 826
     },
     {
       "name": "todo_cycle_report_cycle9.md",
@@ -108,6 +243,11 @@
       "size": 960
     },
     {
+      "name": "ENV_BUG_DATA_AUDIT_pass2.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass2.md",
+      "size": 825
+    },
+    {
       "name": "BUG_AUDIT.md",
       "path": "reports/BUG_AUDIT.md",
       "size": 4082
@@ -118,14 +258,34 @@
       "size": 958
     },
     {
+      "name": "extended_mission_pass_5.md",
+      "path": "reports/extended_mission_pass_5.md",
+      "size": 1577
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT_pass9.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass9.md",
+      "size": 826
+    },
+    {
       "name": "DATA_JOURNEY_MAP.md",
       "path": "reports/DATA_JOURNEY_MAP.md",
       "size": 11444
     },
     {
+      "name": "extended_mission_pass_6.md",
+      "path": "reports/extended_mission_pass_6.md",
+      "size": 1577
+    },
+    {
       "name": "todo_cycle_report_cycle3.md",
       "path": "reports/todo_cycle_report_cycle3.md",
       "size": 960
+    },
+    {
+      "name": "extended_mission_pass_9.md",
+      "path": "reports/extended_mission_pass_9.md",
+      "size": 1577
     },
     {
       "name": "complete_mission_pass_4.md",
@@ -143,14 +303,29 @@
       "size": 960
     },
     {
+      "name": "deep_enhancement_summary_20250823_192303.md",
+      "path": "reports/deep_enhancement_summary_20250823_192303.md",
+      "size": 1474
+    },
+    {
       "name": "todo_cycle_report_cycle5.md",
       "path": "reports/todo_cycle_report_cycle5.md",
       "size": 961
     },
     {
+      "name": "ENV_BUG_DATA_AUDIT_pass5.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass5.md",
+      "size": 826
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT_pass6.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass6.md",
+      "size": 826
+    },
+    {
       "name": "ENV_BUG_DATA_AUDIT.md",
       "path": "reports/ENV_BUG_DATA_AUDIT.md",
-      "size": 302
+      "size": 827
     },
     {
       "name": "todo_cycle_report_cycle7.md",
@@ -158,9 +333,19 @@
       "size": 961
     },
     {
+      "name": "deep_enhancement_summary_20250823_192304.md",
+      "path": "reports/deep_enhancement_summary_20250823_192304.md",
+      "size": 1455
+    },
+    {
       "name": "todo_cycle_report_cycle8.md",
       "path": "reports/todo_cycle_report_cycle8.md",
       "size": 961
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT_pass3.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass3.md",
+      "size": 826
     },
     {
       "name": "complete_mission_pass_9.md",
@@ -168,9 +353,39 @@
       "size": 958
     },
     {
+      "name": "ENV_BUG_DATA_AUDIT_pass11.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass11.md",
+      "size": 827
+    },
+    {
+      "name": "extended_mission_pass_8.md",
+      "path": "reports/extended_mission_pass_8.md",
+      "size": 1577
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT_pass8.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass8.md",
+      "size": 826
+    },
+    {
+      "name": "extended_mission_pass_2.md",
+      "path": "reports/extended_mission_pass_2.md",
+      "size": 1577
+    },
+    {
+      "name": "complete_mission_pass_10.md",
+      "path": "reports/complete_mission_pass_10.md",
+      "size": 961
+    },
+    {
       "name": "complete_mission_pass_2.md",
       "path": "reports/complete_mission_pass_2.md",
       "size": 957
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT_pass7.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT_pass7.md",
+      "size": 826
     },
     {
       "name": "TODO_ENHANCEMENT_FINAL_REPORT.md",
@@ -183,9 +398,29 @@
       "size": 964
     },
     {
+      "name": "extended_mission_pass_7.md",
+      "path": "reports/extended_mission_pass_7.md",
+      "size": 1577
+    },
+    {
+      "name": "extended_mission_pass_1.md",
+      "path": "reports/extended_mission_pass_1.md",
+      "size": 1577
+    },
+    {
       "name": "ENVIRONMENT_AUDIT.md",
       "path": "reports/ENVIRONMENT_AUDIT.md",
       "size": 1869
+    },
+    {
+      "name": "COMPLETE_MISSION_FINAL_REPORT.md",
+      "path": "reports/COMPLETE_MISSION_FINAL_REPORT.md",
+      "size": 1913
+    },
+    {
+      "name": "extended_mission_pass_4.md",
+      "path": "reports/extended_mission_pass_4.md",
+      "size": 1577
     },
     {
       "name": "complete_mission_pass_6.md",
@@ -205,9 +440,14 @@
       "size": 34346
     },
     {
+      "name": "ARCH_EVOLUTION_6.md",
+      "path": "docs/plan/ARCH_EVOLUTION_6.md",
+      "size": 617
+    },
+    {
       "name": "FEATURE_ACTIVITY_MAP.md",
       "path": "docs/plan/FEATURE_ACTIVITY_MAP.md",
-      "size": 13537
+      "size": 19586
     },
     {
       "name": "ROUTING_REALIGNMENT.md",
@@ -225,14 +465,49 @@
       "size": 1244
     },
     {
+      "name": "ARCH_EVOLUTION_10.md",
+      "path": "docs/plan/ARCH_EVOLUTION_10.md",
+      "size": 618
+    },
+    {
       "name": "NEW_ARCHITECTURE_PROPOSAL.md",
       "path": "docs/plan/NEW_ARCHITECTURE_PROPOSAL.md",
       "size": 4593
     },
     {
+      "name": "ARCH_EVOLUTION_9.md",
+      "path": "docs/plan/ARCH_EVOLUTION_9.md",
+      "size": 617
+    },
+    {
       "name": "OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
       "path": "docs/plan/OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
       "size": 7101
+    },
+    {
+      "name": "ARCH_EVOLUTION_2.md",
+      "path": "docs/plan/ARCH_EVOLUTION_2.md",
+      "size": 617
+    },
+    {
+      "name": "ARCH_EVOLUTION_3.md",
+      "path": "docs/plan/ARCH_EVOLUTION_3.md",
+      "size": 617
+    },
+    {
+      "name": "ARCH_EVOLUTION_4.md",
+      "path": "docs/plan/ARCH_EVOLUTION_4.md",
+      "size": 617
+    },
+    {
+      "name": "ARCH_EVOLUTION_7.md",
+      "path": "docs/plan/ARCH_EVOLUTION_7.md",
+      "size": 617
+    },
+    {
+      "name": "ARCH_EVOLUTION_8.md",
+      "path": "docs/plan/ARCH_EVOLUTION_8.md",
+      "size": 617
     },
     {
       "name": "DATA_CYCLE_MAP.md",
@@ -242,17 +517,27 @@
     {
       "name": "ARCH_DECISIONS.md",
       "path": "docs/plan/ARCH_DECISIONS.md",
-      "size": 307
+      "size": 6478
+    },
+    {
+      "name": "ARCH_EVOLUTION_1.md",
+      "path": "docs/plan/ARCH_EVOLUTION_1.md",
+      "size": 617
     },
     {
       "name": "IMPLEMENTATION_CHECKLIST.md",
       "path": "docs/plan/IMPLEMENTATION_CHECKLIST.md",
-      "size": 672
+      "size": 13986
     },
     {
       "name": "ARCH_BLUEPRINT.md",
       "path": "docs/plan/ARCH_BLUEPRINT.md",
       "size": 297
+    },
+    {
+      "name": "ARCH_EVOLUTION_5.md",
+      "path": "docs/plan/ARCH_EVOLUTION_5.md",
+      "size": 617
     },
     {
       "name": "IMPLEMENTATION_CHECKLIST_OLD.md",
