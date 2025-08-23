@@ -1,69 +1,258 @@
-# OpenPolicy V2 — Source of Truth (SoT)
+# OpenPolicy V2 Source of Truth
 
-## Purpose
-Authoritative plan aligning features, data flows, architecture, checklists, tests, and bugs.
+Generated: 2025-08-23T17:54:11.300786
 
-## Golden Index
+This document serves as the comprehensive source of truth for the OpenPolicy V2 platform, aggregating all analysis, planning, and alignment information.
 
-### Core Documentation
-- **Execution Checklist**: /workspace/docs/validation/UPDATED_MASTER_EXECUTION_CHECKLIST.md
-- **API Specification**: /workspace/docs/validation/API_DESIGN_SPECIFICATION.md
-- **Testing Strategies**: /workspace/docs/validation/COMPREHENSIVE_TESTING_STRATEGIES.md
+## Table of Contents
 
-### Validation Reports
-- **Database Validation**: /workspace/artifacts/db/pass1/database_validation_report.md
-- **API Validation**: /workspace/artifacts/api/pass1/api_validation_report.md
-- **UI Validation**: /workspace/artifacts/ui/pass1/ui_validation_report.md
-- **Scraper Validation**: /workspace/artifacts/db/pass1/scraper_validation_report.md
+1. [Executive Summary](#executive-summary)
+2. [System Overview](#system-overview)
+3. [Current State Analysis](#current-state-analysis)
+4. [Alignment Delta](#alignment-delta)
+5. [Implementation Roadmap](#implementation-roadmap)
+6. [Crosslinks Appendix](#crosslinks-appendix)
 
-### Plan Documents
-- **Feature Mapping**: /workspace/docs/plan/features/FEATURE_MAPPING_UNIFIED.md
-- **Data Lineage Map**: /workspace/docs/plan/lineage/DATA_LINEAGE_MAP.md
-- **Data Lineage Auto**: /workspace/docs/plan/lineage/DATA_LINEAGE_AUTO.md
-- **Architecture Alignment**: /workspace/docs/plan/architecture/ARCHITECTURE_ALIGNMENT.md
-- **Bug Reconciliation**: /workspace/docs/bugs/BUGS_RECONCILIATION.md
-- **Review Gates**: /workspace/docs/reviews/ALIGNMENT_GATES_LOG.md
+## Executive Summary
 
-### Implementation Documentation
-- **API Gateway README**: /workspace/services/api-gateway/README.md
-- **ETL Data Mapping**: /workspace/services/etl/docs/COMPREHENSIVE_DATA_MAPPING_AND_SCHEMA_REPORT.md
-- **Web UI Status**: /workspace/services/web-ui/FINAL_IMPLEMENTATION_STATUS.md
-- **Admin UI Summary**: /workspace/services/admin-ui/docs/ADMIN_UI_IMPLEMENTATION_SUMMARY.md
-- **Project Setup Guide**: /workspace/docs/PROJECT_SETUP_AND_DEPLOYMENT_GUIDE.md
+### Overall Platform Health: 38.6%
 
-### Operational Documentation
-- **Operational Runbooks**: /workspace/docs/OPERATIONAL_RUNBOOKS.md
-- **Monitoring & Observability**: /workspace/docs/MONITORING_AND_OBSERVABILITY.md
-- **Security & Compliance**: /workspace/docs/SECURITY_AND_COMPLIANCE.md
-- **API Versioning Strategy**: /workspace/docs/API_VERSIONING_STRATEGY.md
+**Key Metrics:**
+- Architecture: 50.0%
+- Features: 0.0%
+- Data Flow: 80.6%
+- Routing: 1.3%
+- Quality: 100.0%
+- Operations: 0.0%
 
-### Migration & Legacy
-- **Migration Plan**: /workspace/docs/Open Parliament Migration Plan/README.md
-- **Legacy Code Mapping**: /workspace/docs/Open Parliament Migration Plan/13-LEGACY-CODE-MAPPING.md
-- **Data Flow Mapping**: /workspace/docs/Open Parliament Migration Plan/12-DATA-FLOW-MAPPING.md
+**Codebase Statistics:**
+- Total Nodes: 0
+- Total Edges: 0
+- Files Analyzed: 0
 
-## Alignment Model
-- Feature → Data Entities → APIs → UI Flows → Tests → Rollout → Ops
-- Every item must link to an Execution Checklist task ID.
+**Execution Plan:**
+- Total TODOs: 178
+- By Gate:
+  - G1: Structure/Index: 55 tasks
+  - G2: Parity: 21 tasks
+  - G3: Architecture Harmony: 36 tasks
+  - G4: Test Strategy: 31 tasks
+  - G5: Release Readiness: 35 tasks
 
-## Gate Criteria (G1..G5)
-- G1 Structure & Index: Index completeness ≥ 95%
-- G2 Feature/Data/Route Parity: Legacy parity = 100%, gaps documented
-- G3 Architecture Harmony: All deltas resolved or accepted with rationale
-- G4 Test Strategy: Coverage plan ≥ 80%, CI jobs defined
-- G5 Release Readiness: PRD-ready docs, runbooks, rollback plans
+## System Overview
 
-## Implementation Status
-- **Features Implemented**: 84/120+ (70%)
-- **API Endpoints**: 137 validated
-- **Database Schemas**: 3 schemas, 12+ tables
-- **Scrapers**: 100+ jurisdictions covered
-- **UI Components**: 84 features across 6 phases
-- **Documentation**: 30+ comprehensive documents
+### Architecture
 
-## Change Log
-- 2025-01-20: Initial SoT creation with validation artifacts
-- 2025-01-20: Added implementation documentation references
-- 2025-01-20: Linked feature mapping with execution checklist IDs
-- 2025-01-20: Added operational documentation suite
-- 2025-01-20: Achieved 100% validation doc coverage
+**Current State:**
+- Type: Unknown
+- Services: 0
+- Technologies: 
+
+**Proposed State:**
+
+### Features
+
+- Total Features: 4
+- Legacy Features Found: 0
+- Feature Parity: 0 / 0
+
+### Data Management
+
+- Data Points Mapped: 0
+- Average Completeness: 80.6%
+- Complete Journeys: 0
+
+## Current State Analysis
+
+### Environment Status
+
+- Docker Available: No
+- Resource Usage:
+  - CPU: N/A%
+  - Memory: 8.150496900029582%
+  - Disk: 6.0%
+
+### Quality Metrics
+
+- Total Unique Bugs: 0
+- By Severity:
+- By Type:
+
+## Alignment Delta
+
+This section presents the comprehensive alignment analysis across all system dimensions.
+
+### Architecture Alignment
+
+**Score: 50.0%**
+
+- Phase: Unknown
+
+**Gaps:**
+- {'area': 'api_layer', 'gap': 'Need GraphQL federation', 'priority': 'high'}
+- {'area': 'services', 'gap': 'Need service decomposition', 'priority': 'high'}
+
+**Risks:**
+- {'risk': 'Service decomposition complexity', 'impact': 'high', 'mitigation': 'Incremental extraction with feature flags'}
+- {'risk': 'Data migration errors', 'impact': 'high', 'mitigation': 'Comprehensive backup and rollback procedures'}
+- {'risk': 'Performance degradation during transition', 'impact': 'medium', 'mitigation': 'Load testing and gradual rollout'}
+- {'risk': 'Team skill gaps', 'impact': 'medium', 'mitigation': 'Training and documentation'}
+
+**Opportunities:**
+- {'opportunity': 'Improved scalability', 'benefit': 'Handle 10x traffic', 'effort': 'medium'}
+- {'opportunity': 'Better developer experience', 'benefit': 'Faster feature development', 'effort': 'low'}
+- {'opportunity': 'Real-time capabilities', 'benefit': 'Live parliamentary updates', 'effort': 'medium'}
+- {'opportunity': 'Mobile platform', 'benefit': 'Reach more citizens', 'effort': 'high'}
+
+### Features Alignment
+
+**Score: 0.0%**
+
+- Total Legacy Features: 0
+- Matched Features: 0
+- Unmatched Features: 0
+
+### Data Flow Alignment
+
+**Score: 80.6%**
+
+- Complete Journeys: 0
+- Total Data Points: 0
+
+### Routing Alignment
+
+**Score: 1.3%**
+
+- Total Api Routes: 235
+- Total Ui Components: 339
+- Mappings: 32
+- Orphan Routes: 232
+- Orphan Components: 27
+
+**Gaps:**
+- /
+- /healthz
+- /version
+- /metrics
+- /suggestions
+
+### Quality Alignment
+
+**Score: 100.0%**
+
+- Total Bugs: 0
+- Critical Bugs: 0
+- High Bugs: 0
+- Test Coverage: TBD
+
+### Operations Alignment
+
+**Score: 0.0%**
+
+- Healthy Services: 0
+- Total Services: 5
+- Docker Available: False
+
+**Gaps:**
+- Docker not available
+- Service unhealthy: API Gateway
+- Service unhealthy: User Service
+- Service unhealthy: OpenMetadata
+- Service unhealthy: Elasticsearch
+- Service unhealthy: Frontend
+
+## Implementation Roadmap
+
+### Implementation Gates
+
+#### G1: Structure/Index
+
+**Total Tasks: 55**
+
+Key Tasks:
+- [EXEC-0001] Refactor high-usage most_called_functions: Field (used many times)
+- [EXEC-0002] Refactor high-usage most_called_functions: Field (used many times)
+- [EXEC-0003] Refactor high-usage most_called_functions: Field (used many times)
+- [EXEC-0004] Refactor high-usage most_called_functions: Field (used many times)
+- [EXEC-0005] Refactor high-usage most_called_functions: Field (used many times)
+- ...and 50 more tasks
+
+#### G2: Parity
+
+**Total Tasks: 21**
+
+Key Tasks:
+- [EXEC-0056] Implement legacy feature: **Total Legacy Features**: 191
+- [EXEC-0057] Complete migration of all legacy bill tracking features
+- [EXEC-0058] Implement full member profile functionality
+- [EXEC-0059] Migrate voting record analysis features
+- [EXEC-0060] Implement committee tracking and reports
+- ...and 16 more tasks
+
+#### G3: Architecture Harmony
+
+**Total Tasks: 36**
+
+Key Tasks:
+- [EXEC-0077] Address architecture gap: {'area': 'api_layer', 'gap': 'Need GraphQL federation', 'priority': 'high'}
+- [EXEC-0078] Address architecture gap: {'area': 'services', 'gap': 'Need service decomposition', 'priority': 'high'}
+- [EXEC-0079] Mitigate architecture risk: {'risk': 'Service decomposition complexity', 'impact': 'high', 'mitigation': 'Incremental extraction with feature flags'}
+- [EXEC-0080] Mitigate architecture risk: {'risk': 'Data migration errors', 'impact': 'high', 'mitigation': 'Comprehensive backup and rollback procedures'}
+- [EXEC-0081] Mitigate architecture risk: {'risk': 'Performance degradation during transition', 'impact': 'medium', 'mitigation': 'Load testing and gradual rollout'}
+- ...and 31 more tasks
+
+#### G4: Test Strategy
+
+**Total Tasks: 31**
+
+Key Tasks:
+- [EXEC-0113] Create tests to prevent security bugs (found 57 instances)
+- [EXEC-0114] Set up comprehensive unit test suites for all services
+- [EXEC-0115] Implement integration testing framework
+- [EXEC-0116] Create end-to-end test automation
+- [EXEC-0117] Set up performance testing infrastructure
+- ...and 26 more tasks
+
+#### G5: Release Readiness
+
+**Total Tasks: 35**
+
+Key Tasks:
+- [EXEC-0144] Implement proper health check for API Gateway
+- [EXEC-0145] Implement proper health check for User Service
+- [EXEC-0146] Implement proper health check for OpenMetadata
+- [EXEC-0147] Implement proper health check for Elasticsearch
+- [EXEC-0148] Implement proper health check for Frontend
+- ...and 30 more tasks
+
+### Migration Strategy
+
+**Approach:** Strangler Fig Pattern
+**Duration:** TBD
+
+## Crosslinks Appendix
+
+This appendix provides comprehensive crosslinks between all system components, enabling traceability and impact analysis.
+
+### API Routes → Components
+
+- **GET:/{year}/{month}/{day}/**: Debates, Speech, HouseCommitte, Bills
+- **GET:/{session_id}/{vote_number}**: Mps, LoadingCard, GovernmentBills, MPProfile, LoadingMPCard, FormerMps, DebateSearch, BillSearch
+- **GET:/{committee_slug}/{session_id}/{number}/**: Speech, Debates, HouseCommitte, Bills
+
+### Task Dependencies
+
+- **EXEC-0097** depends on: EXEC-0113
+- **EXEC-0119** depends on: EXEC-0113
+- **EXEC-0116** depends on: EXEC-0113
+- **EXEC-0093** depends on: EXEC-0113
+- **EXEC-0113** depends on: EXEC-0113
+- **EXEC-0118** depends on: EXEC-0113
+
+### Crosslink Statistics
+
+- Routes To Components: 16 links
+- Tasks To Gates: 178 links
+- Task Dependencies: 6 links
+- Features To Components: 0 links
+- Feature Dependencies: 0 links

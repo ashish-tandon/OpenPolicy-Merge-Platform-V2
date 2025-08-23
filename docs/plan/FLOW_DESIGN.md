@@ -1,6 +1,6 @@
 # Flow Design Document
 
-Generated: 2025-08-23T17:33:05.387223
+Generated: 2025-08-23T17:54:10.754913
 
 ## Table of Contents
 
@@ -61,7 +61,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 364 modules
-- **Functions**: 5949 functions
+- **Functions**: 5955 functions
 
 ---
 
@@ -253,7 +253,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 129 modules
-- **Functions**: 1337 functions
+- **Functions**: 1341 functions
 
 ---
 
@@ -276,8 +276,8 @@ sequenceDiagram
 
 #### Dependencies
 
-- **Modules**: 28 modules
-- **Functions**: 438 functions
+- **Modules**: 29 modules
+- **Functions**: 479 functions
 
 ---
 
@@ -492,8 +492,8 @@ sequenceDiagram
 
 #### Dependencies
 
-- **Modules**: 27 modules
-- **Functions**: 426 functions
+- **Modules**: 28 modules
+- **Functions**: 459 functions
 
 ---
 
@@ -636,7 +636,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 56 modules
-- **Functions**: 330 functions
+- **Functions**: 331 functions
 
 ---
 
@@ -756,7 +756,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 29 modules
-- **Functions**: 216 functions
+- **Functions**: 217 functions
 
 ---
 
@@ -779,8 +779,8 @@ sequenceDiagram
 
 #### Dependencies
 
-- **Modules**: 21 modules
-- **Functions**: 288 functions
+- **Modules**: 23 modules
+- **Functions**: 356 functions
 
 ---
 
@@ -888,7 +888,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 5 modules
-- **Functions**: 81 functions
+- **Functions**: 83 functions
 
 ---
 
@@ -912,7 +912,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 1 modules
-- **Functions**: 5 functions
+- **Functions**: 15 functions
 
 ---
 
@@ -936,7 +936,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 9 modules
-- **Functions**: 110 functions
+- **Functions**: 112 functions
 
 ---
 
@@ -1031,8 +1031,8 @@ sequenceDiagram
 
 #### Dependencies
 
-- **Modules**: 11 modules
-- **Functions**: 20 functions
+- **Modules**: 12 modules
+- **Functions**: 45 functions
 
 ---
 
@@ -1080,7 +1080,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 4 modules
-- **Functions**: 14 functions
+- **Functions**: 20 functions
 
 ---
 
@@ -1104,7 +1104,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 359 modules
-- **Functions**: 6009 functions
+- **Functions**: 6013 functions
 
 ---
 
@@ -1171,7 +1171,7 @@ sequenceDiagram
 #### Dependencies
 
 - **Modules**: 375 modules
-- **Functions**: 6021 functions
+- **Functions**: 6027 functions
 
 ---
 

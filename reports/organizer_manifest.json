@@ -1,0 +1,243 @@
+{
+  "generated_at": "2025-08-23T17:54:11.300990",
+  "pass_number": 10,
+  "reports_generated": [
+    {
+      "name": "ENVIRONMENT_AUDIT.json",
+      "path": "reports/ENVIRONMENT_AUDIT.json",
+      "size": 4465
+    },
+    {
+      "name": "routing_realignment.json",
+      "path": "reports/routing_realignment.json",
+      "size": 2908351
+    },
+    {
+      "name": "organizer_manifest.json",
+      "path": "reports/organizer_manifest.json",
+      "size": 5834
+    },
+    {
+      "name": "execution_plan.json",
+      "path": "reports/execution_plan.json",
+      "size": 54086
+    },
+    {
+      "name": "BUG_AUDIT.json",
+      "path": "reports/BUG_AUDIT.json",
+      "size": 59580
+    },
+    {
+      "name": "flow_design.json",
+      "path": "reports/flow_design.json",
+      "size": 3489584
+    },
+    {
+      "name": "VAR_FUNC_MAP.json",
+      "path": "reports/VAR_FUNC_MAP.json",
+      "size": 12311485
+    },
+    {
+      "name": "DATA_JOURNEY_MAP.json",
+      "path": "reports/DATA_JOURNEY_MAP.json",
+      "size": 443950
+    },
+    {
+      "name": "legacy_vs_current_diff.md",
+      "path": "reports/legacy_vs_current_diff.md",
+      "size": 5257
+    },
+    {
+      "name": "BUG_AUDIT.md",
+      "path": "reports/BUG_AUDIT.md",
+      "size": 4082
+    },
+    {
+      "name": "DATA_JOURNEY_MAP.md",
+      "path": "reports/DATA_JOURNEY_MAP.md",
+      "size": 11444
+    },
+    {
+      "name": "ENVIRONMENT_AUDIT.md",
+      "path": "reports/ENVIRONMENT_AUDIT.md",
+      "size": 1865
+    }
+  ],
+  "documents_created": [
+    {
+      "name": "FLOW_DESIGN.md",
+      "path": "docs/plan/FLOW_DESIGN.md",
+      "size": 34346
+    },
+    {
+      "name": "ROUTING_REALIGNMENT.md",
+      "path": "docs/plan/ROUTING_REALIGNMENT.md",
+      "size": 245921
+    },
+    {
+      "name": "EXEC_PLAN_TODOS.md",
+      "path": "docs/plan/EXEC_PLAN_TODOS.md",
+      "size": 13422
+    },
+    {
+      "name": "TEN_PASS_MERGE_SUMMARY.md",
+      "path": "docs/plan/TEN_PASS_MERGE_SUMMARY.md",
+      "size": 1244
+    },
+    {
+      "name": "NEW_ARCHITECTURE_PROPOSAL.md",
+      "path": "docs/plan/NEW_ARCHITECTURE_PROPOSAL.md",
+      "size": 4593
+    },
+    {
+      "name": "OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
+      "path": "docs/plan/OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
+      "size": 7102
+    }
+  ],
+  "alignment_summary": {
+    "architecture": {
+      "score": 50.0,
+      "gaps": [
+        {
+          "area": "api_layer",
+          "gap": "Need GraphQL federation",
+          "priority": "high"
+        },
+        {
+          "area": "services",
+          "gap": "Need service decomposition",
+          "priority": "high"
+        }
+      ],
+      "risks": [
+        {
+          "risk": "Service decomposition complexity",
+          "impact": "high",
+          "mitigation": "Incremental extraction with feature flags"
+        },
+        {
+          "risk": "Data migration errors",
+          "impact": "high",
+          "mitigation": "Comprehensive backup and rollback procedures"
+        },
+        {
+          "risk": "Performance degradation during transition",
+          "impact": "medium",
+          "mitigation": "Load testing and gradual rollout"
+        },
+        {
+          "risk": "Team skill gaps",
+          "impact": "medium",
+          "mitigation": "Training and documentation"
+        }
+      ],
+      "opportunities": [
+        {
+          "opportunity": "Improved scalability",
+          "benefit": "Handle 10x traffic",
+          "effort": "medium"
+        },
+        {
+          "opportunity": "Better developer experience",
+          "benefit": "Faster feature development",
+          "effort": "low"
+        },
+        {
+          "opportunity": "Real-time capabilities",
+          "benefit": "Live parliamentary updates",
+          "effort": "medium"
+        },
+        {
+          "opportunity": "Mobile platform",
+          "benefit": "Reach more citizens",
+          "effort": "high"
+        }
+      ],
+      "phase": "Unknown"
+    },
+    "features": {
+      "score": 0,
+      "total_legacy_features": 0,
+      "matched_features": 0,
+      "unmatched_features": 0,
+      "gaps": []
+    },
+    "data_flow": {
+      "score": 80.55555555555556,
+      "complete_journeys": 0,
+      "total_data_points": 0,
+      "gaps": []
+    },
+    "routing": {
+      "score": 1.276595744680851,
+      "total_api_routes": 235,
+      "total_ui_components": 339,
+      "mappings": 32,
+      "orphan_routes": 232,
+      "orphan_components": 27,
+      "gaps": [
+        "/",
+        "/healthz",
+        "/version",
+        "/metrics",
+        "/suggestions"
+      ]
+    },
+    "quality": {
+      "score": 100,
+      "total_bugs": 0,
+      "critical_bugs": 0,
+      "high_bugs": 0,
+      "test_coverage": "TBD",
+      "gaps": []
+    },
+    "operations": {
+      "score": 0.0,
+      "healthy_services": 0,
+      "total_services": 5,
+      "docker_available": false,
+      "gaps": [
+        "Docker not available",
+        "Service unhealthy: API Gateway",
+        "Service unhealthy: User Service",
+        "Service unhealthy: OpenMetadata",
+        "Service unhealthy: Elasticsearch",
+        "Service unhealthy: Frontend"
+      ]
+    }
+  },
+  "crosslink_counts": {
+    "routes_to_components": 16,
+    "tasks_to_gates": 178,
+    "task_dependencies": 6,
+    "features_to_components": 0,
+    "feature_dependencies": 0
+  },
+  "data_sources": [
+    "var_func_map",
+    "bug_audit",
+    "env_audit",
+    "data_journey",
+    "flow_design",
+    "routing",
+    "architecture",
+    "execution_plan",
+    "feature_mapping",
+    "legacy_diff",
+    "flow_design_doc",
+    "routing_doc",
+    "arch_proposal",
+    "exec_plan_doc"
+  ],
+  "execution_summary": {
+    "total_todos": 178,
+    "by_gate": {
+      "G1: Structure/Index": 55,
+      "G2: Parity": 21,
+      "G3: Architecture Harmony": 36,
+      "G4: Test Strategy": 31,
+      "G5: Release Readiness": 35
+    }
+  }
+}

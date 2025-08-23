@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-08-23T16:41:51.360489",
+  "generated_at": "2025-08-23T17:53:57.782787",
   "docker_services": [],
   "system_services": [],
   "ports": [],
@@ -9,35 +9,35 @@
       "url": "http://localhost:8080/healthz",
       "healthy": false,
       "error": "Connection failed",
-      "checked_at": "2025-08-23T16:41:51.306284"
+      "checked_at": "2025-08-23T17:53:57.728228"
     },
     {
       "service": "User Service",
       "url": "http://localhost:8082/health",
       "healthy": false,
       "error": "Connection failed",
-      "checked_at": "2025-08-23T16:41:51.310462"
+      "checked_at": "2025-08-23T17:53:57.732526"
     },
     {
       "service": "OpenMetadata",
       "url": "http://localhost:8585/api/v1/system/version",
       "healthy": false,
       "error": "Connection failed",
-      "checked_at": "2025-08-23T16:41:51.314890"
+      "checked_at": "2025-08-23T17:53:57.736425"
     },
     {
       "service": "Elasticsearch",
       "url": "http://localhost:9200/_cluster/health",
       "healthy": false,
       "error": "Connection failed",
-      "checked_at": "2025-08-23T16:41:51.318891"
+      "checked_at": "2025-08-23T17:53:57.740429"
     },
     {
       "service": "Frontend",
       "url": "http://localhost:3000",
       "healthy": false,
       "error": "Connection failed",
-      "checked_at": "2025-08-23T16:41:51.322814"
+      "checked_at": "2025-08-23T17:53:57.744504"
     }
   ],
   "log_analysis": {
@@ -148,21 +148,21 @@
   "resources": {
     "cpu": {
       "load_avg": [
-        0.00341796875,
-        0.05078125,
-        0.04052734375
+        0.84033203125,
+        0.3095703125,
+        0.109375
       ],
       "count": 4
     },
     "memory": {
       "total": 16795742208,
-      "used": 1245622272,
-      "percent": 7.4162978722470285
+      "used": 1368936448,
+      "percent": 8.150496900029582
     },
     "disk": {
       "total": 135152996352,
-      "used": 6533140480,
-      "free": 121731170304,
+      "used": 6544613376,
+      "free": 121719697408,
       "percent": 6.0
     }
   },

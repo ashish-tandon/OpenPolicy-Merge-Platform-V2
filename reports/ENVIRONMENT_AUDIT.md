@@ -1,6 +1,6 @@
 # Environment Audit Report
 
-Generated: 2025-08-23T16:41:51.360489
+Generated: 2025-08-23T17:53:57.782787
 
 ## Summary
 
@@ -30,8 +30,8 @@ No Docker services found.
 
 ## Resource Usage
 
-- **CPU**: Load: (0.00341796875, 0.05078125, 0.04052734375) | CPUs: 4
-- **Memory**: 7.4% (1.2GB / 15.6GB)
+- **CPU**: Load: (0.84033203125, 0.3095703125, 0.109375) | CPUs: 4
+- **Memory**: 8.2% (1.3GB / 15.6GB)
 - **Disk**: 6.0% (6.1GB / 125.9GB)
 
 ## Configuration Files
