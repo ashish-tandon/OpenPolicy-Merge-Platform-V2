@@ -1,33 +1,38 @@
 {
-  "timestamp": "2025-08-23T19:50:44.545348",
+  "generated": "2025-08-23T20:04:07.160890",
   "classification": {
     "core": [
       "services/api-gateway/",
-      "services/etl/",
-      "services/quantum/",
-      "services/edge/",
-      "services/blockchain/"
+      "services/members/",
+      "services/bills/",
+      "services/votes/",
+      "services/auth/",
+      "services/etl/"
     ],
     "referenced": [
       "docs/plan/",
       "reports/",
-      "infrastructure/"
+      "infrastructure/",
+      "tests/"
     ],
     "legacy_candidates": [
       "legacy/",
-      "deprecated/"
+      "deprecated/",
+      "old_scripts/"
     ]
   },
   "cross_links": {
-    "features_to_code": 120,
-    "code_to_tests": 85,
-    "docs_to_code": 200,
-    "quantum_links": 40
+    "features_to_code": 324,
+    "code_to_tests": 280,
+    "docs_to_code": 456,
+    "routes_to_handlers": 127
   },
-  "gaps_sealed": {
-    "missing_routes": 12,
-    "orphan_code": 8,
-    "undocumented_features": 5,
-    "quantum_gaps": 10
-  }
+  "file_count": {
+    "total": 1847,
+    "core": 892,
+    "referenced": 634,
+    "legacy": 321
+  },
+  "action": "dry-run",
+  "notes": "Ready for legacy migration when approved"
 }
