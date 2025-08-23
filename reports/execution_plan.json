@@ -8,7 +8,7 @@
       "G4: Test Strategy": 31,
       "G5: Release Readiness": 35
     },
-    "generated_at": "2025-08-23T17:54:11.202111",
+    "generated_at": "2025-08-23T18:05:25.043414",
     "data_sources": [
       "var_func_map",
       "bug_audit",

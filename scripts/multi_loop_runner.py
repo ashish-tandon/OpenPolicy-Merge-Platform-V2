@@ -134,10 +134,22 @@ class MultiLoopRunner:
         
     def save_results(self):
         """Save results from all passes"""
+        # Load existing results if they exist
+        existing_passes = []
+        try:
+            with open('reports/multi_loop_results.json', 'r') as f:
+                existing_data = json.load(f)
+                existing_passes = existing_data.get('passes', [])
+        except:
+            pass
+            
+        # Combine with new results
+        all_passes = existing_passes + self.pass_results
+        
         results = {
-            'total_passes': len(self.pass_results),
-            'passes': self.pass_results,
-            'final_alignment': self.pass_results[-1].get('alignment_scores', {}) if self.pass_results else {}
+            'total_passes': len(all_passes),
+            'passes': all_passes,
+            'final_alignment': all_passes[-1].get('alignment_scores', {}) if all_passes else {}
         }
         
         with open('reports/multi_loop_results.json', 'w') as f:
@@ -146,15 +158,15 @@ class MultiLoopRunner:
         # Generate summary report
         with open('reports/MULTI_LOOP_SUMMARY.md', 'w') as f:
             f.write("# Multi-Loop Audit Summary\n\n")
-            f.write(f"## Total Passes Completed: {len(self.pass_results)}\n\n")
+            f.write(f"## Total Passes Completed: {len(all_passes)}\n\n")
             
-            if self.pass_results:
+            if all_passes:
                 # Show alignment trend
                 f.write("## Alignment Score Trends\n\n")
                 f.write("| Pass | Architecture | Features | Data Flow | Routing | Quality | Operations |\n")
                 f.write("|------|-------------|----------|-----------|---------|---------|------------|\n")
                 
-                for result in self.pass_results:
+                for result in all_passes:
                     scores = result.get('alignment_scores', {})
                     f.write(f"| {result['pass_number']} ")
                     for category in ['architecture', 'features', 'data_flow', 'routing', 'quality', 'operations']:
@@ -164,8 +176,8 @@ class MultiLoopRunner:
                     f.write("|\n")
                     
                 # Final scores
-                final_scores = self.pass_results[-1].get('alignment_scores', {})
-                f.write(f"\n## Final Alignment Scores (Pass {self.pass_results[-1]['pass_number']})\n\n")
+                final_scores = all_passes[-1].get('alignment_scores', {})
+                f.write(f"\n## Final Alignment Scores (Pass {all_passes[-1]['pass_number']})\n\n")
                 overall_total = 0
                 overall_count = 0
                 for category, score_data in final_scores.items():
@@ -179,12 +191,22 @@ class MultiLoopRunner:
 
 
 def main():
+    import sys
+    
     runner = MultiLoopRunner()
     
-    # Run passes 4 through 10
-    runner.run_multiple_passes(4, 10)
+    # Check if we should run specific passes from command line
+    if len(sys.argv) == 3:
+        start_pass = int(sys.argv[1])
+        end_pass = int(sys.argv[2])
+    else:
+        # Default: Run passes 4 through 10
+        start_pass = 4
+        end_pass = 10
+        
+    runner.run_multiple_passes(start_pass, end_pass)
     
-    print("\n✅ All passes complete!")
+    print(f"\n✅ Passes {start_pass}-{end_pass} complete!")
     print("Reports saved to:")
     print("  - reports/multi_loop_results.json")
     print("  - reports/MULTI_LOOP_SUMMARY.md")

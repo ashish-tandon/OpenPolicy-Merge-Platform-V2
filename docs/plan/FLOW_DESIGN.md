@@ -1,6 +1,6 @@
 # Flow Design Document
 
-Generated: 2025-08-23T17:54:10.754913
+Generated: 2025-08-23T18:05:24.613092
 
 ## Table of Contents
 
@@ -60,8 +60,8 @@ sequenceDiagram
 
 #### Dependencies
 
-- **Modules**: 364 modules
-- **Functions**: 5955 functions
+- **Modules**: 365 modules
+- **Functions**: 5961 functions
 
 ---
 
@@ -1103,8 +1103,8 @@ sequenceDiagram
 
 #### Dependencies
 
-- **Modules**: 359 modules
-- **Functions**: 6013 functions
+- **Modules**: 360 modules
+- **Functions**: 6019 functions
 
 ---
 
@@ -1170,8 +1170,8 @@ sequenceDiagram
 
 #### Dependencies
 
-- **Modules**: 375 modules
-- **Functions**: 6027 functions
+- **Modules**: 376 modules
+- **Functions**: 6033 functions
 
 ---
 

@@ -1,6 +1,6 @@
 # Legacy vs Current Feature Diff Report
 
-Generated: 2025-08-23T17:54:10.803369
+Generated: 2025-08-23T18:05:24.643754
 
 ## Summary
 

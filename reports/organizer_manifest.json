@@ -1,11 +1,16 @@
 {
-  "generated_at": "2025-08-23T17:54:11.300990",
-  "pass_number": 10,
+  "generated_at": "2025-08-23T18:05:25.142050",
+  "pass_number": 20,
   "reports_generated": [
     {
       "name": "ENVIRONMENT_AUDIT.json",
       "path": "reports/ENVIRONMENT_AUDIT.json",
-      "size": 4465
+      "size": 4468
+    },
+    {
+      "name": "multi_loop_results.json",
+      "path": "reports/multi_loop_results.json",
+      "size": 46548
     },
     {
       "name": "routing_realignment.json",
@@ -15,7 +20,7 @@
     {
       "name": "organizer_manifest.json",
       "path": "reports/organizer_manifest.json",
-      "size": 5834
+      "size": 6075
     },
     {
       "name": "execution_plan.json",
@@ -30,12 +35,12 @@
     {
       "name": "flow_design.json",
       "path": "reports/flow_design.json",
-      "size": 3489584
+      "size": 3490760
     },
     {
       "name": "VAR_FUNC_MAP.json",
       "path": "reports/VAR_FUNC_MAP.json",
-      "size": 12311485
+      "size": 12321951
     },
     {
       "name": "DATA_JOURNEY_MAP.json",
@@ -46,6 +51,11 @@
       "name": "legacy_vs_current_diff.md",
       "path": "reports/legacy_vs_current_diff.md",
       "size": 5257
+    },
+    {
+      "name": "MULTI_LOOP_SUMMARY.md",
+      "path": "reports/MULTI_LOOP_SUMMARY.md",
+      "size": 810
     },
     {
       "name": "BUG_AUDIT.md",
@@ -60,7 +70,7 @@
     {
       "name": "ENVIRONMENT_AUDIT.md",
       "path": "reports/ENVIRONMENT_AUDIT.md",
-      "size": 1865
+      "size": 1869
     }
   ],
   "documents_created": [
@@ -92,7 +102,7 @@
     {
       "name": "OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
       "path": "docs/plan/OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
-      "size": 7102
+      "size": 7101
     }
   ],
   "alignment_summary": {

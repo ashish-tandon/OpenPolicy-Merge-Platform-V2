@@ -16,103 +16,11 @@
 - **Component**: `Bills`
 - **Component File**: `services/admin-ui/src/pages/bills/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -122,110 +30,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -242,7 +50,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -253,16 +72,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -271,103 +271,11 @@ async def get_committee_detail(
 - **Component**: `Bills`
 - **Component File**: `services/admin-ui/src/pages/bills/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -377,110 +285,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -497,7 +305,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -508,16 +327,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -526,103 +526,11 @@ async def get_committee_detail(
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -632,110 +540,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -752,7 +560,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -763,16 +582,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -781,103 +781,11 @@ async def get_committee_detail(
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -887,110 +795,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1007,7 +815,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1018,16 +837,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -1036,103 +1036,11 @@ async def get_committee_detail(
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -1142,110 +1050,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1262,7 +1070,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1273,16 +1092,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -1291,103 +1291,11 @@ async def get_committee_detail(
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -1397,110 +1305,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1517,7 +1325,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1528,16 +1347,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -1546,103 +1546,11 @@ async def get_committee_detail(
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -1652,110 +1560,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1772,7 +1580,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -1783,16 +1602,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -1801,103 +1801,11 @@ async def get_committee_detail(
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -1907,110 +1815,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2027,7 +1835,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2038,16 +1857,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -2056,103 +2056,11 @@ async def get_committee_detail(
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -2162,110 +2070,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2282,7 +2090,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2293,16 +2112,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -2311,103 +2311,11 @@ async def get_committee_detail(
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -2417,110 +2325,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2537,7 +2345,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2548,16 +2367,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -2566,103 +2566,11 @@ async def get_committee_detail(
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -2672,110 +2580,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2792,7 +2600,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -2803,16 +2622,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{committee_slug}/{session_id}/{number}/
 
@@ -2821,103 +2821,11 @@ async def get_committee_detail(
 - **Component**: `Speech`
 - **Component File**: `services/admin-ui/src/pages/house-committee/speech.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.APIRouter
-  - import:fastapi.MeetingListResponse
-  - import:fastapi.committee_slug=committee.slug
-  - import:fastapi.has_evidence=meeting.has_evidence
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.description="Session ID filter (e.g.
-  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.pages=total_pages
-    )
-    
-    return MeetingListResponse(
-        meetings=meeting_summaries
-  - import:fastapi.response_model=CommitteeListResponse)
-async def list_committees(
-    session: Optional[str] = Query(None
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(CommitteeMeeting.date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.MeetingSummary
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Apply session filter
-    if session_id:
-        query = query.filter(CommitteeMeeting.session_id == session_id)
-    
-    # Get total count
-    total = query.count()
-    # Defensive check for Mock objects during testing
-    if str(type(total)) == "<class 'unittest.mock.Mock'>":
-        total = 0
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    meetings = query.order_by(desc(CommitteeMeeting.date)
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.CommitteeSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.pages=1
-    )
-    
-    return CommitteeListResponse(
-        committees=committees
-  - import:fastapi.response_model=MeetingListResponse)
-async def get_committee_meetings(
-    committee_id: int
-  - import:fastapi.CommitteeDetailResponse
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.desc
-from typing import List
-  - import:fastapi.description="Items per page")
-  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
-    
-    # Defensive check for Mock objects during testing
-    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
-        meetings = []
-    
-    # Convert to response format
-    meeting_summaries = []
-    for meeting in meetings:
-        meeting_summaries.append(MeetingSummary(
-            id=str(meeting.id)
-  - import:fastapi.Member
-  - import:fastapi.description="Show only active committees")
-  - import:fastapi."health"]:
-        raise HTTPException(status_code=404
-  - import:fastapi.detail="Committee not found")
-    
-    committee_detail = CommitteeDetail(
-        id="1" if committee_slug == "finance" else "2"
-  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
-        ))
-    
-    # Calculate pagination
-    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'45-1')")
-  - import:fastapi.CommitteeSummary(
-            id="2"
-  - import:fastapi.MeetingDetail
-  - import:fastapi.and_
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.page_size=page_size
   - import:fastapi.detail="Committee not found")
     
     # Build query for committee meetings
@@ -2927,110 +2835,10 @@ from typing import List
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.Session
-from app.schemas.committees import (
-    CommitteeSummary
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.url="/api/v1/committees/finance/"
-        )
-  - import:fastapi.Bill
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.committee_name=committee.name_en
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    Get detailed information about a specific committee.
-    
-    Based on legacy CommitteeView functionality.
-    """
-    
-    # Placeholder implementation - in reality would query committee table
-    if committee_slug not in ["finance"
-  - import:fastapi.MeetingDetailResponse
-  - import:fastapi.session_id: Optional[str] = Query(None
-  - import:fastapi.this would query the committees table
-    committees = [
-        CommitteeSummary(
-            id="1"
-  - import:fastapi.description="Page number")
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_slug}/"
-  - import:fastapi.pages=0
-    )
-    
-    return MeetingListResponse(
-        meetings=meetings
-  - import:fastapi.url="/api/v1/committees/health/"
-        )
-    ]
-    
-    pagination = Pagination(
-        page=page
-  - function:list_committee_meetings
-  - import:fastapi.pagination=pagination
-    )
-
-
-@router.get("/{committee_id}/meetings"
-  - import:fastapi.HTTPException
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.CommitteeListResponse
-  - import:fastapi.number=meeting.number
-  - import:fastapi.active_only: bool = Query(True
-  - import:fastapi.description="Committee slug filter")
-  - import:fastapi.short_name="FINA"
-  - import:fastapi.total=total
-  - import:fastapi.active=True
-  - import:fastapi.response_model=MeetingListResponse)
-async def list_committee_meetings(
-    committee: Optional[str] = Query(None
-  - import:fastapi.return a placeholder response since we don't have committee models
-    # In the real implementation
-  - import:fastapi.short_name="HESA"
-  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
-    )
-    
-    return CommitteeDetailResponse(committee=committee_detail)
-
-
-@router.get("/meetings/"
-  - import:fastapi.CommitteeDetail
-  - import:fastapi.page_size=page_size
-  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
-  - import:fastapi.response_model=CommitteeDetailResponse)
-async def get_committee_detail(
-    committee_slug: str
-  - import:fastapi.recent_meetings=[]
-  - import:fastapi.meeting_count=0
-  - import:fastapi.Query
-  - import:fastapi.total=0
-  - import:fastapi.db: DBSession = Depends(get_db)
-):
-    """
-    List committee meetings with optional filtering.
-    
-    Based on legacy CommitteeMeetingListView functionality.
-    Note: Simplified version since we don't have committee meeting models.
-    """
-    
-    # Placeholder implementation
-    meetings = []
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.total=len(committees)
-  - import:fastapi.Party
-  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.description="Session ID filter (e.g.
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -3047,7 +2855,18 @@ async def get_committee_detail(
     committee = db.query(Committee).filter(Committee.id == committee_id).first()
     if not committee:
         raise HTTPException(status_code=404
-  - import:fastapi.member_count=0
+  - function:list_committee_meetings
+  - import:fastapi.CommitteeSummary(
+            id="2"
+  - import:fastapi.ge=1
+  - import:fastapi.response_model=MeetingListResponse)
+async def list_committee_meetings(
+    committee: Optional[str] = Query(None
+  - import:fastapi.le=100
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -3058,16 +2877,197 @@ async def get_committee_detail(
     """
     
     # For now
-  - import:fastapi.pagination=pagination
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Apply session filter
+    if session_id:
+        query = query.filter(CommitteeMeeting.session_id == session_id)
+    
+    # Get total count
+    total = query.count()
+    # Defensive check for Mock objects during testing
+    if str(type(total)) == "<class 'unittest.mock.Mock'>":
+        total = 0
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    meetings = query.order_by(desc(CommitteeMeeting.date)
+  - import:fastapi.detail="Committee not found")
+    
+    committee_detail = CommitteeDetail(
+        id="1" if committee_slug == "finance" else "2"
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.MeetingSummary
+  - import:fastapi.short_name="FINA"
+  - import:fastapi.desc
+from typing import List
+  - import:fastapi.total=len(committees)
+  - import:fastapi.pages=1
     )
-  - import:fastapi.name="Standing Committee on Health"
+    
+    return CommitteeListResponse(
+        committees=committees
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    Get detailed information about a specific committee.
+    
+    Based on legacy CommitteeView functionality.
+    """
+    
+    # Placeholder implementation - in reality would query committee table
+    if committee_slug not in ["finance"
+  - import:fastapi.HTTPException
+  - import:fastapi.CommitteeDetail
+  - import:fastapi.MeetingListResponse
+  - import:fastapi.response_model=CommitteeListResponse)
+async def list_committees(
+    session: Optional[str] = Query(None
+  - import:fastapi.name=f"Standing Committee on {committee_slug.title()}"
+  - import:fastapi.Member
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
   - import:fastapi.session_id=meeting.session_id
   - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.url=f"/api/v1/committees/{committee.slug}/{meeting.session_id}/{meeting.number}/"
+        ))
+    
+    # Calculate pagination
+    total_pages = (total + page_size - 1) // page_size if total > 0 else 0
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.recent_meetings=[]
+  - import:fastapi.desc(CommitteeMeeting.number)).offset(offset).limit(page_size).all()
+    
+    # Defensive check for Mock objects during testing
+    if str(type(meetings)) == "<class 'unittest.mock.Mock'>":
+        meetings = []
+    
+    # Convert to response format
+    meeting_summaries = []
+    for meeting in meetings:
+        meeting_summaries.append(MeetingSummary(
+            id=str(meeting.id)
+  - import:fastapi.and_
+  - import:fastapi.committee_name=committee.name_en
+  - import:fastapi.active_only: bool = Query(True
+  - import:fastapi.has_evidence=meeting.has_evidence
+  - import:fastapi.'45-1')")
+  - import:fastapi.Party
+  - import:fastapi.pages=0
+    )
+    
+    return MeetingListResponse(
+        meetings=meetings
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_slug}/"
+  - import:fastapi.total=0
+  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.name="Standing Committee on Health"
+  - import:fastapi.Session
+from app.schemas.committees import (
+    CommitteeSummary
+  - import:fastapi.name="Standing Committee on Finance"
+  - import:fastapi.CommitteeDetailResponse
+  - import:fastapi.pages=total_pages
+    )
+    
+    return MeetingListResponse(
+        meetings=meeting_summaries
+  - import:fastapi.db: DBSession = Depends(get_db)
+):
+    """
+    List committee meetings with optional filtering.
+    
+    Based on legacy CommitteeMeetingListView functionality.
+    Note: Simplified version since we don't have committee meeting models.
+    """
+    
+    # Placeholder implementation
+    meetings = []
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.return a placeholder response since we don't have committee models
+    # In the real implementation
+  - import:fastapi.committee_slug=committee.slug
+  - import:fastapi.short_name="HESA"
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.response_model=MeetingListResponse)
+async def get_committee_meetings(
+    committee_id: int
+  - import:fastapi.url=f"/api/v1/committees/{committee_slug}/"
+    )
+    
+    return CommitteeDetailResponse(committee=committee_detail)
+
+
+@router.get("/meetings/"
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.url="/api/v1/committees/health/"
+        )
+    ]
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.url="/api/v1/committees/finance/"
+        )
+  - import:fastapi.Query
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.session_id: Optional[str] = Query(None
+  - import:fastapi.date=meeting.date.isoformat() if meeting.date else None
+  - import:fastapi.member_count=0
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(CommitteeMeeting.date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.number=meeting.number
+  - import:fastapi.meeting_count=0
+  - import:fastapi.description="Page number")
+  - import:fastapi.MeetingDetailResponse
+  - import:fastapi.MeetingDetail
+  - import:fastapi."health"]:
+        raise HTTPException(status_code=404
+  - import:fastapi.active=True
+  - import:fastapi.response_model=CommitteeDetailResponse)
+async def get_committee_detail(
+    committee_slug: str
+  - import:fastapi.description="Committee slug filter")
+  - import:fastapi.pagination=pagination
+    )
+
+
+@router.get("/{committee_id}/meetings"
+  - import:fastapi.CommitteeSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.CommitteeListResponse
   - import:fastapi."%Y-%m-%d").date()
             query = query.filter(CommitteeMeeting.date <= date_lte)
         except ValueError:
             raise HTTPException(status_code=400
-  - import:fastapi.short_name="FINA" if committee_slug == "finance" else "HESA"
+  - import:fastapi.Pagination
+  - import:fastapi.APIRouter
+  - import:fastapi.description="Show only active committees")
+  - import:fastapi.this would query the committees table
+    committees = [
+        CommitteeSummary(
+            id="1"
 
 ### /{session_id}/{vote_number}
 
@@ -3077,23 +3077,12 @@ async def get_committee_detail(
 - **Component File**: `services/admin-ui/src/pages/mps/[id].tsx`
 - **UI Routes**: `/former-mps`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -3104,6 +3093,52 @@ async def get_committee_detail(
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -3132,31 +3167,41 @@ async def get_committee_detail(
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -3179,81 +3224,36 @@ async def get_committee_detail(
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{session_id}/{vote_number}
 
@@ -3263,23 +3263,12 @@ from app.schemas.votes import (
 - **Component File**: `services/admin-ui/src/pages/mps/index.tsx`
 - **UI Routes**: `/former-mps`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -3290,6 +3279,52 @@ from app.schemas.votes import (
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -3318,31 +3353,41 @@ from app.schemas.votes import (
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -3365,81 +3410,36 @@ from app.schemas.votes import (
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{session_id}/{vote_number}
 
@@ -3449,23 +3449,12 @@ from app.schemas.votes import (
 - **Component File**: `services/admin-ui/src/pages/mps/index.tsx`
 - **UI Routes**: `/former-mps`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -3476,6 +3465,52 @@ from app.schemas.votes import (
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -3504,31 +3539,41 @@ from app.schemas.votes import (
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -3551,81 +3596,36 @@ from app.schemas.votes import (
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{session_id}/{vote_number}
 
@@ -3635,23 +3635,12 @@ from app.schemas.votes import (
 - **Component File**: `services/admin-ui/src/pages/mps/former-mp.tsx`
 - **UI Routes**: `/former-mps`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -3662,6 +3651,52 @@ from app.schemas.votes import (
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -3690,31 +3725,41 @@ from app.schemas.votes import (
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -3737,81 +3782,36 @@ from app.schemas.votes import (
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{session_id}/{vote_number}
 
@@ -3820,23 +3820,12 @@ from app.schemas.votes import (
 - **Component**: `LoadingCard`
 - **Component File**: `services/admin-ui/src/pages/government-bills/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -3847,6 +3836,52 @@ from app.schemas.votes import (
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -3875,31 +3910,41 @@ from app.schemas.votes import (
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -3922,81 +3967,36 @@ from app.schemas.votes import (
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{session_id}/{vote_number}
 
@@ -4005,23 +4005,12 @@ from app.schemas.votes import (
 - **Component**: `GovernmentBills`
 - **Component File**: `services/admin-ui/src/pages/government-bills/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -4032,6 +4021,52 @@ from app.schemas.votes import (
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -4060,31 +4095,41 @@ from app.schemas.votes import (
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -4107,81 +4152,36 @@ from app.schemas.votes import (
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{session_id}/{vote_number}
 
@@ -4190,23 +4190,12 @@ from app.schemas.votes import (
 - **Component**: `DebateSearch`
 - **Component File**: `services/admin-ui/src/pages/other/debtaes.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -4217,6 +4206,52 @@ from app.schemas.votes import (
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -4245,31 +4280,41 @@ from app.schemas.votes import (
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -4292,81 +4337,36 @@ from app.schemas.votes import (
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{session_id}/{vote_number}
 
@@ -4375,23 +4375,12 @@ from app.schemas.votes import (
 - **Component**: `BillSearch`
 - **Component File**: `services/admin-ui/src/pages/other/bills.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.APIRouter
-  - import:fastapi.bill: Optional[str] = Query(None
-  - import:fastapi.'45-1/C-5')")
-  - import:fastapi.bill_title=vote.bill.name_en
-        ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.'unanimous': 'unanimous'
-  - import:fastapi.VoteAnalysis
-  - import:fastapi.Member
+  - import:fastapi.description="Bill filter (e.g.
+  - import:fastapi.Bill
+  - import:fastapi.response_model=VoteListResponse)
+async def list_votes(
+    q: Optional[str] = Query(None
+  - import:fastapi.description="Page number")
   - import:fastapi.:search_term)
         """)
         query = query.filter(search_query.bindparams(search_term=q))
@@ -4402,6 +4391,52 @@ from app.schemas.votes import (
     
     if bill:
         # Parse bill filter (e.g.
+  - import:fastapi.description=vote.description
+  - import:fastapi.page_size=page_size
+  - import:fastapi.pages=total_pages
+    )
+    
+    return VoteListResponse(
+        votes=vote_summaries
+  - import:fastapi.Member
+  - import:fastapi.date=vote.date
+  - import:fastapi.UserVoteResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
+  - import:fastapi.bill_title=vote.bill.name_en
+        ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.VoteBallotsResponse
+  - import:fastapi.VoteSummaryResponse
+  - import:fastapi.result: Optional[str] = Query(None
+  - import:fastapi.description="Vote type filter")
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.'unanimous': 'unanimous'
+  - import:fastapi.VoteBallot
+  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
+  - import:fastapi.description="Vote number in session")
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.'')) 
+            @@ plainto_tsquery('english'
+  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.'45-1/C-5')")
+  - import:fastapi.Bill.number == bill_number)
+    
+    if result:
+        query = query.filter(Vote.result == result)
+    
+    if type:
+        # For now
+  - import:fastapi.page_size: int = Query(20
   - import:fastapi.'recorded': 'recorded'
         }
         if type in type_mapping:
@@ -4430,31 +4465,41 @@ from app.schemas.votes import (
         # Get vote totals
         yea_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
+  - import:fastapi.VoteAnalysis
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.session=vote.bill.session_id
+  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.ge=1
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+from typing import Optional
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.VoteAnalysisResponse
+  - import:fastapi.description="Items per page")
+  - import:fastapi.UserVoteCast
+  - import:fastapi.description="Vote result filter")
+  - import:fastapi.Query
+  - import:fastapi.yea_total=yea_total
+  - import:fastapi.le=100
+  - import:fastapi.MPVotePosition
+  - import:fastapi.VoteListResponse
+  - import:fastapi.total=total
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
   - import:fastapi.Member.vote == 'Yea'
         ).count()
         
         nay_total = db.query(Member).filter(
             Member.votequestion_id == vote.id
-  - import:fastapi.page_size=page_size
-  - import:fastapi.pages=total_pages
-    )
-    
-    return VoteListResponse(
-        votes=vote_summaries
   - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.result=vote.result
-  - import:fastapi.description="Vote type filter")
-  - import:fastapi.Member.vote == 'Nay'
-        ).count()
-        
-        vote_summaries.append(VoteSummary(
-            vote_id=str(vote.id)
-  - import:fastapi.date=vote.date
-  - import:fastapi.VoteAnalysisResponse
-  - import:fastapi.description="Vote result filter")
-  - import:fastapi.1)
-            query = query.filter(Bill.session_id == session_id
-  - import:fastapi.description="Vote number in session")
+  - import:fastapi.Party
+from app.schemas.votes import (
+    VoteSummary
+  - import:fastapi.session: Optional[str] = Query(None
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -4477,81 +4522,36 @@ from app.schemas.votes import (
         # Use PostgreSQL full-text search on bill name and vote description
         search_query = text("""
             to_tsvector('english'
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.MPVotePosition
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.bills_bill.name_en || ' ' || COALESCE(votes_vote.description
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-from typing import Optional
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.description="Page number")
-  - import:fastapi.Query
-  - import:fastapi.UserVoteResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.we'll use a simplified type mapping
-        # In a full implementation
-  - import:fastapi.VoteDetailResponse
-  - import:fastapi.VoteListResponse
-  - import:fastapi.description=vote.description
+  - import:fastapi.date__lte: Optional[str] = Query(None
   - import:fastapi."45-1/C-5")
         if '/' in bill:
             session_id
-  - import:fastapi.type: Optional[str] = Query(None
+  - import:fastapi.Member.vote == 'Nay'
+        ).count()
+        
+        vote_summaries.append(VoteSummary(
+            vote_id=str(vote.id)
+  - import:fastapi.bill_number=vote.bill.number
+  - import:fastapi.1)
+            query = query.filter(Bill.session_id == session_id
+  - import:fastapi.Pagination
+  - import:fastapi.'voice': 'voice'
+  - import:fastapi.number: Optional[int] = Query(None
+  - import:fastapi.we'll use a simplified type mapping
+        # In a full implementation
+  - import:fastapi.result=vote.result
+  - import:fastapi.bill: Optional[str] = Query(None
+  - import:fastapi.nay_total=nay_total
   - import:fastapi.this would come from a vote type field
         type_mapping = {
             'division': 'division'
-  - import:fastapi.UserVoteCast
-  - import:fastapi.VoteDetail
-  - import:fastapi.VoteBallot
-  - import:fastapi.number=vote.number
-  - import:fastapi.nay_total=nay_total
-  - import:fastapi.'45-1')")
-  - import:fastapi.total=total
-  - import:fastapi.session=vote.bill.session_id
-  - import:fastapi.Pagination
-  - import:fastapi.HTTPException
-  - import:fastapi.bill_number=vote.bill.number
-  - import:fastapi.session: Optional[str] = Query(None
-  - import:fastapi.description="Bill filter (e.g.
-  - function:list_votes
-  - import:fastapi.result: Optional[str] = Query(None
-  - import:fastapi.'')) 
-            @@ plainto_tsquery('english'
-  - import:fastapi.page_size: int = Query(20
-  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.APIRouter
+  - import:fastapi.VoteDetailResponse
   - import:fastapi.description="Search query for bill title or description")
-  - import:fastapi.description="Items per page")
-  - import:fastapi.response_model=VoteListResponse)
-async def list_votes(
-    q: Optional[str] = Query(None
-  - import:fastapi.le=100
-  - import:fastapi.yea_total=yea_total
-  - import:fastapi.Bill.number == bill_number)
-    
-    if result:
-        query = query.filter(Vote.result == result)
-    
-    if type:
-        # For now
-  - import:fastapi.'voice': 'voice'
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.VoteSummaryResponse
-  - import:fastapi.Party
-from app.schemas.votes import (
-    VoteSummary
-  - import:fastapi.VoteBallotsResponse
-  - import:fastapi.bill_number = bill.split('/'
+  - import:fastapi.number=vote.number
+  - import:fastapi.VoteDetail
+  - import:fastapi.HTTPException
+  - function:list_votes
 
 ### /{year}/{month}/{day}/
 
@@ -4560,45 +4560,105 @@ from app.schemas.votes import (
 - **Component**: `Bills`
 - **Component File**: `services/admin-ui/src/pages/bills/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -4619,64 +4679,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -4685,23 +4701,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -4710,45 +4710,105 @@ from typing import List
 - **Component**: `Bills`
 - **Component File**: `services/admin-ui/src/pages/bills/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -4769,64 +4829,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -4835,23 +4851,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -4860,45 +4860,105 @@ from typing import List
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -4919,64 +4979,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -4985,23 +5001,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -5010,45 +5010,105 @@ from typing import List
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -5069,64 +5129,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -5135,23 +5151,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -5160,45 +5160,105 @@ from typing import List
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -5219,64 +5279,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -5285,23 +5301,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -5310,45 +5310,105 @@ from typing import List
 - **Component**: `Debates`
 - **Component File**: `services/admin-ui/src/pages/debates/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -5369,64 +5429,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -5435,23 +5451,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -5460,45 +5460,105 @@ from typing import List
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -5519,64 +5579,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -5585,23 +5601,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -5610,45 +5610,105 @@ from typing import List
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -5669,64 +5729,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -5735,23 +5751,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -5760,45 +5760,105 @@ from typing import List
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -5819,64 +5879,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -5885,23 +5901,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -5910,45 +5910,105 @@ from typing import List
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -5969,64 +6029,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -6035,23 +6051,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -6060,45 +6060,105 @@ from typing import List
 - **Component**: `HouseCommitte`
 - **Component File**: `services/admin-ui/src/pages/house-committee/index.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -6119,64 +6179,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -6185,23 +6201,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ### /{year}/{month}/{day}/
 
@@ -6210,45 +6210,105 @@ from typing import List
 - **Component**: `Speech`
 - **Component File**: `services/admin-ui/src/pages/house-committee/speech.tsx`
 - **Dependencies**:
-  - import:fastapi.page: int = Query(1
-  - import:fastapi.ge=1
-  - import:fastapi.# Using day as the number for now
-                statement_count=vote_count
-  - import:fastapi.SpeechDetailResponse
-  - import:fastapi.APIRouter
-  - import:fastapi.date__gte: Optional[str] = Query(None
-  - import:fastapi.Member
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date <= date_lte)
-        except ValueError:
-            raise HTTPException(status_code=400
+  - import:fastapi.Depends
+from sqlalchemy.orm import Session as DBSession
+from sqlalchemy import text
+  - import:fastapi.Bill
+  - import:fastapi.description="Page number")
+  - import:fastapi.date=debate_date.date().isoformat()
   - import:fastapi.page_size=page_size
-  - import:fastapi.description="Hansard number in session")
-  - import:fastapi.description="Session ID (e.g.
-  - import:fastapi.lang: Optional[str] = Query("en"
-  - import:fastapi.Optional
-from datetime import date
-  - import:fastapi.datetime.min.time())
-  - import:fastapi.) in debate_dates:
-        if debate_date:
-            # Count total votes for this date
-            vote_count = db.query(Vote).filter(
-                and_(
-                    Vote.vote_date >= datetime.combine(debate_date.date()
   - import:fastapi.datetime.max.time())
                 )
             ).distinct().count()
             
             debate_summaries.append(DebateSummary(
                 id=f"{debate_date.year}-{debate_date.month:02d}-{debate_date.day:02d}"
+  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
+            ))
+    
+    # Calculate pagination info
+    total_pages = (total + page_size - 1) // page_size
+    
+    pagination = Pagination(
+        page=page
+  - import:fastapi.DebateDetailResponse
+  - import:fastapi.Member
+  - import:fastapi.DebateListResponse
+  - import:fastapi.SpeechListResponse
+  - import:fastapi.SpeechSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    if date__lte:
+        try:
+            date_lte = datetime.strptime(date__lte
+  - import:fastapi.) in debate_dates:
+        if debate_date:
+            # Count total votes for this date
+            vote_count = db.query(Vote).filter(
+                and_(
+                    Vote.vote_date >= datetime.combine(debate_date.date()
+  - import:fastapi.pages=total_pages
+    )
+    
+    return DebateListResponse(
+        debates=debate_summaries
+  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
+  - import:fastapi.Party
+from app.schemas.debates import (
+    DebateSummary
+  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
+    
+    # Get total count for pagination
+    total = query.count()
+    
+    # Apply pagination
+    offset = (page - 1) * page_size
+    debate_dates = query.offset(offset).limit(page_size).all()
+    
+    # Get debate summaries for each date
+    debate_summaries = []
+    for (debate_date
+  - import:fastapi.Optional
+from datetime import date
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date >= date_gte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.page: int = Query(1
+  - import:fastapi.SpeechDetail
+  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.DebateSummaryResponse
+)
+
+router = APIRouter()
+
+
+@router.get("/"
   - function:list_debates
-  - import:fastapi.number: Optional[int] = Query(None
-  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
-  - import:fastapi.description="Page number")
+  - import:fastapi.and_
+  - import:fastapi.pagination=pagination
+    )
+  - import:fastapi.ge=1
+  - import:fastapi.description="Hansard number in session")
+  - import:fastapi.date__gte: Optional[str] = Query(None
+  - import:fastapi.description="Items per page")
+  - import:fastapi.description="Language (en/fr)")
   - import:fastapi.Query
+  - import:fastapi.SpeechDetailResponse
+  - import:fastapi.le=100
   - import:fastapi.response_model=DebateListResponse)
 async def list_debates(
     session: Optional[str] = Query(None
+  - import:fastapi.datetime
+from app.database import get_db
+from app.models.openparliament import Vote
+  - import:fastapi.description="Date greater than or equal (YYYY-MM-DD)")
+  - import:fastapi.'45-1')")
+  - import:fastapi.total=total
+  - import:fastapi.description="Session ID (e.g.
+  - import:fastapi.number=debate_date.day
+  - import:fastapi.date__lte: Optional[str] = Query(None
+  - import:fastapi.lang: Optional[str] = Query("en"
   - import:fastapi.db: DBSession = Depends(get_db)
 ):
     """
@@ -6269,64 +6329,20 @@ async def list_debates(
     if date__gte:
         try:
             date_gte = datetime.strptime(date__gte
-  - import:fastapi.pages=total_pages
-    )
-    
-    return DebateListResponse(
-        debates=debate_summaries
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    if date__lte:
-        try:
-            date_lte = datetime.strptime(date__lte
-  - import:fastapi.Party
-from app.schemas.debates import (
-    DebateSummary
-  - import:fastapi.SpeechSummary
-  - import:fastapi.date=debate_date.date().isoformat()
-  - import:fastapi.DebateSummaryResponse
-)
-
-router = APIRouter()
-
-
-@router.get("/"
-  - import:fastapi.total=total
-  - import:fastapi.'45-1')")
-  - import:fastapi.DebateListResponse
-  - import:fastapi.and_
-  - import:fastapi."%Y-%m-%d").date()
-            query = query.filter(Vote.vote_date >= date_gte)
-        except ValueError:
-            raise HTTPException(status_code=400
-  - import:fastapi.SpeechDetail
+  - import:fastapi.DebateDetail
   - import:fastapi.Pagination
-  - import:fastapi.Depends
-from sqlalchemy.orm import Session as DBSession
-from sqlalchemy import text
-  - import:fastapi.datetime
-from app.database import get_db
-from app.models.openparliament import Vote
-  - import:fastapi.HTTPException
-  - import:fastapi.detail="Invalid date format. Use YYYY-MM-DD")
-    
-    # Get total count for pagination
-    total = query.count()
-    
-    # Apply pagination
-    offset = (page - 1) * page_size
-    debate_dates = query.offset(offset).limit(page_size).all()
-    
-    # Get debate summaries for each date
-    debate_summaries = []
-    for (debate_date
-  - import:fastapi.DebateDetailResponse
-  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
-  - import:fastapi.page_size: int = Query(20
+  - import:fastapi.number: Optional[int] = Query(None
   - import:fastapi.desc
 from typing import List
-  - import:fastapi.date__lte: Optional[str] = Query(None
-  - import:fastapi.description="Language (en/fr)")
+  - import:fastapi.# Using day as the number for now
+                statement_count=vote_count
+  - import:fastapi.Vote.vote_date < datetime.combine(debate_date.date()
+  - import:fastapi."%Y-%m-%d").date()
+            query = query.filter(Vote.vote_date <= date_lte)
+        except ValueError:
+            raise HTTPException(status_code=400
+  - import:fastapi.APIRouter
+  - import:fastapi.datetime.min.time())
   - import:fastapi.datetime.max.time())
                 )
             ).count()
@@ -6335,23 +6351,7 @@ from typing import List
             bill_count = db.query(Vote.bill_id).filter(
                 and_(
                     Vote.vote_date >= datetime.combine(debate_date.date()
-  - import:fastapi.description="Items per page")
-  - import:fastapi.le=100
-  - import:fastapi.url=f"/api/v1/debates/{debate_date.year}/{debate_date.month:02d}/{debate_date.day:02d}/"
-            ))
-    
-    # Calculate pagination info
-    total_pages = (total + page_size - 1) // page_size
-    
-    pagination = Pagination(
-        page=page
-  - import:fastapi.DebateDetail
-  - import:fastapi.pagination=pagination
-    )
-  - import:fastapi.description="Date less than or equal (YYYY-MM-DD)")
-  - import:fastapi.Bill
-  - import:fastapi.number=debate_date.day
-  - import:fastapi.SpeechListResponse
+  - import:fastapi.HTTPException
 
 ## Realignment Needs
 
@@ -6625,207 +6625,207 @@ Components calling non-existent API endpoints:
 ### Pattern Mismatches
 Routing patterns with API/UI count mismatches:
 
-- Pattern `/api/v1/multi-level-government/stats`: API=0, UI=1
-- Pattern `#`: API=0, UI=5
-- Pattern `/reset-password`: API=1, UI=0
-- Pattern `/types/*`: API=1, UI=0
-- Pattern `/translate/*`: API=1, UI=0
-- Pattern `/*/meetings`: API=1, UI=0
-- Pattern `/*/*`: API=1, UI=0
-- Pattern `/alerts/*`: API=3, UI=0
-- Pattern `/government-levels/*`: API=1, UI=0
-- Pattern `/health`: API=1, UI=0
-- Pattern `/ballots/`: API=1, UI=0
-- Pattern `/app/v1/bills/*/bookmark`: API=1, UI=0
-- Pattern `/feeds/*/statistics`: API=1, UI=0
-- Pattern `/jurisdictions`: API=1, UI=0
-- Pattern `/government-levels`: API=1, UI=0
-- Pattern `/api/v1/etl/jobs`: API=0, UI=1
-- Pattern `/recent-debates`: API=1, UI=0
-- Pattern `/bulk/*`: API=1, UI=0
-- Pattern `/bills/*/user-votes`: API=1, UI=0
-- Pattern `/notifications/send`: API=1, UI=0
-- Pattern `/user/*/bulk-actions`: API=1, UI=0
-- Pattern `/members`: API=1, UI=0
-- Pattern `/saved-items`: API=1, UI=0
-- Pattern `/toggle`: API=1, UI=0
-- Pattern `/profiles/*/activity`: API=2, UI=0
-- Pattern `/cleanup`: API=1, UI=0
-- Pattern `/user/*/saved-items/*`: API=2, UI=0
-- Pattern `/languages`: API=2, UI=0
-- Pattern `/visualizations`: API=2, UI=0
-- Pattern `/committees/mentions`: API=1, UI=0
-- Pattern `/bills/*/mentions`: API=1, UI=0
-- Pattern `/*/*/analysis`: API=1, UI=0
-- Pattern `/languages/*`: API=2, UI=0
-- Pattern `/google/callback`: API=1, UI=0
-- Pattern `/stats/system`: API=1, UI=0
-- Pattern `/installations/track`: API=1, UI=0
-- Pattern `/api/v1/multi-level-government/government-levels`: API=0, UI=1
-- Pattern `/bill/*/user-votes`: API=1, UI=0
-- Pattern `/activities/`: API=1, UI=0
-- Pattern `/current`: API=1, UI=0
-- Pattern `/visualizations/*`: API=1, UI=0
-- Pattern `/me`: API=1, UI=0
-- Pattern `/bills/*/cast-vote`: API=1, UI=0
-- Pattern `/campaigns`: API=2, UI=0
-- Pattern `/*/status`: API=1, UI=0
-- Pattern `/analysis`: API=1, UI=0
-- Pattern `/broadcast`: API=1, UI=0
-- Pattern `/types/list`: API=1, UI=0
+- Pattern `/mp/*/statements`: API=1, UI=0
 - Pattern `/get-issue`: API=1, UI=0
-- Pattern `/unsubscribe/*`: API=1, UI=0
-- Pattern `/app/v1/representatives`: API=1, UI=0
-- Pattern `/app/v1/issues/create`: API=1, UI=0
-- Pattern `/connections/*`: API=1, UI=0
-- Pattern `/meetings/`: API=1, UI=0
-- Pattern `/user/*/activity`: API=1, UI=0
-- Pattern `/statistics`: API=1, UI=0
-- Pattern `/*/votes`: API=2, UI=0
-- Pattern `/debates/mentions`: API=1, UI=0
-- Pattern `/data-sources`: API=1, UI=0
-- Pattern `/*/supporters`: API=1, UI=0
-- Pattern `/user/*`: API=1, UI=0
-- Pattern `/*`: API=11, UI=0
-- Pattern `/types`: API=2, UI=0
-- Pattern `/visualizations/*/generate`: API=1, UI=0
-- Pattern `/create`: API=1, UI=0
-- Pattern `/profiles/*/stats`: API=1, UI=0
-- Pattern `/constituency/*`: API=1, UI=0
-- Pattern `/stats/jurisdictions/*`: API=1, UI=0
-- Pattern `/speeches/*/`: API=1, UI=0
-- Pattern `/sessions/*/sittings`: API=2, UI=0
-- Pattern `/user/*/saved-items/tags`: API=1, UI=0
-- Pattern `/monitoring`: API=0, UI=1
-- Pattern `/profiles/*`: API=2, UI=0
-- Pattern `/bills`: API=1, UI=2
-- Pattern `/status`: API=1, UI=0
-- Pattern `/translate/search`: API=1, UI=0
-- Pattern `/user/*/voting-recommendations`: API=1, UI=0
-- Pattern `/app/v1/delete-account`: API=1, UI=0
-- Pattern `/manifests/*/offline-resources`: API=2, UI=0
-- Pattern `/issue-chat`: API=1, UI=0
-- Pattern `/cast-vote`: API=1, UI=0
-- Pattern `/token`: API=1, UI=0
-- Pattern `/app/v1/issues/*/support`: API=1, UI=0
-- Pattern `/suggestions`: API=1, UI=0
-- Pattern `/sessions/*/votes`: API=2, UI=0
-- Pattern `/templates`: API=1, UI=0
 - Pattern `/app/v1/chat/get-bill`: API=1, UI=0
-- Pattern `/feeds/*`: API=3, UI=0
-- Pattern `/*/support`: API=1, UI=0
-- Pattern `/unsubscribe/generate`: API=1, UI=0
-- Pattern `/offices/*`: API=1, UI=0
-- Pattern `/alerts`: API=2, UI=0
-- Pattern `/notify/*`: API=1, UI=0
-- Pattern `/mps`: API=0, UI=1
-- Pattern `/postcode/*`: API=1, UI=0
-- Pattern `/*/history`: API=1, UI=0
-- Pattern `/government`: API=0, UI=1
-- Pattern `/templates/*`: API=1, UI=0
-- Pattern `/user-voting`: API=1, UI=0
-- Pattern `/*/*/*/`: API=2, UI=0
-- Pattern `/dashboards/*/visualizations`: API=1, UI=0
-- Pattern `/representatives/*`: API=2, UI=0
+- Pattern `/profiles`: API=1, UI=0
+- Pattern `/app-auth/register`: API=1, UI=0
+- Pattern `/sessions/*/debates`: API=1, UI=0
+- Pattern `/notifications/send`: API=1, UI=0
+- Pattern `/installations/track`: API=1, UI=0
+- Pattern `/boundaries/*`: API=1, UI=0
+- Pattern `/user/*/saved-items/search`: API=1, UI=0
+- Pattern `/bulk/*`: API=1, UI=0
 - Pattern `/app/v1/chat/bill-chat`: API=1, UI=0
-- Pattern `/app/v1/bills`: API=1, UI=0
-- Pattern `/user/*/saved-items`: API=1, UI=0
-- Pattern `/*/timeline`: API=1, UI=0
-- Pattern `/heartbeat/*`: API=1, UI=0
-- Pattern `/export`: API=1, UI=0
-- Pattern `/health/*`: API=1, UI=0
-- Pattern `/mp/*/activity`: API=1, UI=0
-- Pattern `/api/v1/multi-level-government/representatives`: API=0, UI=1
-- Pattern `/feeds`: API=3, UI=0
-- Pattern `/*/committees`: API=1, UI=0
-- Pattern `/api/versions`: API=1, UI=0
-- Pattern `/register`: API=1, UI=0
-- Pattern `/api/v1/admin/activity`: API=0, UI=1
-- Pattern `/*/profile`: API=1, UI=0
+- Pattern `/confirm-reset-password`: API=1, UI=0
+- Pattern `/speeches/*/`: API=1, UI=0
+- Pattern `/languages/*`: API=2, UI=0
+- Pattern `/suggestions`: API=1, UI=0
+- Pattern `/languages`: API=2, UI=0
+- Pattern `/user/*/voting-recommendations`: API=1, UI=0
+- Pattern `/app-auth/login`: API=1, UI=0
+- Pattern `/google/authorize`: API=1, UI=0
+- Pattern `/feeds/*/items`: API=1, UI=0
+- Pattern `/*/update`: API=1, UI=0
+- Pattern `/`: API=2, UI=1
+- Pattern `/health`: API=1, UI=0
+- Pattern `/current`: API=1, UI=0
 - Pattern `/app/v1/bills/*`: API=1, UI=0
-- Pattern `/analytics`: API=1, UI=0
-- Pattern `/user/*/voting-history`: API=1, UI=0
+- Pattern `/google/callback`: API=1, UI=0
+- Pattern `/activities/`: API=1, UI=0
+- Pattern `/dashboards`: API=2, UI=0
+- Pattern `/healthz`: API=1, UI=0
+- Pattern `/*/statements`: API=1, UI=0
+- Pattern `/postal-code`: API=1, UI=0
+- Pattern `/logout`: API=1, UI=0
+- Pattern `/stats/system`: API=1, UI=0
+- Pattern `/user/*/preferences`: API=2, UI=0
+- Pattern `/*/activity`: API=1, UI=0
+- Pattern `/broadcast`: API=1, UI=0
+- Pattern `/unsubscribe/generate`: API=1, UI=0
+- Pattern `/status`: API=1, UI=0
+- Pattern `/users/preferences`: API=2, UI=0
+- Pattern `/templates`: API=1, UI=0
+- Pattern `/data/quality`: API=0, UI=1
+- Pattern `/version`: API=1, UI=0
 - Pattern `/user/*/save-item`: API=1, UI=0
+- Pattern `/dashboards/*`: API=1, UI=0
+- Pattern `/government-levels/*`: API=1, UI=0
+- Pattern `/templates/*`: API=1, UI=0
+- Pattern `/alerts`: API=2, UI=0
+- Pattern `/profiles/*/change-password`: API=1, UI=0
+- Pattern `/unsubscribe/*`: API=1, UI=0
+- Pattern `/user-voting`: API=1, UI=0
+- Pattern `/app/v1/issues/*/support`: API=1, UI=0
+- Pattern `/status/current`: API=2, UI=0
+- Pattern `/bills`: API=1, UI=2
+- Pattern `/app/v1/issues/*/request-deletion`: API=1, UI=0
+- Pattern `/bills/*/voting-summary`: API=1, UI=0
+- Pattern `/speeches/`: API=1, UI=0
+- Pattern `/alerts/stats`: API=1, UI=0
+- Pattern `/app/v1/bills`: API=1, UI=0
+- Pattern `/app/v1/profile`: API=2, UI=0
+- Pattern `/app/v1/issues/create`: API=1, UI=0
+- Pattern `/metrics`: API=2, UI=0
+- Pattern `/health/*`: API=1, UI=0
+- Pattern `/manifests`: API=2, UI=0
+- Pattern `/app/v1/representatives/all`: API=1, UI=0
+- Pattern `/get-bill`: API=1, UI=0
+- Pattern `/votes/detailed`: API=1, UI=0
+- Pattern `/user/*/voting-history`: API=1, UI=0
+- Pattern `/offices/*`: API=1, UI=0
+- Pattern `/reset-password`: API=1, UI=0
+- Pattern `/chat-history`: API=1, UI=0
+- Pattern `/*/status`: API=1, UI=0
+- Pattern `/user/*`: API=1, UI=0
+- Pattern `/toggle`: API=1, UI=0
+- Pattern `/jurisdictions/*`: API=1, UI=0
+- Pattern `/*/support`: API=1, UI=0
+- Pattern `/translate/search`: API=1, UI=0
+- Pattern `/api/v1/multi-level-government/stats`: API=0, UI=1
+- Pattern `/feeds/*/generate`: API=1, UI=0
+- Pattern `/visualizations/*/generate`: API=1, UI=0
+- Pattern `/user-issues`: API=1, UI=0
+- Pattern `/etl`: API=0, UI=2
+- Pattern `/metrics/*`: API=1, UI=0
+- Pattern `/connections/*`: API=1, UI=0
+- Pattern `/saved-items`: API=1, UI=0
+- Pattern `/chat-suggestions`: API=1, UI=0
+- Pattern `/boundary-sets`: API=1, UI=0
+- Pattern `/debates/mentions`: API=1, UI=0
+- Pattern `/profiles/*/preferences`: API=2, UI=0
+- Pattern `/visualizations/*`: API=1, UI=0
+- Pattern `/analysis`: API=1, UI=0
+- Pattern `/*/meetings`: API=1, UI=0
+- Pattern `/user/*/saved-items`: API=1, UI=0
+- Pattern `/register`: API=1, UI=0
+- Pattern `/government-levels`: API=1, UI=0
+- Pattern `/types/*`: API=1, UI=0
+- Pattern `/health/check`: API=1, UI=0
+- Pattern `/manifests/*/service-workers`: API=2, UI=0
+- Pattern `/statistics`: API=1, UI=0
+- Pattern `/create`: API=1, UI=0
+- Pattern `/app/v1/bills/*/support`: API=1, UI=0
+- Pattern `/api/v1/multi-level-government/jurisdictions`: API=0, UI=1
+- Pattern `/api/v1/multi-level-government/representatives`: API=0, UI=1
+- Pattern `/members`: API=1, UI=0
+- Pattern `/issue-chat`: API=1, UI=0
+- Pattern `/sessions/*/votes`: API=2, UI=0
+- Pattern `/*/timeline`: API=1, UI=0
+- Pattern `/profiles/*`: API=2, UI=0
+- Pattern `/government`: API=0, UI=1
+- Pattern `/committees/mentions`: API=1, UI=0
+- Pattern `/representatives/*`: API=2, UI=0
+- Pattern `/summary/stats`: API=1, UI=0
+- Pattern `/events`: API=2, UI=0
+- Pattern `/stats/government-levels/*`: API=1, UI=0
+- Pattern `/recent-debates`: API=1, UI=0
 - Pattern `/votes`: API=1, UI=0
 - Pattern `/bill-chat`: API=1, UI=0
-- Pattern `/feeds/*/items`: API=1, UI=0
-- Pattern `/profiles`: API=1, UI=0
-- Pattern `/votes/detailed`: API=1, UI=0
-- Pattern `/feeds/*/generate`: API=1, UI=0
-- Pattern `/dashboards/*`: API=1, UI=0
-- Pattern `/bill/*/voting-summary`: API=1, UI=0
-- Pattern `/sessions/*/debates`: API=1, UI=0
-- Pattern `/sessions/*`: API=2, UI=0
+- Pattern `/bills/*/user-votes`: API=1, UI=0
+- Pattern `#`: API=0, UI=5
+- Pattern `/postcode/*`: API=1, UI=0
 - Pattern `/sessions`: API=2, UI=0
-- Pattern `/metrics`: API=2, UI=0
-- Pattern `/boundary-sets`: API=1, UI=0
-- Pattern `/summary/stats`: API=1, UI=0
-- Pattern `/by-postal-code/*`: API=1, UI=0
-- Pattern `/etl`: API=0, UI=2
-- Pattern `/speeches/`: API=1, UI=0
-- Pattern `/reset-password/validate/*`: API=1, UI=0
-- Pattern `/bills/*/voting-summary`: API=1, UI=0
-- Pattern `/app/v1/change-password`: API=1, UI=0
-- Pattern `/dashboards`: API=2, UI=0
-- Pattern `/mp/*/statements`: API=1, UI=0
-- Pattern `/manifests/*`: API=1, UI=0
-- Pattern `/profiles/*/preferences`: API=2, UI=0
-- Pattern `/stats/government-levels/*`: API=1, UI=0
-- Pattern `/manifests/*/service-workers`: API=2, UI=0
-- Pattern `/*/`: API=1, UI=0
-- Pattern `/app/v1/issues/*/request-deletion`: API=1, UI=0
-- Pattern `/profiles/*/change-password`: API=1, UI=0
-- Pattern `/rooms/*`: API=1, UI=0
-- Pattern `/app/v1/bills/*/support`: API=1, UI=0
-- Pattern `/*/update`: API=1, UI=0
-- Pattern `/bills/*`: API=1, UI=0
-- Pattern `/metrics/*`: API=1, UI=0
-- Pattern `/offices`: API=1, UI=0
-- Pattern `/app-auth/register`: API=1, UI=0
-- Pattern `/get-bill`: API=1, UI=0
-- Pattern `/jurisdictions/*`: API=1, UI=0
-- Pattern `/chat-suggestions`: API=1, UI=0
-- Pattern `/postal-code`: API=1, UI=0
-- Pattern `/api/v1/multi-level-government/jurisdictions`: API=0, UI=1
-- Pattern `/translations`: API=2, UI=0
-- Pattern `/api/v1/multi-level-government/bills`: API=0, UI=1
-- Pattern `/feeds/by-name/*`: API=1, UI=0
-- Pattern `/confirm-reset-password`: API=1, UI=0
-- Pattern `/health/check`: API=1, UI=0
-- Pattern `/version`: API=1, UI=0
-- Pattern `/user/*/preferences`: API=2, UI=0
-- Pattern `/community/issues`: API=1, UI=0
-- Pattern `/chat-history`: API=1, UI=0
-- Pattern `/user/*/saved-items/search`: API=1, UI=0
-- Pattern `/manifests`: API=2, UI=0
-- Pattern `/manifests/*/manifest.json`: API=1, UI=0
-- Pattern `/app/v1/profile`: API=2, UI=0
-- Pattern `/detailed`: API=1, UI=0
-- Pattern `/events`: API=2, UI=0
-- Pattern `/healthz`: API=1, UI=0
-- Pattern `/health/overview`: API=1, UI=0
-- Pattern `/app/v1/representatives/all`: API=1, UI=0
-- Pattern `/user/*/stats`: API=1, UI=0
-- Pattern `/app/v1/issues/*/bookmark`: API=1, UI=0
-- Pattern `/logout`: API=1, UI=0
-- Pattern `/`: API=2, UI=1
-- Pattern `/*/amendments`: API=1, UI=0
-- Pattern `/postal-code/*`: API=1, UI=0
-- Pattern `/status/current`: API=2, UI=0
-- Pattern `/boundaries/*`: API=1, UI=0
-- Pattern `/users/preferences`: API=2, UI=0
-- Pattern `/*/activity`: API=1, UI=0
-- Pattern `/google/authorize`: API=1, UI=0
-- Pattern `/recent-bills`: API=1, UI=0
-- Pattern `/data/quality`: API=0, UI=1
-- Pattern `/user-issues`: API=1, UI=0
-- Pattern `/*/statements`: API=1, UI=0
-- Pattern `/geocode`: API=1, UI=0
-- Pattern `/former-mps`: API=0, UI=4
-- Pattern `/translations/*`: API=1, UI=0
 - Pattern `/votes/*/individual-votes`: API=1, UI=0
-- Pattern `/app-auth/login`: API=1, UI=0
-- Pattern `/alerts/stats`: API=1, UI=0
+- Pattern `/api/v1/multi-level-government/government-levels`: API=0, UI=1
+- Pattern `/*/amendments`: API=1, UI=0
+- Pattern `/translations/*`: API=1, UI=0
+- Pattern `/api/v1/multi-level-government/bills`: API=0, UI=1
+- Pattern `/app/v1/representatives`: API=1, UI=0
+- Pattern `/sessions/*/sittings`: API=2, UI=0
+- Pattern `/app/v1/issues/*/bookmark`: API=1, UI=0
+- Pattern `/me`: API=1, UI=0
+- Pattern `/token`: API=1, UI=0
+- Pattern `/user/*/saved-items/tags`: API=1, UI=0
+- Pattern `/former-mps`: API=0, UI=4
+- Pattern `/bills/*/mentions`: API=1, UI=0
+- Pattern `/rooms/*`: API=1, UI=0
+- Pattern `/cleanup`: API=1, UI=0
+- Pattern `/*/supporters`: API=1, UI=0
+- Pattern `/*/`: API=1, UI=0
+- Pattern `/bill/*/voting-summary`: API=1, UI=0
+- Pattern `/user/*/saved-items/*`: API=2, UI=0
+- Pattern `/detailed`: API=1, UI=0
+- Pattern `/monitoring`: API=0, UI=1
+- Pattern `/constituency/*`: API=1, UI=0
+- Pattern `/user/*/bulk-actions`: API=1, UI=0
+- Pattern `/user/*/activity`: API=1, UI=0
+- Pattern `/export`: API=1, UI=0
+- Pattern `/*/*/*/`: API=2, UI=0
+- Pattern `/health/overview`: API=1, UI=0
+- Pattern `/analytics`: API=1, UI=0
+- Pattern `/visualizations`: API=2, UI=0
+- Pattern `/*/history`: API=1, UI=0
+- Pattern `/app/v1/delete-account`: API=1, UI=0
+- Pattern `/bills/*`: API=1, UI=0
+- Pattern `/api/versions`: API=1, UI=0
+- Pattern `/community/issues`: API=1, UI=0
+- Pattern `/jurisdictions`: API=1, UI=0
+- Pattern `/api/v1/etl/jobs`: API=0, UI=1
+- Pattern `/manifests/*/offline-resources`: API=2, UI=0
+- Pattern `/reset-password/validate/*`: API=1, UI=0
+- Pattern `/data-sources`: API=1, UI=0
+- Pattern `/meetings/`: API=1, UI=0
+- Pattern `/api/v1/admin/activity`: API=0, UI=1
+- Pattern `/feeds/*/statistics`: API=1, UI=0
+- Pattern `/app/v1/change-password`: API=1, UI=0
+- Pattern `/bills/*/cast-vote`: API=1, UI=0
+- Pattern `/by-postal-code/*`: API=1, UI=0
+- Pattern `/types/list`: API=1, UI=0
+- Pattern `/mps`: API=0, UI=1
+- Pattern `/alerts/*`: API=3, UI=0
+- Pattern `/feeds`: API=3, UI=0
+- Pattern `/app/v1/bills/*/bookmark`: API=1, UI=0
+- Pattern `/manifests/*`: API=1, UI=0
+- Pattern `/dashboards/*/visualizations`: API=1, UI=0
+- Pattern `/mp/*/activity`: API=1, UI=0
+- Pattern `/recent-bills`: API=1, UI=0
+- Pattern `/*`: API=11, UI=0
+- Pattern `/user/*/stats`: API=1, UI=0
+- Pattern `/stats/jurisdictions/*`: API=1, UI=0
+- Pattern `/*/profile`: API=1, UI=0
+- Pattern `/heartbeat/*`: API=1, UI=0
+- Pattern `/translate/*`: API=1, UI=0
+- Pattern `/*/committees`: API=1, UI=0
+- Pattern `/*/*`: API=1, UI=0
+- Pattern `/*/*/analysis`: API=1, UI=0
+- Pattern `/feeds/by-name/*`: API=1, UI=0
+- Pattern `/geocode`: API=1, UI=0
+- Pattern `/manifests/*/manifest.json`: API=1, UI=0
+- Pattern `/translations`: API=2, UI=0
+- Pattern `/feeds/*`: API=3, UI=0
+- Pattern `/profiles/*/activity`: API=2, UI=0
+- Pattern `/types`: API=2, UI=0
+- Pattern `/ballots/`: API=1, UI=0
+- Pattern `/sessions/*`: API=2, UI=0
+- Pattern `/cast-vote`: API=1, UI=0
+- Pattern `/bill/*/user-votes`: API=1, UI=0
+- Pattern `/notify/*`: API=1, UI=0
+- Pattern `/offices`: API=1, UI=0
+- Pattern `/profiles/*/stats`: API=1, UI=0
+- Pattern `/campaigns`: API=2, UI=0
+- Pattern `/postal-code/*`: API=1, UI=0
+- Pattern `/*/votes`: API=2, UI=0
 
 ## Routing Architecture
 

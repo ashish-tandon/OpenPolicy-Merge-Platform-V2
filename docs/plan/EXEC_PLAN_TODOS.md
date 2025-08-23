@@ -3,7 +3,7 @@
 ## Executive Summary
 
 - **Total TODOs**: 178
-- **Generated**: 2025-08-23T17:54:11.202111
+- **Generated**: 2025-08-23T18:05:25.043414
 - **Gates**:
   - G1: Structure/Index: 55 tasks
   - G2: Parity: 21 tasks
