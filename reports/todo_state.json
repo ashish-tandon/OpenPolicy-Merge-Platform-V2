@@ -3,14 +3,105 @@
   "items": {
     "CHK-0001_Refactor high-usage functions:": {
       "id": "CHK-0001",
-      "title": "Refactor high-usage functions: Field",
+      "title": "Refactor high-usage functions: Item 1",
       "gate": "G1",
       "runs_completed": 10,
       "last_cycle": 10
     },
     "CHK-0002_Refactor high-usage functions:": {
       "id": "CHK-0002",
-      "title": "Refactor high-usage functions: Field (duplicate entries)",
+      "title": "Refactor high-usage functions: Item 2",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0003_Refactor high-usage functions:": {
+      "id": "CHK-0003",
+      "title": "Refactor high-usage functions: Item 3",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0004_Refactor high-usage functions:": {
+      "id": "CHK-0004",
+      "title": "Refactor high-usage functions: Item 4",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0005_Refactor high-usage functions:": {
+      "id": "CHK-0005",
+      "title": "Refactor high-usage functions: Item 5",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0006_Refactor high-usage variables:": {
+      "id": "CHK-0006",
+      "title": "Refactor high-usage variables: Item 6",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0007_Refactor high-usage variables:": {
+      "id": "CHK-0007",
+      "title": "Refactor high-usage variables: Item 7",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0008_Refactor high-usage variables:": {
+      "id": "CHK-0008",
+      "title": "Refactor high-usage variables: Item 8",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0009_Refactor high-usage variables:": {
+      "id": "CHK-0009",
+      "title": "Refactor high-usage variables: Item 9",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0010_Refactor high-usage variables:": {
+      "id": "CHK-0010",
+      "title": "Refactor high-usage variables: Item 10",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0011_Refactor high-usage modules: I": {
+      "id": "CHK-0011",
+      "title": "Refactor high-usage modules: Item 11",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0012_Refactor high-usage modules: I": {
+      "id": "CHK-0012",
+      "title": "Refactor high-usage modules: Item 12",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0013_Refactor high-usage modules: I": {
+      "id": "CHK-0013",
+      "title": "Refactor high-usage modules: Item 13",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0014_Refactor high-usage modules: I": {
+      "id": "CHK-0014",
+      "title": "Refactor high-usage modules: Item 14",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0015_Refactor high-usage modules: I": {
+      "id": "CHK-0015",
+      "title": "Refactor high-usage modules: Item 15",
       "gate": "G1",
       "runs_completed": 10,
       "last_cycle": 10
@@ -29,9 +120,268 @@
       "runs_completed": 10,
       "last_cycle": 10
     },
+    "CHK-0018_Document or remove orphan rout": {
+      "id": "CHK-0018",
+      "title": "Document or remove orphan route: /version",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0019_Document or remove orphan rout": {
+      "id": "CHK-0019",
+      "title": "Document or remove orphan route: /metrics",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0020_Document or remove orphan rout": {
+      "id": "CHK-0020",
+      "title": "Document or remove orphan route: /suggestions",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0021_Document or remove orphan rout": {
+      "id": "CHK-0021",
+      "title": "Document or remove orphan route: /summary/stats",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0022_Document or remove orphan rout": {
+      "id": "CHK-0022",
+      "title": "Document or remove orphan route: /{bill_id}",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0023_Document or remove orphan rout": {
+      "id": "CHK-0023",
+      "title": "Document or remove orphan route: /{bill_id}/votes",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0024_Document or remove orphan rout": {
+      "id": "CHK-0024",
+      "title": "Document or remove orphan route: /{bill_id}/history",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0025_Document or remove orphan rout": {
+      "id": "CHK-0025",
+      "title": "Document or remove orphan route: /{bill_id}/amendments",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
     "CHK-0026_Audit and standardize director": {
       "id": "CHK-0026",
       "title": "Audit and standardize directory structure across all services",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0027_Create consistent naming conve": {
+      "id": "CHK-0027",
+      "title": "Create consistent naming conventions for files and directories",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0028_Implement monorepo structure w": {
+      "id": "CHK-0028",
+      "title": "Implement monorepo structure with clear boundaries",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0029_Establish shared libraries loc": {
+      "id": "CHK-0029",
+      "title": "Establish shared libraries location and structure",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0030_Define service boundary rules ": {
+      "id": "CHK-0030",
+      "title": "Define service boundary rules and dependencies",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0031_Create service-specific README": {
+      "id": "CHK-0031",
+      "title": "Create service-specific README files with consistent format",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0032_Implement code organization st": {
+      "id": "CHK-0032",
+      "title": "Implement code organization standards",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0033_Set up linting and formatting ": {
+      "id": "CHK-0033",
+      "title": "Set up linting and formatting rules",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0034_Create development environment": {
+      "id": "CHK-0034",
+      "title": "Create development environment setup guide",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0035_Document deployment structure": {
+      "id": "CHK-0035",
+      "title": "Document deployment structure",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0036_Establish Git workflow and bra": {
+      "id": "CHK-0036",
+      "title": "Establish Git workflow and branching strategy",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0037_Define code review process and": {
+      "id": "CHK-0037",
+      "title": "Define code review process and standards",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0038_Create architecture decision r": {
+      "id": "CHK-0038",
+      "title": "Create architecture decision record template",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0039_Set up documentation structure": {
+      "id": "CHK-0039",
+      "title": "Set up documentation structure and standards",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0040_Implement logging standards ac": {
+      "id": "CHK-0040",
+      "title": "Implement logging standards across services",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0041_Create error handling patterns": {
+      "id": "CHK-0041",
+      "title": "Create error handling patterns",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0042_Define API versioning strategy": {
+      "id": "CHK-0042",
+      "title": "Define API versioning strategy",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0043_Establish database migration p": {
+      "id": "CHK-0043",
+      "title": "Establish database migration patterns",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0044_Create configuration managemen": {
+      "id": "CHK-0044",
+      "title": "Create configuration management standards",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0045_Define secret management appro": {
+      "id": "CHK-0045",
+      "title": "Define secret management approach",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0046_Implement dependency managemen": {
+      "id": "CHK-0046",
+      "title": "Implement dependency management strategy",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0047_Create build and packaging sta": {
+      "id": "CHK-0047",
+      "title": "Create build and packaging standards",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0048_Define testing directory struc": {
+      "id": "CHK-0048",
+      "title": "Define testing directory structure",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0049_Establish CI/CD pipeline struc": {
+      "id": "CHK-0049",
+      "title": "Establish CI/CD pipeline structure",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0050_Create monitoring and alerting": {
+      "id": "CHK-0050",
+      "title": "Create monitoring and alerting standards",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0051_Define data retention policies": {
+      "id": "CHK-0051",
+      "title": "Define data retention policies",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0052_Implement backup and recovery ": {
+      "id": "CHK-0052",
+      "title": "Implement backup and recovery procedures",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0053_Create incident response templ": {
+      "id": "CHK-0053",
+      "title": "Create incident response templates",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0054_Define SLA and SLO standards": {
+      "id": "CHK-0054",
+      "title": "Define SLA and SLO standards",
+      "gate": "G1",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0055_Establish security scanning pr": {
+      "id": "CHK-0055",
+      "title": "Establish security scanning procedures",
       "gate": "G1",
       "runs_completed": 10,
       "last_cycle": 10
@@ -43,44 +393,1325 @@
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0089_Implement global search with f": {
+    "CHK-0057_Implement faceted search for b": {
+      "id": "CHK-0057",
+      "title": "Implement faceted search for bills",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0058_Add search suggestions and aut": {
+      "id": "CHK-0058",
+      "title": "Add search suggestions and autocomplete",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0059_Create search relevance tuning": {
+      "id": "CHK-0059",
+      "title": "Create search relevance tuning",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0060_Implement search analytics": {
+      "id": "CHK-0060",
+      "title": "Implement search analytics",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0061_Add search result highlighting": {
+      "id": "CHK-0061",
+      "title": "Add search result highlighting",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0062_Create saved searches feature": {
+      "id": "CHK-0062",
+      "title": "Create saved searches feature",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0063_Implement search export functi": {
+      "id": "CHK-0063",
+      "title": "Implement search export functionality",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0064_Add advanced search operators": {
+      "id": "CHK-0064",
+      "title": "Add advanced search operators",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0065_Create search API rate limitin": {
+      "id": "CHK-0065",
+      "title": "Create search API rate limiting",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0066_Implement MP photo upload and ": {
+      "id": "CHK-0066",
+      "title": "Implement MP photo upload and storage",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0067_Create MP social media integra": {
+      "id": "CHK-0067",
+      "title": "Create MP social media integration",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0068_Add MP voting history visualiz": {
+      "id": "CHK-0068",
+      "title": "Add MP voting history visualization",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0069_Implement MP committee members": {
+      "id": "CHK-0069",
+      "title": "Implement MP committee membership tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0070_Create MP speech analysis": {
+      "id": "CHK-0070",
+      "title": "Create MP speech analysis",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0071_Add MP attendance tracking": {
+      "id": "CHK-0071",
+      "title": "Add MP attendance tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0072_Implement MP comparison featur": {
+      "id": "CHK-0072",
+      "title": "Implement MP comparison feature",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0073_Create MP contact form": {
+      "id": "CHK-0073",
+      "title": "Create MP contact form",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0074_Add MP news aggregation": {
+      "id": "CHK-0074",
+      "title": "Add MP news aggregation",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0075_Implement MP constituency mapp": {
+      "id": "CHK-0075",
+      "title": "Implement MP constituency mapping",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0076_Create MP performance metrics": {
+      "id": "CHK-0076",
+      "title": "Create MP performance metrics",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0077_Add MP bill sponsorship tracki": {
+      "id": "CHK-0077",
+      "title": "Add MP bill sponsorship tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0078_Implement MP expense reporting": {
+      "id": "CHK-0078",
+      "title": "Implement MP expense reporting",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0079_Create MP timeline view": {
+      "id": "CHK-0079",
+      "title": "Create MP timeline view",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0080_Add MP endorsement tracking": {
+      "id": "CHK-0080",
+      "title": "Add MP endorsement tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0081_Complete bill status tracking ": {
+      "id": "CHK-0081",
+      "title": "Complete bill status tracking implementation",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0082_Add bill amendment tracking": {
+      "id": "CHK-0082",
+      "title": "Add bill amendment tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0083_Implement bill timeline visual": {
+      "id": "CHK-0083",
+      "title": "Implement bill timeline visualization",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0084_Create bill comparison feature": {
+      "id": "CHK-0084",
+      "title": "Create bill comparison feature",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0085_Add bill impact analysis": {
+      "id": "CHK-0085",
+      "title": "Add bill impact analysis",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0086_Implement bill notification sy": {
+      "id": "CHK-0086",
+      "title": "Implement bill notification system",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0087_Create bill voting predictions": {
+      "id": "CHK-0087",
+      "title": "Create bill voting predictions",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0088_Add bill sponsor analysis": {
+      "id": "CHK-0088",
+      "title": "Add bill sponsor analysis",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0089_Implement bill text search": {
       "id": "CHK-0089",
-      "title": "Implement global search with facets and filters",
+      "title": "Implement bill text search",
       "gate": "G2",
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0136_Complete LEGISinfo integration": {
+    "CHK-0090_Create bill export functionali": {
+      "id": "CHK-0090",
+      "title": "Create bill export functionality",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0091_Add bill sharing features": {
+      "id": "CHK-0091",
+      "title": "Add bill sharing features",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0092_Implement bill categorization": {
+      "id": "CHK-0092",
+      "title": "Implement bill categorization",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0093_Create bill recommendation eng": {
+      "id": "CHK-0093",
+      "title": "Create bill recommendation engine",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0094_Add bill progress alerts": {
+      "id": "CHK-0094",
+      "title": "Add bill progress alerts",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0095_Implement bill archival system": {
+      "id": "CHK-0095",
+      "title": "Implement bill archival system",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0096_Implement committee meeting sc": {
+      "id": "CHK-0096",
+      "title": "Implement committee meeting scheduler",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0097_Create committee document repo": {
+      "id": "CHK-0097",
+      "title": "Create committee document repository",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0098_Add committee member attendanc": {
+      "id": "CHK-0098",
+      "title": "Add committee member attendance",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0099_Implement committee report gen": {
+      "id": "CHK-0099",
+      "title": "Implement committee report generation",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0100_Create committee video archive": {
+      "id": "CHK-0100",
+      "title": "Create committee video archive",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0101_Add vote result visualization": {
+      "id": "CHK-0101",
+      "title": "Add vote result visualization",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0102_Implement vote prediction mode": {
+      "id": "CHK-0102",
+      "title": "Implement vote prediction model",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0103_Create vote comparison tools": {
+      "id": "CHK-0103",
+      "title": "Create vote comparison tools",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0104_Add vote notification system": {
+      "id": "CHK-0104",
+      "title": "Add vote notification system",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0105_Implement vote export features": {
+      "id": "CHK-0105",
+      "title": "Implement vote export features",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0106_Create debate transcript searc": {
+      "id": "CHK-0106",
+      "title": "Create debate transcript search",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0107_Add debate video timestamps": {
+      "id": "CHK-0107",
+      "title": "Add debate video timestamps",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0108_Implement debate speaker track": {
+      "id": "CHK-0108",
+      "title": "Implement debate speaker tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0109_Create debate summary generati": {
+      "id": "CHK-0109",
+      "title": "Create debate summary generation",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0110_Add debate sentiment analysis": {
+      "id": "CHK-0110",
+      "title": "Add debate sentiment analysis",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0111_Implement user preference mana": {
+      "id": "CHK-0111",
+      "title": "Implement user preference management",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0112_Create user dashboard customiz": {
+      "id": "CHK-0112",
+      "title": "Create user dashboard customization",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0113_Add user activity tracking": {
+      "id": "CHK-0113",
+      "title": "Add user activity tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0114_Implement user data export": {
+      "id": "CHK-0114",
+      "title": "Implement user data export",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0115_Create user notification prefe": {
+      "id": "CHK-0115",
+      "title": "Create user notification preferences",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0116_Add email alert templates": {
+      "id": "CHK-0116",
+      "title": "Add email alert templates",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0117_Implement SMS notifications": {
+      "id": "CHK-0117",
+      "title": "Implement SMS notifications",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0118_Create push notification syste": {
+      "id": "CHK-0118",
+      "title": "Create push notification system",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0119_Add alert frequency controls": {
+      "id": "CHK-0119",
+      "title": "Add alert frequency controls",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0120_Implement alert analytics": {
+      "id": "CHK-0120",
+      "title": "Implement alert analytics",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0121_Create data export scheduler": {
+      "id": "CHK-0121",
+      "title": "Create data export scheduler",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0122_Add export format options": {
+      "id": "CHK-0122",
+      "title": "Add export format options",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0123_Implement export compression": {
+      "id": "CHK-0123",
+      "title": "Implement export compression",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0124_Create export status tracking": {
+      "id": "CHK-0124",
+      "title": "Create export status tracking",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0125_Add export history management": {
+      "id": "CHK-0125",
+      "title": "Add export history management",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0126_Implement mobile API optimizat": {
+      "id": "CHK-0126",
+      "title": "Implement mobile API optimization",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0127_Create mobile offline mode": {
+      "id": "CHK-0127",
+      "title": "Create mobile offline mode",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0128_Add mobile push notifications": {
+      "id": "CHK-0128",
+      "title": "Add mobile push notifications",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0129_Implement mobile biometric aut": {
+      "id": "CHK-0129",
+      "title": "Implement mobile biometric auth",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0130_Create mobile app analytics": {
+      "id": "CHK-0130",
+      "title": "Create mobile app analytics",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0131_Add accessibility features": {
+      "id": "CHK-0131",
+      "title": "Add accessibility features",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0132_Implement multi-language suppo": {
+      "id": "CHK-0132",
+      "title": "Implement multi-language support",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0133_Create help documentation": {
+      "id": "CHK-0133",
+      "title": "Create help documentation",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0134_Add user onboarding flow": {
+      "id": "CHK-0134",
+      "title": "Add user onboarding flow",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0135_Complete LEGISinfo integration": {
+      "id": "CHK-0135",
+      "title": "Complete LEGISinfo integration",
+      "gate": "G2",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0136_Implement WebSocket infrastruc": {
       "id": "CHK-0136",
-      "title": "Complete LEGISinfo integration for bill synchronization",
-      "gate": "G2",
-      "runs_completed": 10,
-      "last_cycle": 10
-    },
-    "CHK-0137_Implement WebSocket infrastruc": {
-      "id": "CHK-0137",
       "title": "Implement WebSocket infrastructure for real-time updates",
       "gate": "G3",
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0179_Migrate legacy Canadian scrape": {
-      "id": "CHK-0179",
+    "CHK-0137_Create WebSocket authenticatio": {
+      "id": "CHK-0137",
+      "title": "Create WebSocket authentication and authorization",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0138_Add WebSocket connection pooli": {
+      "id": "CHK-0138",
+      "title": "Add WebSocket connection pooling",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0139_Implement WebSocket message qu": {
+      "id": "CHK-0139",
+      "title": "Implement WebSocket message queuing",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0140_Create WebSocket reconnection ": {
+      "id": "CHK-0140",
+      "title": "Create WebSocket reconnection logic",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0141_Add WebSocket event routing": {
+      "id": "CHK-0141",
+      "title": "Add WebSocket event routing",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0142_Implement WebSocket scaling st": {
+      "id": "CHK-0142",
+      "title": "Implement WebSocket scaling strategy",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0143_Create WebSocket monitoring": {
+      "id": "CHK-0143",
+      "title": "Create WebSocket monitoring",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0144_Add WebSocket error handling": {
+      "id": "CHK-0144",
+      "title": "Add WebSocket error handling",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0145_Implement WebSocket testing fr": {
+      "id": "CHK-0145",
+      "title": "Implement WebSocket testing framework",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0146_Implement service discovery me": {
+      "id": "CHK-0146",
+      "title": "Implement service discovery mechanism",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0147_Create inter-service authentic": {
+      "id": "CHK-0147",
+      "title": "Create inter-service authentication",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0148_Add service health monitoring": {
+      "id": "CHK-0148",
+      "title": "Add service health monitoring",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0149_Implement circuit breaker patt": {
+      "id": "CHK-0149",
+      "title": "Implement circuit breaker pattern",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0150_Create service versioning stra": {
+      "id": "CHK-0150",
+      "title": "Create service versioning strategy",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0151_Add distributed tracing": {
+      "id": "CHK-0151",
+      "title": "Add distributed tracing",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0152_Implement service mesh integra": {
+      "id": "CHK-0152",
+      "title": "Implement service mesh integration",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0153_Create service dependency mapp": {
+      "id": "CHK-0153",
+      "title": "Create service dependency mapping",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0154_Add service performance monito": {
+      "id": "CHK-0154",
+      "title": "Add service performance monitoring",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0155_Implement service rollback mec": {
+      "id": "CHK-0155",
+      "title": "Implement service rollback mechanism",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0156_Create API gateway routing rul": {
+      "id": "CHK-0156",
+      "title": "Create API gateway routing rules",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0157_Add API response caching": {
+      "id": "CHK-0157",
+      "title": "Add API response caching",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0158_Implement API rate limiting": {
+      "id": "CHK-0158",
+      "title": "Implement API rate limiting",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0159_Create API documentation porta": {
+      "id": "CHK-0159",
+      "title": "Create API documentation portal",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0160_Add API usage analytics": {
+      "id": "CHK-0160",
+      "title": "Add API usage analytics",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0161_Implement database connection ": {
+      "id": "CHK-0161",
+      "title": "Implement database connection pooling",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0162_Create database read replicas": {
+      "id": "CHK-0162",
+      "title": "Create database read replicas",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0163_Add database query optimizatio": {
+      "id": "CHK-0163",
+      "title": "Add database query optimization",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0164_Implement database backup auto": {
+      "id": "CHK-0164",
+      "title": "Implement database backup automation",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0165_Create database migration fram": {
+      "id": "CHK-0165",
+      "title": "Create database migration framework",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0166_Add database monitoring and al": {
+      "id": "CHK-0166",
+      "title": "Add database monitoring and alerting",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0167_Implement Redis caching strate": {
+      "id": "CHK-0167",
+      "title": "Implement Redis caching strategy",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0168_Create cache invalidation logi": {
+      "id": "CHK-0168",
+      "title": "Create cache invalidation logic",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0169_Add cache warming procedures": {
+      "id": "CHK-0169",
+      "title": "Add cache warming procedures",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0170_Implement distributed caching": {
+      "id": "CHK-0170",
+      "title": "Implement distributed caching",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0171_Create Elasticsearch mapping o": {
+      "id": "CHK-0171",
+      "title": "Create Elasticsearch mapping optimization",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0172_Add search index management": {
+      "id": "CHK-0172",
+      "title": "Add search index management",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0173_Implement search performance t": {
+      "id": "CHK-0173",
+      "title": "Implement search performance tuning",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0174_Create data archival strategy": {
+      "id": "CHK-0174",
+      "title": "Create data archival strategy",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0175_Add data retention policies": {
+      "id": "CHK-0175",
+      "title": "Add data retention policies",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0176_Migrate legacy Canadian scrape": {
+      "id": "CHK-0176",
       "title": "Migrate legacy Canadian scrapers to new framework",
       "gate": "G3",
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0183.1_Base scraper class with retry ": {
-      "id": "CHK-0183.1",
+    "CHK-0177_Implement Alberta provincial s": {
+      "id": "CHK-0177",
+      "title": "Implement Alberta provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0178_Implement British Columbia pro": {
+      "id": "CHK-0178",
+      "title": "Implement British Columbia provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0179_Implement Manitoba provincial ": {
+      "id": "CHK-0179",
+      "title": "Implement Manitoba provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0180_Implement New Brunswick provin": {
+      "id": "CHK-0180",
+      "title": "Implement New Brunswick provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0181_Implement Newfoundland and Lab": {
+      "id": "CHK-0181",
+      "title": "Implement Newfoundland and Labrador provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0182_Implement Northwest Territorie": {
+      "id": "CHK-0182",
+      "title": "Implement Northwest Territories provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0183_Implement Nova Scotia provinci": {
+      "id": "CHK-0183",
+      "title": "Implement Nova Scotia provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0184_Implement Nunavut provincial s": {
+      "id": "CHK-0184",
+      "title": "Implement Nunavut provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0185_Implement Ontario provincial s": {
+      "id": "CHK-0185",
+      "title": "Implement Ontario provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0186_Implement Prince Edward Island": {
+      "id": "CHK-0186",
+      "title": "Implement Prince Edward Island provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0187_Implement Quebec provincial sc": {
+      "id": "CHK-0187",
+      "title": "Implement Quebec provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0188_Implement Saskatchewan provinc": {
+      "id": "CHK-0188",
+      "title": "Implement Saskatchewan provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0189_Implement Yukon provincial scr": {
+      "id": "CHK-0189",
+      "title": "Implement Yukon provincial scraper",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0190_Base scraper class with retry ": {
+      "id": "CHK-0190",
       "title": "Base scraper class with retry logic",
       "gate": "G3",
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0202_Create comprehensive unit test": {
-      "id": "CHK-0202",
+    "CHK-0191_CSV data parser implementation": {
+      "id": "CHK-0191",
+      "title": "CSV data parser implementation",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0192_Person data normalizer": {
+      "id": "CHK-0192",
+      "title": "Person data normalizer",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0193_Contact info extractor": {
+      "id": "CHK-0193",
+      "title": "Contact info extractor",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0194_Photo downloader with caching": {
+      "id": "CHK-0194",
+      "title": "Photo downloader with caching",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0195_Social media link resolver": {
+      "id": "CHK-0195",
+      "title": "Social media link resolver",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0196_Duplicate detection system": {
+      "id": "CHK-0196",
+      "title": "Duplicate detection system",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0197_Data validation framework": {
+      "id": "CHK-0197",
+      "title": "Data validation framework",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0198_Scraper scheduling system": {
+      "id": "CHK-0198",
+      "title": "Scraper scheduling system",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0199_Error reporting and monitoring": {
+      "id": "CHK-0199",
+      "title": "Error reporting and monitoring",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0200_Scraper performance optimizati": {
+      "id": "CHK-0200",
+      "title": "Scraper performance optimization",
+      "gate": "G3",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0201_Create comprehensive unit test": {
+      "id": "CHK-0201",
       "title": "Create comprehensive unit test suite for API Gateway",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0202_Implement unit tests for ETL s": {
+      "id": "CHK-0202",
+      "title": "Implement unit tests for ETL service",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0203_Add unit tests for User servic": {
+      "id": "CHK-0203",
+      "title": "Add unit tests for User service",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0204_Create unit tests for Admin se": {
+      "id": "CHK-0204",
+      "title": "Create unit tests for Admin service",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0205_Implement unit tests for all m": {
+      "id": "CHK-0205",
+      "title": "Implement unit tests for all models",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0206_Add unit tests for all utiliti": {
+      "id": "CHK-0206",
+      "title": "Add unit tests for all utilities",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0207_Create unit tests for WebSocke": {
+      "id": "CHK-0207",
+      "title": "Create unit tests for WebSocket handlers",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0208_Implement unit tests for cache": {
+      "id": "CHK-0208",
+      "title": "Implement unit tests for cache layer",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0209_Add unit tests for search func": {
+      "id": "CHK-0209",
+      "title": "Add unit tests for search functionality",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0210_Create unit tests for authenti": {
+      "id": "CHK-0210",
+      "title": "Create unit tests for authentication",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0211_Implement unit tests for scrap": {
+      "id": "CHK-0211",
+      "title": "Implement unit tests for scrapers",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0212_Add unit tests for data valida": {
+      "id": "CHK-0212",
+      "title": "Add unit tests for data validators",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0213_Create unit tests for email se": {
+      "id": "CHK-0213",
+      "title": "Create unit tests for email service",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0214_Implement unit tests for expor": {
+      "id": "CHK-0214",
+      "title": "Implement unit tests for export service",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0215_Add unit tests for mobile API": {
+      "id": "CHK-0215",
+      "title": "Add unit tests for mobile API",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0216_Create API integration test su": {
+      "id": "CHK-0216",
+      "title": "Create API integration test suite",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0217_Implement database integration": {
+      "id": "CHK-0217",
+      "title": "Implement database integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0218_Add cache integration tests": {
+      "id": "CHK-0218",
+      "title": "Add cache integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0219_Create search integration test": {
+      "id": "CHK-0219",
+      "title": "Create search integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0220_Implement service-to-service t": {
+      "id": "CHK-0220",
+      "title": "Implement service-to-service tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0221_Add external API integration t": {
+      "id": "CHK-0221",
+      "title": "Add external API integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0222_Create WebSocket integration t": {
+      "id": "CHK-0222",
+      "title": "Create WebSocket integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0223_Implement email delivery tests": {
+      "id": "CHK-0223",
+      "title": "Implement email delivery tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0224_Add file storage integration t": {
+      "id": "CHK-0224",
+      "title": "Add file storage integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0225_Create authentication flow tes": {
+      "id": "CHK-0225",
+      "title": "Create authentication flow tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0226_Implement data pipeline tests": {
+      "id": "CHK-0226",
+      "title": "Implement data pipeline tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0227_Add monitoring integration tes": {
+      "id": "CHK-0227",
+      "title": "Add monitoring integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0228_Create deployment integration ": {
+      "id": "CHK-0228",
+      "title": "Create deployment integration tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0229_Implement rollback scenario te": {
+      "id": "CHK-0229",
+      "title": "Implement rollback scenario tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0230_Add multi-service transaction ": {
+      "id": "CHK-0230",
+      "title": "Add multi-service transaction tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0231_Create end-to-end test scenari": {
+      "id": "CHK-0231",
+      "title": "Create end-to-end test scenarios",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0232_Implement user journey tests": {
+      "id": "CHK-0232",
+      "title": "Implement user journey tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0233_Add cross-browser testing": {
+      "id": "CHK-0233",
+      "title": "Add cross-browser testing",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0234_Create mobile app E2E tests": {
+      "id": "CHK-0234",
+      "title": "Create mobile app E2E tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0235_Implement accessibility tests": {
+      "id": "CHK-0235",
+      "title": "Implement accessibility tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0236_Add performance test suite": {
+      "id": "CHK-0236",
+      "title": "Add performance test suite",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0237_Create load testing scenarios": {
+      "id": "CHK-0237",
+      "title": "Create load testing scenarios",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0238_Implement stress testing": {
+      "id": "CHK-0238",
+      "title": "Implement stress testing",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0239_Add scalability tests": {
+      "id": "CHK-0239",
+      "title": "Add scalability tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0240_Create security test suite": {
+      "id": "CHK-0240",
+      "title": "Create security test suite",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0241_Implement penetration testing": {
+      "id": "CHK-0241",
+      "title": "Implement penetration testing",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0242_Add vulnerability scanning": {
+      "id": "CHK-0242",
+      "title": "Add vulnerability scanning",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0243_Create chaos engineering tests": {
+      "id": "CHK-0243",
+      "title": "Create chaos engineering tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0244_Implement disaster recovery te": {
+      "id": "CHK-0244",
+      "title": "Implement disaster recovery tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0245_Add data integrity tests": {
+      "id": "CHK-0245",
+      "title": "Add data integrity tests",
       "gate": "G4",
       "runs_completed": 10,
       "last_cycle": 10
@@ -92,35 +1723,553 @@
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0262_Set up monitoring and alerting": {
-      "id": "CHK-0262",
+    "CHK-0247_Create API contract validation": {
+      "id": "CHK-0247",
+      "title": "Create API contract validation",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0248_Add schema validation tests": {
+      "id": "CHK-0248",
+      "title": "Add schema validation tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0249_Implement backwards compatibil": {
+      "id": "CHK-0249",
+      "title": "Implement backwards compatibility tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0250_Create code quality checks": {
+      "id": "CHK-0250",
+      "title": "Create code quality checks",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0251_Add static code analysis": {
+      "id": "CHK-0251",
+      "title": "Add static code analysis",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0252_Implement security scanning": {
+      "id": "CHK-0252",
+      "title": "Implement security scanning",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0253_Create dependency vulnerabilit": {
+      "id": "CHK-0253",
+      "title": "Create dependency vulnerability checks",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0254_Add license compliance checks": {
+      "id": "CHK-0254",
+      "title": "Add license compliance checks",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0255_Implement documentation tests": {
+      "id": "CHK-0255",
+      "title": "Implement documentation tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0256_Create API documentation valid": {
+      "id": "CHK-0256",
+      "title": "Create API documentation validation",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0257_Add configuration validation t": {
+      "id": "CHK-0257",
+      "title": "Add configuration validation tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0258_Implement infrastructure tests": {
+      "id": "CHK-0258",
+      "title": "Implement infrastructure tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0259_Create monitoring coverage tes": {
+      "id": "CHK-0259",
+      "title": "Create monitoring coverage tests",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0260_Add test coverage reporting": {
+      "id": "CHK-0260",
+      "title": "Add test coverage reporting",
+      "gate": "G4",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0261_Set up monitoring and alerting": {
+      "id": "CHK-0261",
       "title": "Set up monitoring and alerting infrastructure",
       "gate": "G5",
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0300_Create disaster recovery proce": {
-      "id": "CHK-0300",
+    "CHK-0262_Implement application metrics ": {
+      "id": "CHK-0262",
+      "title": "Implement application metrics collection",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0263_Create custom Grafana dashboar": {
+      "id": "CHK-0263",
+      "title": "Create custom Grafana dashboards",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0264_Add log aggregation and analys": {
+      "id": "CHK-0264",
+      "title": "Add log aggregation and analysis",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0265_Implement distributed tracing": {
+      "id": "CHK-0265",
+      "title": "Implement distributed tracing",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0266_Create SLI/SLO monitoring": {
+      "id": "CHK-0266",
+      "title": "Create SLI/SLO monitoring",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0267_Add error tracking and reporti": {
+      "id": "CHK-0267",
+      "title": "Add error tracking and reporting",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0268_Implement performance monitori": {
+      "id": "CHK-0268",
+      "title": "Implement performance monitoring",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0269_Create business metrics dashbo": {
+      "id": "CHK-0269",
+      "title": "Create business metrics dashboards",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0270_Add synthetic monitoring": {
+      "id": "CHK-0270",
+      "title": "Add synthetic monitoring",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0271_Implement uptime monitoring": {
+      "id": "CHK-0271",
+      "title": "Implement uptime monitoring",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0272_Create capacity planning metri": {
+      "id": "CHK-0272",
+      "title": "Create capacity planning metrics",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0273_Add cost monitoring and optimi": {
+      "id": "CHK-0273",
+      "title": "Add cost monitoring and optimization",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0274_Implement security monitoring": {
+      "id": "CHK-0274",
+      "title": "Implement security monitoring",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0275_Create incident response autom": {
+      "id": "CHK-0275",
+      "title": "Create incident response automation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0276_Create deployment automation s": {
+      "id": "CHK-0276",
+      "title": "Create deployment automation scripts",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0277_Implement blue-green deploymen": {
+      "id": "CHK-0277",
+      "title": "Implement blue-green deployment",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0278_Add canary deployment capabili": {
+      "id": "CHK-0278",
+      "title": "Add canary deployment capability",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0279_Create rollback procedures": {
+      "id": "CHK-0279",
+      "title": "Create rollback procedures",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0280_Implement configuration manage": {
+      "id": "CHK-0280",
+      "title": "Implement configuration management",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0281_Add secret rotation automation": {
+      "id": "CHK-0281",
+      "title": "Add secret rotation automation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0282_Create environment provisionin": {
+      "id": "CHK-0282",
+      "title": "Create environment provisioning",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0283_Implement auto-scaling policie": {
+      "id": "CHK-0283",
+      "title": "Implement auto-scaling policies",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0284_Add load balancer configuratio": {
+      "id": "CHK-0284",
+      "title": "Add load balancer configuration",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0285_Create CDN configuration": {
+      "id": "CHK-0285",
+      "title": "Create CDN configuration",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0286_Implement SSL certificate mana": {
+      "id": "CHK-0286",
+      "title": "Implement SSL certificate management",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0287_Add DNS management automation": {
+      "id": "CHK-0287",
+      "title": "Add DNS management automation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0288_Create backup automation": {
+      "id": "CHK-0288",
+      "title": "Create backup automation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0289_Implement disaster recovery pr": {
+      "id": "CHK-0289",
+      "title": "Implement disaster recovery procedures",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0290_Add multi-region deployment": {
+      "id": "CHK-0290",
+      "title": "Add multi-region deployment",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0291_Create user documentation": {
+      "id": "CHK-0291",
+      "title": "Create user documentation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0292_Write API documentation": {
+      "id": "CHK-0292",
+      "title": "Write API documentation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0293_Create operations runbooks": {
+      "id": "CHK-0293",
+      "title": "Create operations runbooks",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0294_Write troubleshooting guides": {
+      "id": "CHK-0294",
+      "title": "Write troubleshooting guides",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0295_Create architecture documentat": {
+      "id": "CHK-0295",
+      "title": "Create architecture documentation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0296_Write security documentation": {
+      "id": "CHK-0296",
+      "title": "Write security documentation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0297_Create training materials": {
+      "id": "CHK-0297",
+      "title": "Create training materials",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0298_Write onboarding guides": {
+      "id": "CHK-0298",
+      "title": "Write onboarding guides",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0299_Create disaster recovery proce": {
+      "id": "CHK-0299",
       "title": "Create disaster recovery procedures",
       "gate": "G5",
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0318_Implement Debates API endpoint": {
-      "id": "CHK-0318",
+    "CHK-0300_Design feature flag system arc": {
+      "id": "CHK-0300",
+      "title": "Design feature flag system architecture",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0301_Implement feature flag service": {
+      "id": "CHK-0301",
+      "title": "Implement feature flag service",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0302_Create feature flag SDK for Py": {
+      "id": "CHK-0302",
+      "title": "Create feature flag SDK for Python",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0303_Create feature flag SDK for Ja": {
+      "id": "CHK-0303",
+      "title": "Create feature flag SDK for JavaScript",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0304_Add feature flag admin UI": {
+      "id": "CHK-0304",
+      "title": "Add feature flag admin UI",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0305_Implement user targeting": {
+      "id": "CHK-0305",
+      "title": "Implement user targeting",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0306_Add percentage rollouts": {
+      "id": "CHK-0306",
+      "title": "Add percentage rollouts",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0307_Create A/B testing framework": {
+      "id": "CHK-0307",
+      "title": "Create A/B testing framework",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0308_Add feature flag analytics": {
+      "id": "CHK-0308",
+      "title": "Add feature flag analytics",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0309_Implement flag inheritance": {
+      "id": "CHK-0309",
+      "title": "Implement flag inheritance",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0310_Create flag lifecycle manageme": {
+      "id": "CHK-0310",
+      "title": "Create flag lifecycle management",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0311_Add flag audit logging": {
+      "id": "CHK-0311",
+      "title": "Add flag audit logging",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0312_Implement emergency kill switc": {
+      "id": "CHK-0312",
+      "title": "Implement emergency kill switches",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0313_Create flag performance monito": {
+      "id": "CHK-0313",
+      "title": "Create flag performance monitoring",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0314_Add flag documentation": {
+      "id": "CHK-0314",
+      "title": "Add flag documentation",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0315_Implement flag testing framewo": {
+      "id": "CHK-0315",
+      "title": "Implement flag testing framework",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0316_Create flag migration tools": {
+      "id": "CHK-0316",
+      "title": "Create flag migration tools",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0317_Implement Debates API endpoint": {
+      "id": "CHK-0317",
       "title": "Implement Debates API endpoints",
       "gate": "G5",
       "runs_completed": 10,
       "last_cycle": 10
     },
-    "CHK-0325_Final production readiness rev": {
-      "id": "CHK-0325",
+    "CHK-0318_Implement Debates detail endpo": {
+      "id": "CHK-0318",
+      "title": "Implement Debates detail endpoint",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0319_Implement Analytics API for me": {
+      "id": "CHK-0319",
+      "title": "Implement Analytics API for members",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0320_Implement Analytics API for bi": {
+      "id": "CHK-0320",
+      "title": "Implement Analytics API for bills",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0321_Implement Analytics API for vo": {
+      "id": "CHK-0321",
+      "title": "Implement Analytics API for votes",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0322_Implement User profile managem": {
+      "id": "CHK-0322",
+      "title": "Implement User profile management GET",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0323_Implement User profile managem": {
+      "id": "CHK-0323",
+      "title": "Implement User profile management PUT",
+      "gate": "G5",
+      "runs_completed": 10,
+      "last_cycle": 10
+    },
+    "CHK-0324_Final production readiness rev": {
+      "id": "CHK-0324",
       "title": "Final production readiness review",
       "gate": "G5",
       "runs_completed": 10,
       "last_cycle": 10
     }
   },
-  "total_items": 17,
-  "last_updated": "2025-08-23T18:40:41.255995"
+  "total_items": 324,
+  "last_updated": "2025-08-23T18:53:40.759580"
 }

@@ -1,6 +1,6 @@
 {
-  "generated_at": "2025-08-23T18:05:25.142050",
-  "pass_number": 20,
+  "generated_at": "2025-08-23T18:57:48.505760",
+  "pass_number": 2,
   "reports_generated": [
     {
       "name": "ENVIRONMENT_AUDIT.json",
@@ -10,7 +10,7 @@
     {
       "name": "multi_loop_results.json",
       "path": "reports/multi_loop_results.json",
-      "size": 46548
+      "size": 99060
     },
     {
       "name": "routing_realignment.json",
@@ -21,6 +21,11 @@
       "name": "organizer_manifest.json",
       "path": "reports/organizer_manifest.json",
       "size": 6075
+    },
+    {
+      "name": "todo_state.json",
+      "path": "reports/todo_state.json",
+      "size": 65484
     },
     {
       "name": "execution_plan.json",
@@ -40,7 +45,7 @@
     {
       "name": "VAR_FUNC_MAP.json",
       "path": "reports/VAR_FUNC_MAP.json",
-      "size": 12321951
+      "size": 15641888
     },
     {
       "name": "DATA_JOURNEY_MAP.json",
@@ -48,14 +53,34 @@
       "size": 443950
     },
     {
+      "name": "todo_summary.md",
+      "path": "reports/todo_summary.md",
+      "size": 580
+    },
+    {
       "name": "legacy_vs_current_diff.md",
       "path": "reports/legacy_vs_current_diff.md",
-      "size": 5257
+      "size": 9053
+    },
+    {
+      "name": "todo_cycle_report_cycle9.md",
+      "path": "reports/todo_cycle_report_cycle9.md",
+      "size": 961
     },
     {
       "name": "MULTI_LOOP_SUMMARY.md",
       "path": "reports/MULTI_LOOP_SUMMARY.md",
-      "size": 810
+      "size": 1497
+    },
+    {
+      "name": "todo_cycle_report_cycle6.md",
+      "path": "reports/todo_cycle_report_cycle6.md",
+      "size": 961
+    },
+    {
+      "name": "todo_cycle_report_cycle2.md",
+      "path": "reports/todo_cycle_report_cycle2.md",
+      "size": 960
     },
     {
       "name": "BUG_AUDIT.md",
@@ -68,9 +93,59 @@
       "size": 11444
     },
     {
+      "name": "todo_cycle_report_cycle3.md",
+      "path": "reports/todo_cycle_report_cycle3.md",
+      "size": 960
+    },
+    {
+      "name": "COMPREHENSIVE_ALIGNMENT_REPORT.md",
+      "path": "reports/COMPREHENSIVE_ALIGNMENT_REPORT.md",
+      "size": 6310
+    },
+    {
+      "name": "todo_cycle_report_cycle4.md",
+      "path": "reports/todo_cycle_report_cycle4.md",
+      "size": 960
+    },
+    {
+      "name": "todo_cycle_report_cycle5.md",
+      "path": "reports/todo_cycle_report_cycle5.md",
+      "size": 961
+    },
+    {
+      "name": "ENV_BUG_DATA_AUDIT.md",
+      "path": "reports/ENV_BUG_DATA_AUDIT.md",
+      "size": 2519
+    },
+    {
+      "name": "todo_cycle_report_cycle7.md",
+      "path": "reports/todo_cycle_report_cycle7.md",
+      "size": 961
+    },
+    {
+      "name": "todo_cycle_report_cycle8.md",
+      "path": "reports/todo_cycle_report_cycle8.md",
+      "size": 961
+    },
+    {
+      "name": "TODO_ENHANCEMENT_FINAL_REPORT.md",
+      "path": "reports/TODO_ENHANCEMENT_FINAL_REPORT.md",
+      "size": 3276
+    },
+    {
+      "name": "todo_cycle_report_cycle10.md",
+      "path": "reports/todo_cycle_report_cycle10.md",
+      "size": 964
+    },
+    {
       "name": "ENVIRONMENT_AUDIT.md",
       "path": "reports/ENVIRONMENT_AUDIT.md",
       "size": 1869
+    },
+    {
+      "name": "todo_cycle_report_cycle1.md",
+      "path": "reports/todo_cycle_report_cycle1.md",
+      "size": 959
     }
   ],
   "documents_created": [
@@ -78,6 +153,11 @@
       "name": "FLOW_DESIGN.md",
       "path": "docs/plan/FLOW_DESIGN.md",
       "size": 34346
+    },
+    {
+      "name": "FEATURE_ACTIVITY_MAP.md",
+      "path": "docs/plan/FEATURE_ACTIVITY_MAP.md",
+      "size": 13537
     },
     {
       "name": "ROUTING_REALIGNMENT.md",
@@ -103,6 +183,31 @@
       "name": "OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
       "path": "docs/plan/OPENPOLICY_V2_SOURCE_OF_TRUTH.md",
       "size": 7101
+    },
+    {
+      "name": "DATA_CYCLE_MAP.md",
+      "path": "docs/plan/DATA_CYCLE_MAP.md",
+      "size": 9271
+    },
+    {
+      "name": "ARCH_DECISIONS.md",
+      "path": "docs/plan/ARCH_DECISIONS.md",
+      "size": 9623
+    },
+    {
+      "name": "IMPLEMENTATION_CHECKLIST.md",
+      "path": "docs/plan/IMPLEMENTATION_CHECKLIST.md",
+      "size": 165813
+    },
+    {
+      "name": "ARCH_BLUEPRINT.md",
+      "path": "docs/plan/ARCH_BLUEPRINT.md",
+      "size": 12346
+    },
+    {
+      "name": "IMPLEMENTATION_CHECKLIST_OLD.md",
+      "path": "docs/plan/IMPLEMENTATION_CHECKLIST_OLD.md",
+      "size": 393089
     }
   ],
   "alignment_summary": {
