@@ -1,0 +1,1030 @@
+{
+  "timestamp": "2025-08-22T22:24:43.752785",
+  "legacy_features": [
+    {
+      "name": "Audit",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565420"
+    },
+    {
+      "name": "INVENTORY",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565428"
+    },
+    {
+      "name": "Categorization**: Systematic organization of features by type and functionality",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565429"
+    },
+    {
+      "name": "from recent debates ('c-5' was highlighted)",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565429"
+    },
+    {
+      "name": "23. Recent activity timeline and speech tracking",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565430"
+    },
+    {
+      "name": "highlighting key debate topics",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565431"
+    },
+    {
+      "name": "documentation",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565431"
+    },
+    {
+      "name": "and architecture guides",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565432"
+    },
+    {
+      "name": "overview** (109 features vs current 13)",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565433"
+    },
+    {
+      "name": "usage",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565433"
+    },
+    {
+      "name": "set",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565434"
+    },
+    {
+      "name": "codebase",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565435"
+    },
+    {
+      "name": "screenshots** and usage examples",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565435"
+    },
+    {
+      "name": "platform",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565436"
+    },
+    {
+      "name": "Audit",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565493"
+    },
+    {
+      "name": "INVENTORY",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565494"
+    },
+    {
+      "name": "Categorization**: Systematic organization of features by type and functionality",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565494"
+    },
+    {
+      "name": "from recent debates ('c-5' was highlighted)",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565495"
+    },
+    {
+      "name": "23. Recent activity timeline and speech tracking",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565496"
+    },
+    {
+      "name": "highlighting key debate topics",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565496"
+    },
+    {
+      "name": "documentation",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565497"
+    },
+    {
+      "name": "and architecture guides",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565498"
+    },
+    {
+      "name": "overview** (109 features vs current 13)",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565498"
+    },
+    {
+      "name": "usage",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565499"
+    },
+    {
+      "name": "set",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565499"
+    },
+    {
+      "name": "codebase",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565500"
+    },
+    {
+      "name": "screenshots** and usage examples",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565501"
+    },
+    {
+      "name": "platform",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565501"
+    },
+    {
+      "name": "- **Gap Analysis**: Identification of missing documentation and implementation details",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565557"
+    },
+    {
+      "name": "3. Search refinement by MP, party, committee, province, result type",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565557"
+    },
+    {
+      "name": "across all historical debates",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565558"
+    },
+    {
+      "name": "undocumented)",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565558"
+    },
+    {
+      "name": "is completely undocumented in the GitHub repository.",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565559"
+    },
+    {
+      "name": "undocumented",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565560"
+    },
+    {
+      "name": "- **Gap Analysis**: Identification of missing documentation and implementation details",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565615"
+    },
+    {
+      "name": "3. Search refinement by MP, party, committee, province, result type",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565615"
+    },
+    {
+      "name": "across all historical debates",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565616"
+    },
+    {
+      "name": "undocumented)",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565617"
+    },
+    {
+      "name": "is completely undocumented in the GitHub repository.",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565617"
+    },
+    {
+      "name": "undocumented",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565618"
+    },
+    {
+      "name": "from https://openparliament.ca/data-download/",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565676"
+    },
+    {
+      "name": "from https://openparliament.ca/data-download/",
+      "source_file": "legacy/openparliament/FeaturesAudit.md",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.565735"
+    },
+    {
+      "name": "where user-provided data is saved",
+      "source_file": "legacy/openparliament/parliament/default_settings.py",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.566661"
+    },
+    {
+      "name": "where user-provided data is saved",
+      "source_file": "legacy/openparliament/parliament/default_settings.py",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.566689"
+    },
+    {
+      "name": "is down.",
+      "source_file": "legacy/openparliament/parliament/core/views.py",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.569740"
+    },
+    {
+      "name": "is down.",
+      "source_file": "legacy/openparliament/parliament/core/views.py",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.569757"
+    },
+    {
+      "name": "to.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/foundation.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.596750"
+    },
+    {
+      "name": "to.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/foundation.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.598064"
+    },
+    {
+      "name": "to.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/plugins/foundation.responsiveToggle.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.618243"
+    },
+    {
+      "name": "to.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/plugins/foundation.responsiveToggle.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.618272"
+    },
+    {
+      "name": "to.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/js/foundation.responsiveToggle.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.630140"
+    },
+    {
+      "name": "to.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/js/foundation.responsiveToggle.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.630165"
+    },
+    {
+      "name": "for filter and not",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/jquery.1.11.3.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.641562"
+    },
+    {
+      "name": "for filter and not",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/jquery.1.11.3.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.642700"
+    },
+    {
+      "name": "of QUnit.start() will be altered in QUnit 2.0.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/qunit/qunit.1.19.0.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.648294"
+    },
+    {
+      "name": "of QUnit.start() will be altered in QUnit 2.0.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/qunit/qunit.1.19.0.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.648791"
+    },
+    {
+      "name": "detection.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.660800"
+    },
+    {
+      "name": "detection.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.662781"
+    },
+    {
+      "name": "@return  jQuery object */",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.664766"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.664767"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.664768"
+    },
+    {
+      "name": "of a native HTML select element, allowing it to be customizable in behavior and appearance far beyond the limitations of a native select.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.664769"
+    },
+    {
+      "name": "@return  jQuery object */",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.666689"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.666690"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.666691"
+    },
+    {
+      "name": "of a native HTML select element, allowing it to be customizable in behavior and appearance far beyond the limitations of a native select.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.666691"
+    },
+    {
+      "name": "detection.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/jquery-1-7.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.673764"
+    },
+    {
+      "name": "detection.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/jquery-1-7.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.673782"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/draggable.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.678656"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/draggable.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.678798"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/resizable.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.681733"
+    },
+    {
+      "name": "for any element.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/resizable.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.681850"
+    },
+    {
+      "name": "of a native HTML select element, allowing it to be customizable in behavior and appearance far beyond the limitations of a native select.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/selectmenu.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.683711"
+    },
+    {
+      "name": "of a native HTML select element, allowing it to be customizable in behavior and appearance far beyond the limitations of a native select.",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/selectmenu.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.683775"
+    },
+    {
+      "name": "@return  jQuery object */",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/datepicker.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.687172"
+    },
+    {
+      "name": "@return  jQuery object */",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/datepicker.js",
+      "source_dir": "legacy/openparliament",
+      "extracted_at": "2025-08-22T22:24:43.687476"
+    },
+    {
+      "name": "throughout the app",
+      "source_file": "legacy/open-policy/context/AlertProvider.js",
+      "source_dir": "legacy/open-policy",
+      "extracted_at": "2025-08-22T22:24:43.705699"
+    },
+    {
+      "name": "throughout the app",
+      "source_file": "legacy/open-policy/context/AlertProvider.js",
+      "source_dir": "legacy/open-policy",
+      "extracted_at": "2025-08-22T22:24:43.705750"
+    },
+    {
+      "name": "throughout the app",
+      "source_file": "legacy/open-policy-app/context/AlertProvider.js",
+      "source_dir": "legacy/open-policy-app",
+      "extracted_at": "2025-08-22T22:24:43.710112"
+    },
+    {
+      "name": "throughout the app",
+      "source_file": "legacy/open-policy-app/context/AlertProvider.js",
+      "source_dir": "legacy/open-policy-app",
+      "extracted_at": "2025-08-22T22:24:43.710160"
+    },
+    {
+      "name": "requests, and feedback are greatly welcomed.",
+      "source_file": "legacy/represent-canada/README.md",
+      "source_dir": "legacy/represent-canada",
+      "extracted_at": "2025-08-22T22:24:43.715217"
+    },
+    {
+      "name": "requests, and feedback are greatly welcomed.",
+      "source_file": "legacy/represent-canada/README.md",
+      "source_dir": "legacy/represent-canada",
+      "extracted_at": "2025-08-22T22:24:43.715235"
+    },
+    {
+      "name": "group.",
+      "source_file": "legacy/represent-canada/finder/static/js/demo.js",
+      "source_dir": "legacy/represent-canada",
+      "extracted_at": "2025-08-22T22:24:43.717295"
+    },
+    {
+      "name": "group.",
+      "source_file": "legacy/represent-canada/finder/static/js/demo.js",
+      "source_dir": "legacy/represent-canada",
+      "extracted_at": "2025-08-22T22:24:43.717325"
+    },
+    {
+      "name": "isn't a good fit for fake-Host-header",
+      "source_file": "legacy/represent-canada/represent/default_settings.py",
+      "source_dir": "legacy/represent-canada",
+      "extracted_at": "2025-08-22T22:24:43.718711"
+    },
+    {
+      "name": "isn't a good fit for fake-Host-header",
+      "source_file": "legacy/represent-canada/represent/default_settings.py",
+      "source_dir": "legacy/represent-canada",
+      "extracted_at": "2025-08-22T22:24:43.718726"
+    },
+    {
+      "name": "requests, and feedback are greatly welcomed.",
+      "source_file": "legacy/scrapers-ca/README.md",
+      "source_dir": "legacy/scrapers-ca",
+      "extracted_at": "2025-08-22T22:24:43.720508"
+    },
+    {
+      "name": "requests, and feedback are greatly welcomed.",
+      "source_file": "legacy/scrapers-ca/README.md",
+      "source_dir": "legacy/scrapers-ca",
+      "extracted_at": "2025-08-22T22:24:43.720524"
+    }
+  ],
+  "current_features": [
+    {
+      "name": "Placeholder Feature",
+      "source": "current_feature_mapping",
+      "extracted_at": "2025-08-22T22:24:43.752777"
+    },
+    {
+      "name": "Fields",
+      "source": "current_feature_mapping",
+      "extracted_at": "2025-08-22T22:24:43.752782"
+    }
+  ],
+  "feature_mapping": {
+    "legacy_to_current": {
+      "Categorization**: Systematic organization of features by type and functionality": "Placeholder Feature",
+      "overview** (109 features vs current 13)": "Placeholder Feature",
+      "of a native HTML select element, allowing it to be customizable in behavior and appearance far beyond the limitations of a native select.": "Placeholder Feature",
+      "isn't a good fit for fake-Host-header": "Placeholder Feature"
+    },
+    "unmatched_legacy": [
+      {
+        "name": "Audit",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565420"
+      },
+      {
+        "name": "INVENTORY",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565428"
+      },
+      {
+        "name": "from recent debates ('c-5' was highlighted)",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565429"
+      },
+      {
+        "name": "23. Recent activity timeline and speech tracking",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565430"
+      },
+      {
+        "name": "highlighting key debate topics",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565431"
+      },
+      {
+        "name": "documentation",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565431"
+      },
+      {
+        "name": "and architecture guides",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565432"
+      },
+      {
+        "name": "usage",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565433"
+      },
+      {
+        "name": "set",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565434"
+      },
+      {
+        "name": "codebase",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565435"
+      },
+      {
+        "name": "screenshots** and usage examples",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565435"
+      },
+      {
+        "name": "platform",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565436"
+      },
+      {
+        "name": "Audit",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565493"
+      },
+      {
+        "name": "INVENTORY",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565494"
+      },
+      {
+        "name": "from recent debates ('c-5' was highlighted)",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565495"
+      },
+      {
+        "name": "23. Recent activity timeline and speech tracking",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565496"
+      },
+      {
+        "name": "highlighting key debate topics",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565496"
+      },
+      {
+        "name": "documentation",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565497"
+      },
+      {
+        "name": "and architecture guides",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565498"
+      },
+      {
+        "name": "usage",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565499"
+      },
+      {
+        "name": "set",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565499"
+      },
+      {
+        "name": "codebase",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565500"
+      },
+      {
+        "name": "screenshots** and usage examples",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565501"
+      },
+      {
+        "name": "platform",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565501"
+      },
+      {
+        "name": "- **Gap Analysis**: Identification of missing documentation and implementation details",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565557"
+      },
+      {
+        "name": "3. Search refinement by MP, party, committee, province, result type",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565557"
+      },
+      {
+        "name": "across all historical debates",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565558"
+      },
+      {
+        "name": "undocumented)",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565558"
+      },
+      {
+        "name": "is completely undocumented in the GitHub repository.",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565559"
+      },
+      {
+        "name": "undocumented",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565560"
+      },
+      {
+        "name": "- **Gap Analysis**: Identification of missing documentation and implementation details",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565615"
+      },
+      {
+        "name": "3. Search refinement by MP, party, committee, province, result type",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565615"
+      },
+      {
+        "name": "across all historical debates",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565616"
+      },
+      {
+        "name": "undocumented)",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565617"
+      },
+      {
+        "name": "is completely undocumented in the GitHub repository.",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565617"
+      },
+      {
+        "name": "undocumented",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565618"
+      },
+      {
+        "name": "from https://openparliament.ca/data-download/",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565676"
+      },
+      {
+        "name": "from https://openparliament.ca/data-download/",
+        "source_file": "legacy/openparliament/FeaturesAudit.md",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.565735"
+      },
+      {
+        "name": "where user-provided data is saved",
+        "source_file": "legacy/openparliament/parliament/default_settings.py",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.566661"
+      },
+      {
+        "name": "where user-provided data is saved",
+        "source_file": "legacy/openparliament/parliament/default_settings.py",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.566689"
+      },
+      {
+        "name": "is down.",
+        "source_file": "legacy/openparliament/parliament/core/views.py",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.569740"
+      },
+      {
+        "name": "is down.",
+        "source_file": "legacy/openparliament/parliament/core/views.py",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.569757"
+      },
+      {
+        "name": "to.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/foundation.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.596750"
+      },
+      {
+        "name": "to.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/foundation.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.598064"
+      },
+      {
+        "name": "to.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/plugins/foundation.responsiveToggle.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.618243"
+      },
+      {
+        "name": "to.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/dist/js/plugins/foundation.responsiveToggle.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.618272"
+      },
+      {
+        "name": "to.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/js/foundation.responsiveToggle.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.630140"
+      },
+      {
+        "name": "to.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/js/foundation.responsiveToggle.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.630165"
+      },
+      {
+        "name": "for filter and not",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/jquery.1.11.3.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.641562"
+      },
+      {
+        "name": "for filter and not",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/jquery.1.11.3.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.642700"
+      },
+      {
+        "name": "of QUnit.start() will be altered in QUnit 2.0.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/qunit/qunit.1.19.0.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.648294"
+      },
+      {
+        "name": "of QUnit.start() will be altered in QUnit 2.0.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-expander/test/qunit/qunit.1.19.0.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.648791"
+      },
+      {
+        "name": "detection.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.660800"
+      },
+      {
+        "name": "detection.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.662781"
+      },
+      {
+        "name": "@return  jQuery object */",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.664766"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.664767"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.664768"
+      },
+      {
+        "name": "@return  jQuery object */",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.666689"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.666690"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/jquery-ui.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.666691"
+      },
+      {
+        "name": "detection.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/jquery-1-7.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.673764"
+      },
+      {
+        "name": "detection.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/jquery-1-7.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.673782"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/draggable.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.678656"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/draggable.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.678798"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/resizable.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.681733"
+      },
+      {
+        "name": "for any element.",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/resizable.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.681850"
+      },
+      {
+        "name": "@return  jQuery object */",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/datepicker.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.687172"
+      },
+      {
+        "name": "@return  jQuery object */",
+        "source_file": "legacy/openparliament/parliament/static/bower_components/jquery-ui/ui/widgets/datepicker.js",
+        "source_dir": "legacy/openparliament",
+        "extracted_at": "2025-08-22T22:24:43.687476"
+      },
+      {
+        "name": "throughout the app",
+        "source_file": "legacy/open-policy/context/AlertProvider.js",
+        "source_dir": "legacy/open-policy",
+        "extracted_at": "2025-08-22T22:24:43.705699"
+      },
+      {
+        "name": "throughout the app",
+        "source_file": "legacy/open-policy/context/AlertProvider.js",
+        "source_dir": "legacy/open-policy",
+        "extracted_at": "2025-08-22T22:24:43.705750"
+      },
+      {
+        "name": "throughout the app",
+        "source_file": "legacy/open-policy-app/context/AlertProvider.js",
+        "source_dir": "legacy/open-policy-app",
+        "extracted_at": "2025-08-22T22:24:43.710112"
+      },
+      {
+        "name": "throughout the app",
+        "source_file": "legacy/open-policy-app/context/AlertProvider.js",
+        "source_dir": "legacy/open-policy-app",
+        "extracted_at": "2025-08-22T22:24:43.710160"
+      },
+      {
+        "name": "requests, and feedback are greatly welcomed.",
+        "source_file": "legacy/represent-canada/README.md",
+        "source_dir": "legacy/represent-canada",
+        "extracted_at": "2025-08-22T22:24:43.715217"
+      },
+      {
+        "name": "requests, and feedback are greatly welcomed.",
+        "source_file": "legacy/represent-canada/README.md",
+        "source_dir": "legacy/represent-canada",
+        "extracted_at": "2025-08-22T22:24:43.715235"
+      },
+      {
+        "name": "group.",
+        "source_file": "legacy/represent-canada/finder/static/js/demo.js",
+        "source_dir": "legacy/represent-canada",
+        "extracted_at": "2025-08-22T22:24:43.717295"
+      },
+      {
+        "name": "group.",
+        "source_file": "legacy/represent-canada/finder/static/js/demo.js",
+        "source_dir": "legacy/represent-canada",
+        "extracted_at": "2025-08-22T22:24:43.717325"
+      },
+      {
+        "name": "requests, and feedback are greatly welcomed.",
+        "source_file": "legacy/scrapers-ca/README.md",
+        "source_dir": "legacy/scrapers-ca",
+        "extracted_at": "2025-08-22T22:24:43.720508"
+      },
+      {
+        "name": "requests, and feedback are greatly welcomed.",
+        "source_file": "legacy/scrapers-ca/README.md",
+        "source_dir": "legacy/scrapers-ca",
+        "extracted_at": "2025-08-22T22:24:43.720524"
+      }
+    ],
+    "new_features": [
+      {
+        "name": "Fields",
+        "source": "current_feature_mapping",
+        "extracted_at": "2025-08-22T22:24:43.752782"
+      }
+    ]
+  }
+}

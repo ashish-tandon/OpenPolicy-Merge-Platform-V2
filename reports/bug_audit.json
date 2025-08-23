@@ -1,0 +1,673 @@
+{
+  "timestamp": "2025-08-22T16:50:26.133876",
+  "bug_files_found": [
+    "services/fider/.github/ISSUE_TEMPLATE/bug-report.md",
+    "services/nocobase/node_modules/react-device-detect/.github/ISSUE_TEMPLATE/bug_report.md",
+    "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+    "services/nocobase/.github/ISSUE_TEMPLATE/bug_report.md",
+    "legacy/documentation/BUG_DETECTION_SUMMARY.md",
+    "docs/bugs/BUGS_RECONCILIATION.md",
+    "reports/error_correlation.md",
+    "services/nocobase/node_modules/nan/doc/errors.md",
+    "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+    "services/nocobase/node_modules/gulp-typescript/issue_template.md",
+    "legacy/openparliament/parliament/static/bower_components/foundation-sites/.github/ISSUE_TEMPLATE.md",
+    "services/web-ui/src/legacy-migration/static/bower_components/foundation-sites/.github/ISSUE_TEMPLATE.md",
+    "services/web-ui/src/components/legacy-assets/bower_components/foundation-sites/.github/ISSUE_TEMPLATE.md",
+    "services/nocobase/node_modules/react-helmet/ISSUE_TEMPLATE.md",
+    "services/nocobase/node_modules/glob-watcher/node_modules/fsevents/ISSUE_TEMPLATE.md",
+    "services/nocobase/node_modules/npm-lifecycle/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+    "services/nocobase/node_modules/ali-oss/node_modules/bowser/ISSUE_TEMPLATE.md",
+    "services/nocobase/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md"
+  ],
+  "bugs_extracted": [
+    {
+      "type": "bug",
+      "description": "report",
+      "source_file": "services/fider/.github/ISSUE_TEMPLATE/bug-report.md",
+      "extracted_at": "2025-08-22T16:50:20.647734"
+    },
+    {
+      "type": "bug",
+      "description": "is.",
+      "source_file": "services/fider/.github/ISSUE_TEMPLATE/bug-report.md",
+      "extracted_at": "2025-08-22T16:50:20.647749"
+    },
+    {
+      "type": "bug",
+      "description": "**Expected behavior**",
+      "source_file": "services/fider/.github/ISSUE_TEMPLATE/bug-report.md",
+      "extracted_at": "2025-08-22T16:50:20.647782"
+    },
+    {
+      "type": "bug",
+      "description": "here.",
+      "source_file": "services/fider/.github/ISSUE_TEMPLATE/bug-report.md",
+      "extracted_at": "2025-08-22T16:50:20.647838"
+    },
+    {
+      "type": "bug",
+      "description": "report",
+      "source_file": "services/nocobase/node_modules/react-device-detect/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648112"
+    },
+    {
+      "type": "bug",
+      "description": "description",
+      "source_file": "services/nocobase/node_modules/react-device-detect/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648115"
+    },
+    {
+      "type": "bug",
+      "description": "report",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648324"
+    },
+    {
+      "type": "bug",
+      "description": "title: ''",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648326"
+    },
+    {
+      "type": "bug",
+      "description": "assignees: ''",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648326"
+    },
+    {
+      "type": "bug",
+      "description": "do?_",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648327"
+    },
+    {
+      "type": "bug",
+      "description": "pertains to an extension, your issue should be filed in that extension's repository -- not here.",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648345"
+    },
+    {
+      "type": "bug",
+      "description": "so that your issue can be addressed quickly and effectively:_",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648345"
+    },
+    {
+      "type": "bug",
+      "description": "has been associated with a corresponding [milestone](https://github.com/cytoscape/cytoscape.js/milestones).",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648346"
+    },
+    {
+      "type": "bug",
+      "description": "has been labelled as a [`bug`](https://github.com/cytoscape/cytoscape.js/labels/bug), if necessary.",
+      "source_file": "services/nocobase/node_modules/cytoscape/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648347"
+    },
+    {
+      "type": "bug",
+      "description": "report",
+      "source_file": "services/nocobase/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648529"
+    },
+    {
+      "type": "bug",
+      "description": "to help us improve. Please communicate in English, and post content in other languages to NocoBase Forum https://forum.nocobase.com/.",
+      "source_file": "services/nocobase/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648530"
+    },
+    {
+      "type": "bug",
+      "description": "<!-- A clear and concise description of what the bug is. -->",
+      "source_file": "services/nocobase/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648531"
+    },
+    {
+      "type": "bug",
+      "description": "template. Items marked with * are required. Issues not filled out according to the template will be closed.",
+      "source_file": "services/nocobase/.github/ISSUE_TEMPLATE/bug_report.md",
+      "extracted_at": "2025-08-22T16:50:20.648549"
+    },
+    {
+      "type": "bug",
+      "description": "Detection Summary Report",
+      "source_file": "legacy/documentation/BUG_DETECTION_SUMMARY.md",
+      "extracted_at": "2025-08-22T16:50:20.648981"
+    },
+    {
+      "type": "bug",
+      "description": "Detection Tools",
+      "source_file": "legacy/documentation/BUG_DETECTION_SUMMARY.md",
+      "extracted_at": "2025-08-22T16:50:20.648982"
+    },
+    {
+      "type": "bug",
+      "description": "detection",
+      "source_file": "legacy/documentation/BUG_DETECTION_SUMMARY.md",
+      "extracted_at": "2025-08-22T16:50:20.648983"
+    },
+    {
+      "type": "bug",
+      "description": "detection tools are installed in the ETL service virtual environment:",
+      "source_file": "legacy/documentation/BUG_DETECTION_SUMMARY.md",
+      "extracted_at": "2025-08-22T16:50:20.648983"
+    },
+    {
+      "type": "bug",
+      "description": "files and notes",
+      "source_file": "docs/bugs/BUGS_RECONCILIATION.md",
+      "extracted_at": "2025-08-22T16:50:20.649255"
+    },
+    {
+      "type": "bug",
+      "description": "to feature + data route and checklist task",
+      "source_file": "docs/bugs/BUGS_RECONCILIATION.md",
+      "extracted_at": "2025-08-22T16:50:20.649256"
+    },
+    {
+      "type": "bug",
+      "description": "Status",
+      "source_file": "docs/bugs/BUGS_RECONCILIATION.md",
+      "extracted_at": "2025-08-22T16:50:20.649257"
+    },
+    {
+      "type": "bug",
+      "description": "- **QA Team**: 1 bug",
+      "source_file": "docs/bugs/BUGS_RECONCILIATION.md",
+      "extracted_at": "2025-08-22T16:50:20.649258"
+    },
+    {
+      "type": "bug",
+      "description": "- **DevOps Team**: 4 bugs",
+      "source_file": "docs/bugs/BUGS_RECONCILIATION.md",
+      "extracted_at": "2025-08-22T16:50:20.649258"
+    },
+    {
+      "type": "bug",
+      "description": "Responses",
+      "source_file": "docs/bugs/BUGS_RECONCILIATION.md",
+      "extracted_at": "2025-08-22T16:50:20.649296"
+    },
+    {
+      "type": "bug",
+      "description": "responses not following standard format",
+      "source_file": "docs/bugs/BUGS_RECONCILIATION.md",
+      "extracted_at": "2025-08-22T16:50:20.649296"
+    },
+    {
+      "type": "bug",
+      "description": "Correlation Report",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649644"
+    },
+    {
+      "type": "bug",
+      "description": "Tracking Methodology",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649645"
+    },
+    {
+      "type": "bug",
+      "description": "occurred",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649645"
+    },
+    {
+      "type": "bug",
+      "description": "was resolved",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649646"
+    },
+    {
+      "type": "bug",
+      "description": "## Error Correlation Matrix",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649647"
+    },
+    {
+      "type": "bug",
+      "description": "Table already defined`",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649647"
+    },
+    {
+      "type": "bug",
+      "description": "cannot import name 'X' from 'app.models.openparliament'`",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649648"
+    },
+    {
+      "type": "bug",
+      "description": "**Date**: 2025-08-22",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649648"
+    },
+    {
+      "type": "bug",
+      "description": "name 'Statement' is not defined`",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649649"
+    },
+    {
+      "type": "bug",
+      "description": "Resolution Summary",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649650"
+    },
+    {
+      "type": "bug",
+      "description": "Patterns Identified",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649650"
+    },
+    {
+      "type": "bug",
+      "description": "correlation database",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649651"
+    },
+    {
+      "type": "bug",
+      "description": "handling and reporting",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649652"
+    },
+    {
+      "type": "bug",
+      "description": "Correlation Matrix Summary",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649652"
+    },
+    {
+      "type": "bug",
+      "description": "ID | Endpoint | Feature | Checklist ID | Status | Resolution Date |",
+      "source_file": "reports/error_correlation.md",
+      "extracted_at": "2025-08-22T16:50:20.649653"
+    },
+    {
+      "type": "bug",
+      "description": "object is simply a specialized form of `v8::Value`.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649970"
+    },
+    {
+      "type": "bug",
+      "description": "object using the [v8::Exception](https://v8docs.nodesource.com/node-8.16/da/d6a/classv8_1_1_exception.html) class in a way that is compatible across the supported versions of V8.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649971"
+    },
+    {
+      "type": "bug",
+      "description": "object is simply a specialized form of `v8::Value`.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649971"
+    },
+    {
+      "type": "bug",
+      "description": "object using the [v8::Exception](https://v8docs.nodesource.com/node-8.16/da/d6a/classv8_1_1_exception.html) class in a way that is compatible across the supported versions of V8.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649972"
+    },
+    {
+      "type": "bug",
+      "description": "object is simply a specialized form of `v8::Value`.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649973"
+    },
+    {
+      "type": "bug",
+      "description": "object using the [v8::Exception](https://v8docs.nodesource.com/node-8.16/da/d6a/classv8_1_1_exception.html) class in a way that is compatible across the supported versions of V8.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649973"
+    },
+    {
+      "type": "bug",
+      "description": "object is simply a specialized form of `v8::Value`.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649974"
+    },
+    {
+      "type": "bug",
+      "description": "object using the [v8::Exception](https://v8docs.nodesource.com/node-8.16/da/d6a/classv8_1_1_exception.html) class in a way that is compatible across the supported versions of V8.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649974"
+    },
+    {
+      "type": "bug",
+      "description": "object is simply a specialized form of `v8::Value`.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649975"
+    },
+    {
+      "type": "bug",
+      "description": "object using the [v8::Exception](https://v8docs.nodesource.com/node-8.16/da/d6a/classv8_1_1_exception.html) class in a way that is compatible across the supported versions of V8.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649976"
+    },
+    {
+      "type": "bug",
+      "description": "object is simply a specialized form of `v8::Value`.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649976"
+    },
+    {
+      "type": "bug",
+      "description": "object (a specialized `v8::Value` as above) in the current context. If a `msg` is provided, a new Error object will be created.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649977"
+    },
+    {
+      "type": "bug",
+      "description": "object (a specialized `v8::Value` as above) in the current context. If a `msg` is provided, a new RangeError object will be created.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649978"
+    },
+    {
+      "type": "bug",
+      "description": "object (a specialized `v8::Value` as above) in the current context. If a `msg` is provided, a new ReferenceError object will be created.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649978"
+    },
+    {
+      "type": "bug",
+      "description": "object (a specialized `v8::Value` as above) in the current context. If a `msg` is provided, a new SyntaxError object will be created.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649979"
+    },
+    {
+      "type": "bug",
+      "description": "object (a specialized `v8::Value` as above) in the current context. If a `msg` is provided, a new TypeError object will be created.",
+      "source_file": "services/nocobase/node_modules/nan/doc/errors.md",
+      "extracted_at": "2025-08-22T16:50:20.649979"
+    },
+    {
+      "type": "bug",
+      "description": "_Error_ instance",
+      "source_file": "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+      "extracted_at": "2025-08-22T16:50:20.650213"
+    },
+    {
+      "type": "bug",
+      "description": "object",
+      "source_file": "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+      "extracted_at": "2025-08-22T16:50:20.650214"
+    },
+    {
+      "type": "bug",
+      "description": "= require(\"type/error/is\");",
+      "source_file": "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+      "extracted_at": "2025-08-22T16:50:20.650215"
+    },
+    {
+      "type": "bug",
+      "description": "object, it is returned back. Otherwise `TypeError` is thrown.",
+      "source_file": "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+      "extracted_at": "2025-08-22T16:50:20.650215"
+    },
+    {
+      "type": "bug",
+      "description": "= require(\"type/error/ensure\");",
+      "source_file": "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+      "extracted_at": "2025-08-22T16:50:20.650216"
+    },
+    {
+      "type": "bug",
+      "description": "= new Error(\"Some error\");",
+      "source_file": "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+      "extracted_at": "2025-08-22T16:50:20.650217"
+    },
+    {
+      "type": "bug",
+      "description": "ensureError({ message: \"Fake error\" }); // Thrown TypeError: [object Object] is not an error object",
+      "source_file": "services/nocobase/node_modules/ext/node_modules/type/docs/error.md",
+      "extracted_at": "2025-08-22T16:50:20.650217"
+    },
+    {
+      "type": "bug",
+      "description": "already opened? (Please don't bump old closed issues)",
+      "source_file": "services/nocobase/node_modules/gulp-typescript/issue_template.md",
+      "extracted_at": "2025-08-22T16:50:20.650367"
+    },
+    {
+      "type": "bug",
+      "description": "here and fill in the related sections below.",
+      "source_file": "services/nocobase/node_modules/gulp-typescript/issue_template.md",
+      "extracted_at": "2025-08-22T16:50:20.650368"
+    },
+    {
+      "type": "bug",
+      "description": "1. Step one",
+      "source_file": "legacy/openparliament/parliament/static/bower_components/foundation-sites/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.650499"
+    },
+    {
+      "type": "bug",
+      "description": "1. Step one",
+      "source_file": "services/web-ui/src/legacy-migration/static/bower_components/foundation-sites/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.650657"
+    },
+    {
+      "type": "bug",
+      "description": "1. Step one",
+      "source_file": "services/web-ui/src/components/legacy-assets/bower_components/foundation-sites/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.650795"
+    },
+    {
+      "type": "bug",
+      "description": "will get fixed much faster if we can run your",
+      "source_file": "services/nocobase/node_modules/react-helmet/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.650935"
+    },
+    {
+      "type": "bug",
+      "description": "about compatibility problems,",
+      "source_file": "services/nocobase/node_modules/glob-watcher/node_modules/fsevents/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651060"
+    },
+    {
+      "type": "bug",
+      "description": "observed while using this module on OS X, please delete",
+      "source_file": "services/nocobase/node_modules/glob-watcher/node_modules/fsevents/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651061"
+    },
+    {
+      "type": "bug",
+      "description": "tracker is for reporting issues ONLY with node-gyp.",
+      "source_file": "services/nocobase/node_modules/npm-lifecycle/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651195"
+    },
+    {
+      "type": "bug",
+      "description": "installing a specific module, please file an issue on",
+      "source_file": "services/nocobase/node_modules/npm-lifecycle/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651196"
+    },
+    {
+      "type": "bug",
+      "description": "tracker (`npm issues modulename`). Open issue here only if",
+      "source_file": "services/nocobase/node_modules/npm-lifecycle/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651197"
+    },
+    {
+      "type": "bug",
+      "description": "with node-gyp, not with the module you are",
+      "source_file": "services/nocobase/node_modules/npm-lifecycle/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651198"
+    },
+    {
+      "type": "bug",
+      "description": "that does not",
+      "source_file": "services/nocobase/node_modules/npm-lifecycle/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651198"
+    },
+    {
+      "type": "bug",
+      "description": "`window.navigator.userAgent` of the browser is: ...",
+      "source_file": "services/nocobase/node_modules/ali-oss/node_modules/bowser/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651334"
+    },
+    {
+      "type": "bug",
+      "description": "tracker is for reporting issues ONLY with node-gyp.",
+      "source_file": "services/nocobase/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651450"
+    },
+    {
+      "type": "bug",
+      "description": "installing a specific module, please file an issue on",
+      "source_file": "services/nocobase/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651451"
+    },
+    {
+      "type": "bug",
+      "description": "tracker (`npm issues modulename`). Open issue here only if",
+      "source_file": "services/nocobase/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651452"
+    },
+    {
+      "type": "bug",
+      "description": "with node-gyp, not with the module you are",
+      "source_file": "services/nocobase/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651452"
+    },
+    {
+      "type": "bug",
+      "description": "that does not",
+      "source_file": "services/nocobase/node_modules/node-gyp/.github/ISSUE_TEMPLATE.md",
+      "extracted_at": "2025-08-22T16:50:20.651453"
+    }
+  ],
+  "error_logs": [
+    {
+      "log_file": "services/api-gateway/uvicorn.log",
+      "error_lines": [
+        "Database connection check failed: (psycopg2.OperationalError) connection to server at \"localhost\" (::1), port 5432 failed: FATAL:  password authentication failed for user \"merge_v2_user\"",
+        "(Background on this error at: https://sqlalche.me/e/20/e3q8)",
+        "\u26a0\ufe0f  Database connection failed - running in mock mode"
+      ],
+      "extracted_at": "2025-08-22T16:50:20.780528"
+    },
+    {
+      "log_file": "services/web-ui/node_modules/is-arrayish/yarn-error.log",
+      "error_lines": [
+        "debug@3.1.0, debug@^3.1.0:",
+        "resolved \"https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261\"",
+        "debug \"^3.1.0\"",
+        "verror \"1.10.0\"",
+        "debug \"3.1.0\"",
+        "verror@1.10.0:",
+        "resolved \"https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400\"",
+        "Error: Command failed.",
+        "at ProcessTermError.MessageError (/Users/junon/.yarn/lib/cli.js:186:110)",
+        "at new ProcessTermError (/Users/junon/.yarn/lib/cli.js:226:113)"
+      ],
+      "extracted_at": "2025-08-22T16:50:20.813295"
+    },
+    {
+      "log_file": "services/nocobase/node_modules/simple-swizzle/node_modules/is-arrayish/yarn-error.log",
+      "error_lines": [
+        "debug@3.1.0, debug@^3.1.0:",
+        "resolved \"https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261\"",
+        "debug \"^3.1.0\"",
+        "verror \"1.10.0\"",
+        "debug \"3.1.0\"",
+        "verror@1.10.0:",
+        "resolved \"https://registry.yarnpkg.com/verror/-/verror-1.10.0.tgz#3a105ca17053af55d6e270c1f8288682e18da400\"",
+        "Error: Command failed.",
+        "at ProcessTermError.MessageError (/Users/junon/.yarn/lib/cli.js:186:110)",
+        "at new ProcessTermError (/Users/junon/.yarn/lib/cli.js:226:113)"
+      ],
+      "extracted_at": "2025-08-22T16:50:21.080918"
+    },
+    {
+      "log_file": ".trunk/logs/daemon.log",
+      "error_lines": [
+        "[2025-08-22 16:50:04.152] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:scripts/bug_audit.py:HEAD] running linter (cache-key:002545bf72a342245f429d841935aa05)",
+        "[2025-08-22 16:50:04.153] [global] [info] [cache.cc:974] [monitor] [bandit:lint:scripts/bug_audit.py:HEAD] running linter (cache-key:c28fcd821c8322f3135916e2019babc8)",
+        "[2025-08-22 16:50:04.153] [global] [info] [cache.cc:974] [monitor] [black:format:scripts/bug_audit.py:HEAD] running linter (cache-key:d0cd880b45b79119d98bc1a6a2ad6d36)",
+        "[2025-08-22 16:50:04.353] [global] [info] [cache.cc:1117] [monitor] [bandit:lint:scripts/bug_audit.py:HEAD] Linter ran in 199ms",
+        "[2025-08-22 16:50:04.423] [global] [info] [cache.cc:1117] [monitor] [black:format:scripts/bug_audit.py:HEAD] Linter ran in 267ms",
+        "[2025-08-22 16:50:05.159] [global] [info] [cache.cc:1117] [monitor] [trufflehog:lint:scripts/bug_audit.py:HEAD] Linter ran in 1006ms",
+        "[2025-08-22 16:50:05.522] [global] [info] [cache.cc:934] [monitor] [trufflehog:lint:scripts/bug_audit.py:HEAD] already cached, not running linter",
+        "[2025-08-22 16:50:05.522] [global] [info] [cache.cc:934] [monitor] [black:format:scripts/bug_audit.py:HEAD] already cached, not running linter",
+        "[2025-08-22 16:50:05.523] [global] [info] [cache.cc:934] [monitor] [bandit:lint:scripts/bug_audit.py:HEAD] already cached, not running linter",
+        "[2025-08-22 16:50:05.578] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:reports/error_correlation.md:HEAD] running linter (uncacheable)"
+      ],
+      "extracted_at": "2025-08-22T16:50:22.058265"
+    },
+    {
+      "log_file": ".trunk/logs/daemon_stderr.log",
+      "error_lines": [
+        "[51024:2222213:20250821,223139.578352:ERROR bootstrap.cc:65] bootstrap_look_up com.apple.ReportCrash: (os/kern) exception protected (32)"
+      ],
+      "extracted_at": "2025-08-22T16:50:22.058528"
+    },
+    {
+      "log_file": ".trunk/logs/lsp_proxy.log",
+      "error_lines": [
+        "[08-20 18:44:03] [submission_buffer.cc:179] diagnostics buffer 627: Submission failed: std::bad_alloc",
+        "[08-20 18:44:03] [shared_server_context.hh:133] Message processing failed: std::bad_alloc",
+        "[08-21 00:57:09] [submission_buffer.cc:179] diagnostics buffer 1061: Submission failed: basic_string",
+        "[08-21 00:57:16] [shared_server_context.hh:133] Message processing failed: basic_string"
+      ],
+      "extracted_at": "2025-08-22T16:50:22.058872"
+    },
+    {
+      "log_file": ".trunk/logs/daemon.3.log",
+      "error_lines": [
+        "[2025-08-22 14:06:08.086] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:reports/error_correlation.md:HEAD] running linter (cache-key:f5a15e53b54618edd288b7121a6c7a7c)",
+        "[2025-08-22 14:06:08.087] [global] [info] [cache.cc:974] [monitor] [markdownlint:lint:reports/error_correlation.md:HEAD] running linter (cache-key:e1b14300d1f96b498309a8bd723c32f9)",
+        "[2025-08-22 14:06:08.095] [global] [info] [cache.cc:959] [monitor] [markdownlint:lint:reports/error_correlation.md:HEAD] linting in progress, waiting (cache-key:e1b14300d1f96b498309a8bd723c32f9)",
+        "[2025-08-22 14:06:08.095] [global] [info] [cache.cc:974] [monitor] [trufflehog:lint:reports/error_correlation.md:HEAD] running linter (cache-key:f5a15e53b54618edd288b7121a6c7a7c)",
+        "[2025-08-22 14:06:08.325] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:reports/error_correlation.md:HEAD] running linter (uncacheable)",
+        "[2025-08-22 14:06:08.343] [global] [info] [cache.cc:1117] [on-demand] [git-diff-check:lint:reports/error_correlation.md:HEAD] Linter ran in 17ms",
+        "[2025-08-22 14:06:08.344] [global] [info] [cache.cc:959] [on-demand] [trufflehog:lint:reports/error_correlation.md:HEAD] linting in progress, waiting (cache-key:f5a15e53b54618edd288b7121a6c7a7c)",
+        "[2025-08-22 14:06:08.402] [global] [info] [cache.cc:974] [on-demand] [markdownlint:lint:reports/error_correlation.md:HEAD] running linter (cache-key:e1b14300d1f96b498309a8bd723c32f9)",
+        "[2025-08-22 14:06:08.407] [global] [info] [cache.cc:978] [on-demand] [prettier:format:reports/error_correlation.md:HEAD] running linter (uncacheable)",
+        "[2025-08-22 14:06:08.533] [global] [info] [cache.cc:1117] [on-demand] [prettier:format:reports/error_correlation.md:HEAD] Linter ran in 117ms"
+      ],
+      "extracted_at": "2025-08-22T16:50:22.059856"
+    },
+    {
+      "log_file": ".trunk/logs/daemon.2.log",
+      "error_lines": [
+        "[2025-08-22 14:58:04.470] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:reports/error_correlation.md:HEAD] running linter (uncacheable)",
+        "[2025-08-22 14:58:04.489] [global] [info] [cache.cc:934] [on-demand] [trufflehog:lint:reports/error_correlation.md:HEAD] already cached, not running linter",
+        "[2025-08-22 14:58:04.508] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:reports/error_correlation.md:HEAD] already cached, not running linter",
+        "[2025-08-22 14:58:04.519] [global] [info] [cache.cc:978] [on-demand] [prettier:format:reports/error_correlation.md:HEAD] running linter (uncacheable)",
+        "[2025-08-22 15:38:07.417] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:reports/error_correlation.md:HEAD] running linter (uncacheable)",
+        "[2025-08-22 15:38:07.423] [global] [info] [cache.cc:939] Unable to deserialize [on-demand] [trufflehog:lint:reports/error_correlation.md:HEAD], removing from cache",
+        "[2025-08-22 15:38:07.423] [global] [info] [cache.cc:974] [on-demand] [trufflehog:lint:reports/error_correlation.md:HEAD] running linter (cache-key:f5a15e53b54618edd288b7121a6c7a7c)",
+        "[2025-08-22 15:38:07.497] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:reports/error_correlation.md:HEAD] already cached, not running linter",
+        "[2025-08-22 15:38:07.749] [global] [info] [cache.cc:978] [on-demand] [prettier:format:reports/error_correlation.md:HEAD] running linter (uncacheable)"
+      ],
+      "extracted_at": "2025-08-22T16:50:22.060944"
+    },
+    {
+      "log_file": ".trunk/logs/daemon.1.log",
+      "error_lines": [
+        "[2025-08-22 16:46:49.084] [global] [info] [cache.cc:978] [on-demand] [git-diff-check:lint:reports/error_correlation.md:HEAD] running linter (uncacheable)",
+        "[2025-08-22 16:46:49.121] [global] [info] [cache.cc:939] Unable to deserialize [on-demand] [trufflehog:lint:reports/error_correlation.md:HEAD], removing from cache",
+        "[2025-08-22 16:46:49.121] [global] [info] [cache.cc:974] [on-demand] [trufflehog:lint:reports/error_correlation.md:HEAD] running linter (cache-key:f5a15e53b54618edd288b7121a6c7a7c)",
+        "[2025-08-22 16:46:49.122] [global] [info] [cache.cc:934] [on-demand] [markdownlint:lint:reports/error_correlation.md:HEAD] already cached, not running linter",
+        "[2025-08-22 16:46:49.125] [global] [info] [cache.cc:978] [on-demand] [prettier:format:reports/error_correlation.md:HEAD] running linter (uncacheable)"
+      ],
+      "extracted_at": "2025-08-22T16:50:22.061988"
+    },
+    {
+      "log_file": ".git/logs/HEAD",
+      "error_lines": [
+        "fa79bc1d1ae9b05564bcf79a0fb1f813a1d50711 6a9b7ea85ddfd20120a9287dee80c5ca33512196 Ashish Tandon <ashish-tandon@users.noreply.github.com> 1755724771 -0400\tcommit: feat: Complete implementation of all 120+ OpenParliament.ca features - Phase 1-10 complete with full feature parity - Modern Next.js frontend with TypeScript and Tailwind CSS - FastAPI backend with comprehensive API infrastructure - MP Management, Bills Tracking, Debates, Committees, Labs - UX enhancements: accessibility, responsive design, error handling - Technical infrastructure: rate limiting, versioning, export APIs - All legacy Django patterns successfully modernized and implemented",
+        "02daeb38ef2e1d3fa0b94844e9ef45b66f3f8516 541073f34e276881e4a1932aabb326c5f7c6527b Ashish Tandon <ashish-tandon@users.noreply.github.com> 1755763021 -0400\tcommit: feat: fix lint errors and add admin UI structure - Fix React unescaped entities in web UI components - Add comprehensive admin UI implementation plan - Create modern design system and component architecture - Prepare for beautiful UI enhancements and testing implementation",
+        "3100fa21e0a5f8aa32cf2640c9506523a0a35c1b 15f242a6ac4e618d2b3c7babe2761417a991d0b0 Ashish Tandon <ashish-tandon@users.noreply.github.com> 1755809760 -0400\tcommit (merge): Merge branch 'cursor/fix-web-ui-build-errors-a29c' into main - Resolve UI conflicts and apply branch changes"
+      ],
+      "extracted_at": "2025-08-22T16:50:22.062513"
+    }
+  ],
+  "summary": {
+    "total_bug_files": 18,
+    "total_bugs_found": 86,
+    "total_error_logs": 10
+  }
+}

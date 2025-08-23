@@ -1,0 +1,1254 @@
+{
+  "timestamp": "2025-08-22T22:28:22.605465",
+  "current_routing": {
+    "api_v1": [
+      {
+        "method": "POST",
+        "path": "/bills/{bill_id}/cast-vote",
+        "file": "services/api-gateway/app/api/v1/bill_voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/bills/{bill_id}/user-votes",
+        "file": "services/api-gateway/app/api/v1/bill_voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/voting-history",
+        "file": "services/api-gateway/app/api/v1/bill_voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/bills/{bill_id}/voting-summary",
+        "file": "services/api-gateway/app/api/v1/bill_voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/voting-recommendations",
+        "file": "services/api-gateway/app/api/v1/bill_voting.py"
+      },
+      {
+        "method": "POST",
+        "path": "/create",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user-issues",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{issue_id}",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/{issue_id}/update",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "DELETE",
+        "path": "/{issue_id}",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "GET",
+        "path": "/community/issues",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "POST",
+        "path": "/{issue_id}/support",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{issue_id}/supporters",
+        "file": "services/api-gateway/app/api/v1/issues.py"
+      },
+      {
+        "method": "POST",
+        "path": "/register",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "POST",
+        "path": "/token",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "GET",
+        "path": "/me",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "POST",
+        "path": "/logout",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "POST",
+        "path": "/reset-password",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "POST",
+        "path": "/confirm-reset-password",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "GET",
+        "path": "/reset-password/validate/{token}",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "GET",
+        "path": "/google/authorize",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "POST",
+        "path": "/google/callback",
+        "file": "services/api-gateway/app/api/v1/auth.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app-auth/register",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app-auth/login",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "GET",
+        "path": "/app/v1/profile",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/app/v1/profile",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/change-password",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "DELETE",
+        "path": "/app/v1/delete-account",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "GET",
+        "path": "/app/v1/bills",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "GET",
+        "path": "/app/v1/bills/{bill_id}",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/bills/{bill_id}/support",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/bills/{bill_id}/bookmark",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/issues/create",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/issues/{issue_id}/support",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/issues/{issue_id}/bookmark",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/issues/{issue_id}/request-deletion",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "GET",
+        "path": "/app/v1/representatives",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "GET",
+        "path": "/app/v1/representatives/all",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "GET",
+        "path": "/app/v1/chat/get-bill",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/app/v1/chat/bill-chat",
+        "file": "services/api-gateway/app/api/v1/mobile_app.py"
+      },
+      {
+        "method": "POST",
+        "path": "/feeds",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "GET",
+        "path": "/feeds",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "GET",
+        "path": "/feeds/{feed_id}",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/feeds/{feed_id}",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "DELETE",
+        "path": "/feeds/{feed_id}",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "GET",
+        "path": "/feeds/{feed_id}/generate",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "GET",
+        "path": "/feeds/by-name/{feed_name}",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "POST",
+        "path": "/feeds/{feed_id}/items",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "GET",
+        "path": "/feeds/{feed_id}/statistics",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "GET",
+        "path": "/statistics",
+        "file": "services/api-gateway/app/api/v1/rss_feeds.py"
+      },
+      {
+        "method": "POST",
+        "path": "/types",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "GET",
+        "path": "/types",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "GET",
+        "path": "/types/{type_id}",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "POST",
+        "path": "/visualizations",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "GET",
+        "path": "/visualizations",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "GET",
+        "path": "/visualizations/{visualization_id}",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "POST",
+        "path": "/dashboards",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "GET",
+        "path": "/dashboards",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "GET",
+        "path": "/dashboards/{dashboard_id}",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "POST",
+        "path": "/visualizations/{visualization_id}/generate",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "POST",
+        "path": "/dashboards/{dashboard_id}/visualizations",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "GET",
+        "path": "/statistics",
+        "file": "services/api-gateway/app/api/v1/data_visualizations.py"
+      },
+      {
+        "method": "POST",
+        "path": "/cast-vote",
+        "file": "services/api-gateway/app/api/v1/user-voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/bill/{bill_id}/user-votes",
+        "file": "services/api-gateway/app/api/v1/user-voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/voting-history",
+        "file": "services/api-gateway/app/api/v1/user-voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/bill/{bill_id}/voting-summary",
+        "file": "services/api-gateway/app/api/v1/user-voting.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/voting-recommendations",
+        "file": "services/api-gateway/app/api/v1/user-voting.py"
+      },
+      {
+        "method": "POST",
+        "path": "/",
+        "file": "services/api-gateway/app/api/v1/saved-items.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}",
+        "file": "services/api-gateway/app/api/v1/saved-items.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{item_id}",
+        "file": "services/api-gateway/app/api/v1/saved-items.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/{item_id}",
+        "file": "services/api-gateway/app/api/v1/saved-items.py"
+      },
+      {
+        "method": "DELETE",
+        "path": "/{item_id}",
+        "file": "services/api-gateway/app/api/v1/saved-items.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/stats",
+        "file": "services/api-gateway/app/api/v1/saved-items.py"
+      },
+      {
+        "method": "POST",
+        "path": "/user/{user_id}/bulk-actions",
+        "file": "services/api-gateway/app/api/v1/saved-items.py"
+      },
+      {
+        "method": "GET",
+        "path": "/bills/{bill_id}/mentions",
+        "file": "services/api-gateway/app/api/v1/house_mentions.py"
+      },
+      {
+        "method": "GET",
+        "path": "/debates/mentions",
+        "file": "services/api-gateway/app/api/v1/house_mentions.py"
+      },
+      {
+        "method": "GET",
+        "path": "/committees/mentions",
+        "file": "services/api-gateway/app/api/v1/house_mentions.py"
+      },
+      {
+        "method": "GET",
+        "path": "/votes/detailed",
+        "file": "services/api-gateway/app/api/v1/house_mentions.py"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{member_id}",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/by-postal-code/{postal_code}",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/suggestions",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/summary/stats",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{member_id}/votes",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{member_id}/committees",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{member_id}/activity",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{member_id}/profile",
+        "file": "services/api-gateway/app/api/v1/members.py"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "file": "services/api-gateway/app/api/v1/committees.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{committee_id}/meetings",
+        "file": "services/api-gateway/app/api/v1/committees.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{committee_slug}/",
+        "file": "services/api-gateway/app/api/v1/committees.py"
+      },
+      {
+        "method": "GET",
+        "path": "/meetings/",
+        "file": "services/api-gateway/app/api/v1/committees.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{committee_slug}/{session_id}/{number}/",
+        "file": "services/api-gateway/app/api/v1/committees.py"
+      },
+      {
+        "method": "GET",
+        "path": "/activities/",
+        "file": "services/api-gateway/app/api/v1/committees.py"
+      },
+      {
+        "method": "GET",
+        "path": "/summary/stats",
+        "file": "services/api-gateway/app/api/v1/committees.py"
+      },
+      {
+        "method": "POST",
+        "path": "/metrics",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "GET",
+        "path": "/metrics",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "GET",
+        "path": "/metrics/{metric_id}",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "POST",
+        "path": "/alerts",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "GET",
+        "path": "/alerts",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "POST",
+        "path": "/health/check",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "GET",
+        "path": "/health/overview",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "POST",
+        "path": "/analysis",
+        "file": "services/api-gateway/app/api/v1/performance_optimization.py"
+      },
+      {
+        "method": "GET",
+        "path": "/analytics",
+        "file": "services/api-gateway/app/api/v1/user_profiles.py"
+      },
+      {
+        "method": "POST",
+        "path": "/postal-code",
+        "file": "services/api-gateway/app/api/v1/user_profiles.py"
+      },
+      {
+        "method": "GET",
+        "path": "/constituency/{postal_code}",
+        "file": "services/api-gateway/app/api/v1/user_profiles.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/activity",
+        "file": "services/api-gateway/app/api/v1/user_profiles.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/preferences",
+        "file": "services/api-gateway/app/api/v1/user_profiles.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/user/{user_id}/preferences",
+        "file": "services/api-gateway/app/api/v1/user_profiles.py"
+      },
+      {
+        "method": "GET",
+        "path": "/boundary-sets",
+        "file": "services/api-gateway/app/api/v1/represent.py"
+      },
+      {
+        "method": "GET",
+        "path": "/boundaries/{boundary_set_slug}",
+        "file": "services/api-gateway/app/api/v1/represent.py"
+      },
+      {
+        "method": "GET",
+        "path": "/representatives/{representative_set_slug}",
+        "file": "services/api-gateway/app/api/v1/represent.py"
+      },
+      {
+        "method": "GET",
+        "path": "/postal-code/{postal_code}",
+        "file": "services/api-gateway/app/api/v1/represent.py"
+      },
+      {
+        "method": "GET",
+        "path": "/geocode",
+        "file": "services/api-gateway/app/api/v1/represent.py"
+      },
+      {
+        "method": "GET",
+        "path": "/health",
+        "file": "services/api-gateway/app/api/v1/represent.py"
+      },
+      {
+        "method": "GET",
+        "path": "/offices",
+        "file": "services/api-gateway/app/api/v1/multi_level_government_extended.py"
+      },
+      {
+        "method": "GET",
+        "path": "/offices/{office_id}",
+        "file": "services/api-gateway/app/api/v1/multi_level_government_extended.py"
+      },
+      {
+        "method": "GET",
+        "path": "/bills",
+        "file": "services/api-gateway/app/api/v1/multi_level_government_extended.py"
+      },
+      {
+        "method": "GET",
+        "path": "/bills/{bill_id}",
+        "file": "services/api-gateway/app/api/v1/multi_level_government_extended.py"
+      },
+      {
+        "method": "GET",
+        "path": "/votes",
+        "file": "services/api-gateway/app/api/v1/multi_level_government_extended.py"
+      },
+      {
+        "method": "GET",
+        "path": "/data-sources",
+        "file": "services/api-gateway/app/api/v1/multi_level_government_extended.py"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "file": "services/api-gateway/app/api/v1/votes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{session_id}/{vote_number}",
+        "file": "services/api-gateway/app/api/v1/votes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/ballots/",
+        "file": "services/api-gateway/app/api/v1/votes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/summary/stats",
+        "file": "services/api-gateway/app/api/v1/votes.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{session_id}/{vote_number}/analysis",
+        "file": "services/api-gateway/app/api/v1/votes.py"
+      },
+      {
+        "method": "POST",
+        "path": "/bills/{bill_id}/cast-vote",
+        "file": "services/api-gateway/app/api/v1/votes.py"
+      },
+      {
+        "method": "POST",
+        "path": "/languages",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/languages",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/languages/{language_id}",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/languages/{language_id}",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "POST",
+        "path": "/translations",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/translations",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/translations/{translation_id}",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "POST",
+        "path": "/users/preferences",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/users/preferences",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "POST",
+        "path": "/toggle",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/current",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/translate/{translation_key}",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "POST",
+        "path": "/translate/search",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "GET",
+        "path": "/statistics",
+        "file": "services/api-gateway/app/api/v1/language_support.py"
+      },
+      {
+        "method": "POST",
+        "path": "/sessions",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/sessions",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/sessions/{session_id}",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/sessions/{session_id}",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "POST",
+        "path": "/sessions/{session_id}/sittings",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/sessions/{session_id}/sittings",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "POST",
+        "path": "/sessions/{session_id}/votes",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/sessions/{session_id}/votes",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "POST",
+        "path": "/votes/{vote_id}/individual-votes",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "POST",
+        "path": "/sessions/{session_id}/debates",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/status/current",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/status/current",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "POST",
+        "path": "/events",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/events",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/statistics",
+        "file": "services/api-gateway/app/api/v1/house_status.py"
+      },
+      {
+        "method": "GET",
+        "path": "/get-bill",
+        "file": "services/api-gateway/app/api/v1/chat.py"
+      },
+      {
+        "method": "GET",
+        "path": "/get-issue",
+        "file": "services/api-gateway/app/api/v1/chat.py"
+      },
+      {
+        "method": "POST",
+        "path": "/bill-chat",
+        "file": "services/api-gateway/app/api/v1/chat.py"
+      },
+      {
+        "method": "POST",
+        "path": "/issue-chat",
+        "file": "services/api-gateway/app/api/v1/chat.py"
+      },
+      {
+        "method": "GET",
+        "path": "/chat-suggestions",
+        "file": "services/api-gateway/app/api/v1/chat.py"
+      },
+      {
+        "method": "GET",
+        "path": "/chat-history",
+        "file": "services/api-gateway/app/api/v1/chat.py"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "file": "services/api-gateway/app/api/v1/search.py"
+      },
+      {
+        "method": "GET",
+        "path": "/suggestions",
+        "file": "services/api-gateway/app/api/v1/search.py"
+      },
+      {
+        "method": "GET",
+        "path": "/postcode/{postcode}",
+        "file": "services/api-gateway/app/api/v1/search.py"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/suggestions",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/summary/stats",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{bill_id}",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{bill_id}/votes",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{bill_id}/history",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{bill_id}/amendments",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{bill_id}/timeline",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{bill_id}/history",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{bill_id}/status",
+        "file": "services/api-gateway/app/api/v1/bills.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/saved-items",
+        "file": "services/api-gateway/app/api/v1/saved_items.py"
+      },
+      {
+        "method": "POST",
+        "path": "/user/{user_id}/save-item",
+        "file": "services/api-gateway/app/api/v1/saved_items.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/user/{user_id}/saved-items/{item_id}",
+        "file": "services/api-gateway/app/api/v1/saved_items.py"
+      },
+      {
+        "method": "DELETE",
+        "path": "/user/{user_id}/saved-items/{item_id}",
+        "file": "services/api-gateway/app/api/v1/saved_items.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/saved-items/tags",
+        "file": "services/api-gateway/app/api/v1/saved_items.py"
+      },
+      {
+        "method": "GET",
+        "path": "/user/{user_id}/saved-items/search",
+        "file": "services/api-gateway/app/api/v1/saved_items.py"
+      },
+      {
+        "method": "GET",
+        "path": "/profiles",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "GET",
+        "path": "/profiles/{user_id}",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/profiles/{user_id}",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "POST",
+        "path": "/profiles/{user_id}/change-password",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "GET",
+        "path": "/profiles/{user_id}/preferences",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/profiles/{user_id}/preferences",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "POST",
+        "path": "/profiles/{user_id}/activity",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "GET",
+        "path": "/profiles/{user_id}/activity",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "GET",
+        "path": "/profiles/{user_id}/stats",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "GET",
+        "path": "/search",
+        "file": "services/api-gateway/app/api/v1/user_management.py"
+      },
+      {
+        "method": "POST",
+        "path": "/alerts",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/alerts",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/alerts/{alert_id}",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "PUT",
+        "path": "/alerts/{alert_id}",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "DELETE",
+        "path": "/alerts/{alert_id}",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/templates",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/templates/{template_id}",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "POST",
+        "path": "/campaigns",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/campaigns",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/analytics",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/alerts/stats",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "POST",
+        "path": "/notifications/send",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "POST",
+        "path": "/unsubscribe/generate",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "POST",
+        "path": "/unsubscribe/{token}",
+        "file": "services/api-gateway/app/api/v1/email_alerts.py"
+      },
+      {
+        "method": "GET",
+        "path": "/government-levels",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/government-levels/{level_id}",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/jurisdictions",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/jurisdictions/{jurisdiction_id}",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/representatives",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/representatives/{representative_id}",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/stats/system",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/stats/government-levels/{level_id}",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/stats/jurisdictions/{jurisdiction_id}",
+        "file": "services/api-gateway/app/api/v1/multi_level_government.py"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "file": "services/api-gateway/app/api/v1/debates.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{year}/{month}/{day}/",
+        "file": "services/api-gateway/app/api/v1/debates.py"
+      },
+      {
+        "method": "GET",
+        "path": "/speeches/",
+        "file": "services/api-gateway/app/api/v1/debates.py"
+      },
+      {
+        "method": "GET",
+        "path": "/speeches/{speech_id}/",
+        "file": "services/api-gateway/app/api/v1/debates.py"
+      },
+      {
+        "method": "GET",
+        "path": "/{date}/statements",
+        "file": "services/api-gateway/app/api/v1/debates.py"
+      },
+      {
+        "method": "GET",
+        "path": "/summary/stats",
+        "file": "services/api-gateway/app/api/v1/debates.py"
+      },
+      {
+        "method": "POST",
+        "path": "/manifests",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "GET",
+        "path": "/manifests",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "GET",
+        "path": "/manifests/{manifest_id}",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "GET",
+        "path": "/manifests/{manifest_id}/manifest.json",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "POST",
+        "path": "/manifests/{manifest_id}/service-workers",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "GET",
+        "path": "/manifests/{manifest_id}/service-workers",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "POST",
+        "path": "/manifests/{manifest_id}/offline-resources",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "GET",
+        "path": "/manifests/{manifest_id}/offline-resources",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "POST",
+        "path": "/installations/track",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "GET",
+        "path": "/statistics",
+        "file": "services/api-gateway/app/api/v1/pwa_system.py"
+      },
+      {
+        "method": "GET",
+        "path": "/status",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      {
+        "method": "POST",
+        "path": "/heartbeat/{connection_id}",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      {
+        "method": "GET",
+        "path": "/health/{connection_id}",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      {
+        "method": "POST",
+        "path": "/cleanup",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      {
+        "method": "GET",
+        "path": "/connections/{connection_id}",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      {
+        "method": "GET",
+        "path": "/rooms/{room}",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      {
+        "method": "POST",
+        "path": "/broadcast",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      {
+        "method": "POST",
+        "path": "/notify/{connection_id}",
+        "file": "services/api-gateway/app/api/v1/websocket.py"
+      },
+      "api_router, prefix=\"/api/v1\""
+    ],
+    "health": [],
+    "docs": [],
+    "openapi": []
+  },
+  "performance_analysis": {
+    "route_count": 238,
+    "complexity": "high",
+    "optimization_opportunities": [
+      "Route caching implementation",
+      "Middleware optimization",
+      "Load balancing configuration"
+    ],
+    "bottlenecks": []
+  },
+  "optimized_routing": {
+    "api_gateway": {
+      "health": "/healthz",
+      "docs": "/docs",
+      "openapi": "/openapi.json",
+      "metrics": "/metrics",
+      "status": "/status"
+    },
+    "api_v1": {
+      "bills": "/api/v1/bills",
+      "members": "/api/v1/members",
+      "committees": "/api/v1/committees",
+      "debates": "/api/v1/debates",
+      "votes": "/api/v1/votes",
+      "search": "/api/v1/search",
+      "analytics": "/api/v1/analytics",
+      "users": "/api/v1/users",
+      "notifications": "/api/v1/notifications",
+      "exports": "/api/v1/exports",
+      "policy": "/api/v1/policy"
+    },
+    "api_v2": {
+      "graphql": "/api/v2/graphql",
+      "websocket": "/api/v2/ws",
+      "grpc": "/api/v2/grpc"
+    },
+    "internal": {
+      "admin": "/internal/admin",
+      "monitoring": "/internal/monitoring",
+      "debug": "/internal/debug"
+    }
+  },
+  "routing_optimizations": [
+    "Route caching with Redis",
+    "Middleware optimization",
+    "Load balancing configuration",
+    "Rate limiting per endpoint",
+    "Circuit breaker implementation",
+    "Request/response compression",
+    "API versioning strategy",
+    "Deprecation handling"
+  ],
+  "performance_targets": {
+    "response_time": "< 200ms (95th percentile)",
+    "throughput": "10,000+ requests/second",
+    "availability": "99.9% uptime",
+    "error_rate": "< 0.1%"
+  }
+}
