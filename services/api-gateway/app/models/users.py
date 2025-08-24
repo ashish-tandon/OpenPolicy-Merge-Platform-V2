@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, DateTime, Boolean, Text, Index, ForeignKey, Date, Integer
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import UUID, JSONB
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
 from app.database import Base
@@ -46,13 +46,20 @@ class User(Base):
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
     last_login = Column(DateTime(timezone=True), nullable=True)
     last_activity = Column(DateTime(timezone=True), nullable=True)
+    
+    # Authentication fields  
+    email_verified = Column(Boolean, default=False, nullable=False)
+    email_verified_at = Column(DateTime(timezone=True), nullable=True)
+    preferences = Column(JSONB, nullable=True)  # JSON preferences
 
     # Relationships
     sessions = relationship("UserSession", back_populates="user", cascade="all, delete-orphan")
     password_reset_tokens = relationship("PasswordResetToken", back_populates="user", cascade="all, delete-orphan")
     oauth_accounts = relationship("OAuthAccount", back_populates="user", cascade="all, delete-orphan")
-    preferences = relationship("UserPreferences", back_populates="user", cascade="all, delete-orphan", uselist=False)
+    user_preferences = relationship("UserPreferences", back_populates="user", cascade="all, delete-orphan", uselist=False)
     activities = relationship("UserActivity", back_populates="user", cascade="all, delete-orphan")
+    
+
 
     # Create indexes for efficient queries
     __table_args__ = (
