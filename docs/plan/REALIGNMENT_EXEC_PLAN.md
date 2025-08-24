@@ -340,3 +340,90 @@
 | NEW-FEAT | Unplanned Implementation | Found in codebase | sorted() in scripts/var_func_map.py | EXTRA | Evaluate scope → map/legacy/ADR |
 | NEW-FEAT | Unplanned Implementation | Found in codebase | export_json() in scripts/var_func_map.py | EXTRA | Evaluate scope → map/legacy/ADR |
 | NEW-FEAT | Unplanned Implementation | Found in codebase | list() in scripts/var_func_map.py | EXTRA | Evaluate scope → map/legacy/ADR |
+
+## Realignment Execution Batch 1 - CHK Mapping (2025-08-23)
+
+### CHK Item References
+
+All deviations have been mapped to decimal CHK items in `REALIGNMENT_CHECKLIST_BATCH1.md`:
+
+#### Missing Features → CHK Items
+- FEAT-003 (Feedback Collection) → CHK-0300.1
+- FEAT-004 (Feature Flags) → CHK-0300.2
+- FEAT-005 (Data Dashboard) → CHK-0300.3
+- FEAT-007 (Email Notifications) → CHK-0300.4
+- FEAT-008 (SMS Notifications) → CHK-0300.5
+- FEAT-010 (Social Sharing) → CHK-0300.6
+- FEAT-012 (Offline Support) → CHK-0300.7
+- FEAT-013 (AI Enhancement) → CHK-0300.8
+- FEAT-014 (Authentication System) → CHK-0300.9
+- FEAT-015 (Member Management) → CHK-0300.10
+- FEAT-018 (Debate Transcripts) → CHK-0300.11
+- FEAT-020 (News Aggregation) → CHK-0300.12
+
+#### Partial Implementations → CHK Items
+- FEAT-002 (Session Tracking 33%) → CHK-0301.1
+- FEAT-016 (Bill Tracking 40%) → CHK-0301.2
+- FEAT-017 (Vote Recording 20%) → CHK-0301.3
+- FEAT-019 (Committee Management 67%) → CHK-0301.4
+
+#### Drift Corrections → CHK Items
+- FEAT-001 (Search API Drift) → CHK-0302.1
+- FEAT-001 (Postal Code Non-REST) → CHK-0302.2
+- FEAT-001 (Frontend Functions) → CHK-0302.3
+- FEAT-006 (API Documentation) → CHK-0302.4
+- FEAT-009 (Theme System) → CHK-0302.5
+- FEAT-011 (Print View) → CHK-0302.6
+
+#### Extra Implementations → CHK Items
+- New API Endpoints → CHK-0303.1 (ADR-20250823-101)
+- Legacy JS Libraries → CHK-0303.2 (Move to /legacy)
+- Test Utilities → CHK-0303.3 (Keep as utilities)
+- MCP Server Components → CHK-0303.4 (ADR-20250823-102)
+- Script Utilities → CHK-0303.5 (Keep as dev tools)
+
+### Execution Priority Order
+
+1. **P0 Critical (Sprint 1)**
+   - CHK-0300.2 (Feature Flags)
+   - CHK-0300.9 (Authentication)
+   - CHK-0300.10 (Member Management)
+   - CHK-0301.2 (Bill Tracking)
+   - CHK-0301.3 (Vote Recording)
+   - CHK-0301.4 (Committee Management)
+   - CHK-0302.1 (Search API)
+   - CHK-0302.2 (Postal Code API)
+   - CHK-0302.3 (Frontend Functions)
+
+2. **P1 High (Sprint 2)**
+   - CHK-0300.1 (Feedback Collection)
+   - CHK-0300.11 (Debate Transcripts)
+   - CHK-0301.1 (Session Tracking)
+   - CHK-0302.4 (API Documentation)
+
+3. **P2 Medium (Sprint 3)**
+   - CHK-0300.3 (Data Dashboard)
+   - CHK-0300.4 (Email Notifications)
+   - CHK-0300.12 (News Aggregation)
+   - CHK-0302.5 (Theme System)
+   - CHK-0303.1 (New Endpoints ADR)
+   - CHK-0303.4 (MCP Server ADR)
+
+4. **P3 Low (Sprint 4)**
+   - CHK-0300.5 (SMS Notifications)
+   - CHK-0300.6 (Social Sharing)
+   - CHK-0300.7 (Offline Support)
+   - CHK-0300.8 (AI Enhancement)
+   - CHK-0302.6 (Print View)
+   - CHK-0303.2 (Legacy Migration)
+   - CHK-0303.3 (Utilities)
+   - CHK-0303.5 (Dev Tools)
+
+### Verification Gates
+
+After each sprint, verify:
+1. All CHK items completed have passing tests
+2. API contracts match specifications
+3. Documentation is updated
+4. No new drift introduced
+5. SoT crosslinks updated

@@ -365,3 +365,93 @@ TensorFlow Federated with secure aggregation
 
 ---
 
+## Realignment Architecture Decisions - Batch 1
+
+Date: 2025-08-23
+
+### ADR-20250823-101: Adopt Extra Vote and Debate Endpoints
+
+**Status**: Proposed
+**Context**: Deviation analysis found unplanned endpoints for vote casting and debate access
+**Decision**: Adopt these endpoints as official features
+**Rationale**: 
+- POST /api/v1/bills/{bill_id}/cast-vote - Enables citizen engagement
+- GET /api/v1/members/{member_id}/votes - Provides transparency
+- GET /api/v1/votes/{session_id}/{vote_number} - Historical tracking
+- GET /api/v1/debates/{year}/{month}/{day} - Date-based access
+- GET /api/v1/debates/speeches/{speech_id} - Granular speech access
+**Consequences**: 
+- +User engagement capabilities
+- +Data transparency
+- +API completeness
+- -Additional maintenance burden
+- -Need to document and test
+**Migration**: Update feature specifications, add to FEAT-016/017/018
+
+### ADR-20250823-102: MCP Server Integration Strategy
+
+**Status**: Proposed
+**Context**: Found OpenMetadataMCPServer implementation without clear integration plan
+**Decision**: Evaluate MCP (Model Context Protocol) for metadata management
+**Rationale**:
+- Provides standardized metadata exchange
+- Enables AI-assisted code understanding
+- Supports lineage tracking
+**Consequences**:
+- +Enhanced developer experience
+- +Better code documentation
+- +AI tool integration
+- -Additional infrastructure
+- -Learning curve for team
+**Migration**: Create POC, evaluate performance, decide on full adoption
+
+### ADR-20250823-103: Legacy JavaScript Library Migration
+
+**Status**: Approved
+**Context**: jQuery UI and Backbone.js found in multiple locations
+**Decision**: Move all legacy JavaScript to /legacy directory
+**Rationale**:
+- Clear separation of modern vs legacy code
+- Easier to track technical debt
+- Gradual migration path
+**Consequences**:
+- +Cleaner codebase structure
+- +Clear migration targets
+- -Need to update imports
+- -Temporary duplication
+**Migration**: 
+1. Move files to /legacy
+2. Update imports with deprecation notices
+3. Create modern replacements
+4. Document in omitted.md
+
+### ADR-20250823-104: Development Tool Standardization
+
+**Status**: Approved
+**Context**: Various utility scripts found for architecture analysis
+**Decision**: Standardize and integrate into development workflow
+**Rationale**:
+- Valuable tools for codebase understanding
+- Should be part of standard workflow
+- Automate in CI/CD
+**Consequences**:
+- +Better code quality checks
+- +Automated architecture validation
+- +Consistent development practices
+- -Initial setup time
+**Migration**: Move to /scripts/dev-tools, add to CI/CD pipeline
+
+### Architecture Fitness Functions Update
+
+Based on realignment analysis:
+1. Feature implementation coverage > 80%
+2. API drift score < 5%
+3. Extra implementation ratio < 10%
+4. CHK item completion rate > 90%
+
+### Evolutionary Metrics Update
+- Architecture drift: 4.7% (increased, needs attention)
+- Missing feature debt: 60% (critical)
+- Partial implementation debt: 20% (high)
+- Extra implementation ratio: 99.5% (requires evaluation)
+
