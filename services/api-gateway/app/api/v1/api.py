@@ -4,7 +4,7 @@ Main API router for Merge V2 API Gateway
 
 from fastapi import APIRouter
 
-from app.api.v1 import health, entities, users, votes, debates, auth, committees, members, bills, search, websocket, multi_level_government, user_management, email_alerts, house_status, rss_feeds, language_support, data_visualizations, pwa_system, performance_optimization, testing_qa, postal_codes
+from app.api.v1 import health, entities, users, votes, debates, auth, committees, members, bills, search, websocket, multi_level_government, user_management, email_alerts, house_status, rss_feeds, language_support, data_visualizations, pwa_system, performance_optimization, testing_qa, postal_codes, feature_flags
 
 api_router = APIRouter()
 
@@ -29,10 +29,11 @@ api_router.include_router(user_management.router, prefix="/users", tags=["user-m
 api_router.include_router(email_alerts.router, prefix="/email", tags=["email-alerts"])
 api_router.include_router(house_status.router, prefix="/house", tags=["house-status"])
 api_router.include_router(rss_feeds.router, prefix="/rss", tags=["rss-feeds"])
-api_router.include_router(language_support.router, prefix="/languages", tags=["language-support"])
+api_router.include_router(language_support.router, prefix="/language", tags=["language-support"])
 api_router.include_router(data_visualizations.router, prefix="/visualizations", tags=["data-visualizations"])
 api_router.include_router(pwa_system.router, prefix="/pwa", tags=["pwa-system"])
 api_router.include_router(performance_optimization.router, prefix="/performance", tags=["performance-optimization"])
 api_router.include_router(testing_qa.router, prefix="/qa", tags=["testing-qa"])
+api_router.include_router(feature_flags.router, prefix="/feature-flags", tags=["feature-flags"])
 
-# Additional feature routers
+api_router.include_router(represent.router, prefix="/represent", tags=["represent"])
