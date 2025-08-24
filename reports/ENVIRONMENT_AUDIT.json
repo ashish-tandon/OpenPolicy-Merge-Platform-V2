@@ -1,0 +1,176 @@
+{
+  "generated_at": "2025-08-23T18:05:11.628536",
+  "docker_services": [],
+  "system_services": [],
+  "ports": [],
+  "health_checks": [
+    {
+      "service": "API Gateway",
+      "url": "http://localhost:8080/healthz",
+      "healthy": false,
+      "error": "Connection failed",
+      "checked_at": "2025-08-23T18:05:11.572414"
+    },
+    {
+      "service": "User Service",
+      "url": "http://localhost:8082/health",
+      "healthy": false,
+      "error": "Connection failed",
+      "checked_at": "2025-08-23T18:05:11.576653"
+    },
+    {
+      "service": "OpenMetadata",
+      "url": "http://localhost:8585/api/v1/system/version",
+      "healthy": false,
+      "error": "Connection failed",
+      "checked_at": "2025-08-23T18:05:11.580795"
+    },
+    {
+      "service": "Elasticsearch",
+      "url": "http://localhost:9200/_cluster/health",
+      "healthy": false,
+      "error": "Connection failed",
+      "checked_at": "2025-08-23T18:05:11.584709"
+    },
+    {
+      "service": "Frontend",
+      "url": "http://localhost:3000",
+      "healthy": false,
+      "error": "Connection failed",
+      "checked_at": "2025-08-23T18:05:11.588703"
+    }
+  ],
+  "log_analysis": {
+    "error_classes": {},
+    "error_rates": {},
+    "recent_errors": []
+  },
+  "configurations": [
+    {
+      "file": "services/web-ui/src/legacy-migration/static/bower_components/foundation-sites/customizer/config.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 2935,
+      "modified": "2025-08-16T04:24:24.259047"
+    },
+    {
+      "file": "services/web-ui/src/components/legacy-assets/bower_components/foundation-sites/customizer/config.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 2935,
+      "modified": "2025-08-16T04:24:24.215034"
+    },
+    {
+      "file": "services/user-service/app/config/settings.py",
+      "type": "py",
+      "exists": true,
+      "size": 3719,
+      "modified": "2025-08-16T04:24:24.227038"
+    },
+    {
+      "file": "docker-compose.dev.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 5033,
+      "modified": "2025-08-16T04:24:24.311061"
+    },
+    {
+      "file": "docker-compose.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 8846,
+      "modified": "2025-08-16T04:24:24.311061"
+    },
+    {
+      "file": "services/user-service/docker-compose.mail.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 2043,
+      "modified": "2025-08-16T04:24:24.227038"
+    },
+    {
+      "file": "services/user-service/docker-compose.notifico.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 1837,
+      "modified": "2025-08-16T04:24:24.227038"
+    },
+    {
+      "file": "services/openmetadata/docker-compose-custom.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 2650,
+      "modified": "2025-08-16T04:24:24.227038"
+    },
+    {
+      "file": "services/openmetadata/docker-compose-mysql.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 29373,
+      "modified": "2025-08-16T04:24:24.227038"
+    },
+    {
+      "file": "services/openmetadata/docker-compose.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 29444,
+      "modified": "2025-08-16T04:24:24.227038"
+    },
+    {
+      "file": "services/etl/legacy-scrapers-ca/docker/docker-compose.yml",
+      "type": "yml",
+      "exists": true,
+      "size": 237,
+      "modified": "2025-08-16T04:24:24.223037"
+    },
+    {
+      "file": "services/admin-ui/nginx.conf",
+      "type": "conf",
+      "exists": true,
+      "size": 931,
+      "modified": "2025-08-16T04:24:24.415090"
+    },
+    {
+      "file": "services/web-ui/nginx.conf",
+      "type": "conf",
+      "exists": true,
+      "size": 1040,
+      "modified": "2025-08-16T04:24:24.231039"
+    },
+    {
+      "file": "services/monitoring-dashboard/nginx.conf",
+      "type": "conf",
+      "exists": true,
+      "size": 1063,
+      "modified": "2025-08-16T04:24:24.227038"
+    }
+  ],
+  "resources": {
+    "cpu": {
+      "load_avg": [
+        0.9169921875,
+        0.43701171875,
+        0.2099609375
+      ],
+      "count": 4
+    },
+    "memory": {
+      "total": 16795742208,
+      "used": 1376137216,
+      "percent": 8.19336947994195
+    },
+    "disk": {
+      "total": 135152996352,
+      "used": 6547369984,
+      "free": 121716940800,
+      "percent": 6.0
+    }
+  },
+  "summary": {
+    "total_docker_containers": 0,
+    "healthy_containers": 0,
+    "total_open_ports": 0,
+    "total_errors_found": 0,
+    "healthy_services": 0
+  }
+}

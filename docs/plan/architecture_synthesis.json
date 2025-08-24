@@ -1,0 +1,696 @@
+{
+  "generated_at": "2025-08-23T18:05:24.718766",
+  "current_state": {
+    "services": [
+      {
+        "name": "nocobase",
+        "path": "services/nocobase",
+        "type": "service",
+        "status": "active"
+      },
+      {
+        "name": "admin-ui",
+        "path": "services/admin-ui",
+        "type": "service",
+        "status": "active",
+        "language": "javascript"
+      },
+      {
+        "name": "etl",
+        "path": "services/etl",
+        "type": "service",
+        "status": "active",
+        "containerized": true,
+        "language": "python"
+      },
+      {
+        "name": "web-ui",
+        "path": "services/web-ui",
+        "type": "service",
+        "status": "active",
+        "language": "javascript"
+      },
+      {
+        "name": "monitoring-dashboard",
+        "path": "services/monitoring-dashboard",
+        "type": "service",
+        "status": "active",
+        "containerized": true
+      },
+      {
+        "name": "fider",
+        "path": "services/fider",
+        "type": "service",
+        "status": "active"
+      },
+      {
+        "name": "user-service",
+        "path": "services/user-service",
+        "type": "service",
+        "status": "active",
+        "containerized": true,
+        "language": "python"
+      },
+      {
+        "name": "openmetadata",
+        "path": "services/openmetadata",
+        "type": "service",
+        "status": "active"
+      },
+      {
+        "name": "api-gateway",
+        "path": "services/api-gateway",
+        "type": "service",
+        "status": "active",
+        "containerized": true,
+        "language": "python"
+      }
+    ],
+    "databases": [
+      {
+        "type": "PostgreSQL",
+        "source": "docker-compose.dev.yml"
+      },
+      {
+        "type": "Redis",
+        "source": "docker-compose.dev.yml"
+      },
+      {
+        "type": "PostgreSQL",
+        "source": "docker-compose.yml"
+      },
+      {
+        "type": "Redis",
+        "source": "docker-compose.yml"
+      },
+      {
+        "type": "ElasticSearch",
+        "source": "docker-compose.yml"
+      }
+    ],
+    "frontend": [
+      {
+        "name": "Web UI",
+        "framework": "Next.js",
+        "path": "services/web-ui"
+      },
+      {
+        "name": "Admin UI",
+        "framework": "React + Vite",
+        "path": "services/admin-ui"
+      }
+    ],
+    "api_patterns": [
+      "REST",
+      "FastAPI"
+    ],
+    "deployment": {
+      "containerization": "Docker",
+      "orchestration": "Kubernetes",
+      "ci_cd": [
+        "GitHub Actions"
+      ]
+    }
+  },
+  "future_state": {
+    "vision": "Vision: OpenParliament 2030\n\n### Core Principles\n1. **100% Feature Parity**: Every legacy feature restored and enhanced\n2. **Cloud-Native**: Kubernetes-ready, auto-scaling\n3. **Real-time**: WebSocket-powered live updates\n4. **AI-Enhanced**: Smart summaries and insights\n5. **Fully Bilingual**: Complete EN/FR support\n6. **Accessibility First**: WCAG AAA compliance\n\n## \ud83c\udfd7\ufe0f",
+    "principles": [
+      {
+        "number": "1",
+        "name": "100% Feature Parity",
+        "description": "Every legacy feature restored and enhanced"
+      },
+      {
+        "number": "2",
+        "name": "Cloud-Native",
+        "description": "Kubernetes-ready, auto-scaling"
+      },
+      {
+        "number": "3",
+        "name": "Real-time",
+        "description": "WebSocket-powered live updates"
+      },
+      {
+        "number": "4",
+        "name": "AI-Enhanced",
+        "description": "Smart summaries and insights"
+      },
+      {
+        "number": "5",
+        "name": "Fully Bilingual",
+        "description": "Complete EN/FR support"
+      },
+      {
+        "number": "6",
+        "name": "Accessibility First",
+        "description": "WCAG AAA compliance"
+      }
+    ],
+    "architecture": {
+      "frontend": [
+        {
+          "name": "Web Application",
+          "technology": "Next.js SSR/SSG",
+          "features": [
+            "PWA Support",
+            "Edge Functions",
+            "CDN"
+          ]
+        },
+        {
+          "name": "Mobile Apps",
+          "technology": "React Native",
+          "features": [
+            "Offline-First",
+            "Push Notifications"
+          ]
+        }
+      ],
+      "api_layer": [
+        {
+          "name": "API Gateway",
+          "features": [
+            "GraphQL Federation",
+            "REST Proxy",
+            "Rate Limiting",
+            "Auth"
+          ]
+        }
+      ],
+      "services": [],
+      "data_layer": []
+    },
+    "services": [
+      {
+        "name": "Parliament Service (Core)\n```yaml\nparliament_service:\n  language: Python 3.12+\n  framework: FastAPI\n  database: PostgreSQL\n  \n  subservices:\n    bills:\n      endpoints:\n        - GET /bills\n        - GET /bills/{id}\n        - GET /bills/search\n        - POST /bills/{id}/track\n      features:\n        - Full bilingual support\n        - Version tracking\n        - Amendment history\n        - Related documents\n    \n    votes:\n      endpoints:\n        - GET /votes\n        - GET /votes/{id}\n        - GET /votes/by-bill/{bill_id}\n        - GET /votes/by-member/{member_id}\n      features:\n        - Y/N/P/A vote types\n        - Party vote aggregation\n        - Vote prediction\n        - Historical analysis\n    \n    debates:\n      endpoints:\n        - GET /debates\n        - GET /debates/{date}\n        - GET /debates/search\n        - GET /debates/transcripts/{id}\n      features:\n        - Real-time transcription\n        - Speaker identification\n        - Sentiment analysis\n        - Topic extraction\n```",
+        "config": {}
+      },
+      {
+        "name": "User Service (Enhanced)\n```yaml\nuser_service:\n  features:\n    authentication:\n      - JWT with refresh tokens\n      - OAuth2 (Google, GitHub, Canada.ca)\n      - MFA (SMS, TOTP, WebAuthn)\n      - Passwordless options\n    \n    profiles:\n      - Preferences management\n      - Notification settings\n      - Saved searches\n      - Watch lists\n      - API keys\n    \n    engagement:\n      - Bill tracking\n      - Vote predictions\n      - Comment system\n      - Petition support\n```",
+        "config": {}
+      },
+      {
+        "name": "Real-time Service\n```yaml\nrealtime_service:\n  technology: Node.js + Socket.io\n  \n  channels:\n    house_status:\n      - sitting/not_sitting\n      - current_speaker\n      - current_bill\n      - vote_in_progress\n    \n    bill_updates:\n      - status_change\n      - new_amendment\n      - committee_report\n      - royal_assent\n    \n    notifications:\n      - personal_alerts\n      - watched_items\n      - breaking_news\n```",
+        "config": {}
+      },
+      {
+        "name": "AI Service\n```yaml\nai_service:\n  technology: Python + LangChain\n  models:\n    - GPT-4 for summaries\n    - BERT for classification\n    - Custom fine-tuned models\n  \n  features:\n    summarization:\n      - Bill summaries\n      - Debate highlights\n      - Daily digests\n      - Personalized briefings\n    \n    analysis:\n      - Sentiment tracking\n      - Topic modeling\n      - Trend detection\n      - Impact assessment\n    \n    generation:\n      - Haiku generator\n      - Plain language explanations\n      - Accessibility descriptions\n```",
+        "config": {}
+      }
+    ],
+    "data_layer": {
+      "databases": [
+        {
+          "name": "PostgreSQL",
+          "features": [
+            "Sharded",
+            "Replicated"
+          ]
+        }
+      ],
+      "caching": [
+        {
+          "name": "Redis",
+          "features": [
+            "Cache",
+            "Queue"
+          ]
+        }
+      ],
+      "search": [
+        {
+          "name": "ElasticSearch",
+          "features": [
+            "Full-text",
+            "Analytics"
+          ]
+        }
+      ],
+      "storage": [
+        {
+          "name": "S3 Storage",
+          "features": [
+            "Media",
+            "Backups"
+          ]
+        }
+      ]
+    },
+    "technology_stack": {
+      "language": [
+        "Python 3.12+",
+        "\"TypeScript 5.0\","
+      ],
+      "framework": [
+        "FastAPI",
+        "\"Next.js 14\",",
+        "React Native + Expo"
+      ],
+      "database": [
+        "PostgreSQL"
+      ]
+    }
+  },
+  "proposed_architecture": {
+    "overview": "Evolutionary architecture moving towards the 2030 vision",
+    "approach": "Incremental transformation with backward compatibility",
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Foundation Stabilization",
+        "duration": "3 months",
+        "goals": [
+          "Stabilize current services",
+          "Complete test coverage",
+          "Document all APIs",
+          "Establish monitoring"
+        ],
+        "deliverables": [
+          "Stable API Gateway",
+          "Complete documentation",
+          "Monitoring dashboard",
+          "CI/CD pipeline"
+        ]
+      },
+      {
+        "phase": 2,
+        "name": "Service Decomposition",
+        "duration": "6 months",
+        "goals": [
+          "Extract monolithic components",
+          "Create service boundaries",
+          "Implement service mesh",
+          "Add caching layer"
+        ],
+        "deliverables": [
+          "Parliament Service",
+          "User Service",
+          "Content Service",
+          "Redis caching"
+        ]
+      },
+      {
+        "phase": 3,
+        "name": "Platform Enhancement",
+        "duration": "6 months",
+        "goals": [
+          "Add GraphQL federation",
+          "Implement real-time features",
+          "Add analytics service",
+          "Mobile app development"
+        ],
+        "deliverables": [
+          "GraphQL Gateway",
+          "WebSocket support",
+          "Analytics Service",
+          "Mobile MVP"
+        ]
+      },
+      {
+        "phase": 4,
+        "name": "Scale & Optimize",
+        "duration": "3 months",
+        "goals": [
+          "Kubernetes deployment",
+          "Auto-scaling setup",
+          "Performance optimization",
+          "Security hardening"
+        ],
+        "deliverables": [
+          "K8s manifests",
+          "Auto-scaling config",
+          "Performance benchmarks",
+          "Security audit"
+        ]
+      }
+    ],
+    "components": {
+      "frontend": {
+        "current": [
+          {
+            "name": "Web UI",
+            "framework": "Next.js",
+            "path": "services/web-ui"
+          },
+          {
+            "name": "Admin UI",
+            "framework": "React + Vite",
+            "path": "services/admin-ui"
+          }
+        ],
+        "proposed": [
+          {
+            "name": "Web Application",
+            "technology": "Next.js 15",
+            "features": [
+              "SSR/SSG",
+              "PWA",
+              "i18n"
+            ],
+            "migration": "Enhance existing Next.js app"
+          },
+          {
+            "name": "Admin Dashboard",
+            "technology": "React + Vite",
+            "features": [
+              "Real-time updates",
+              "Analytics"
+            ],
+            "migration": "Keep current, add features"
+          }
+        ],
+        "future_aligned": true
+      },
+      "api_layer": {
+        "current": [
+          "REST",
+          "FastAPI"
+        ],
+        "proposed": [
+          {
+            "name": "API Gateway",
+            "technology": "FastAPI",
+            "features": [
+              "REST",
+              "GraphQL proxy",
+              "Auth"
+            ],
+            "migration": "Extend current gateway"
+          }
+        ],
+        "future_aligned": false,
+        "gap": "Need GraphQL federation"
+      },
+      "services": {
+        "current": [
+          {
+            "name": "nocobase",
+            "path": "services/nocobase",
+            "type": "service",
+            "status": "active"
+          },
+          {
+            "name": "admin-ui",
+            "path": "services/admin-ui",
+            "type": "service",
+            "status": "active",
+            "language": "javascript"
+          },
+          {
+            "name": "etl",
+            "path": "services/etl",
+            "type": "service",
+            "status": "active",
+            "containerized": true,
+            "language": "python"
+          },
+          {
+            "name": "web-ui",
+            "path": "services/web-ui",
+            "type": "service",
+            "status": "active",
+            "language": "javascript"
+          },
+          {
+            "name": "monitoring-dashboard",
+            "path": "services/monitoring-dashboard",
+            "type": "service",
+            "status": "active",
+            "containerized": true
+          },
+          {
+            "name": "fider",
+            "path": "services/fider",
+            "type": "service",
+            "status": "active"
+          },
+          {
+            "name": "user-service",
+            "path": "services/user-service",
+            "type": "service",
+            "status": "active",
+            "containerized": true,
+            "language": "python"
+          },
+          {
+            "name": "openmetadata",
+            "path": "services/openmetadata",
+            "type": "service",
+            "status": "active"
+          },
+          {
+            "name": "api-gateway",
+            "path": "services/api-gateway",
+            "type": "service",
+            "status": "active",
+            "containerized": true,
+            "language": "python"
+          }
+        ],
+        "proposed": [
+          {
+            "name": "api-gateway",
+            "type": "API orchestration",
+            "status": "enhance"
+          },
+          {
+            "name": "user-service",
+            "type": "User management",
+            "status": "keep"
+          },
+          {
+            "name": "etl",
+            "type": "Data ingestion",
+            "status": "refactor"
+          },
+          {
+            "name": "parliament-service",
+            "type": "Core parliamentary data",
+            "status": "create"
+          }
+        ],
+        "future_aligned": false,
+        "gap": "Need service decomposition"
+      },
+      "data_layer": {
+        "current": [
+          {
+            "type": "PostgreSQL",
+            "source": "docker-compose.dev.yml"
+          },
+          {
+            "type": "Redis",
+            "source": "docker-compose.dev.yml"
+          },
+          {
+            "type": "PostgreSQL",
+            "source": "docker-compose.yml"
+          },
+          {
+            "type": "Redis",
+            "source": "docker-compose.yml"
+          },
+          {
+            "type": "ElasticSearch",
+            "source": "docker-compose.yml"
+          }
+        ],
+        "proposed": [
+          {
+            "name": "PostgreSQL",
+            "purpose": "Primary datastore",
+            "enhancements": [
+              "Partitioning",
+              "Read replicas"
+            ]
+          },
+          {
+            "name": "Redis",
+            "purpose": "Caching & queues",
+            "enhancements": [
+              "Cluster mode"
+            ]
+          },
+          {
+            "name": "ElasticSearch",
+            "purpose": "Search & analytics",
+            "enhancements": [
+              "Full cluster"
+            ]
+          }
+        ],
+        "future_aligned": true
+      }
+    },
+    "technology_decisions": [
+      {
+        "area": "Backend Language",
+        "current": "Python 3.x",
+        "proposed": "Python 3.12+",
+        "future": "Python 3.12+",
+        "decision": "Upgrade to Python 3.12",
+        "rationale": "Performance improvements, better async"
+      },
+      {
+        "area": "API Framework",
+        "current": "FastAPI",
+        "proposed": "FastAPI + GraphQL",
+        "future": "GraphQL Federation",
+        "decision": "Add GraphQL incrementally",
+        "rationale": "Gradual migration path"
+      },
+      {
+        "area": "Frontend Framework",
+        "current": "Next.js 15",
+        "proposed": "Next.js 15+",
+        "future": "Next.js with Edge",
+        "decision": "Keep Next.js, add edge functions",
+        "rationale": "Already aligned with future"
+      },
+      {
+        "area": "Container Orchestration",
+        "current": "Docker Compose",
+        "proposed": "Docker Swarm",
+        "future": "Kubernetes",
+        "decision": "Prepare for K8s, use Swarm transition",
+        "rationale": "Lower complexity initially"
+      },
+      {
+        "area": "Message Queue",
+        "current": "None",
+        "proposed": "Redis Pub/Sub",
+        "future": "Kafka/RabbitMQ",
+        "decision": "Start with Redis",
+        "rationale": "Already have Redis"
+      }
+    ],
+    "migration_strategy": {
+      "approach": "Strangler Fig Pattern",
+      "principles": [
+        "No big bang migrations",
+        "Maintain backward compatibility",
+        "Feature flags for gradual rollout",
+        "Comprehensive testing at each step"
+      ],
+      "steps": [
+        {
+          "step": 1,
+          "action": "Create service interfaces",
+          "description": "Define contracts between services"
+        },
+        {
+          "step": 2,
+          "action": "Extract service logic",
+          "description": "Move business logic to services"
+        },
+        {
+          "step": 3,
+          "action": "Implement service mesh",
+          "description": "Add service discovery and routing"
+        },
+        {
+          "step": 4,
+          "action": "Migrate data layer",
+          "description": "Optimize database schema"
+        },
+        {
+          "step": 5,
+          "action": "Enable new features",
+          "description": "Turn on GraphQL, WebSockets"
+        }
+      ],
+      "rollback_plan": [
+        "Feature flags for instant rollback",
+        "Database migration reversibility",
+        "Service version pinning",
+        "Traffic routing controls"
+      ]
+    }
+  },
+  "constraints": [
+    {
+      "type": "technical",
+      "description": "Must maintain backward compatibility with legacy data formats",
+      "impact": "high"
+    },
+    {
+      "type": "technical",
+      "description": "Limited to current infrastructure capabilities",
+      "impact": "medium"
+    },
+    {
+      "type": "resource",
+      "description": "Development team size and expertise",
+      "impact": "high"
+    },
+    {
+      "type": "time",
+      "description": "Migration must be completed incrementally",
+      "impact": "medium"
+    },
+    {
+      "type": "data",
+      "description": "Must preserve all historical data",
+      "impact": "high"
+    }
+  ],
+  "alignment_delta": {
+    "alignment_score": 50.0,
+    "gaps": [
+      {
+        "area": "api_layer",
+        "gap": "Need GraphQL federation",
+        "priority": "high"
+      },
+      {
+        "area": "services",
+        "gap": "Need service decomposition",
+        "priority": "high"
+      }
+    ],
+    "risks": [
+      {
+        "risk": "Service decomposition complexity",
+        "impact": "high",
+        "mitigation": "Incremental extraction with feature flags"
+      },
+      {
+        "risk": "Data migration errors",
+        "impact": "high",
+        "mitigation": "Comprehensive backup and rollback procedures"
+      },
+      {
+        "risk": "Performance degradation during transition",
+        "impact": "medium",
+        "mitigation": "Load testing and gradual rollout"
+      },
+      {
+        "risk": "Team skill gaps",
+        "impact": "medium",
+        "mitigation": "Training and documentation"
+      }
+    ],
+    "opportunities": [
+      {
+        "opportunity": "Improved scalability",
+        "benefit": "Handle 10x traffic",
+        "effort": "medium"
+      },
+      {
+        "opportunity": "Better developer experience",
+        "benefit": "Faster feature development",
+        "effort": "low"
+      },
+      {
+        "opportunity": "Real-time capabilities",
+        "benefit": "Live parliamentary updates",
+        "effort": "medium"
+      },
+      {
+        "opportunity": "Mobile platform",
+        "benefit": "Reach more citizens",
+        "effort": "high"
+      }
+    ]
+  }
+}

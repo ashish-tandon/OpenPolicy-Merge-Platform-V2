@@ -1,0 +1,1249 @@
+{
+  "generated_at": "2025-08-23T18:05:19.287056",
+  "total_bugs": 57,
+  "by_source": {
+    "bandit": 57
+  },
+  "by_severity": {
+    "MEDIUM": 20,
+    "LOW": 27,
+    "HIGH": 10
+  },
+  "by_type": {
+    "security": 57
+  },
+  "linked_features": {},
+  "linked_checklists": {
+    "3.1": [
+      "Possible binding to all interfaces.",
+      "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "Try, Except, Pass detected.",
+      "Consider possible security implications associated with pickle module.",
+      "Use of exec detected.",
+      "subprocess call - check for execution of untrusted input.",
+      "Deserialization with the marshal module is possibly dangerous.",
+      "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "Possible SQL injection vector through string-based query construction.",
+      "Possible hardcoded password: 'upgrades'",
+      "Possible hardcoded password: 'REVISION_SCRIPT_FILENAME'",
+      "Mako templates allow HTML/JS rendering by default and are inherently open to XSS attacks. Ensure variables in all templates are properly sanitized via the 'n', 'h' or 'x' flags (depending on context). For example, to HTML escape the variable 'data' do ${ data |h }.",
+      "Function call with shell=True parameter identified, possible security issue.",
+      "Use of extra potential SQL attack vector.",
+      "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "Probable insecure usage of temp file/directory.",
+      "Try, Except, Continue detected.",
+      "Possible hardcoded password: 'template_string'",
+      "Possible hardcoded password: '[0-9@#.,E+]'",
+      "subprocess call with shell=True identified, security issue.",
+      "Starting a process with a partial executable path",
+      "A Python source file contains bidirectional control characters ('\\u200f').",
+      "Potential XSS on mark_safe function.",
+      "Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.",
+      "Use of weak SHA1 hash for security. Consider usedforsecurity=False",
+      "Possible hardcoded password: '_password_reset_token'",
+      "Possible hardcoded password: 'django-insecure-'",
+      "Using pulldom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace pulldom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Possible hardcoded password: 'ALTER USER %(user)s IDENTIFIED BY \"%(password)s\"'",
+      "Possible hardcoded password: 'CSRF token missing.'",
+      "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "Starting a process without a shell.",
+      "Possible hardcoded password: '[-!#$%&'*+.^_`|~0-9a-zA-Z]+'",
+      "Call to requests without timeout",
+      "Possible hardcoded password: ',;}) +-*/^&=><%'",
+      "Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.",
+      "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "ssl.wrap_socket call with no SSL/TLS protocol version specified, the default SSLv23 could be insecure, possible security issue.",
+      "Possible hardcoded password: '********'",
+      "By default, jinja2 sets autoescape to False. Consider using autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "A FTP-related module is being imported.  FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol.",
+      "Use of insecure MD2, MD4, MD5, or SHA1 hash function.",
+      "Possible hardcoded password: 'client_secret_basic'",
+      "Use of insecure cipher mode cryptography.hazmat.primitives.ciphers.modes.ECB.",
+      "Possible hardcoded password: 'environment'",
+      "Potential XSS with ``markupsafe.Markup`` detected. Do not use ``Markup`` on untrusted data.",
+      "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "Use of insecure and deprecated function (mktemp).",
+      "Possible hardcoded password: '\n      (?=\n        \\s         # whitespace\n        | ;        # comment\n        | \\#[;|!] # fancy comments\n        | [)\\]]    # end delimiters\n        | $        # end of file\n      )\n    '",
+      "Possible hardcoded password: '(?=\\s|#|[)\\]]|$)'",
+      "Starting a process with a shell, possible injection detected, security issue.",
+      "Chmod setting a permissive mask 0o777 on file (exe).",
+      "Call to requests with verify=False disabling SSL certificate checks, security issue."
+    ],
+    "3.2": [
+      "Possible binding to all interfaces.",
+      "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "Try, Except, Pass detected.",
+      "Consider possible security implications associated with pickle module.",
+      "Use of exec detected.",
+      "subprocess call - check for execution of untrusted input.",
+      "Deserialization with the marshal module is possibly dangerous.",
+      "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "Possible SQL injection vector through string-based query construction.",
+      "Possible hardcoded password: 'upgrades'",
+      "Possible hardcoded password: 'REVISION_SCRIPT_FILENAME'",
+      "Mako templates allow HTML/JS rendering by default and are inherently open to XSS attacks. Ensure variables in all templates are properly sanitized via the 'n', 'h' or 'x' flags (depending on context). For example, to HTML escape the variable 'data' do ${ data |h }.",
+      "Function call with shell=True parameter identified, possible security issue.",
+      "Use of extra potential SQL attack vector.",
+      "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "Probable insecure usage of temp file/directory.",
+      "Try, Except, Continue detected.",
+      "Possible hardcoded password: 'template_string'",
+      "Possible hardcoded password: '[0-9@#.,E+]'",
+      "subprocess call with shell=True identified, security issue.",
+      "Starting a process with a partial executable path",
+      "A Python source file contains bidirectional control characters ('\\u200f').",
+      "Potential XSS on mark_safe function.",
+      "Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.",
+      "Use of weak SHA1 hash for security. Consider usedforsecurity=False",
+      "Possible hardcoded password: '_password_reset_token'",
+      "Possible hardcoded password: 'django-insecure-'",
+      "Using pulldom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace pulldom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Possible hardcoded password: 'ALTER USER %(user)s IDENTIFIED BY \"%(password)s\"'",
+      "Possible hardcoded password: 'CSRF token missing.'",
+      "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "Starting a process without a shell.",
+      "Possible hardcoded password: '[-!#$%&'*+.^_`|~0-9a-zA-Z]+'",
+      "Call to requests without timeout",
+      "Possible hardcoded password: ',;}) +-*/^&=><%'",
+      "Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.",
+      "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "ssl.wrap_socket call with no SSL/TLS protocol version specified, the default SSLv23 could be insecure, possible security issue.",
+      "Possible hardcoded password: '********'",
+      "By default, jinja2 sets autoescape to False. Consider using autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "A FTP-related module is being imported.  FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol.",
+      "Use of insecure MD2, MD4, MD5, or SHA1 hash function.",
+      "Possible hardcoded password: 'client_secret_basic'",
+      "Use of insecure cipher mode cryptography.hazmat.primitives.ciphers.modes.ECB.",
+      "Possible hardcoded password: 'environment'",
+      "Potential XSS with ``markupsafe.Markup`` detected. Do not use ``Markup`` on untrusted data.",
+      "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "Use of insecure and deprecated function (mktemp).",
+      "Possible hardcoded password: '\n      (?=\n        \\s         # whitespace\n        | ;        # comment\n        | \\#[;|!] # fancy comments\n        | [)\\]]    # end delimiters\n        | $        # end of file\n      )\n    '",
+      "Possible hardcoded password: '(?=\\s|#|[)\\]]|$)'",
+      "Starting a process with a shell, possible injection detected, security issue.",
+      "Chmod setting a permissive mask 0o777 on file (exe).",
+      "Call to requests with verify=False disabling SSL certificate checks, security issue."
+    ],
+    "6.1": [
+      "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "Using pulldom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace pulldom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called"
+    ],
+    "6.2": [
+      "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "Using pulldom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace pulldom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called"
+    ],
+    "2.1": [
+      "A FTP-related module is being imported.  FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol."
+    ],
+    "2.2": [
+      "A FTP-related module is being imported.  FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol."
+    ]
+  },
+  "bugs": [
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "MEDIUM",
+      "title": "Possible binding to all interfaces.",
+      "message": "Possible binding to all interfaces.",
+      "file": "./services/api-gateway/app/config.py",
+      "line": 21,
+      "code": "20     # API Configuration\n21     API_HOST: str = \"0.0.0.0\"\n22     API_PORT: int = 8080\n",
+      "test_id": "B104",
+      "test_name": "hardcoded_bind_all_interfaces",
+      "occurrences": 22,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "message": "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "file": "./services/api-gateway/src/api/v1/export.py",
+      "line": 11,
+      "code": "10 from datetime import datetime\n11 import xml.etree.ElementTree as ET\n12 from xml.dom import minidom\n",
+      "test_id": "B405",
+      "test_name": "blacklist",
+      "occurrences": 61,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2",
+        "6.1",
+        "6.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "message": "Using xml.dom.minidom.parseString to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.dom.minidom.parseString with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "file": "./services/api-gateway/src/api/v1/export.py",
+      "line": 70,
+      "code": "69     rough_string = ET.tostring(root, encoding='unicode')\n70     reparsed = minidom.parseString(rough_string)\n71     return reparsed.toprettyxml(indent=\"  \")\n",
+      "test_id": "B318",
+      "test_name": "blacklist",
+      "occurrences": 18,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2",
+        "6.1",
+        "6.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "message": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+      "file": "./services/api-gateway/tests/test_bills.py",
+      "line": 20,
+      "code": "19         response = client.get(\"/api/v1/bills/\")\n20         assert response.status_code == 200\n21         \n",
+      "test_id": "B101",
+      "test_name": "assert_used",
+      "occurrences": 13561,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "message": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/_pytest/_code/code.py",
+      "line": 172,
+      "code": "171         f_locals.update(vars)\n172         return eval(code, self.f_globals, f_locals)\n173 \n",
+      "test_id": "B307",
+      "test_name": "blacklist",
+      "occurrences": 90,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Try, Except, Pass detected.",
+      "message": "Try, Except, Pass detected.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/_pytest/_code/code.py",
+      "line": 293,
+      "code": "292                 tbh = maybe_ns_dct[\"__tracebackhide__\"]\n293             except Exception:\n294                 pass\n295             else:\n",
+      "test_id": "B110",
+      "test_name": "try_except_pass",
+      "occurrences": 196,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Consider possible security implications associated with pickle module.",
+      "message": "Consider possible security implications associated with pickle module.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/_pytest/_py/path.py",
+      "line": 399,
+      "code": "398         try:\n399             import pickle\n400 \n",
+      "test_id": "B403",
+      "test_name": "blacklist",
+      "occurrences": 335,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Use of exec detected.",
+      "message": "Use of exec detected.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/_pytest/_py/path.py",
+      "line": 1155,
+      "code": "1154                     with open(str(self), \"rb\") as f:\n1155                         exec(f.read(), mod.__dict__)\n1156                 except BaseException:\n",
+      "test_id": "B102",
+      "test_name": "exec_used",
+      "occurrences": 70,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "subprocess call - check for execution of untrusted input.",
+      "message": "subprocess call - check for execution of untrusted input.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/_pytest/_py/path.py",
+      "line": 1170,
+      "code": "1169         popen_opts.pop(\"stderr\", None)\n1170         proc = Popen(\n1171             [str(self)] + [str(arg) for arg in argv],\n1172             **popen_opts,\n1173             stdout=PIPE,\n1174             stderr=PIPE,\n1175         )\n1176         stdout: str | bytes\n",
+      "test_id": "B603",
+      "test_name": "subprocess_without_shell_equals_true",
+      "occurrences": 340,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Deserialization with the marshal module is possibly dangerous.",
+      "message": "Deserialization with the marshal module is possibly dangerous.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py",
+      "line": 404,
+      "code": "403         try:\n404             co = marshal.load(fp)\n405         except Exception as e:\n",
+      "test_id": "B302",
+      "test_name": "blacklist",
+      "occurrences": 11,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "message": "Audit url open for permitted schemes. Allowing use of file:/ or custom schemes is often unexpected.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/_pytest/pastebin.py",
+      "line": 83,
+      "code": "82         response: str = (\n83             urlopen(url, data=urlencode(params).encode(\"ascii\")).read().decode(\"utf-8\")\n84         )\n",
+      "test_id": "B310",
+      "test_name": "blacklist",
+      "occurrences": 48,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "LOW",
+      "title": "Possible SQL injection vector through string-based query construction.",
+      "message": "Possible SQL injection vector through string-based query construction.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/alembic/ddl/mssql.py",
+      "line": 318,
+      "code": "317     # working-with-default-constraints-in-sql-server/\n318     return \"\"\"declare @const_name varchar(256)\n319 select @const_name = QUOTENAME([name]) from %(type)s\n320 where parent_object_id = object_id('%(schema_dot)s%(tname)s')\n321 and col_name(parent_object_id, parent_column_id) = '%(colname)s'\n322 exec('alter table %(tname_quoted)s drop constraint ' + @const_name)\"\"\" % {\n323         \"type\": type_,\n324         \"tname\": tname,\n325         \"colname\": colname,\n326         \"tname_quoted\": format_table_name(compiler, tname, schema),\n327         \"schema_dot\": schema + \".\" if schema else \"\",\n328     }\n329 \n",
+      "test_id": "B608",
+      "test_name": "hardcoded_sql_expressions",
+      "occurrences": 149,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'upgrades'",
+      "message": "Possible hardcoded password: 'upgrades'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/alembic/operations/ops.py",
+      "line": 2617,
+      "code": "2616 \n2617     def __init__(\n2618         self,\n2619         ops: Sequence[MigrateOperation] = (),\n2620         upgrade_token: str = \"upgrades\",\n2621     ) -> None:\n2622         super().__init__(ops=ops)\n2623         self.upgrade_token = upgrade_token\n2624 \n",
+      "test_id": "B107",
+      "test_name": "hardcoded_password_default",
+      "occurrences": 163,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'REVISION_SCRIPT_FILENAME'",
+      "message": "Possible hardcoded password: 'REVISION_SCRIPT_FILENAME'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/alembic/script/write_hooks.py",
+      "line": 21,
+      "code": "20 \n21 REVISION_SCRIPT_TOKEN = \"REVISION_SCRIPT_FILENAME\"\n22 \n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Mako templates allow HTML/JS rendering by default and are inherently open to XSS attacks. Ensure variables in all templates are properly sanitized via the 'n', 'h' or 'x' flags (depending on context). For example, to HTML escape the variable 'data' do ${ data |h }.",
+      "message": "Mako templates allow HTML/JS rendering by default and are inherently open to XSS attacks. Ensure variables in all templates are properly sanitized via the 'n', 'h' or 'x' flags (depending on context). For example, to HTML escape the variable 'data' do ${ data |h }.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/alembic/util/pyfiles.py",
+      "line": 25,
+      "code": "24 ) -> None:\n25     template = Template(filename=template_file)\n26     try:\n",
+      "test_id": "B702",
+      "test_name": "use_of_mako_templates",
+      "occurrences": 20,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "LOW",
+      "title": "Function call with shell=True parameter identified, possible security issue.",
+      "message": "Function call with shell=True parameter identified, possible security issue.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/anyio/_backends/_trio.py",
+      "line": 1135,
+      "code": "1134                 stderr=stderr,\n1135                 shell=True,\n1136                 **kwargs,\n1137             )\n1138         else:\n1139             process = await trio.lowlevel.open_process(\n1140                 [convert_item(item) for item in command],\n1141                 stdin=stdin,\n1142                 stdout=stdout,\n1143                 stderr=stderr,\n",
+      "test_id": "B604",
+      "test_name": "any_other_function_with_shell_equals_true",
+      "occurrences": 16,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "MEDIUM",
+      "title": "Use of extra potential SQL attack vector.",
+      "message": "Use of extra potential SQL attack vector.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/anyio/streams/tls.py",
+      "line": 247,
+      "code": "246     async def send_eof(self) -> None:\n247         tls_version = self.extra(TLSAttribute.tls_version)\n248         match = re.match(r\"TLSv(\\d+)(?:\\.(\\d+))?\", tls_version)\n",
+      "test_id": "B610",
+      "test_name": "django_extra_used",
+      "occurrences": 32,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "message": "Pickle and modules that wrap it can be unsafe when used to deserialize untrusted data, possible security issue.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/anyio/to_interpreter.py",
+      "line": 123,
+      "code": "122             if fmt == FMT_PICKLED:\n123                 res = pickle.loads(res)\n124 \n",
+      "test_id": "B301",
+      "test_name": "blacklist",
+      "occurrences": 100,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "message": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/asyncpg/cluster.py",
+      "line": 51,
+      "code": "50 def _world_readable_mkdtemp(suffix=None, prefix=None, dir=None):\n51     name = \"\".join(random.choices(string.ascii_lowercase, k=8))\n52     if dir is None:\n",
+      "test_id": "B311",
+      "test_name": "blacklist",
+      "occurrences": 217,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2",
+        "6.1",
+        "6.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "MEDIUM",
+      "title": "Probable insecure usage of temp file/directory.",
+      "message": "Probable insecure usage of temp file/directory.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/asyncpg/connect_utils.py",
+      "line": 425,
+      "code": "424             host = ['/run/postgresql', '/var/run/postgresql',\n425                     '/tmp', '/private/tmp', 'localhost']\n426 \n427     if not isinstance(host, (list, tuple)):\n",
+      "test_id": "B108",
+      "test_name": "hardcoded_tmp_directory",
+      "occurrences": 52,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Try, Except, Continue detected.",
+      "message": "Try, Except, Continue detected.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/attr/validators.py",
+      "line": 675,
+      "code": "674                 v(inst, attr, value)\n675             except Exception:  # noqa: BLE001, PERF203, S112\n676                 continue\n677             else:\n",
+      "test_id": "B112",
+      "test_name": "try_except_continue",
+      "occurrences": 3,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'template_string'",
+      "message": "Possible hardcoded password: 'template_string'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/babel/messages/jslexer.py",
+      "line": 75,
+      "code": "74             continue\n75         if not template_string and token_type == 'template_string':\n76             continue\n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: '[0-9@#.,E+]'",
+      "message": "Possible hardcoded password: '[0-9@#.,E+]'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/babel/numbers.py",
+      "line": 1205,
+      "code": "1204 PREFIX_END = r'[^0-9@#.,]'\n1205 NUMBER_TOKEN = r'[0-9@#.,E+]'\n1206 \n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "subprocess call with shell=True identified, security issue.",
+      "message": "subprocess call with shell=True identified, security issue.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/click/_termui_impl.py",
+      "line": 451,
+      "code": "450         [str(cmd_path)] + cmd_params,\n451         shell=True,\n452         stdin=subprocess.PIPE,\n453         env=env,\n454         errors=\"replace\",\n455         text=True,\n456     )\n457     assert c.stdin is not None\n458     try:\n459         for text in generator:\n",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true",
+      "occurrences": 28,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Starting a process with a partial executable path",
+      "message": "Starting a process with a partial executable path",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/click/_termui_impl.py",
+      "line": 721,
+      "code": "720             url = _unquote_file(url)\n721         c = subprocess.Popen([\"xdg-open\", url])\n722         if wait:\n",
+      "test_id": "B607",
+      "test_name": "start_process_with_partial_path",
+      "occurrences": 73,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "MEDIUM",
+      "title": "A Python source file contains bidirectional control characters ('\\u200f').",
+      "message": "A Python source file contains bidirectional control characters ('\\u200f').",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/conf/locale/ar/formats.py",
+      "line": 10,
+      "code": "9 MONTH_DAY_FORMAT = \"j F\"\n10 SHORT_DATE_FORMAT = \"d\u200f/m\u200f/Y\"\n11 # SHORT_DATETIME_FORMAT =\n",
+      "test_id": "B613",
+      "test_name": "trojansource",
+      "occurrences": 7,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Potential XSS on mark_safe function.",
+      "message": "Potential XSS on mark_safe function.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/contrib/admin/helpers.py",
+      "line": 159,
+      "code": "158     def errors(self):\n159         return mark_safe(\n160             \"\\n\".join(\n161                 self.form[f].errors.as_ul()\n162                 for f in self.fields\n163                 if f not in self.readonly_fields\n164             ).strip(\"\\n\")\n165         )\n166 \n",
+      "test_id": "B703",
+      "test_name": "django_mark_safe",
+      "occurrences": 125,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.",
+      "message": "Use of mark_safe() may expose cross-site scripting vulnerabilities and should be reviewed.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/contrib/admin/helpers.py",
+      "line": 159,
+      "code": "158     def errors(self):\n159         return mark_safe(\n160             \"\\n\".join(\n161                 self.form[f].errors.as_ul()\n162                 for f in self.fields\n163                 if f not in self.readonly_fields\n164             ).strip(\"\\n\")\n165         )\n166 \n",
+      "test_id": "B308",
+      "test_name": "blacklist",
+      "occurrences": 124,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "Use of weak SHA1 hash for security. Consider usedforsecurity=False",
+      "message": "Use of weak SHA1 hash for security. Consider usedforsecurity=False",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/contrib/auth/hashers.py",
+      "line": 651,
+      "code": "650         self._check_encode_args(password, salt)\n651         hash = hashlib.sha1((salt + password).encode()).hexdigest()\n652         return \"%s$%s$%s\" % (self.algorithm, salt, hash)\n",
+      "test_id": "B324",
+      "test_name": "hashlib",
+      "occurrences": 64,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: '_password_reset_token'",
+      "message": "Possible hardcoded password: '_password_reset_token'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/contrib/auth/views.py",
+      "line": 259,
+      "code": "258 \n259 INTERNAL_RESET_SESSION_TOKEN = \"_password_reset_token\"\n260 \n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 5,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'django-insecure-'",
+      "message": "Possible hardcoded password: 'django-insecure-'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/core/checks/security/base.py",
+      "line": 22,
+      "code": "21 \n22 SECRET_KEY_INSECURE_PREFIX = \"django-insecure-\"\n23 SECRET_KEY_MIN_LENGTH = 50\n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "Using pulldom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace pulldom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "message": "Using pulldom to parse untrusted XML data is known to be vulnerable to XML attacks. Replace pulldom with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/core/serializers/xml_serializer.py",
+      "line": 5,
+      "code": "4 import json\n5 from xml.dom import pulldom\n6 from xml.sax import handler\n",
+      "test_id": "B409",
+      "test_name": "blacklist",
+      "occurrences": 13,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2",
+        "6.1",
+        "6.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'ALTER USER %(user)s IDENTIFIED BY \"%(password)s\"'",
+      "message": "Possible hardcoded password: 'ALTER USER %(user)s IDENTIFIED BY \"%(password)s\"'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/db/backends/oracle/creation.py",
+      "line": 286,
+      "code": "285         if not success and self._test_settings_get(\"PASSWORD\") is None:\n286             set_password = 'ALTER USER %(user)s IDENTIFIED BY \"%(password)s\"'\n287             self._execute_statements(cursor, [set_password], parameters, verbosity)\n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'CSRF token missing.'",
+      "message": "Possible hardcoded password: 'CSRF token missing.'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/middleware/csrf.py",
+      "line": 32,
+      "code": "31 REASON_NO_CSRF_COOKIE = \"CSRF cookie not set.\"\n32 REASON_CSRF_TOKEN_MISSING = \"CSRF token missing.\"\n33 REASON_MALFORMED_REFERER = \"Referer checking failed - Referer is malformed.\"\n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "title": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "message": "subprocess call with shell=True seems safe, but may be changed in the future, consider rewriting without shell",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/django/utils/version.py",
+      "line": 91,
+      "code": "90         capture_output=True,\n91         shell=True,\n92         cwd=repo_dir,\n93         text=True,\n94     )\n95     timestamp = git_log.stdout\n96     tz = datetime.timezone.utc\n97     try:\n98         timestamp = datetime.datetime.fromtimestamp(int(timestamp), tz=tz)\n",
+      "test_id": "B602",
+      "test_name": "subprocess_popen_with_shell_equals_true",
+      "occurrences": 5,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Starting a process without a shell.",
+      "message": "Starting a process without a shell.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/dotenv/cli.py",
+      "line": 205,
+      "code": "204     else:\n205         os.execvpe(command[0], args=command, env=cmd_env)\n",
+      "test_id": "B606",
+      "test_name": "start_process_with_no_shell",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: '[-!#$%&'*+.^_`|~0-9a-zA-Z]+'",
+      "message": "Possible hardcoded password: '[-!#$%&'*+.^_`|~0-9a-zA-Z]+'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/h11/_abnf.py",
+      "line": 17,
+      "code": "16 #                  ; any VCHAR, except delimiters\n17 token = r\"[-!#$%&'*+.^_`|~0-9a-zA-Z]+\"\n18 \n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 3,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "LOW",
+      "title": "Call to requests without timeout",
+      "message": "Call to requests without timeout",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/jsonschema/validators.py",
+      "line": 1225,
+      "code": "1224             # json over http\n1225             result = requests.get(uri).json()\n1226         else:\n",
+      "test_id": "B113",
+      "test_name": "request_without_timeout",
+      "occurrences": 60,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: ',;}) +-*/^&=><%'",
+      "message": "Possible hardcoded password: ',;}) +-*/^&=><%'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/openpyxl/formula/tokenizer.py",
+      "line": 43,
+      "code": "42                    \"#NUM!\", \"#N/A\", \"#GETTING_DATA\")\n43     TOKEN_ENDERS = ',;}) +-*/^&=><%'  # Each of these characters, marks the\n44                                        # end of an operand token\n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.",
+      "message": "Using xmlrpc.client to parse untrusted XML data is known to be vulnerable to XML attacks. Use defusedxml.xmlrpc.monkey_patch() function to monkey-patch xmlrpclib and mitigate XML vulnerabilities.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/pip/_internal/commands/search.py",
+      "line": 7,
+      "code": "6 import textwrap\n7 import xmlrpc.client\n8 from collections import OrderedDict\n",
+      "test_id": "B411",
+      "test_name": "blacklist",
+      "occurrences": 15,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "message": "tarfile.extractall used without any validation. Please check and discard dangerous members.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/pip/_internal/utils/unpacking.py",
+      "line": 245,
+      "code": "244 \n245             tar.extractall(location, filter=pip_filter)\n246 \n",
+      "test_id": "B202",
+      "test_name": "tarfile_unsafe_members",
+      "occurrences": 10,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "ssl.wrap_socket call with no SSL/TLS protocol version specified, the default SSLv23 could be insecure, possible security issue.",
+      "message": "ssl.wrap_socket call with no SSL/TLS protocol version specified, the default SSLv23 could be insecure, possible security issue.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/ssl_.py",
+      "line": 182,
+      "code": "181             }\n182             return wrap_socket(socket, ciphers=self.ciphers, **kwargs)\n183 \n",
+      "test_id": "B504",
+      "test_name": "ssl_with_no_version",
+      "occurrences": 9,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: '********'",
+      "message": "Possible hardcoded password: '********'",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/starlette/datastructures.py",
+      "line": 166,
+      "code": "165         if self.password:\n166             url = str(self.replace(password=\"********\"))\n167         return f\"{self.__class__.__name__}({repr(url)})\"\n",
+      "test_id": "B106",
+      "test_name": "hardcoded_password_funcarg",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "By default, jinja2 sets autoescape to False. Consider using autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "message": "By default, jinja2 sets autoescape to False. Consider using autoescape=True or use the select_autoescape function to mitigate XSS vulnerabilities.",
+      "file": "./services/api-gateway/venv/lib/python3.12/site-packages/starlette/templating.py",
+      "line": 115,
+      "code": "114 \n115         return jinja2.Environment(**env_options)\n116 \n",
+      "test_id": "B701",
+      "test_name": "jinja2_autoescape_false",
+      "occurrences": 5,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "A FTP-related module is being imported.  FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol.",
+      "message": "A FTP-related module is being imported.  FTP is considered insecure. Use SSH/SFTP/SCP or some other encrypted protocol.",
+      "file": "./services/etl/legacy-scrapers-ca/utils.py",
+      "line": 6,
+      "code": "5 from datetime import datetime\n6 from ftplib import FTP\n7 from io import BytesIO, StringIO\n",
+      "test_id": "B402",
+      "test_name": "blacklist",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "2.1",
+        "2.2",
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Use of insecure MD2, MD4, MD5, or SHA1 hash function.",
+      "message": "Use of insecure MD2, MD4, MD5, or SHA1 hash function.",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/authlib/jose/rfc7518/jwe_algs.py",
+      "line": 329,
+      "code": "328         \"RSAES OAEP using default parameters\",\n329         padding.OAEP(padding.MGF1(hashes.SHA1()), hashes.SHA1(), None),\n330     ),\n",
+      "test_id": "B303",
+      "test_name": "blacklist",
+      "occurrences": 11,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'client_secret_basic'",
+      "message": "Possible hardcoded password: 'client_secret_basic'",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/authlib/oauth2/client.py",
+      "line": 77,
+      "code": "76             if client_secret:\n77                 token_endpoint_auth_method = \"client_secret_basic\"\n78             else:\n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Use of insecure cipher mode cryptography.hazmat.primitives.ciphers.modes.ECB.",
+      "message": "Use of insecure cipher mode cryptography.hazmat.primitives.ciphers.modes.ECB.",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/cryptography/hazmat/primitives/keywrap.py",
+      "line": 21,
+      "code": "20     # RFC 3394 Key Wrap - 2.2.1 (index method)\n21     encryptor = Cipher(AES(wrapping_key), ECB()).encryptor()\n22     n = len(r)\n",
+      "test_id": "B305",
+      "test_name": "blacklist",
+      "occurrences": 4,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: 'environment'",
+      "message": "Possible hardcoded password: 'environment'",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/jinja2/compiler.py",
+      "line": 1440,
+      "code": "1439 \n1440                 if pass_arg == \"environment\":\n1441 \n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Potential XSS with ``markupsafe.Markup`` detected. Do not use ``Markup`` on untrusted data.",
+      "message": "Potential XSS with ``markupsafe.Markup`` detected. Do not use ``Markup`` on untrusted data.",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/jinja2/environment.py",
+      "line": 1544,
+      "code": "1543     def __html__(self) -> Markup:\n1544         return Markup(concat(self._body_stream))\n1545 \n",
+      "test_id": "B704",
+      "test_name": "markupsafe_markup_xss",
+      "occurrences": 20,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "message": "Using xml.etree.ElementTree.parse to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree.parse with its defusedxml equivalent function or make sure defusedxml.defuse_stdlib() is called",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/nltk/chunk/named_entity.py",
+      "line": 236,
+      "code": "235     with open(annfile) as infile:\n236         xml = ET.parse(infile).getroot()\n237     for entity in xml.findall(\"document/entity\"):\n",
+      "test_id": "B314",
+      "test_name": "blacklist",
+      "occurrences": 12,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2",
+        "6.1",
+        "6.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "MEDIUM",
+      "confidence": "HIGH",
+      "title": "Use of insecure and deprecated function (mktemp).",
+      "message": "Use of insecure and deprecated function (mktemp).",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/psutil/tests/__init__.py",
+      "line": 910,
+      "code": "909     while True:\n910         name = tempfile.mktemp(prefix=TESTFN_PREFIX, suffix=suffix, dir=dir)\n911         if not os.path.exists(name):  # also include dirs\n",
+      "test_id": "B306",
+      "test_name": "blacklist",
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: '\n      (?=\n        \\s         # whitespace\n        | ;        # comment\n        | \\#[;|!] # fancy comments\n        | [)\\]]    # end delimiters\n        | $        # end of file\n      )\n    '",
+      "message": "Possible hardcoded password: '\n      (?=\n        \\s         # whitespace\n        | ;        # comment\n        | \\#[;|!] # fancy comments\n        | [)\\]]    # end delimiters\n        | $        # end of file\n      )\n    '",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/pygments/lexers/lisp.py",
+      "line": 50,
+      "code": "49     # Use within verbose regexes\n50     token_end = r'''\n51       (?=\n52         \\s         # whitespace\n53         | ;        # comment\n54         | \\#[;|!] # fancy comments\n55         | [)\\]]    # end delimiters\n56         | $        # end of file\n57       )\n58     '''\n59 \n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "LOW",
+      "confidence": "MEDIUM",
+      "title": "Possible hardcoded password: '(?=\\s|#|[)\\]]|$)'",
+      "message": "Possible hardcoded password: '(?=\\s|#|[)\\]]|$)'",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/pygments/lexers/lisp.py",
+      "line": 3041,
+      "code": "3040     # ...so, express it like this\n3041     _token_end = r'(?=\\s|#|[)\\]]|$)'\n3042 \n",
+      "test_id": "B105",
+      "test_name": "hardcoded_password_string",
+      "occurrences": 2,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "Starting a process with a shell, possible injection detected, security issue.",
+      "message": "Starting a process with a shell, possible injection detected, security issue.",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/setuptools/_distutils/command/bdist_rpm.py",
+      "line": 357,
+      "code": "356 \n357         out = os.popen(q_cmd)\n358         try:\n",
+      "test_id": "B605",
+      "test_name": "start_process_with_a_shell",
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "Chmod setting a permissive mask 0o777 on file (exe).",
+      "message": "Chmod setting a permissive mask 0o777 on file (exe).",
+      "file": "./services/etl/venv/lib/python3.13/site-packages/setuptools/_distutils/tests/test_spawn.py",
+      "line": 32,
+      "code": "31 \n32         os.chmod(exe, 0o777)\n33         with pytest.raises(DistutilsExecError):\n",
+      "test_id": "B103",
+      "test_name": "set_bad_file_permissions",
+      "occurrences": 5,
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    },
+    {
+      "source": "bandit",
+      "error_type": "security",
+      "severity": "HIGH",
+      "confidence": "HIGH",
+      "title": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "message": "Call to requests with verify=False disabling SSL certificate checks, security issue.",
+      "file": "./services/web-ui/src/legacy-migration/search/views.py",
+      "line": 168,
+      "code": "167     resp = requests.get(EC_POSTCODE_URL % postcode.replace(' ', ''), allow_redirects=False,\n168                         verify=False) # verify=False because EC had some certificate chain issues;\n169                                       # I think the risk of MITM to return bad riding IDs is low\n170     if resp.status_code != 302:\n",
+      "test_id": "B501",
+      "test_name": "request_with_no_cert_validation",
+      "linked_features": [],
+      "linked_checklists": [
+        "3.1",
+        "3.2"
+      ]
+    }
+  ]
+}
