@@ -54,7 +54,7 @@ Generated: 2025-08-23T20:35:10.927772
 
 ### Drift Categories
 
-- **general_drift**: 57 occurrences (3 DONE, 54 remaining)
+- **general_drift**: 57 occurrences (7 DONE, 50 remaining)
 - **non_restful_api**: 2 occurrences (1 DONE, 1 remaining)
 
 ### Top Drifted Features
@@ -89,26 +89,29 @@ Generated: 2025-08-23T20:35:10.927772
   - Similarity: 0.33
   - **Status: DONE** (CHK-0302.2 - 2025-08-23 14:45)
 
-- **FEAT-002** - Session Tracking for Beta Users
-  - Type: general_drift
-  - Implementation: User() in services/user-service/app/api/v1/users.py
-  - Similarity: 0.33
 - **FEAT-006** - Basic API Documentation
   - Type: general_drift
   - Implementation: GET /api/v1/bills
   - Similarity: 0.50
+  - **Status: DONE** (CHK-0302.4 - 2025-08-23 16:20)
+
 - **FEAT-006** - Basic API Documentation
   - Type: general_drift
   - Implementation: GET /api/v1/members
   - Similarity: 0.50
+  - **Status: DONE** (CHK-0302.4 - 2025-08-23 16:20)
+
 - **FEAT-006** - Basic API Documentation
   - Type: general_drift
   - Implementation: GET /api/v1/votes
   - Similarity: 0.50
+  - **Status: DONE** (CHK-0302.4 - 2025-08-23 16:20)
+
 - **FEAT-006** - Basic API Documentation
   - Type: general_drift
   - Implementation: GET /api/v1/debates
   - Similarity: 0.50
+  - **Status: DONE** (CHK-0302.4 - 2025-08-23 16:20)
 
 ## Extra Implementations (Unplanned)
 

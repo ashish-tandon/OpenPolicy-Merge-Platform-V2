@@ -22,20 +22,29 @@ router = APIRouter()
 @router.get("/", response_model=MemberListResponse)
 async def list_members(
     q: Optional[str] = Query(None, description="Search query for member name"),
-    province: Optional[str] = Query(None, description="Province filter"),
-    party: Optional[str] = Query(None, description="Party slug filter"),
-    current_only: bool = Query(True, description="Show only current MPs"),
-    page: int = Query(1, ge=1, description="Page number"),
+    jurisdiction: Optional[str] = Query(
+        None,
+        description="Filter by jurisdiction level", 
+        regex="^(federal|provincial|municipal)$"
+    ),
+    party: Optional[str] = Query(None, description="Filter by political party"),
+    district: Optional[str] = Query(None, description="Filter by electoral district"),
+    province: Optional[str] = Query(None, description="Filter by province (deprecated, use jurisdiction)"),
+    current_only: bool = Query(True, description="Show only current members"),
+    page: int = Query(1, ge=1, description="Page number for pagination"),
     page_size: int = Query(20, ge=1, le=100, description="Items per page"),
     db: DBSession = Depends(get_db)
 ):
     """
-    List Members of Parliament with optional filtering and search.
+    List elected officials with optional filtering and search.
+    
+    This endpoint conforms to the OpenAPI specification for member listing.
     
     Supports:
     - Full-text search on member names
-    - Filtering by province
-    - Filtering by party
+    - Filtering by jurisdiction level (federal, provincial, municipal)
+    - Filtering by political party
+    - Filtering by electoral district
     - Filtering by current status
     - Pagination
     """
@@ -43,13 +52,28 @@ async def list_members(
     # Build base query - join with jurisdiction and party info
     query = db.query(Member).join(Member.jurisdiction, isouter=True).join(Member.party, isouter=True)
     
-    # Apply filters
-    if province:
+    # Apply jurisdiction filter
+    if jurisdiction:
+        if jurisdiction == "federal":
+            query = query.filter(Member.jurisdiction_id == "federal")
+        elif jurisdiction == "provincial":
+            query = query.filter(Member.jurisdiction_id.in_(["on", "qc", "bc", "ab", "mb", "sk", "ns", "nb", "nl", "pe"]))
+        elif jurisdiction == "municipal":
+            query = query.filter(Member.jurisdiction_id.like("%_city%"))
+    
+    # Apply province filter (deprecated but maintained for backward compatibility)
+    if province and not jurisdiction:
         query = query.filter(Member.jurisdiction.has(Jurisdiction.province == province))
     
+    # Apply party filter
     if party:
-        query = query.filter(Party.name.ilike(f"%{party}%"))
+        query = query.filter(Member.party.has(Party.slug == party))
     
+    # Apply district filter
+    if district:
+        query = query.filter(Member.district.ilike(f"%{district}%"))
+    
+    # Apply current status filter
     if current_only:
         query = query.filter(Member.end_date.is_(None))
     
