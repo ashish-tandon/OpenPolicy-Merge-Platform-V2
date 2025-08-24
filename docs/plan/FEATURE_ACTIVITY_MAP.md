@@ -1236,9 +1236,19 @@ Generated: 2025-08-23
 ## Drift Correction Mappings
 
 ### FEAT-001: Global Search (DRIFT Corrections)
-- **CHK-0302.1**: API endpoint realignment
-- **CHK-0302.2**: RESTful URL structure  
-- **CHK-0302.3**: Frontend function consolidation
+- **CHK-0302.1**: API endpoint realignment ✅ DONE
+  - Refactored search endpoint with comprehensive parameter support
+  - Added filters: parliament, session, party, member, language
+  - Enhanced metadata and relevance scoring
+- **CHK-0302.2**: RESTful URL structure ✅ DONE
+  - Created new endpoint: GET /api/v1/postal-codes/{code}/members
+  - Deprecated old endpoint with 307 redirect
+  - Maintained backward compatibility
+- **CHK-0302.3**: Frontend function consolidation ✅ DONE
+  - Consolidated functions into services:
+    - PostalCodeService for API interactions
+    - PartyColorService for party color management
+  - Refactored to use React hooks and proper patterns
 
 ### FEAT-006: Basic API Documentation (DRIFT Corrections)
 - **CHK-0302.4**: OpenAPI specification alignment

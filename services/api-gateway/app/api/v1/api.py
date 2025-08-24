@@ -3,10 +3,13 @@ Main API router for Merge V2 API Gateway
 """
 
 from fastapi import APIRouter
-from app.api.v1.endpoints import entities, users, health
-from app.api.v1 import votes, debates, auth, committees, members, bills, search, websocket, multi_level_government, user_management, email_alerts, house_status, rss_feeds, language_support, data_visualizations, pwa_system, performance_optimization
+
+from app.api.v1 import health, entities, users, votes, debates, auth, committees, members, bills, search, websocket, multi_level_government, user_management, email_alerts, house_status, rss_feeds, language_support, data_visualizations, pwa_system, performance_optimization, testing_qa, postal_codes
 
 api_router = APIRouter()
+
+# Health check endpoints
+from app.api.v1 import represent
 
 # Include all endpoint routers
 api_router.include_router(health.router, prefix="/health", tags=["health"])
@@ -19,6 +22,7 @@ api_router.include_router(committees.router, prefix="/committees", tags=["commit
 api_router.include_router(members.router, prefix="/members", tags=["members"])
 api_router.include_router(bills.router, prefix="/bills", tags=["bills"])
 api_router.include_router(search.router, prefix="/search", tags=["search"])
+api_router.include_router(postal_codes.router, prefix="/postal-codes", tags=["postal-codes"])
 api_router.include_router(websocket.router, prefix="/ws", tags=["websocket"])
 api_router.include_router(multi_level_government.router, prefix="/government", tags=["multi-level-government"])
 api_router.include_router(user_management.router, prefix="/users", tags=["user-management"])
@@ -29,3 +33,6 @@ api_router.include_router(language_support.router, prefix="/languages", tags=["l
 api_router.include_router(data_visualizations.router, prefix="/visualizations", tags=["data-visualizations"])
 api_router.include_router(pwa_system.router, prefix="/pwa", tags=["pwa-system"])
 api_router.include_router(performance_optimization.router, prefix="/performance", tags=["performance-optimization"])
+api_router.include_router(testing_qa.router, prefix="/qa", tags=["testing-qa"])
+
+# Additional feature routers

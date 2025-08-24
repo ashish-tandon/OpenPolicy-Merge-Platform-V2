@@ -54,8 +54,8 @@ Generated: 2025-08-23T20:35:10.927772
 
 ### Drift Categories
 
-- **general_drift**: 57 occurrences
-- **non_restful_api**: 2 occurrences
+- **general_drift**: 57 occurrences (3 DONE, 54 remaining)
+- **non_restful_api**: 2 occurrences (1 DONE, 1 remaining)
 
 ### Top Drifted Features
 
@@ -63,22 +63,32 @@ Generated: 2025-08-23T20:35:10.927772
   - Type: general_drift
   - Implementation: GET /api/v1/search
   - Similarity: 0.50
+  - **Status: DONE** (CHK-0302.1 - 2025-08-23 15:10)
+  
 - **FEAT-001** - Global Search with Postal Code MP Lookup
   - Type: general_drift
   - Implementation: findMPByPostalCode() in services/web-ui/src/app/search/postal/[code]/page.tsx
   - Similarity: 0.43
+  - **Status: DONE** (CHK-0302.3 - 2025-08-23 15:35)
+  
 - **FEAT-001** - Global Search with Postal Code MP Lookup
   - Type: general_drift
   - Implementation: PostalSearchPage() in services/web-ui/src/app/search/postal/[code]/page.tsx
   - Similarity: 0.43
+  - **Status: DONE** (CHK-0302.3 - 2025-08-23 15:35)
+  
 - **FEAT-001** - Global Search with Postal Code MP Lookup
   - Type: general_drift
   - Implementation: getPartyColor() in services/web-ui/src/app/search/postal/[code]/page.tsx
   - Similarity: 0.43
+  - **Status: DONE** (CHK-0302.3 - 2025-08-23 15:35)
+  
 - **FEAT-001** - Global Search with Postal Code MP Lookup
   - Type: non_restful_api
   - Implementation: GET /api/v1/search/postcode/{postcode}
   - Similarity: 0.33
+  - **Status: DONE** (CHK-0302.2 - 2025-08-23 14:45)
+
 - **FEAT-002** - Session Tracking for Beta Users
   - Type: general_drift
   - Implementation: User() in services/user-service/app/api/v1/users.py

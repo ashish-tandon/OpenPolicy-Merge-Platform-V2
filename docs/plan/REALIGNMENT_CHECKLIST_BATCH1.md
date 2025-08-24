@@ -298,6 +298,13 @@ This document contains decimal CHK items for the realignment execution based on 
 - **Dependencies**: ['CHK-0022']
 - **Priority**: P0
 - **Estimate**: 3 days
+- **Enhancement #1**: DRIFT corrected; parity tests green (2025-08-23 15:10)
+  - Refactored search endpoint with comprehensive parameter support
+  - Added filters: parliament, session, party, member, language
+  - Enhanced content types: bills, members, votes, debates, committees
+  - Improved relevance scoring and metadata structure
+  - Added test suite in test_search_alignment.py
+  - Spec contract verified; tests pass; schema aligned
 
 ### CHK-0302.2 (Decimal Order: 302.2)
 - **Feature**: FEAT-001 - Postal Code Search Drift
@@ -315,6 +322,11 @@ This document contains decimal CHK items for the realignment execution based on 
 - **Dependencies**: ['CHK-0302.1']
 - **Priority**: P0
 - **Estimate**: 2 days
+- **Enhancement #1**: DRIFT corrected; parity tests green (2025-08-23 14:45)
+  - Created new RESTful endpoint: GET /api/v1/postal-codes/{code}/members
+  - Old endpoint redirects with 307 status for backward compatibility
+  - Added comprehensive test suite in test_postal_codes.py
+  - Spec contract verified; tests pass; schema aligned
 
 ### CHK-0302.3 (Decimal Order: 302.3)
 - **Feature**: FEAT-001 - Frontend Function Drift
@@ -332,6 +344,13 @@ This document contains decimal CHK items for the realignment execution based on 
 - **Dependencies**: ['CHK-0056']
 - **Priority**: P0
 - **Estimate**: 3 days
+- **Enhancement #1**: DRIFT corrected; parity tests green (2025-08-23 15:35)
+  - Refactored PostalSearchPage to use React hooks and proper patterns
+  - Created PostalCodeService to consolidate API interactions
+  - Created PartyColorService to centralize party color logic
+  - Added LoadingSpinner and ErrorMessage components
+  - Improved error handling and loading states
+  - Spec contract verified; functions consolidated; patterns aligned
 
 ### CHK-0302.4 (Decimal Order: 302.4)
 - **Feature**: FEAT-006 - API Documentation Drift
