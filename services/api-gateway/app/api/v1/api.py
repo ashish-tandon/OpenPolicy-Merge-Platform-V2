@@ -4,7 +4,7 @@ Main API router for Merge V2 API Gateway
 
 from fastapi import APIRouter
 
-from app.api.v1 import health, entities, users, votes, debates, auth, committees, members, bills, search, websocket, multi_level_government, user_management, email_alerts, house_status, rss_feeds, language_support, data_visualizations, pwa_system, performance_optimization, testing_qa, postal_codes, feature_flags, member_management, feedback, debate_transcripts, data_dashboard
+from app.api.v1 import health, entities, users, votes, debates, auth, committees, members, bills, search, websocket, multi_level_government, user_management, email_alerts, house_status, rss_feeds, language_support, data_visualizations, pwa_system, performance_optimization, testing_qa, postal_codes, feature_flags, member_management, feedback, debate_transcripts, data_dashboard, email_notifications
 
 api_router = APIRouter()
 
@@ -39,5 +39,6 @@ api_router.include_router(member_management.router, prefix="/member-management",
 api_router.include_router(feedback.router, prefix="/feedback", tags=["feedback"])
 api_router.include_router(debate_transcripts.router, prefix="/debate-transcripts", tags=["debate-transcripts"])
 api_router.include_router(data_dashboard.router, prefix="/data-dashboard", tags=["data-dashboard"])
+api_router.include_router(email_notifications.router, prefix="/email-notifications", tags=["email-notifications"])
 
 api_router.include_router(represent.router, prefix="/represent", tags=["represent"])
