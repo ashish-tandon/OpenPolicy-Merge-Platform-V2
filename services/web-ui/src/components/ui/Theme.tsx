@@ -9,15 +9,12 @@ import {
   EyeIcon,
   EyeSlashIcon
 } from '@heroicons/react/24/outline';
+import { ThemeService, Theme, ColorScheme } from '@/services/themeService';
 
 // Utility function for combining class names
 const cn = (...classes: (string | undefined | null | false)[]) => {
   return classes.filter(Boolean).join(' ');
 };
-
-// Theme Types
-export type Theme = 'light' | 'dark' | 'system';
-export type ColorScheme = 'blue' | 'green' | 'red' | 'yellow' | 'purple' | 'pink' | 'indigo' | 'teal';
 
 // Theme Context
 interface ThemeContextType {
@@ -27,6 +24,12 @@ interface ThemeContextType {
   setColorScheme: (scheme: ColorScheme) => void;
   isDark: boolean;
   isSystem: boolean;
+  highContrast: boolean;
+  setHighContrast: (enabled: boolean) => void;
+  fontSize: 'small' | 'medium' | 'large';
+  setFontSize: (size: 'small' | 'medium' | 'large') => void;
+  reducedMotion: boolean;
+  setReducedMotion: (enabled: boolean) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -34,107 +37,73 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 // Theme Provider Component
 interface ThemeProviderProps {
   children: ReactNode;
-  defaultTheme?: Theme;
-  defaultColorScheme?: ColorScheme;
-  storageKey?: string;
   className?: string;
 }
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'system',
-  defaultColorScheme = 'blue',
-  storageKey = 'op-theme',
   className = ""
 }: ThemeProviderProps) {
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [colorScheme, setColorSchemeState] = useState<ColorScheme>(defaultColorScheme);
-  const [isDark, setIsDark] = useState(false);
-  const [isSystem, setIsSystem] = useState(defaultTheme === 'system');
+  const [config, setConfig] = useState(() => ThemeService.getConfig());
+  const [isDark, setIsDark] = useState(() => ThemeService.isDark());
 
   useEffect(() => {
-    // Load theme from localStorage
-    const savedTheme = localStorage.getItem(storageKey) as Theme;
-    const savedColorScheme = localStorage.getItem(`${storageKey}-color`) as ColorScheme;
+    // Initialize theme service
+    ThemeService.initialize();
     
-    if (savedTheme) {
-      setThemeState(savedTheme);
-      setIsSystem(savedTheme === 'system');
-    }
+    // Update state with current config
+    setConfig(ThemeService.getConfig());
+    setIsDark(ThemeService.isDark());
     
-    if (savedColorScheme) {
-      setColorSchemeState(savedColorScheme);
-    }
-  }, [storageKey]);
-
-  useEffect(() => {
-    // Apply theme to document
-    const root = document.documentElement;
-    
-    // Remove existing theme classes
-    root.classList.remove('light', 'dark');
-    
-    if (theme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-      root.classList.add(systemTheme);
-      setIsDark(systemTheme === 'dark');
-      setIsSystem(true);
-    } else {
-      root.classList.add(theme);
-      setIsDark(theme === 'dark');
-      setIsSystem(false);
-    }
-    
-    // Save to localStorage
-    localStorage.setItem(storageKey, theme);
-  }, [theme, storageKey]);
-
-  useEffect(() => {
-    // Apply color scheme to document
-    const root = document.documentElement;
-    
-    // Remove existing color scheme classes
-    root.classList.remove('color-blue', 'color-green', 'color-red', 'color-yellow', 'color-purple', 'color-pink', 'color-indigo', 'color-teal');
-    
-    // Add new color scheme class
-    root.classList.add(`color-${colorScheme}`);
-    
-    // Save to localStorage
-    localStorage.setItem(`${storageKey}-color`, colorScheme);
-  }, [colorScheme, storageKey]);
-
-  useEffect(() => {
     // Listen for system theme changes
-    if (theme === 'system') {
-      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      const handleChange = (e: MediaQueryListEvent) => {
-        const root = document.documentElement;
-        root.classList.remove('light', 'dark');
-        root.classList.add(e.matches ? 'dark' : 'light');
-        setIsDark(e.matches);
-      };
-      
-      mediaQuery.addEventListener('change', handleChange);
-      return () => mediaQuery.removeEventListener('change', handleChange);
-    }
-  }, [theme]);
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = () => {
+      setIsDark(ThemeService.isDark());
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   const setTheme = (newTheme: Theme) => {
-    setThemeState(newTheme);
+    ThemeService.setTheme(newTheme);
+    setConfig(ThemeService.getConfig());
+    setIsDark(ThemeService.isDark());
   };
 
   const setColorScheme = (newColorScheme: ColorScheme) => {
-    setColorSchemeState(newColorScheme);
+    ThemeService.setColorScheme(newColorScheme);
+    setConfig(ThemeService.getConfig());
+  };
+
+  const setHighContrast = (enabled: boolean) => {
+    ThemeService.setHighContrast(enabled);
+    setConfig(ThemeService.getConfig());
+  };
+
+  const setFontSize = (size: 'small' | 'medium' | 'large') => {
+    ThemeService.setFontSize(size);
+    setConfig(ThemeService.getConfig());
+  };
+
+  const setReducedMotion = (enabled: boolean) => {
+    ThemeService.setReducedMotion(enabled);
+    setConfig(ThemeService.getConfig());
   };
 
   const value: ThemeContextType = {
-    theme,
-    colorScheme,
+    theme: config.theme,
+    colorScheme: config.colorScheme,
     setTheme,
     setColorScheme,
     isDark,
-    isSystem
+    isSystem: config.theme === 'system',
+    highContrast: config.highContrast,
+    setHighContrast,
+    fontSize: config.fontSize,
+    setFontSize,
+    reducedMotion: config.reducedMotion,
+    setReducedMotion
   };
 
   return (
@@ -272,79 +241,20 @@ export function ColorSchemePicker({
   );
 }
 
-// Theme Switcher Component
-interface ThemeSwitcherProps {
-  className?: string;
-  showColorPicker?: boolean;
-}
-
-export function ThemeSwitcher({
-  className = "",
-  showColorPicker = true
-}: ThemeSwitcherProps) {
-  return (
-    <div className={cn("space-y-4", className)}>
-      <ThemeToggle />
-      {showColorPicker && <ColorSchemePicker />}
-    </div>
-  );
-}
-
-// Theme Aware Component
-interface ThemeAwareProps {
-  children: ReactNode;
-  lightClassName?: string;
-  darkClassName?: string;
-  className?: string;
-}
-
-export function ThemeAware({
-  children,
-  lightClassName = "",
-  darkClassName = "",
-  className = ""
-}: ThemeAwareProps) {
-  const { isDark } = useTheme();
-
-  return (
-    <div className={cn(
-      isDark ? darkClassName : lightClassName,
-      className
-    )}>
-      {children}
-    </div>
-  );
-}
-
 // High Contrast Toggle Component
 interface HighContrastToggleProps {
-  onToggle?: (enabled: boolean) => void;
   className?: string;
 }
 
 export function HighContrastToggle({
-  onToggle,
   className = ""
 }: HighContrastToggleProps) {
-  const [isEnabled, setIsEnabled] = useState(false);
-
-  const toggleHighContrast = () => {
-    const newState = !isEnabled;
-    setIsEnabled(newState);
-    
-    if (newState) {
-      document.documentElement.classList.add('high-contrast');
-    } else {
-      document.documentElement.classList.remove('high-contrast');
-    }
-    
-    onToggle?.(newState);
-  };
+  const { highContrast, setHighContrast } = useTheme();
 
   return (
     <button
-      onClick={toggleHighContrast}
-      aria-pressed={isEnabled}
+      onClick={() => setHighContrast(!highContrast)}
+      aria-pressed={highContrast}
       aria-label="Toggle high contrast mode"
       className={cn(
         "flex items-center space-x-2 px-3 py-2 text-sm font-medium",
@@ -355,7 +265,7 @@ export function HighContrastToggle({
         className
       )}
     >
-      {isEnabled ? (
+      {highContrast ? (
         <>
           <EyeIcon className="h-4 w-4" />
           <span>High Contrast: On</span>
@@ -372,31 +282,13 @@ export function HighContrastToggle({
 
 // Font Size Toggle Component
 interface FontSizeToggleProps {
-  onSizeChange?: (size: 'small' | 'medium' | 'large') => void;
   className?: string;
 }
 
 export function FontSizeToggle({
-  onSizeChange,
   className = ""
 }: FontSizeToggleProps) {
-  const [currentSize, setCurrentSize] = useState<'small' | 'medium' | 'large'>('medium');
-
-  const changeFontSize = (size: 'small' | 'medium' | 'large') => {
-    setCurrentSize(size);
-    
-    // Remove existing font size classes
-    document.documentElement.classList.remove('text-sm', 'text-base', 'text-lg');
-    
-    // Add new font size class
-    if (size === 'small') {
-      document.documentElement.classList.add('text-sm');
-    } else if (size === 'large') {
-      document.documentElement.classList.add('text-lg');
-    }
-    
-    onSizeChange?.(size);
-  };
+  const { fontSize, setFontSize } = useTheme();
 
   return (
     <div className={cn("flex items-center space-x-2", className)}>
@@ -405,12 +297,12 @@ export function FontSizeToggle({
         {(['small', 'medium', 'large'] as const).map((size) => (
           <button
             key={size}
-            onClick={() => changeFontSize(size)}
-            aria-pressed={currentSize === size}
+            onClick={() => setFontSize(size)}
+            aria-pressed={fontSize === size}
             className={cn(
               "px-3 py-1 text-sm font-medium border transition-colors",
               "first:rounded-l-md last:rounded-r-md",
-              currentSize === size
+              fontSize === size
                 ? "bg-op-blue text-white border-op-blue"
                 : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600 dark:hover:bg-gray-700",
               "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-op-blue",
@@ -427,33 +319,18 @@ export function FontSizeToggle({
 
 // Reduced Motion Toggle Component
 interface ReducedMotionToggleProps {
-  onToggle?: (enabled: boolean) => void;
   className?: string;
 }
 
 export function ReducedMotionToggle({
-  onToggle,
   className = ""
 }: ReducedMotionToggleProps) {
-  const [isEnabled, setIsEnabled] = useState(false);
-
-  const toggleReducedMotion = () => {
-    const newState = !isEnabled;
-    setIsEnabled(newState);
-    
-    if (newState) {
-      document.documentElement.classList.add('reduce-motion');
-    } else {
-      document.documentElement.classList.remove('reduce-motion');
-    }
-    
-    onToggle?.(newState);
-  };
+  const { reducedMotion, setReducedMotion } = useTheme();
 
   return (
     <button
-      onClick={toggleReducedMotion}
-      aria-pressed={isEnabled}
+      onClick={() => setReducedMotion(!reducedMotion)}
+      aria-pressed={reducedMotion}
       aria-label="Toggle reduced motion"
       className={cn(
         "flex items-center space-x-2 px-3 py-2 text-sm font-medium",
@@ -465,8 +342,26 @@ export function ReducedMotionToggle({
       )}
     >
       <SwatchIcon className="h-4 w-4" />
-      <span>Reduced Motion: {isEnabled ? 'On' : 'Off'}</span>
+      <span>Reduced Motion: {reducedMotion ? 'On' : 'Off'}</span>
     </button>
+  );
+}
+
+// Theme Switcher Component
+interface ThemeSwitcherProps {
+  className?: string;
+  showColorPicker?: boolean;
+}
+
+export function ThemeSwitcher({
+  className = "",
+  showColorPicker = true
+}: ThemeSwitcherProps) {
+  return (
+    <div className={cn("space-y-4", className)}>
+      <ThemeToggle />
+      {showColorPicker && <ColorSchemePicker />}
+    </div>
   );
 }
 
@@ -522,54 +417,5 @@ export function ThemeSettingsPanel({
   );
 }
 
-// CSS Variables for Theme Colors
-export const themeCSSVariables = {
-  blue: {
-    '--op-primary': '#3B82F6',
-    '--op-primary-hover': '#2563EB',
-    '--op-primary-light': '#DBEAFE',
-    '--op-primary-dark': '#1E40AF'
-  },
-  green: {
-    '--op-primary': '#10B981',
-    '--op-primary-hover': '#059669',
-    '--op-primary-light': '#D1FAE5',
-    '--op-primary-dark': '#047857'
-  },
-  red: {
-    '--op-primary': '#EF4444',
-    '--op-primary-hover': '#DC2626',
-    '--op-primary-light': '#FEE2E2',
-    '--op-primary-dark': '#B91C1C'
-  },
-  yellow: {
-    '--op-primary': '#F59E0B',
-    '--op-primary-hover': '#D97706',
-    '--op-primary-light': '#FEF3C7',
-    '--op-primary-dark': '#B45309'
-  },
-  purple: {
-    '--op-primary': '#8B5CF6',
-    '--op-primary-hover': '#7C3AED',
-    '--op-primary-light': '#EDE9FE',
-    '--op-primary-dark': '#6D28D9'
-  },
-  pink: {
-    '--op-primary': '#EC4899',
-    '--op-primary-hover': '#DB2777',
-    '--op-primary-light': '#FCE7F3',
-    '--op-primary-dark': '#BE185D'
-  },
-  indigo: {
-    '--op-primary': '#6366F1',
-    '--op-primary-hover': '#4F46E5',
-    '--op-primary-light': '#E0E7FF',
-    '--op-primary-dark': '#4338CA'
-  },
-  teal: {
-    '--op-primary': '#14B8A6',
-    '--op-primary-hover': '#0D9488',
-    '--op-primary-light': '#CCFBF1',
-    '--op-primary-dark': '#0F766E'
-  }
-};
+// Export theme CSS variables helper
+export { ThemeService } from '@/services/themeService';

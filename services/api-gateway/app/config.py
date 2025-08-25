@@ -19,6 +19,9 @@ class Settings(BaseSettings):
     # Security settings
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    JWT_SECRET_KEY: str = "dev_jwt_secret_key_change_in_production"
+    JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    JWT_REFRESH_TOKEN_EXPIRE_DAYS: int = 7
     
     # CORS settings
     BACKEND_CORS_ORIGINS: List[str] = [

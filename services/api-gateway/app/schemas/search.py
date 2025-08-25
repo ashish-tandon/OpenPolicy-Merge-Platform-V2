@@ -6,7 +6,7 @@ Adapted from legacy OpenParliament search functionality.
 """
 
 from datetime import date
-from typing import List, Optional
+from typing import List, Optional, Dict, Any
 from pydantic import BaseModel, Field, field_validator
 
 
@@ -15,13 +15,21 @@ class SearchResult(BaseModel):
     
     id: str = Field(..., description="Unique identifier for the result")
     title: str = Field(..., description="Title/heading for the result")
-    content_type: str = Field(..., description="Type of content (debate, bill, politician, etc.)")
-    snippet: str = Field(..., description="Text snippet with search context")
+    content_type: str = Field(..., description="Type of content (bill, member, vote, debate, committee)")
+    snippet: str = Field(..., description="Text snippet with search context, may include highlighting")
     url: str = Field(..., description="URL to the full content")
     date: Optional[str] = Field(None, description="Date associated with the content (YYYY-MM-DD)")
-    politician_name: Optional[str] = Field(None, description="Associated politician name")
-    bill_number: Optional[str] = Field(None, description="Associated bill number")
-    relevance_score: float = Field(..., description="Relevance score for ranking")
+    relevance_score: float = Field(..., description="Relevance score for ranking (0.0-1.0)")
+    
+    # Enhanced metadata field for additional structured data
+    metadata: Optional[Dict[str, Any]] = Field(
+        None, 
+        description="Additional metadata specific to content type"
+    )
+    
+    # Deprecated fields maintained for backward compatibility
+    politician_name: Optional[str] = Field(None, description="DEPRECATED: Use metadata.name instead")
+    bill_number: Optional[str] = Field(None, description="DEPRECATED: Use metadata.bill_number instead")
     
     model_config = {"from_attributes": True}
     
@@ -30,9 +38,12 @@ class SearchResult(BaseModel):
     def validate_date(cls, v):
         if v is not None:
             try:
-                return date.fromisoformat(v)
+                # Allow both date and datetime strings
+                if 'T' in str(v):
+                    return str(v)  # Keep datetime strings as-is
+                return date.fromisoformat(str(v)).isoformat()
             except ValueError:
-                raise ValueError('Invalid date format. Use YYYY-MM-DD')
+                raise ValueError('Invalid date format. Use YYYY-MM-DD or ISO datetime')
         return v
 
 
@@ -45,13 +56,19 @@ class SearchResponse(BaseModel):
     page: int = Field(..., description="Current page number")
     page_size: int = Field(..., description="Items per page")
     total_pages: int = Field(..., description="Total number of pages")
+    
+    # New field to show applied filters
+    filters_applied: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Filters that were applied to this search"
+    )
 
 
 class SearchSuggestion(BaseModel):
     """A search suggestion for autocomplete."""
     
     text: str = Field(..., description="Suggested search text")
-    type: str = Field(..., description="Type of suggestion (politician, bill, etc.)")
+    type: str = Field(..., description="Type of suggestion (member, bill, etc.)")
     url: Optional[str] = Field(None, description="URL if suggestion links to specific content")
     
     model_config = {"from_attributes": True}
@@ -63,26 +80,17 @@ class SearchSuggestionsResponse(BaseModel):
     suggestions: List[SearchSuggestion] = Field(..., description="List of search suggestions")
 
 
-class PostcodeResult(BaseModel):
-    """Result of a postal code lookup."""
-    
-    name: str = Field(..., description="Representative name")
-    party: str = Field(..., description="Political party")
-    riding: str = Field(..., description="Electoral district name")
-    level: str = Field(..., description="Government level (federal, provincial, municipal)")
-    url: str = Field(..., description="URL to representative's profile")
-    photo_url: Optional[str] = Field(None, description="URL to representative's photo")
-    email: Optional[str] = Field(None, description="Representative's email address")
-    phone: Optional[str] = Field(None, description="Representative's phone number")
-    
-    model_config = {"from_attributes": True}
-
-
+# PostcodeResult is now a dictionary in the actual response
 class PostcodeResponse(BaseModel):
     """Response model for postcode lookup endpoint."""
     
-    postcode: str = Field(..., description="The queried postal code")
-    representatives: List[PostcodeResult] = Field(..., description="List of representatives for this postal code")
+    postcode: str = Field(..., description="The queried postal code (normalized)")
+    representatives: List[Dict[str, Any]] = Field(
+        ..., 
+        description="List of representatives with name, party, riding, level, etc."
+    )
     total_count: int = Field(..., description="Total number of representatives found")
     source: str = Field(..., description="Data source (e.g., Represent Canada API)")
-    timestamp: str = Field(..., description="When the lookup was performed")
+    timestamp: str = Field(..., description="When the lookup was performed (ISO format)")
+    
+    model_config = {"from_attributes": True}

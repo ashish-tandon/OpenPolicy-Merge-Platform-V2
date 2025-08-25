@@ -18,24 +18,37 @@ from app.schemas.bills import (
 from app.schemas.amendments import (
     AmendmentSummary, AmendmentListResponse
 )
+from sqlalchemy import or_
 
 router = APIRouter()
 
 
 @router.get("/", response_model=BillListResponse)
 async def list_bills(
-    q: Optional[str] = Query(None, description="Search query for bill title"),
-    session: Optional[str] = Query(None, description="Session ID (e.g., '44-1')"),
-    status: Optional[str] = Query(None, description="Bill status filter"),
-    page: int = Query(1, ge=1, description="Page number"),
+    q: Optional[str] = Query(None, description="Search query for bill title or summary"),
+    jurisdiction: Optional[str] = Query(
+        None, 
+        description="Filter by jurisdiction level",
+        regex="^(federal|provincial|municipal)$"
+    ),
+    session: Optional[str] = Query(None, description="Filter by parliamentary/legislative session"),
+    status: Optional[str] = Query(
+        None, 
+        description="Filter by bill status",
+        regex="^(introduced|in_committee|passed|failed|royal_assent)$"
+    ),
+    page: int = Query(1, ge=1, description="Page number for pagination"),
     page_size: int = Query(20, ge=1, le=100, description="Items per page"),
     db: DBSession = Depends(get_db)
 ):
     """
     List bills with optional filtering and search.
 
+    This endpoint conforms to the OpenAPI specification for bill listing.
+    
     Supports:
-    - Full-text search on title
+    - Full-text search on title and summary
+    - Filtering by jurisdiction (federal, provincial, municipal)
     - Filtering by session
     - Filtering by status
     - Pagination
@@ -44,20 +57,34 @@ async def list_bills(
     # Build base query
     query = db.query(Bill)
 
-    # Apply filters
+    # Apply search filter
+    if q:
+        search_pattern = f"%{q}%"
+        query = query.filter(
+            or_(
+                Bill.title.ilike(search_pattern),
+                Bill.summary.ilike(search_pattern),
+                Bill.bill_number.ilike(search_pattern)
+            )
+        )
+
+    # Apply jurisdiction filter
+    if jurisdiction:
+        # Map jurisdiction level to actual jurisdiction IDs or types in the database
+        if jurisdiction == "federal":
+            query = query.filter(Bill.jurisdiction_id == "federal")
+        elif jurisdiction == "provincial":
+            query = query.filter(Bill.jurisdiction_id.in_(["on", "qc", "bc", "ab", "mb", "sk", "ns", "nb", "nl", "pe"]))
+        elif jurisdiction == "municipal":
+            query = query.filter(Bill.jurisdiction_id.like("%_city%"))
+
+    # Apply session filter
     if session:
         query = query.filter(Bill.session_id == session)
 
+    # Apply status filter
     if status:
         query = query.filter(Bill.status == status)
-
-    # Apply search if query provided
-    if q:
-        # Use PostgreSQL full-text search on name
-        search_query = text("""
-            to_tsvector('english', bills.name) @@ plainto_tsquery('english', :search_term)
-        """)
-        query = query.filter(search_query.bindparams(search_term=q))
 
     # Get total count for pagination
     total = query.count()

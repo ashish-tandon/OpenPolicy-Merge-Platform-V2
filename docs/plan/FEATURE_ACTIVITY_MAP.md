@@ -1001,3 +1001,296 @@ Generated: 2025-08-23T19:50:44.543155
    - Suggested Mapping: NEW-FEAT-route_decorator-010
 
 ... and 317 more route_decorator implementations
+
+### Verification Summary
+
+- Total Features Mapped: 20
+- Total Activities: 83
+- Total Code Units: 236
+- Total Data Entities: 45
+- Total Routes: 112
+- Total Checklist Items: 289
+
+All features have complete traceability from high-level requirements through implementation details to verification checkpoints.
+
+## Realignment Batch 1 - New Feature Mappings
+
+Generated: 2025-08-23
+
+### FEAT-003: Feedback Collection
+**Name**: User Feedback System  
+**Priority**: P1  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-003**: Feedback Management
+  - Code Units:
+    - `services/api-gateway/app/api/v1/feedback.py::FeedbackController` (TBD)
+    - `services/api-gateway/app/models/feedback.py::Feedback` (TBD)
+  - Data Entities:
+    - DATA-007: feedback
+    - DATA-022: feedback_categories
+  - Routes:
+    - RT-003: POST /api/v1/feedback
+    - RT-103: GET /api/v1/feedback/{id}
+  - Checklist IDs: CHK-0300.1
+
+### FEAT-004: Feature Flags
+**Name**: Dynamic Feature Flag System  
+**Priority**: P0  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-004**: Feature Flag Management
+  - Code Units:
+    - `services/api-gateway/app/core/feature_flags.py::FeatureFlagService` (TBD)
+    - `services/api-gateway/app/models/feature_flag.py::FeatureFlag` (TBD)
+  - Data Entities:
+    - DATA-008: feature_flags
+    - DATA-023: feature_flag_rules
+  - Routes:
+    - RT-004: GET /api/v1/feature-flags
+    - RT-104: PUT /api/v1/feature-flags/{flag_id}
+  - Checklist IDs: CHK-0300.2
+
+### FEAT-005: Data Dashboard
+**Name**: Analytics Dashboard  
+**Priority**: P2  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-005**: Dashboard Analytics
+  - Code Units:
+    - `services/api-gateway/app/api/v1/analytics.py::AnalyticsController` (TBD)
+    - `services/web-ui/src/components/Dashboard/*` (TBD)
+  - Data Entities:
+    - DATA-009: analytics_metrics
+    - DATA-024: dashboard_configs
+  - Routes:
+    - RT-005: GET /api/v1/analytics/dashboard
+    - RT-105: GET /api/v1/analytics/metrics
+  - Checklist IDs: CHK-0300.3
+
+### FEAT-007: Email Notifications
+**Name**: Email Notification System  
+**Priority**: P2  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-007**: Email Service
+  - Code Units:
+    - `services/user-service/app/notifications/email.py::EmailService` (TBD)
+    - `services/user-service/app/models/email_template.py::EmailTemplate` (TBD)
+  - Data Entities:
+    - DATA-010: email_templates
+    - DATA-025: email_queue
+  - Routes:
+    - RT-007: POST /api/v1/notifications/email
+    - RT-107: GET /api/v1/notifications/email/status/{id}
+  - Checklist IDs: CHK-0300.4
+
+### FEAT-008: SMS Notifications
+**Name**: SMS Notification System  
+**Priority**: P3  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-008**: SMS Service
+  - Code Units:
+    - `services/user-service/app/notifications/sms.py::SMSService` (TBD)
+    - `services/user-service/app/models/sms_template.py::SMSTemplate` (TBD)
+  - Data Entities:
+    - DATA-011: sms_templates
+    - DATA-026: sms_queue
+  - Routes:
+    - RT-008: POST /api/v1/notifications/sms
+    - RT-108: GET /api/v1/notifications/sms/status/{id}
+  - Checklist IDs: CHK-0300.5
+
+### FEAT-010: Social Sharing
+**Name**: Social Media Integration  
+**Priority**: P3  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-010**: Social Share Service
+  - Code Units:
+    - `services/web-ui/src/components/SocialShare/*` (TBD)
+    - `services/api-gateway/app/services/social_preview.py::PreviewGenerator` (TBD)
+  - Data Entities:
+    - DATA-012: share_analytics
+    - DATA-027: social_previews
+  - Routes:
+    - RT-010: GET /api/v1/social/preview/{type}/{id}
+    - RT-110: POST /api/v1/social/share
+  - Checklist IDs: CHK-0300.6
+
+### FEAT-012: Offline Support
+**Name**: Progressive Web App Support  
+**Priority**: P3  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-012**: Offline Capability
+  - Code Units:
+    - `services/web-ui/src/service-worker.js` (TBD)
+    - `services/web-ui/src/offline/*` (TBD)
+  - Data Entities:
+    - DATA-013: offline_cache
+    - DATA-028: sync_queue
+  - Routes:
+    - RT-012: GET /api/v1/sync/status
+    - RT-112: POST /api/v1/sync/queue
+  - Checklist IDs: CHK-0300.7
+
+### FEAT-013: AI Enhancement
+**Name**: AI-Powered Features  
+**Priority**: P3  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-013**: AI Services
+  - Code Units:
+    - `services/api-gateway/app/services/ai/*` (TBD)
+    - `services/api-gateway/app/models/ai_summary.py::AISummary` (TBD)
+  - Data Entities:
+    - DATA-014: ai_summaries
+    - DATA-029: ai_recommendations
+  - Routes:
+    - RT-013: POST /api/v1/ai/summarize
+    - RT-113: GET /api/v1/ai/recommendations
+  - Checklist IDs: CHK-0300.8
+
+### FEAT-014: Authentication System
+**Name**: OAuth2/JWT Authentication  
+**Priority**: P0  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-014**: Auth Service
+  - Code Units:
+    - `services/user-service/app/auth/*` (TBD)
+    - `services/api-gateway/app/core/security.py` (TBD)
+  - Data Entities:
+    - DATA-015: users
+    - DATA-030: auth_tokens
+  - Routes:
+    - RT-014: POST /api/v1/auth/login
+    - RT-114: POST /api/v1/auth/refresh
+  - Checklist IDs: CHK-0300.9
+
+### FEAT-015: Member Management
+**Name**: Parliamentary Member Management  
+**Priority**: P0  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-015**: Member CRUD Operations
+  - Code Units:
+    - `services/api-gateway/app/api/v1/members.py::MemberController` (Enhanced)
+    - `services/api-gateway/app/models/member.py::Member` (Enhanced)
+  - Data Entities:
+    - DATA-001: members (Enhanced)
+    - DATA-031: member_history
+  - Routes:
+    - RT-015: PUT /api/v1/members/{id}
+    - RT-115: DELETE /api/v1/members/{id}
+  - Checklist IDs: CHK-0300.10
+
+### FEAT-018: Debate Transcripts
+**Name**: Hansard Transcript System  
+**Priority**: P1  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-018**: Transcript Processing
+  - Code Units:
+    - `services/etl/app/ingestion/transcripts.py::TranscriptIngester` (TBD)
+    - `services/api-gateway/app/models/transcript.py::Transcript` (TBD)
+  - Data Entities:
+    - DATA-017: transcripts
+    - DATA-032: transcript_speakers
+  - Routes:
+    - RT-018: GET /api/v1/transcripts/{date}
+    - RT-118: GET /api/v1/transcripts/search
+  - Checklist IDs: CHK-0300.11
+
+### FEAT-020: News Aggregation
+**Name**: Parliamentary News Feed  
+**Priority**: P2  
+**Status**: 0% Complete (MISSING)
+
+#### Activities
+- **ACT-020**: News Collection
+  - Code Units:
+    - `services/etl/app/tasks/news_aggregator.py::NewsAggregator` (TBD)
+    - `services/api-gateway/app/models/news.py::NewsArticle` (TBD)
+  - Data Entities:
+    - DATA-018: news_articles
+    - DATA-033: news_sources
+  - Routes:
+    - RT-020: GET /api/v1/news
+    - RT-120: GET /api/v1/news/categories
+  - Checklist IDs: CHK-0300.12
+
+## Drift Correction Mappings
+
+### FEAT-001: Global Search (DRIFT Corrections)
+- **CHK-0302.1**: API endpoint realignment ✅ DONE
+  - Refactored search endpoint with comprehensive parameter support
+  - Added filters: parliament, session, party, member, language
+  - Enhanced metadata and relevance scoring
+- **CHK-0302.2**: RESTful URL structure ✅ DONE
+  - Created new endpoint: GET /api/v1/postal-codes/{code}/members
+  - Deprecated old endpoint with 307 redirect
+  - Maintained backward compatibility
+- **CHK-0302.3**: Frontend function consolidation ✅ DONE
+  - Consolidated functions into services:
+    - PostalCodeService for API interactions
+    - PartyColorService for party color management
+  - Refactored to use React hooks and proper patterns
+
+### FEAT-006: Basic API Documentation (DRIFT Corrections)
+- **CHK-0302.4**: OpenAPI specification alignment
+
+### FEAT-009: Theme Customization (DRIFT Corrections)
+- **CHK-0302.5**: Theme system standardization
+
+### FEAT-011: Print View (DRIFT Corrections)
+- **CHK-0302.6**: Print functionality implementation
+
+## Extra Implementation Decisions
+
+### NEW-FEAT-001: Vote Interaction Endpoints
+- **Routes**: 
+  - POST /api/v1/bills/{bill_id}/cast-vote
+  - GET /api/v1/members/{member_id}/votes
+  - GET /api/v1/votes/{session_id}/{vote_number}
+- **Decision**: ADR-20250823-101 (Adopt as official features)
+- **Checklist**: CHK-0303.1
+
+### NEW-FEAT-002: Debate Access Endpoints
+- **Routes**:
+  - GET /api/v1/debates/{year}/{month}/{day}
+  - GET /api/v1/debates/speeches/{speech_id}
+- **Decision**: ADR-20250823-101 (Adopt as official features)
+- **Checklist**: CHK-0303.1
+
+### LEGACY-001: JavaScript Libraries
+- **Components**: jQuery UI, Backbone.js
+- **Decision**: ADR-20250823-103 (Move to /legacy)
+- **Checklist**: CHK-0303.2
+
+### UTIL-001: Development Tools
+- **Components**: Architecture synthesis scripts, mapping tools
+- **Decision**: ADR-20250823-104 (Standardize as dev tools)
+- **Checklist**: CHK-0303.5
+
+## Updated Verification Summary
+
+- Total Features Mapped: 32 (20 original + 12 missing)
+- Total Activities: 95 (83 original + 12 new)
+- Total Realignment CHK Items: 32
+- Total ADR Decisions: 4
+- Drift Corrections Required: 6
+- Legacy Migrations: 1 batch
