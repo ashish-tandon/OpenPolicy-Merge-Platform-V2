@@ -73,7 +73,7 @@ export default function SearchBar() {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Search MPs, bills, debates... or enter postal code"
+            placeholder="Enter a postal code, name, or phrase"
             className="w-full px-4 py-2 pr-10 text-sm border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-op-blue focus:border-transparent"
           />
           <button
