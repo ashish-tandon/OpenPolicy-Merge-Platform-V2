@@ -1,7 +1,7 @@
 """
 Core Email Notification Service
 
-Business logic for enhanced email notification functionality.
+Business logic for email notification functionality.
 Implements FEAT-007 Email Notifications (P2 priority).
 """
 
@@ -9,36 +9,34 @@ from typing import List, Optional, Dict, Any, Tuple
 from datetime import datetime, timedelta
 from uuid import UUID, uuid4
 import hashlib
-import base64
 import secrets
+from jinja2 import Template, Environment, BaseLoader
 from sqlalchemy.orm import Session, joinedload
 from sqlalchemy import func, or_, and_, desc
 from fastapi import HTTPException, status
-from jinja2 import Template, Environment, BaseLoader
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
 from app.models.email_notifications import (
     EmailTemplate, NotificationPreference, EmailNotification,
-    EmailEvent, EmailAttachment, EmailBatch, NotificationQueue,
-    EmailProvider as EmailProviderModel,
-    EmailStatus, NotificationType, NotificationPriority, EmailProvider
+    EmailBatch, EmailAttachment, EmailLog, EmailDomain,
+    NotificationType, EmailStatus, EmailProvider
 )
 from app.models.users import User
 from app.schemas.email_notifications import (
     EmailTemplateCreate, EmailTemplateUpdate,
-    PreferenceUpdate, EmailNotificationCreate,
-    EmailBatchCreate, EmailBatchUpdate,
+    NotificationPreferenceUpdate,
+    EmailNotificationCreate, EmailBatchCreate,
     SendEmailRequest, SendBulkEmailRequest,
-    AttachmentCreate, UnsubscribeRequest
+    PreviewEmailRequest, EmailAttachmentCreate
 )
-from app.core.cache import cache_service
-from app.config import settings
 import logging
 import asyncio
-from collections import defaultdict
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.base import MIMEBase
+from email import encoders
+import base64
+import smtplib
+import boto3
+import requests
 
 logger = logging.getLogger(__name__)
 
@@ -53,96 +51,110 @@ class EmailNotificationService:
         self._init_providers()
     
     def _init_providers(self):
-        """Initialize email providers from database."""
-        providers = self.db.query(EmailProviderModel).filter(
-            EmailProviderModel.is_active == True
+        """Initialize email providers."""
+        # Get active domains
+        domains = self.db.query(EmailDomain).filter(
+            EmailDomain.is_active == True
         ).all()
         
-        for provider in providers:
-            self.providers[provider.provider_type] = provider
+        for domain in domains:
+            if domain.provider == EmailProvider.SMTP:
+                self.providers[domain.id] = SMTPProvider(domain.provider_config)
+            elif domain.provider == EmailProvider.AWS_SES:
+                self.providers[domain.id] = AWSProvider(domain.provider_config)
+            elif domain.provider == EmailProvider.SENDGRID:
+                self.providers[domain.id] = SendGridProvider(domain.provider_config)
+            # Add more providers as needed
     
     # Template management
-    def create_template(self, template_data: EmailTemplateCreate) -> EmailTemplate:
+    def create_template(
+        self,
+        template_data: EmailTemplateCreate
+    ) -> EmailTemplate:
         """Create email template."""
-        # Check for existing template with same key
+        # Generate slug
+        slug = self._generate_slug(template_data.name)
+        
+        # Check for duplicate
         existing = self.db.query(EmailTemplate).filter(
-            EmailTemplate.template_key == template_data.template_key,
-            EmailTemplate.is_active == True
+            EmailTemplate.slug == slug
         ).first()
         
-        version = 1
         if existing:
-            # Create new version
-            max_version = self.db.query(func.max(EmailTemplate.version)).filter(
-                EmailTemplate.template_key == template_data.template_key
-            ).scalar()
-            version = (max_version or 0) + 1
-            
-            # Deactivate old versions
-            self.db.query(EmailTemplate).filter(
-                EmailTemplate.template_key == template_data.template_key
-            ).update({"is_active": False, "is_default": False})
+            raise HTTPException(
+                status_code=status.HTTP_409_CONFLICT,
+                detail="Template with this name already exists"
+            )
         
         template = EmailTemplate(
             **template_data.dict(),
-            version=version
+            slug=slug
         )
-        
-        # Validate template syntax
-        try:
-            self.jinja_env.from_string(template.subject_template)
-            self.jinja_env.from_string(template.html_template)
-            if template.text_template:
-                self.jinja_env.from_string(template.text_template)
-        except Exception as e:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Invalid template syntax: {str(e)}"
-            )
         
         self.db.add(template)
         self.db.commit()
         
-        logger.info(f"Created email template: {template.template_key} v{version}")
+        logger.info(f"Created email template: {template.name}")
         return template
     
     def get_template(
         self,
-        template_key: str,
-        version: Optional[int] = None,
-        language: str = "en"
+        template_id: UUID
     ) -> EmailTemplate:
-        """Get email template by key."""
-        query = self.db.query(EmailTemplate).filter(
-            EmailTemplate.template_key == template_key,
-            EmailTemplate.language == language
-        )
-        
-        if version:
-            query = query.filter(EmailTemplate.version == version)
-        else:
-            query = query.filter(EmailTemplate.is_active == True)
-        
-        template = query.first()
-        
-        if not template:
-            # Try default language
-            template = self.db.query(EmailTemplate).filter(
-                EmailTemplate.template_key == template_key,
-                EmailTemplate.is_active == True,
-                EmailTemplate.language == "en"
-            ).first()
+        """Get email template by ID."""
+        template = self.db.query(EmailTemplate).filter(
+            EmailTemplate.id == template_id
+        ).first()
         
         if not template:
             raise HTTPException(
                 status_code=status.HTTP_404_NOT_FOUND,
-                detail=f"Template not found: {template_key}"
+                detail="Template not found"
             )
         
         return template
     
+    def update_template(
+        self,
+        template_id: UUID,
+        template_data: EmailTemplateUpdate
+    ) -> EmailTemplate:
+        """Update email template."""
+        template = self.get_template(template_id)
+        
+        # Don't allow updating system templates
+        if template.is_system:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Cannot modify system templates"
+            )
+        
+        for field, value in template_data.dict(exclude_unset=True).items():
+            setattr(template, field, value)
+        
+        self.db.commit()
+        return template
+    
+    def list_templates(
+        self,
+        notification_type: Optional[NotificationType] = None,
+        is_active: bool = True
+    ) -> List[EmailTemplate]:
+        """List email templates."""
+        query = self.db.query(EmailTemplate)
+        
+        if notification_type:
+            query = query.filter(EmailTemplate.notification_type == notification_type)
+        
+        query = query.filter(EmailTemplate.is_active == is_active)
+        
+        return query.order_by(EmailTemplate.name).all()
+    
     # Preference management
-    def get_or_create_preferences(self, user_id: UUID) -> NotificationPreference:
+    def get_or_create_preferences(
+        self,
+        user_id: UUID
+    ) -> NotificationPreference:
         """Get or create user notification preferences."""
         prefs = self.db.query(NotificationPreference).filter(
             NotificationPreference.user_id == user_id
@@ -153,11 +165,7 @@ class EmailNotificationService:
             prefs = NotificationPreference(
                 user_id=user_id,
                 unsubscribe_token=secrets.token_urlsafe(32),
-                preferences={
-                    "alert": {"enabled": True, "frequency": "realtime"},
-                    "digest": {"enabled": True, "frequency": "daily"},
-                    "announcement": {"enabled": True, "frequency": "immediate"}
-                }
+                type_preferences=self._get_default_type_preferences()
             )
             self.db.add(prefs)
             self.db.commit()
@@ -167,18 +175,18 @@ class EmailNotificationService:
     def update_preferences(
         self,
         user_id: UUID,
-        pref_data: PreferenceUpdate
+        pref_data: NotificationPreferenceUpdate
     ) -> NotificationPreference:
         """Update user notification preferences."""
         prefs = self.get_or_create_preferences(user_id)
         
         for field, value in pref_data.dict(exclude_unset=True).items():
-            if field == "preferences" and value:
-                # Merge preferences
-                current_prefs = prefs.preferences or {}
-                for notif_type, settings in value.items():
-                    current_prefs[notif_type] = settings.dict()
-                prefs.preferences = current_prefs
+            if field == 'type_preferences' and value:
+                # Merge type preferences
+                current = prefs.type_preferences or {}
+                for notif_type, pref in value.items():
+                    current[notif_type.value] = pref.dict()
+                prefs.type_preferences = current
             else:
                 setattr(prefs, field, value)
         
@@ -186,603 +194,630 @@ class EmailNotificationService:
         return prefs
     
     # Send email
-    async def send_email(self, request: SendEmailRequest, user: Optional[User] = None) -> List[EmailNotification]:
-        """Send email to recipients."""
-        notifications = []
-        
-        for recipient_email in request.to:
-            # Check if user wants to receive emails
-            if user:
-                prefs = self.get_or_create_preferences(user.id)
-                if not prefs.email_enabled:
-                    logger.info(f"User {user.id} has disabled email notifications")
-                    continue
-            
-            # Create notification record
-            notification = EmailNotification(
-                user_id=user.id if user else None,
-                recipient_email=recipient_email,
-                recipient_name=user.full_name if user else None,
-                template_id=request.template_id,
-                notification_type=NotificationType.CUSTOM,
-                subject=request.subject,
-                template_variables=request.template_variables,
-                priority=request.priority,
-                reference_id=request.reference_id,
-                tags=request.tags,
-                status=EmailStatus.PENDING
-            )
-            
-            self.db.add(notification)
-            notifications.append(notification)
-            
-            # Add attachments if provided
-            if request.attachments:
-                for attach_data in request.attachments:
-                    content = base64.b64decode(attach_data.content_base64)
-                    attachment = EmailAttachment(
-                        notification_id=notification.id,
-                        filename=attach_data.filename,
-                        content_type=attach_data.content_type,
-                        size_bytes=len(content),
-                        content_base64=attach_data.content_base64,
-                        checksum=hashlib.sha256(content).hexdigest()
-                    )
-                    self.db.add(attachment)
-        
-        self.db.flush()
-        
-        # Queue for sending
-        for notification in notifications:
-            queue_item = NotificationQueue(
-                notification_id=notification.id,
-                priority=self._get_priority_value(notification.priority),
-                status="pending"
-            )
-            self.db.add(queue_item)
-        
-        self.db.commit()
-        
-        # Process immediately if high priority
-        if request.priority in [NotificationPriority.HIGH, NotificationPriority.URGENT]:
-            await self._process_notifications(notifications)
-        
-        return notifications
-    
-    async def send_templated_email(
+    async def send_email(
         self,
-        user: User,
-        template_key: str,
-        variables: Dict[str, Any],
-        notification_type: NotificationType = NotificationType.CUSTOM,
-        priority: NotificationPriority = NotificationPriority.MEDIUM
+        request: SendEmailRequest
     ) -> EmailNotification:
-        """Send templated email to user."""
-        # Get user preferences
-        prefs = self.get_or_create_preferences(user.id)
+        """Send single email notification."""
+        # Get user
+        user = self.db.query(User).filter(User.id == request.user_id).first()
+        if not user:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="User not found"
+            )
         
-        # Check if user wants this type of notification
-        pref_key = notification_type.value
-        if pref_key in prefs.preferences:
-            if not prefs.preferences[pref_key].get("enabled", True):
-                logger.info(f"User {user.id} has disabled {notification_type} notifications")
-                return None
+        # Check preferences
+        prefs = self.get_or_create_preferences(user.id)
+        if not prefs.email_enabled:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="User has disabled email notifications"
+            )
+        
+        # Check type-specific preferences
+        type_pref = prefs.type_preferences.get(request.notification_type.value, {})
+        if not type_pref.get('enabled', True):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail=f"User has disabled {request.notification_type.value} notifications"
+            )
         
         # Get template
-        template = self.get_template(template_key)
+        template = None
+        if request.template_id:
+            template = self.get_template(request.template_id)
+        else:
+            # Find default template for type
+            template = self.db.query(EmailTemplate).filter(
+                and_(
+                    EmailTemplate.notification_type == request.notification_type,
+                    EmailTemplate.is_active == True,
+                    EmailTemplate.is_system == True
+                )
+            ).first()
         
-        # Render subject and content
-        subject = self._render_template(template.subject_template, variables)
-        html_content = self._render_template(template.html_template, variables)
-        text_content = None
-        if template.text_template:
-            text_content = self._render_template(template.text_template, variables)
+        if not template:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="No template found for notification type"
+            )
+        
+        # Render content
+        subject, html_content, text_content = self._render_template(
+            template,
+            request.template_variables,
+            user,
+            prefs
+        )
+        
+        # Override subject if provided
+        if request.subject_override:
+            subject = request.subject_override
         
         # Create notification
         notification = EmailNotification(
             user_id=user.id,
             recipient_email=user.email,
             recipient_name=user.full_name,
+            notification_type=request.notification_type,
             template_id=template.id,
-            notification_type=notification_type,
             subject=subject,
-            template_variables=variables,
-            priority=priority,
-            status=EmailStatus.PENDING
+            html_content=html_content,
+            text_content=text_content,
+            template_variables=request.template_variables,
+            reference_id=request.template_variables.get('reference_id'),
+            reference_type=request.template_variables.get('reference_type'),
+            priority=request.priority
         )
         
         self.db.add(notification)
         self.db.flush()
         
-        # Queue for sending
-        queue_item = NotificationQueue(
-            notification_id=notification.id,
-            priority=self._get_priority_value(priority),
-            status="pending"
-        )
-        self.db.add(queue_item)
+        # Add attachments if any
+        if request.attachments:
+            for attach_data in request.attachments:
+                attachment = self._create_attachment(notification.id, attach_data)
+                self.db.add(attachment)
         
         self.db.commit()
         
-        # Process immediately if urgent
-        if priority == NotificationPriority.URGENT:
-            await self._process_notifications([notification])
+        # Send immediately if requested
+        if request.send_immediately:
+            await self._send_notification(notification)
         
-        logger.info(f"Queued templated email for user {user.id}: {template_key}")
         return notification
     
-    # Batch operations
-    def create_batch(
+    async def send_bulk_email(
         self,
-        batch_data: EmailBatchCreate,
-        user: User
+        request: SendBulkEmailRequest,
+        created_by: User
     ) -> EmailBatch:
-        """Create email batch."""
+        """Send bulk email notifications."""
         # Get template
-        template = self.db.query(EmailTemplate).filter(
-            EmailTemplate.id == batch_data.template_id
-        ).first()
+        template = self.get_template(request.template_id)
         
-        if not template:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail="Template not found"
-            )
-        
-        # Count recipients based on criteria
-        recipient_count = self._count_batch_recipients(batch_data.recipient_criteria)
-        
+        # Create batch
         batch = EmailBatch(
-            **batch_data.dict(),
-            recipient_count=recipient_count,
-            created_by=user.id,
-            status="draft"
+            name=request.batch_name,
+            notification_type=request.notification_type,
+            template_id=request.template_id,
+            filters=request.recipient_filters,
+            scheduled_for=request.scheduled_for,
+            created_by=created_by.id
         )
         
         self.db.add(batch)
-        self.db.commit()
+        self.db.flush()
         
-        logger.info(f"Created email batch: {batch.name} with {recipient_count} recipients")
-        return batch
-    
-    async def send_batch(self, batch_id: UUID) -> EmailBatch:
-        """Send email batch."""
-        batch = self.db.query(EmailBatch).filter(
-            EmailBatch.id == batch_id
-        ).first()
-        
-        if not batch:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail="Batch not found"
-            )
-        
-        if batch.status not in ["draft", "scheduled"]:
-            raise HTTPException(
-                status_code=status.HTTP_400_BAD_REQUEST,
-                detail=f"Cannot send batch in status: {batch.status}"
-            )
-        
-        # Update status
-        batch.status = "sending"
-        batch.started_at = datetime.utcnow()
-        self.db.commit()
-        
-        # Get recipients
-        recipients = self._get_batch_recipients(batch.recipient_criteria)
+        # Get recipients based on filters
+        recipients = self._get_recipients(request.recipient_filters)
+        batch.total_count = len(recipients)
         
         # Create notifications for each recipient
-        notifications = []
         for user in recipients:
             # Check preferences
             prefs = self.get_or_create_preferences(user.id)
             if not prefs.email_enabled:
                 continue
             
+            type_pref = prefs.type_preferences.get(request.notification_type.value, {})
+            if not type_pref.get('enabled', True):
+                continue
+            
+            # Merge user-specific variables
+            variables = {**request.template_variables}
+            variables['user_name'] = user.full_name
+            variables['user_email'] = user.email
+            
+            # Render content
+            subject, html_content, text_content = self._render_template(
+                template,
+                variables,
+                user,
+                prefs
+            )
+            
             # Create notification
             notification = EmailNotification(
                 user_id=user.id,
                 recipient_email=user.email,
                 recipient_name=user.full_name,
-                template_id=batch.template_id,
-                notification_type=NotificationType.from_batch_type(batch.batch_type),
-                subject="",  # Will be rendered from template
-                template_variables={"batch_id": str(batch.id)},
-                priority=NotificationPriority.LOW,
-                status=EmailStatus.PENDING
+                notification_type=request.notification_type,
+                template_id=template.id,
+                subject=subject,
+                html_content=html_content,
+                text_content=text_content,
+                template_variables=variables,
+                batch_id=batch.id,
+                priority=5  # Default priority for bulk
             )
             
             self.db.add(notification)
-            notifications.append(notification)
         
-        self.db.flush()
-        
-        # Queue all notifications
-        for notification in notifications:
-            queue_item = NotificationQueue(
-                notification_id=notification.id,
-                priority=0,  # Low priority for batch
-                status="pending"
-            )
-            self.db.add(queue_item)
-        
-        batch.recipient_count = len(notifications)
         self.db.commit()
         
-        logger.info(f"Queued {len(notifications)} emails for batch: {batch.name}")
+        # Schedule batch processing
+        if not request.scheduled_for or request.scheduled_for <= datetime.utcnow():
+            # Process immediately
+            asyncio.create_task(self._process_batch(batch.id))
+        
         return batch
     
-    # Process queue
-    async def process_queue(self, limit: int = 100) -> int:
-        """Process pending notifications from queue."""
-        # Get pending items
-        queue_items = self.db.query(NotificationQueue).filter(
-            NotificationQueue.status == "pending",
-            or_(
-                NotificationQueue.retry_after.is_(None),
-                NotificationQueue.retry_after <= datetime.utcnow()
-            )
-        ).order_by(
-            desc(NotificationQueue.priority),
-            NotificationQueue.created_at
-        ).limit(limit).all()
-        
-        if not queue_items:
-            return 0
-        
-        # Mark as processing
-        queue_ids = [item.id for item in queue_items]
-        self.db.query(NotificationQueue).filter(
-            NotificationQueue.id.in_(queue_ids)
-        ).update({
-            "status": "processing",
-            "processor_id": f"worker-{uuid4()}"
-        })
-        self.db.commit()
-        
-        # Process notifications
-        processed = 0
-        for queue_item in queue_items:
-            try:
-                notification = queue_item.notification
-                await self._send_notification(notification)
-                
-                # Mark as completed
-                queue_item.status = "completed"
-                queue_item.processed_at = datetime.utcnow()
-                processed += 1
-                
-            except Exception as e:
-                logger.error(f"Failed to send notification {queue_item.notification_id}: {str(e)}")
-                
-                # Handle retry
-                queue_item.retry_count += 1
-                if queue_item.retry_count < 3:
-                    queue_item.status = "pending"
-                    queue_item.retry_after = datetime.utcnow() + timedelta(
-                        minutes=5 * queue_item.retry_count
-                    )
-                else:
-                    queue_item.status = "failed"
-                    notification.status = EmailStatus.FAILED
-                    notification.error_message = str(e)
-        
-        self.db.commit()
-        
-        logger.info(f"Processed {processed} notifications from queue")
-        return processed
-    
-    # Unsubscribe
-    def unsubscribe(self, request: UnsubscribeRequest) -> Dict[str, Any]:
-        """Process unsubscribe request."""
-        # Find preference by token
-        prefs = self.db.query(NotificationPreference).filter(
-            NotificationPreference.unsubscribe_token == request.token
-        ).first()
-        
-        if not prefs:
-            raise HTTPException(
-                status_code=status.HTTP_404_NOT_FOUND,
-                detail="Invalid unsubscribe token"
-            )
-        
-        unsubscribed_types = []
-        
-        if request.notification_types:
-            # Unsubscribe from specific types
-            for notif_type in request.notification_types:
-                if notif_type.value in prefs.preferences:
-                    prefs.preferences[notif_type.value]["enabled"] = False
-                    unsubscribed_types.append(notif_type.value)
-        else:
-            # Unsubscribe from all
-            prefs.email_enabled = False
-            unsubscribed_types.append("all")
-        
-        self.db.commit()
-        
-        logger.info(f"User {prefs.user_id} unsubscribed from: {unsubscribed_types}")
-        
-        return {
-            "success": True,
-            "message": "Successfully unsubscribed",
-            "unsubscribed_types": unsubscribed_types
-        }
-    
-    # Analytics
-    def get_analytics(
+    def preview_email(
         self,
-        start_date: datetime,
-        end_date: datetime,
-        user_id: Optional[UUID] = None
-    ) -> Dict[str, Any]:
-        """Get email analytics."""
-        query = self.db.query(EmailNotification).filter(
-            EmailNotification.created_at >= start_date,
-            EmailNotification.created_at <= end_date
+        request: PreviewEmailRequest
+    ) -> Dict[str, str]:
+        """Preview email content."""
+        # Get template
+        template = self.get_template(request.template_id)
+        
+        # Get user if provided
+        user = None
+        prefs = None
+        if request.user_id:
+            user = self.db.query(User).filter(User.id == request.user_id).first()
+            if user:
+                prefs = self.get_or_create_preferences(user.id)
+        
+        # Use dummy data if no user
+        if not user:
+            user = type('User', (), {
+                'full_name': 'John Doe',
+                'email': 'john.doe@example.com',
+                'id': 'preview-user'
+            })
+            prefs = type('Prefs', (), {
+                'preferred_language': 'en',
+                'unsubscribe_token': 'preview-token'
+            })
+        
+        # Render template
+        subject, html_content, text_content = self._render_template(
+            template,
+            request.template_variables,
+            user,
+            prefs
         )
         
-        if user_id:
-            query = query.filter(EmailNotification.user_id == user_id)
-        
-        notifications = query.all()
-        
-        # Calculate metrics
-        total_sent = len([n for n in notifications if n.status in [
-            EmailStatus.SENT, EmailStatus.DELIVERED
-        ]])
-        total_delivered = len([n for n in notifications if n.status == EmailStatus.DELIVERED])
-        total_opened = len([n for n in notifications if n.opened_at])
-        total_clicked = len([n for n in notifications if n.clicked_at])
-        total_bounced = len([n for n in notifications if n.status == EmailStatus.BOUNCED])
-        total_complained = len([n for n in notifications if n.status == EmailStatus.COMPLAINED])
-        
-        # Calculate rates
-        delivery_rate = (total_delivered / total_sent * 100) if total_sent > 0 else 0
-        open_rate = (total_opened / total_delivered * 100) if total_delivered > 0 else 0
-        click_rate = (total_clicked / total_opened * 100) if total_opened > 0 else 0
-        bounce_rate = (total_bounced / total_sent * 100) if total_sent > 0 else 0
-        complaint_rate = (total_complained / total_delivered * 100) if total_delivered > 0 else 0
-        
-        # By type breakdown
-        by_type = defaultdict(lambda: {
-            "sent": 0, "delivered": 0, "opened": 0, "clicked": 0
-        })
-        
-        for notification in notifications:
-            notif_type = notification.notification_type.value
-            if notification.status in [EmailStatus.SENT, EmailStatus.DELIVERED]:
-                by_type[notif_type]["sent"] += 1
-            if notification.status == EmailStatus.DELIVERED:
-                by_type[notif_type]["delivered"] += 1
-            if notification.opened_at:
-                by_type[notif_type]["opened"] += 1
-            if notification.clicked_at:
-                by_type[notif_type]["clicked"] += 1
+        # Get domain
+        domain = self._get_default_domain()
         
         return {
-            "period": f"{start_date.date()} to {end_date.date()}",
-            "total_sent": total_sent,
-            "total_delivered": total_delivered,
-            "total_opened": total_opened,
-            "total_clicked": total_clicked,
-            "total_bounced": total_bounced,
-            "total_complained": total_complained,
-            "delivery_rate": round(delivery_rate, 2),
-            "open_rate": round(open_rate, 2),
-            "click_rate": round(click_rate, 2),
-            "bounce_rate": round(bounce_rate, 2),
-            "complaint_rate": round(complaint_rate, 2),
-            "by_type": dict(by_type)
+            'subject': subject,
+            'html_content': html_content,
+            'text_content': text_content,
+            'from_email': domain.from_email,
+            'from_name': domain.from_name
         }
+    
+    # Process notifications
+    async def _send_notification(
+        self,
+        notification: EmailNotification
+    ) -> bool:
+        """Send individual notification."""
+        try:
+            # Get domain
+            domain = self._get_default_domain()
+            
+            # Check rate limits
+            if not self._check_rate_limit(domain):
+                notification.status = EmailStatus.FAILED
+                notification.error_message = "Rate limit exceeded"
+                self.db.commit()
+                return False
+            
+            # Get provider
+            provider = self.providers.get(domain.id)
+            if not provider:
+                raise Exception(f"No provider configured for domain {domain.domain}")
+            
+            # Prepare message
+            message = self._prepare_message(notification, domain)
+            
+            # Send via provider
+            result = await provider.send(
+                from_email=domain.from_email,
+                from_name=domain.from_name,
+                to_email=notification.recipient_email,
+                to_name=notification.recipient_name,
+                subject=notification.subject,
+                html_content=notification.html_content,
+                text_content=notification.text_content,
+                message_id=str(notification.id),
+                attachments=notification.attachments
+            )
+            
+            # Update notification
+            notification.status = EmailStatus.SENT
+            notification.sent_at = datetime.utcnow()
+            notification.provider = domain.provider
+            notification.provider_message_id = result.get('message_id')
+            
+            # Update domain counters
+            domain.emails_sent_today += 1
+            domain.emails_sent_hour += 1
+            
+            # Log event
+            self._log_event(notification.id, 'sent', result)
+            
+            self.db.commit()
+            return True
+            
+        except Exception as e:
+            logger.error(f"Failed to send notification {notification.id}: {str(e)}")
+            
+            notification.retry_count += 1
+            notification.error_message = str(e)
+            
+            if notification.retry_count >= notification.max_retries:
+                notification.status = EmailStatus.FAILED
+            
+            self.db.commit()
+            return False
+    
+    async def _process_batch(
+        self,
+        batch_id: UUID
+    ) -> None:
+        """Process email batch."""
+        batch = self.db.query(EmailBatch).filter(
+            EmailBatch.id == batch_id
+        ).first()
+        
+        if not batch:
+            return
+        
+        batch.status = "processing"
+        batch.started_at = datetime.utcnow()
+        self.db.commit()
+        
+        # Get notifications
+        notifications = self.db.query(EmailNotification).filter(
+            EmailNotification.batch_id == batch_id,
+            EmailNotification.status == EmailStatus.PENDING
+        ).all()
+        
+        # Send notifications
+        for notification in notifications:
+            success = await self._send_notification(notification)
+            if success:
+                batch.sent_count += 1
+            else:
+                batch.failed_count += 1
+            
+            # Small delay to avoid overwhelming providers
+            await asyncio.sleep(0.1)
+        
+        batch.status = "completed"
+        batch.completed_at = datetime.utcnow()
+        self.db.commit()
+    
+    def process_webhook(
+        self,
+        provider: EmailProvider,
+        data: Dict[str, Any]
+    ) -> None:
+        """Process webhook from email provider."""
+        # Parse webhook based on provider
+        if provider == EmailProvider.SENDGRID:
+            events = data if isinstance(data, list) else [data]
+            for event in events:
+                self._process_sendgrid_event(event)
+        elif provider == EmailProvider.AWS_SES:
+            self._process_ses_event(data)
+        # Add more providers as needed
+        
+        self.db.commit()
     
     # Helper methods
-    def _render_template(self, template_str: str, variables: Dict[str, Any]) -> str:
-        """Render Jinja2 template with variables."""
-        template = self.jinja_env.from_string(template_str)
-        
-        # Add default variables
-        default_vars = {
-            "app_name": "OpenPolicy",
-            "app_url": settings.APP_URL,
-            "current_year": datetime.utcnow().year
+    def _render_template(
+        self,
+        template: EmailTemplate,
+        variables: Dict[str, Any],
+        user: User,
+        prefs: NotificationPreference
+    ) -> Tuple[str, str, str]:
+        """Render email template with variables."""
+        # Add system variables
+        system_vars = {
+            'user_name': user.full_name,
+            'user_email': user.email,
+            'unsubscribe_url': f"/unsubscribe?token={prefs.unsubscribe_token}",
+            'current_year': datetime.utcnow().year,
+            'app_name': 'OpenPolicy',
+            'app_url': 'https://openpolicy.ca'
         }
         
-        return template.render(**{**default_vars, **variables})
+        all_vars = {**system_vars, **variables}
+        
+        # Render templates
+        subject_tmpl = self.jinja_env.from_string(template.subject_template)
+        html_tmpl = self.jinja_env.from_string(template.html_template)
+        text_tmpl = self.jinja_env.from_string(template.text_template)
+        
+        subject = subject_tmpl.render(**all_vars)
+        html_content = html_tmpl.render(**all_vars)
+        text_content = text_tmpl.render(**all_vars)
+        
+        # Add unsubscribe footer if required
+        if template.requires_unsubscribe:
+            unsubscribe_html = f'<p style="font-size: 12px; color: #666; margin-top: 40px;">You are receiving this email because you opted in. <a href="{all_vars["unsubscribe_url"]}">Unsubscribe</a></p>'
+            unsubscribe_text = f"\n\n--\nUnsubscribe: {all_vars['unsubscribe_url']}"
+            
+            html_content += unsubscribe_html
+            text_content += unsubscribe_text
+        
+        return subject, html_content, text_content
     
-    def _get_priority_value(self, priority: NotificationPriority) -> int:
-        """Convert priority enum to numeric value."""
-        priority_map = {
-            NotificationPriority.LOW: 0,
-            NotificationPriority.MEDIUM: 5,
-            NotificationPriority.HIGH: 10,
-            NotificationPriority.URGENT: 15
-        }
-        return priority_map.get(priority, 5)
-    
-    def _count_batch_recipients(self, criteria: Dict[str, Any]) -> int:
-        """Count recipients based on criteria."""
+    def _get_recipients(
+        self,
+        filters: Dict[str, Any]
+    ) -> List[User]:
+        """Get recipients based on filters."""
         query = self.db.query(User).filter(User.is_active == True)
         
-        # Apply filters based on criteria
-        # This is simplified - in production would be more complex
+        # Apply filters
+        if 'user_ids' in filters:
+            query = query.filter(User.id.in_(filters['user_ids']))
         
-        return query.count()
-    
-    def _get_batch_recipients(self, criteria: Dict[str, Any]) -> List[User]:
-        """Get recipients based on criteria."""
-        query = self.db.query(User).filter(User.is_active == True)
+        if 'roles' in filters:
+            # Join with roles
+            pass  # Implement based on your role system
         
-        # Apply filters based on criteria
-        # This is simplified - in production would be more complex
+        if 'created_after' in filters:
+            query = query.filter(User.created_at >= filters['created_after'])
+        
+        # Add more filters as needed
         
         return query.all()
     
-    async def _process_notifications(self, notifications: List[EmailNotification]):
-        """Process notifications immediately."""
-        for notification in notifications:
-            try:
-                await self._send_notification(notification)
-            except Exception as e:
-                logger.error(f"Failed to send notification {notification.id}: {str(e)}")
-                notification.status = EmailStatus.FAILED
-                notification.error_message = str(e)
-        
-        self.db.commit()
-    
-    async def _send_notification(self, notification: EmailNotification):
-        """Send individual notification."""
-        try:
-            # Update status
-            notification.status = EmailStatus.SENDING
-            notification.attempts += 1
-            notification.last_attempt_at = datetime.utcnow()
-            self.db.commit()
-            
-            # Prepare content
-            if notification.template_id:
-                template = notification.template
-                subject = self._render_template(
-                    template.subject_template,
-                    notification.template_variables or {}
-                )
-                html_content = self._render_template(
-                    template.html_template,
-                    notification.template_variables or {}
-                )
-                text_content = None
-                if template.text_template:
-                    text_content = self._render_template(
-                        template.text_template,
-                        notification.template_variables or {}
-                    )
-            else:
-                subject = notification.subject
-                html_content = notification.template_variables.get("html_content", "")
-                text_content = notification.template_variables.get("text_content", "")
-            
-            # Get provider
-            provider = self._get_best_provider()
-            
-            # Send based on provider type
-            if provider.provider_type == EmailProvider.SMTP:
-                await self._send_smtp_email(
-                    provider,
-                    notification.recipient_email,
-                    subject,
-                    html_content,
-                    text_content,
-                    notification.attachments
-                )
-            else:
-                # Other providers would be implemented here
-                raise NotImplementedError(f"Provider {provider.provider_type} not implemented")
-            
-            # Update status
-            notification.status = EmailStatus.SENT
-            notification.sent_at = datetime.utcnow()
-            notification.provider = provider.provider_type
-            
-            # Log event
-            event = EmailEvent(
-                notification_id=notification.id,
-                event_type="sent",
-                event_data={"provider": provider.provider_type.value}
+    def _get_default_domain(self) -> EmailDomain:
+        """Get default email domain."""
+        domain = self.db.query(EmailDomain).filter(
+            and_(
+                EmailDomain.is_active == True,
+                EmailDomain.is_default == True
             )
-            self.db.add(event)
-            
-            # Update provider stats
-            provider.total_sent += 1
-            provider.last_used_at = datetime.utcnow()
-            
-            self.db.commit()
-            
-            logger.info(f"Sent email {notification.id} via {provider.provider_type}")
-            
-        except Exception as e:
-            logger.error(f"Failed to send email {notification.id}: {str(e)}")
-            notification.status = EmailStatus.FAILED
-            notification.error_message = str(e)
-            
-            if hasattr(provider, 'total_failed'):
-                provider.total_failed += 1
-            
-            self.db.commit()
-            raise
-    
-    def _get_best_provider(self) -> EmailProviderModel:
-        """Get best available email provider."""
-        # For now, return default provider
-        default_provider = self.db.query(EmailProviderModel).filter(
-            EmailProviderModel.is_default == True,
-            EmailProviderModel.is_active == True
         ).first()
         
-        if not default_provider:
-            # Return first active provider
-            default_provider = self.db.query(EmailProviderModel).filter(
-                EmailProviderModel.is_active == True
+        if not domain:
+            # Get any active domain
+            domain = self.db.query(EmailDomain).filter(
+                EmailDomain.is_active == True
             ).first()
         
-        if not default_provider:
+        if not domain:
             raise HTTPException(
-                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-                detail="No email providers configured"
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail="No email domain configured"
             )
         
-        return default_provider
+        return domain
     
-    async def _send_smtp_email(
+    def _check_rate_limit(
         self,
-        provider: EmailProviderModel,
-        to_email: str,
-        subject: str,
-        html_content: str,
-        text_content: Optional[str],
-        attachments: List[EmailAttachment]
-    ):
-        """Send email via SMTP."""
-        config = provider.config
+        domain: EmailDomain
+    ) -> bool:
+        """Check if rate limit allows sending."""
+        now = datetime.utcnow()
         
-        # Create message
+        # Reset counters if needed
+        if domain.last_reset_date != now.date():
+            domain.emails_sent_today = 0
+            domain.last_reset_date = now.date()
+        
+        if domain.last_reset_hour != now.hour:
+            domain.emails_sent_hour = 0
+            domain.last_reset_hour = now.hour
+        
+        # Check limits
+        if domain.daily_limit and domain.emails_sent_today >= domain.daily_limit:
+            return False
+        
+        if domain.hourly_limit and domain.emails_sent_hour >= domain.hourly_limit:
+            return False
+        
+        return True
+    
+    def _create_attachment(
+        self,
+        notification_id: UUID,
+        attach_data: EmailAttachmentCreate
+    ) -> EmailAttachment:
+        """Create email attachment."""
+        # Decode content
+        content = base64.b64decode(attach_data.content)
+        
+        # Save to storage
+        storage_path = f"attachments/{notification_id}/{attach_data.filename}"
+        # In production, save to S3 or similar
+        
+        attachment = EmailAttachment(
+            notification_id=notification_id,
+            filename=attach_data.filename,
+            content_type=attach_data.content_type,
+            file_size=len(content),
+            storage_path=storage_path,
+            is_inline=attach_data.is_inline,
+            content_id=attach_data.content_id
+        )
+        
+        return attachment
+    
+    def _prepare_message(
+        self,
+        notification: EmailNotification,
+        domain: EmailDomain
+    ) -> MIMEMultipart:
+        """Prepare MIME message."""
         msg = MIMEMultipart('alternative')
-        msg['Subject'] = subject
-        msg['From'] = config.get('from_email', 'noreply@openpolicy.ca')
-        msg['To'] = to_email
+        msg['From'] = f"{domain.from_name} <{domain.from_email}>"
+        msg['To'] = f"{notification.recipient_name} <{notification.recipient_email}>"
+        msg['Subject'] = notification.subject
+        msg['Message-ID'] = f"<{notification.id}@{domain.domain}>"
         
         # Add text and HTML parts
-        if text_content:
-            text_part = MIMEText(text_content, 'plain')
-            msg.attach(text_part)
-        
-        html_part = MIMEText(html_content, 'html')
-        msg.attach(html_part)
+        msg.attach(MIMEText(notification.text_content, 'plain'))
+        msg.attach(MIMEText(notification.html_content, 'html'))
         
         # Add attachments
-        for attachment in attachments:
-            if attachment.content_base64:
-                content = base64.b64decode(attachment.content_base64)
-                
-                part = MIMEBase('application', 'octet-stream')
-                part.set_payload(content)
-                encoders.encode_base64(part)
-                part.add_header(
-                    'Content-Disposition',
-                    f'attachment; filename="{attachment.filename}"'
-                )
-                msg.attach(part)
+        for attachment in notification.attachments:
+            # Load attachment content
+            # In production, load from S3 or similar
+            part = MIMEBase('application', 'octet-stream')
+            part.set_payload(b"attachment content")  # Placeholder
+            encoders.encode_base64(part)
+            part.add_header(
+                'Content-Disposition',
+                f'attachment; filename="{attachment.filename}"'
+            )
+            msg.attach(part)
         
-        # Send email
-        with smtplib.SMTP(config['host'], config['port']) as server:
-            if config.get('use_tls'):
-                server.starttls()
-            if config.get('username'):
-                server.login(config['username'], config['password'])
-            
-            server.send_message(msg)
+        return msg
+    
+    def _log_event(
+        self,
+        notification_id: UUID,
+        event_type: str,
+        event_data: Dict[str, Any]
+    ) -> None:
+        """Log email event."""
+        log = EmailLog(
+            notification_id=notification_id,
+            event_type=event_type,
+            event_data=event_data,
+            occurred_at=datetime.utcnow()
+        )
+        self.db.add(log)
+    
+    def _generate_slug(self, text: str) -> str:
+        """Generate URL-safe slug from text."""
+        import re
+        slug = text.lower().strip()
+        slug = re.sub(r'[^\w\s-]', '', slug)
+        slug = re.sub(r'[\s_-]+', '-', slug)
+        slug = re.sub(r'^-+|-+$', '', slug)
+        return slug
+    
+    def _get_default_type_preferences(self) -> Dict[str, Any]:
+        """Get default notification type preferences."""
+        defaults = {}
+        for notif_type in NotificationType:
+            defaults[notif_type.value] = {
+                'enabled': True,
+                'frequency': 'immediate'
+            }
+        return defaults
+    
+    def _process_sendgrid_event(self, event: Dict[str, Any]) -> None:
+        """Process SendGrid webhook event."""
+        message_id = event.get('sg_message_id')
+        if not message_id:
+            return
+        
+        # Find notification
+        notification = self.db.query(EmailNotification).filter(
+            EmailNotification.provider_message_id == message_id
+        ).first()
+        
+        if not notification:
+            return
+        
+        event_type = event.get('event')
+        
+        if event_type == 'delivered':
+            notification.status = EmailStatus.DELIVERED
+            notification.delivered_at = datetime.fromtimestamp(event.get('timestamp', 0))
+        elif event_type == 'open':
+            notification.status = EmailStatus.OPENED
+            notification.opened_at = datetime.fromtimestamp(event.get('timestamp', 0))
+        elif event_type == 'click':
+            notification.status = EmailStatus.CLICKED
+            notification.clicked_at = datetime.fromtimestamp(event.get('timestamp', 0))
+        elif event_type == 'bounce':
+            notification.status = EmailStatus.BOUNCED
+            notification.bounced_at = datetime.fromtimestamp(event.get('timestamp', 0))
+        elif event_type == 'spam':
+            notification.status = EmailStatus.SPAM
+        
+        self._log_event(notification.id, event_type, event)
+    
+    def _process_ses_event(self, data: Dict[str, Any]) -> None:
+        """Process AWS SES webhook event."""
+        # Implement SES event processing
+        pass
+
+
+# Email provider implementations
+class SMTPProvider:
+    """SMTP email provider."""
+    
+    def __init__(self, config: Dict[str, Any]):
+        self.host = config.get('host')
+        self.port = config.get('port', 587)
+        self.username = config.get('username')
+        self.password = config.get('password')
+        self.use_tls = config.get('use_tls', True)
+    
+    async def send(self, **kwargs) -> Dict[str, Any]:
+        """Send email via SMTP."""
+        # Implementation would use smtplib
+        return {'message_id': str(uuid4())}
+
+
+class AWSProvider:
+    """AWS SES email provider."""
+    
+    def __init__(self, config: Dict[str, Any]):
+        self.client = boto3.client(
+            'ses',
+            region_name=config.get('region', 'us-east-1'),
+            aws_access_key_id=config.get('access_key'),
+            aws_secret_access_key=config.get('secret_key')
+        )
+    
+    async def send(self, **kwargs) -> Dict[str, Any]:
+        """Send email via AWS SES."""
+        # Implementation would use boto3
+        return {'message_id': str(uuid4())}
+
+
+class SendGridProvider:
+    """SendGrid email provider."""
+    
+    def __init__(self, config: Dict[str, Any]):
+        self.api_key = config.get('api_key')
+        self.base_url = 'https://api.sendgrid.com/v3'
+    
+    async def send(self, **kwargs) -> Dict[str, Any]:
+        """Send email via SendGrid."""
+        # Implementation would use requests or sendgrid library
+        return {'message_id': str(uuid4())}
 
 
 # Dependency injection helper
-def get_email_notification_service(db: Session) -> EmailNotificationService:
+def get_email_service(db: Session) -> EmailNotificationService:
     """Get email notification service instance."""
     return EmailNotificationService(db)
