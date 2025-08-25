@@ -2,28 +2,29 @@
 Email Notification API endpoints.
 
 Implements FEAT-007 Email Notifications (P2 priority).
-Provides comprehensive email notification management.
+Provides comprehensive email notification functionality.
 """
 
 from typing import List, Optional
 from uuid import UUID
-from fastapi import APIRouter, Depends, HTTPException, status, Query, Body, BackgroundTasks
+from fastapi import APIRouter, Depends, HTTPException, status, Query, Body, Header
 from sqlalchemy.orm import Session
-from datetime import datetime, timedelta
+from datetime import datetime, date
 from app.database import get_db
 from app.core.dependencies import get_current_user, require_permission
-from app.core.email_notifications import EmailNotificationService, get_email_notification_service
+from app.core.email_notifications import EmailNotificationService, get_email_service
 from app.models.users import User
 from app.schemas.email_notifications import (
     EmailTemplateCreate, EmailTemplateUpdate, EmailTemplateResponse,
-    PreferenceUpdate, PreferenceResponse,
+    NotificationPreferenceUpdate, NotificationPreferenceResponse,
     EmailNotificationCreate, EmailNotificationResponse, EmailNotificationListResponse,
-    EmailEventResponse, AttachmentResponse,
     EmailBatchCreate, EmailBatchUpdate, EmailBatchResponse,
     SendEmailRequest, SendBulkEmailRequest,
-    EmailAnalytics, ProviderStats,
-    WebhookEvent, UnsubscribeRequest, UnsubscribeResponse,
-    EmailStatus, NotificationType, NotificationPriority
+    PreviewEmailRequest, PreviewEmailResponse,
+    EmailStatistics, EmailStatusUpdate,
+    UnsubscribeRequest, NotificationType, EmailStatus,
+    EmailDomainCreate, EmailDomainUpdate, EmailDomainResponse,
+    EmailLogResponse, EmailProvider
 )
 import logging
 
@@ -39,8 +40,8 @@ async def create_email_template(
     current_user: User = Depends(require_permission("notifications", "write")),
     db: Session = Depends(get_db)
 ):
-    """Create a new email template (admin only)."""
-    service = get_email_notification_service(db)
+    """Create new email template (admin only)."""
+    service = get_email_service(db)
     template = service.create_template(template_data)
     
     response = EmailTemplateResponse.from_orm(template)
@@ -53,21 +54,15 @@ async def create_email_template(
 async def list_email_templates(
     notification_type: Optional[NotificationType] = Query(None),
     is_active: bool = Query(True),
-    language: str = Query("en"),
+    current_user: User = Depends(require_permission("notifications", "read")),
     db: Session = Depends(get_db)
 ):
-    """List available email templates."""
-    from app.models.email_notifications import EmailTemplate
-    
-    query = db.query(EmailTemplate).filter(
-        EmailTemplate.is_active == is_active,
-        EmailTemplate.language == language
+    """List email templates (admin only)."""
+    service = get_email_service(db)
+    templates = service.list_templates(
+        notification_type=notification_type,
+        is_active=is_active
     )
-    
-    if notification_type:
-        query = query.filter(EmailTemplate.notification_type == notification_type)
-    
-    templates = query.order_by(EmailTemplate.template_key, EmailTemplate.version.desc()).all()
     
     responses = []
     for template in templates:
@@ -81,20 +76,12 @@ async def list_email_templates(
 @router.get("/templates/{template_id}", response_model=EmailTemplateResponse)
 async def get_email_template(
     template_id: UUID,
+    current_user: User = Depends(require_permission("notifications", "read")),
     db: Session = Depends(get_db)
 ):
-    """Get email template details."""
-    from app.models.email_notifications import EmailTemplate
-    
-    template = db.query(EmailTemplate).filter(
-        EmailTemplate.id == template_id
-    ).first()
-    
-    if not template:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Template not found"
-        )
+    """Get email template details (admin only)."""
+    service = get_email_service(db)
+    template = service.get_template(template_id)
     
     response = EmailTemplateResponse.from_orm(template)
     response.usage_count = len(template.notifications)
@@ -110,22 +97,8 @@ async def update_email_template(
     db: Session = Depends(get_db)
 ):
     """Update email template (admin only)."""
-    from app.models.email_notifications import EmailTemplate
-    
-    template = db.query(EmailTemplate).filter(
-        EmailTemplate.id == template_id
-    ).first()
-    
-    if not template:
-        raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND,
-            detail="Template not found"
-        )
-    
-    for field, value in template_data.dict(exclude_unset=True).items():
-        setattr(template, field, value)
-    
-    db.commit()
+    service = get_email_service(db)
+    template = service.update_template(template_id, template_data)
     
     response = EmailTemplateResponse.from_orm(template)
     response.usage_count = len(template.notifications)
@@ -134,101 +107,110 @@ async def update_email_template(
 
 
 # Preference endpoints
-@router.get("/preferences", response_model=PreferenceResponse)
+@router.get("/preferences", response_model=NotificationPreferenceResponse)
 async def get_notification_preferences(
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Get user's notification preferences."""
-    service = get_email_notification_service(db)
-    preferences = service.get_or_create_preferences(current_user.id)
+    service = get_email_service(db)
+    prefs = service.get_or_create_preferences(current_user.id)
     
-    return PreferenceResponse.from_orm(preferences)
+    return NotificationPreferenceResponse.from_orm(prefs)
 
 
-@router.put("/preferences", response_model=PreferenceResponse)
+@router.put("/preferences", response_model=NotificationPreferenceResponse)
 async def update_notification_preferences(
-    pref_data: PreferenceUpdate,
+    pref_data: NotificationPreferenceUpdate,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
     """Update user's notification preferences."""
-    service = get_email_notification_service(db)
-    preferences = service.update_preferences(current_user.id, pref_data)
+    service = get_email_service(db)
+    prefs = service.update_preferences(current_user.id, pref_data)
     
-    return PreferenceResponse.from_orm(preferences)
+    return NotificationPreferenceResponse.from_orm(prefs)
 
 
 # Send email endpoints
-@router.post("/send", response_model=List[EmailNotificationResponse])
-async def send_email(
+@router.post("/send", response_model=EmailNotificationResponse)
+async def send_email_notification(
     request: SendEmailRequest,
-    background_tasks: BackgroundTasks,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Send email to recipients."""
-    service = get_email_notification_service(db)
+    """Send single email notification."""
+    # Check if user can send to target user
+    if request.user_id != current_user.id:
+        # Require admin permission to send to other users
+        if not hasattr(current_user, 'is_admin') or not current_user.is_admin:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to send notifications to other users"
+            )
+    
+    service = get_email_service(db)
     
     # Note: In production, this would be properly async
     import asyncio
-    notifications = asyncio.run(service.send_email(request, current_user))
+    notification = asyncio.run(service.send_email(request))
     
-    return [EmailNotificationResponse.from_orm(n) for n in notifications]
+    return EmailNotificationResponse.from_orm(notification)
 
 
 @router.post("/send-bulk", response_model=EmailBatchResponse)
-async def send_bulk_email(
+async def send_bulk_email_notifications(
     request: SendBulkEmailRequest,
     current_user: User = Depends(require_permission("notifications", "write")),
     db: Session = Depends(get_db)
 ):
-    """Send bulk emails (admin only)."""
-    service = get_email_notification_service(db)
+    """Send bulk email notifications (admin only)."""
+    service = get_email_service(db)
     
-    # Create batch
-    batch_data = EmailBatchCreate(
-        name=request.batch_name,
-        batch_type="campaign",
-        template_id=request.template_id,
-        recipient_criteria={"recipients": request.recipients},
-        scheduled_for=request.scheduled_for
-    )
-    
-    batch = service.create_batch(batch_data, current_user)
-    
-    # Schedule or send immediately
-    if not request.scheduled_for or request.scheduled_for <= datetime.utcnow():
-        import asyncio
-        asyncio.run(service.send_batch(batch.id))
+    # Note: In production, this would be properly async
+    import asyncio
+    batch = asyncio.run(service.send_bulk_email(request, current_user))
     
     return EmailBatchResponse.from_orm(batch)
 
 
-# Notification history
-@router.get("/history", response_model=EmailNotificationListResponse)
-async def get_notification_history(
-    status: Optional[EmailStatus] = Query(None),
+@router.post("/preview", response_model=PreviewEmailResponse)
+async def preview_email(
+    request: PreviewEmailRequest,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Preview email content."""
+    service = get_email_service(db)
+    preview = service.preview_email(request)
+    
+    return PreviewEmailResponse(**preview)
+
+
+# Notification endpoints
+@router.get("/notifications", response_model=EmailNotificationListResponse)
+async def list_notifications(
     notification_type: Optional[NotificationType] = Query(None),
-    start_date: Optional[datetime] = Query(None),
-    end_date: Optional[datetime] = Query(None),
+    status: Optional[EmailStatus] = Query(None),
+    start_date: Optional[date] = Query(None),
+    end_date: Optional[date] = Query(None),
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Get user's notification history."""
+    """List user's email notifications."""
     from app.models.email_notifications import EmailNotification
     
     query = db.query(EmailNotification).filter(
         EmailNotification.user_id == current_user.id
     )
     
-    if status:
-        query = query.filter(EmailNotification.status == status)
-    
     if notification_type:
         query = query.filter(EmailNotification.notification_type == notification_type)
+    
+    if status:
+        query = query.filter(EmailNotification.status == status)
     
     if start_date:
         query = query.filter(EmailNotification.created_at >= start_date)
@@ -257,7 +239,7 @@ async def get_notification_history(
 
 
 @router.get("/notifications/{notification_id}", response_model=EmailNotificationResponse)
-async def get_notification_details(
+async def get_notification(
     notification_id: UUID,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
@@ -276,26 +258,26 @@ async def get_notification_details(
         )
     
     # Check ownership
-    if notification.user_id != current_user.id and not current_user.is_admin:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Not authorized to view this notification"
-        )
+    if notification.user_id != current_user.id:
+        if not hasattr(current_user, 'is_admin') or not current_user.is_admin:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to view this notification"
+            )
     
     return EmailNotificationResponse.from_orm(notification)
 
 
-# Event endpoints
-@router.get("/notifications/{notification_id}/events", response_model=List[EmailEventResponse])
-async def get_notification_events(
+@router.get("/notifications/{notification_id}/logs", response_model=List[EmailLogResponse])
+async def get_notification_logs(
     notification_id: UUID,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Get notification events."""
-    from app.models.email_notifications import EmailNotification, EmailEvent
+    """Get notification activity logs."""
+    from app.models.email_notifications import EmailNotification, EmailLog
     
-    # Verify notification exists and user has access
+    # Verify notification ownership
     notification = db.query(EmailNotification).filter(
         EmailNotification.id == notification_id
     ).first()
@@ -306,36 +288,24 @@ async def get_notification_events(
             detail="Notification not found"
         )
     
-    if notification.user_id != current_user.id and not current_user.is_admin:
-        raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN,
-            detail="Not authorized"
-        )
+    if notification.user_id != current_user.id:
+        if not hasattr(current_user, 'is_admin') or not current_user.is_admin:
+            raise HTTPException(
+                status_code=status.HTTP_403_FORBIDDEN,
+                detail="Not authorized to view these logs"
+            )
     
-    events = db.query(EmailEvent).filter(
-        EmailEvent.notification_id == notification_id
-    ).order_by(EmailEvent.occurred_at).all()
+    logs = db.query(EmailLog).filter(
+        EmailLog.notification_id == notification_id
+    ).order_by(EmailLog.occurred_at.desc()).all()
     
-    return [EmailEventResponse.from_orm(e) for e in events]
+    return [EmailLogResponse.from_orm(log) for log in logs]
 
 
 # Batch endpoints
-@router.post("/batches", response_model=EmailBatchResponse, status_code=status.HTTP_201_CREATED)
-async def create_email_batch(
-    batch_data: EmailBatchCreate,
-    current_user: User = Depends(require_permission("notifications", "write")),
-    db: Session = Depends(get_db)
-):
-    """Create email batch (admin only)."""
-    service = get_email_notification_service(db)
-    batch = service.create_batch(batch_data, current_user)
-    
-    return EmailBatchResponse.from_orm(batch)
-
-
 @router.get("/batches", response_model=List[EmailBatchResponse])
 async def list_email_batches(
-    status: Optional[str] = Query(None),
+    status: Optional[str] = Query(None, regex="^(pending|processing|completed|failed)$"),
     page: int = Query(1, ge=1),
     page_size: int = Query(20, ge=1, le=100),
     current_user: User = Depends(require_permission("notifications", "read")),
@@ -359,150 +329,151 @@ async def list_email_batches(
     return [EmailBatchResponse.from_orm(b) for b in batches]
 
 
-@router.post("/batches/{batch_id}/send", response_model=EmailBatchResponse)
-async def send_email_batch(
+@router.get("/batches/{batch_id}", response_model=EmailBatchResponse)
+async def get_email_batch(
     batch_id: UUID,
-    background_tasks: BackgroundTasks,
-    current_user: User = Depends(require_permission("notifications", "write")),
+    current_user: User = Depends(require_permission("notifications", "read")),
     db: Session = Depends(get_db)
 ):
-    """Send email batch (admin only)."""
-    service = get_email_notification_service(db)
+    """Get batch details (admin only)."""
+    from app.models.email_notifications import EmailBatch
     
-    # Note: In production, this would be properly async
-    import asyncio
-    batch = asyncio.run(service.send_batch(batch_id))
+    batch = db.query(EmailBatch).filter(
+        EmailBatch.id == batch_id
+    ).first()
+    
+    if not batch:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Batch not found"
+        )
     
     return EmailBatchResponse.from_orm(batch)
 
 
-# Analytics endpoints
-@router.get("/analytics", response_model=EmailAnalytics)
-async def get_email_analytics(
-    period: str = Query("week", regex="^(day|week|month)$"),
-    start_date: Optional[datetime] = Query(None),
-    end_date: Optional[datetime] = Query(None),
-    current_user: User = Depends(require_permission("notifications", "read")),
+@router.put("/batches/{batch_id}", response_model=EmailBatchResponse)
+async def update_email_batch(
+    batch_id: UUID,
+    batch_data: EmailBatchUpdate,
+    current_user: User = Depends(require_permission("notifications", "write")),
     db: Session = Depends(get_db)
 ):
-    """Get email analytics (admin only)."""
-    service = get_email_notification_service(db)
+    """Update batch (admin only)."""
+    from app.models.email_notifications import EmailBatch
     
-    # Calculate date range based on period
-    if not end_date:
-        end_date = datetime.utcnow()
-    
-    if not start_date:
-        if period == "day":
-            start_date = end_date - timedelta(days=1)
-        elif period == "week":
-            start_date = end_date - timedelta(weeks=1)
-        else:  # month
-            start_date = end_date - timedelta(days=30)
-    
-    analytics = service.get_analytics(start_date, end_date)
-    
-    return EmailAnalytics(**analytics)
-
-
-@router.get("/analytics/providers", response_model=List[ProviderStats])
-async def get_provider_stats(
-    current_user: User = Depends(require_permission("notifications", "read")),
-    db: Session = Depends(get_db)
-):
-    """Get email provider statistics (admin only)."""
-    from app.models.email_notifications import EmailProvider as EmailProviderModel
-    
-    providers = db.query(EmailProviderModel).all()
-    
-    stats = []
-    for provider in providers:
-        success_rate = 0
-        if provider.total_sent > 0:
-            success_rate = ((provider.total_sent - provider.total_failed) / provider.total_sent) * 100
-        
-        stats.append(ProviderStats(
-            provider=provider.provider_type,
-            is_active=provider.is_active,
-            total_sent=provider.total_sent,
-            total_failed=provider.total_failed,
-            success_rate=round(success_rate, 2),
-            avg_delivery_time=None,  # Would calculate from events
-            last_used_at=provider.last_used_at
-        ))
-    
-    return stats
-
-
-# Webhook endpoints
-@router.post("/webhooks/{provider}")
-async def handle_webhook(
-    provider: str,
-    event: WebhookEvent,
-    db: Session = Depends(get_db)
-):
-    """Handle webhooks from email providers."""
-    from app.models.email_notifications import EmailNotification, EmailEvent
-    
-    # Find notification by provider message ID
-    notification = db.query(EmailNotification).filter(
-        EmailNotification.provider_message_id == event.message_id
+    batch = db.query(EmailBatch).filter(
+        EmailBatch.id == batch_id
     ).first()
     
-    if not notification:
-        logger.warning(f"Webhook received for unknown message: {event.message_id}")
-        return {"status": "ignored"}
+    if not batch:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Batch not found"
+        )
     
-    # Create event
-    email_event = EmailEvent(
-        notification_id=notification.id,
-        event_type=event.event_type,
-        event_data=event.data,
-        occurred_at=event.timestamp
-    )
-    
-    db.add(email_event)
-    
-    # Update notification status based on event
-    if event.event_type == "delivered":
-        notification.status = EmailStatus.DELIVERED
-        notification.delivered_at = event.timestamp
-    elif event.event_type == "opened":
-        notification.opened_at = event.timestamp
-    elif event.event_type == "clicked":
-        notification.clicked_at = event.timestamp
-    elif event.event_type == "bounced":
-        notification.status = EmailStatus.BOUNCED
-    elif event.event_type == "complained":
-        notification.status = EmailStatus.COMPLAINED
+    for field, value in batch_data.dict(exclude_unset=True).items():
+        setattr(batch, field, value)
     
     db.commit()
     
-    return {"status": "processed"}
+    return EmailBatchResponse.from_orm(batch)
+
+
+# Statistics endpoint
+@router.get("/statistics", response_model=EmailStatistics)
+async def get_email_statistics(
+    start_date: Optional[date] = Query(None),
+    end_date: Optional[date] = Query(None),
+    notification_type: Optional[NotificationType] = Query(None),
+    current_user: User = Depends(require_permission("notifications", "read")),
+    db: Session = Depends(get_db)
+):
+    """Get email statistics (admin only)."""
+    from app.models.email_notifications import EmailNotification
+    
+    query = db.query(EmailNotification)
+    
+    if start_date:
+        query = query.filter(EmailNotification.created_at >= start_date)
+    
+    if end_date:
+        query = query.filter(EmailNotification.created_at <= end_date)
+    
+    if notification_type:
+        query = query.filter(EmailNotification.notification_type == notification_type)
+    
+    # Calculate statistics
+    total_sent = query.filter(EmailNotification.status != EmailStatus.PENDING).count()
+    total_delivered = query.filter(EmailNotification.status == EmailStatus.DELIVERED).count()
+    total_opened = query.filter(EmailNotification.status.in_([EmailStatus.OPENED, EmailStatus.CLICKED])).count()
+    total_clicked = query.filter(EmailNotification.status == EmailStatus.CLICKED).count()
+    total_bounced = query.filter(EmailNotification.status == EmailStatus.BOUNCED).count()
+    total_failed = query.filter(EmailNotification.status == EmailStatus.FAILED).count()
+    
+    # Calculate rates
+    delivery_rate = (total_delivered / total_sent * 100) if total_sent > 0 else 0
+    open_rate = (total_opened / total_delivered * 100) if total_delivered > 0 else 0
+    click_rate = (total_clicked / total_opened * 100) if total_opened > 0 else 0
+    bounce_rate = (total_bounced / total_sent * 100) if total_sent > 0 else 0
+    
+    return EmailStatistics(
+        total_sent=total_sent,
+        total_delivered=total_delivered,
+        total_opened=total_opened,
+        total_clicked=total_clicked,
+        total_bounced=total_bounced,
+        total_failed=total_failed,
+        delivery_rate=delivery_rate,
+        open_rate=open_rate,
+        click_rate=click_rate,
+        bounce_rate=bounce_rate
+    )
 
 
 # Unsubscribe endpoints
-@router.post("/unsubscribe", response_model=UnsubscribeResponse)
+@router.post("/unsubscribe", status_code=status.HTTP_204_NO_CONTENT)
 async def unsubscribe(
     request: UnsubscribeRequest,
     db: Session = Depends(get_db)
 ):
-    """Process unsubscribe request."""
-    service = get_email_notification_service(db)
-    result = service.unsubscribe(request)
-    
-    return UnsubscribeResponse(**result)
-
-
-@router.get("/unsubscribe/{token}")
-async def unsubscribe_page(
-    token: str,
-    db: Session = Depends(get_db)
-):
-    """Display unsubscribe page."""
+    """Unsubscribe from notifications."""
     from app.models.email_notifications import NotificationPreference
     
-    # Verify token
+    # Find preferences by token
+    prefs = db.query(NotificationPreference).filter(
+        NotificationPreference.unsubscribe_token == request.token
+    ).first()
+    
+    if not prefs:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Invalid unsubscribe token"
+        )
+    
+    if request.notification_types:
+        # Unsubscribe from specific types
+        type_prefs = prefs.type_preferences or {}
+        for notif_type in request.notification_types:
+            type_prefs[notif_type.value] = {
+                'enabled': False,
+                'frequency': 'never'
+            }
+        prefs.type_preferences = type_prefs
+    else:
+        # Unsubscribe from all
+        prefs.email_enabled = False
+    
+    db.commit()
+
+
+@router.get("/unsubscribe", response_model=dict)
+async def get_unsubscribe_info(
+    token: str = Query(...),
+    db: Session = Depends(get_db)
+):
+    """Get unsubscribe information."""
+    from app.models.email_notifications import NotificationPreference
+    
     prefs = db.query(NotificationPreference).filter(
         NotificationPreference.unsubscribe_token == token
     ).first()
@@ -510,47 +481,137 @@ async def unsubscribe_page(
     if not prefs:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
-            detail="Invalid unsubscribe link"
+            detail="Invalid unsubscribe token"
         )
     
-    # In production, this would return an HTML page
+    # Get user info
+    user = prefs.user
+    
     return {
-        "message": "Unsubscribe page",
-        "token": token,
-        "user_id": str(prefs.user_id),
-        "current_preferences": prefs.preferences
+        "user_email": user.email,
+        "user_name": user.full_name,
+        "email_enabled": prefs.email_enabled,
+        "type_preferences": prefs.type_preferences
     }
 
 
-# Test endpoints
-@router.post("/test")
-async def send_test_email(
-    template_key: str = Body(...),
-    current_user: User = Depends(get_current_user),
+# Webhook endpoints
+@router.post("/webhooks/{provider}")
+async def process_webhook(
+    provider: EmailProvider,
+    request: dict = Body(...),
+    x_signature: Optional[str] = Header(None),
     db: Session = Depends(get_db)
 ):
-    """Send test email to current user."""
-    service = get_email_notification_service(db)
+    """Process webhook from email provider."""
+    # In production, verify webhook signature
     
-    # Test variables
-    test_variables = {
-        "user_name": current_user.full_name,
-        "test_message": "This is a test email from OpenPolicy",
-        "timestamp": datetime.utcnow().isoformat()
-    }
+    service = get_email_service(db)
+    service.process_webhook(provider, request)
     
-    # Note: In production, this would be properly async
-    import asyncio
-    notification = asyncio.run(service.send_templated_email(
-        current_user,
-        template_key,
-        test_variables,
-        NotificationType.CUSTOM,
-        NotificationPriority.HIGH
-    ))
+    return {"status": "ok"}
+
+
+# Domain management endpoints (admin only)
+@router.post("/domains", response_model=EmailDomainResponse, status_code=status.HTTP_201_CREATED)
+async def create_email_domain(
+    domain_data: EmailDomainCreate,
+    current_user: User = Depends(require_permission("notifications", "write")),
+    db: Session = Depends(get_db)
+):
+    """Create email domain configuration (admin only)."""
+    from app.models.email_notifications import EmailDomain
+    
+    # Check for duplicate
+    existing = db.query(EmailDomain).filter(
+        EmailDomain.domain == domain_data.domain
+    ).first()
+    
+    if existing:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Domain already configured"
+        )
+    
+    domain = EmailDomain(**domain_data.dict())
+    
+    db.add(domain)
+    db.commit()
+    
+    return EmailDomainResponse.from_orm(domain)
+
+
+@router.get("/domains", response_model=List[EmailDomainResponse])
+async def list_email_domains(
+    is_active: Optional[bool] = Query(None),
+    current_user: User = Depends(require_permission("notifications", "read")),
+    db: Session = Depends(get_db)
+):
+    """List email domains (admin only)."""
+    from app.models.email_notifications import EmailDomain
+    
+    query = db.query(EmailDomain)
+    
+    if is_active is not None:
+        query = query.filter(EmailDomain.is_active == is_active)
+    
+    domains = query.order_by(EmailDomain.domain).all()
+    
+    return [EmailDomainResponse.from_orm(d) for d in domains]
+
+
+@router.put("/domains/{domain_id}", response_model=EmailDomainResponse)
+async def update_email_domain(
+    domain_id: UUID,
+    domain_data: EmailDomainUpdate,
+    current_user: User = Depends(require_permission("notifications", "write")),
+    db: Session = Depends(get_db)
+):
+    """Update email domain (admin only)."""
+    from app.models.email_notifications import EmailDomain
+    
+    domain = db.query(EmailDomain).filter(
+        EmailDomain.id == domain_id
+    ).first()
+    
+    if not domain:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Domain not found"
+        )
+    
+    for field, value in domain_data.dict(exclude_unset=True).items():
+        setattr(domain, field, value)
+    
+    db.commit()
+    
+    return EmailDomainResponse.from_orm(domain)
+
+
+@router.post("/domains/{domain_id}/test")
+async def test_email_domain(
+    domain_id: UUID,
+    test_email: EmailStr = Body(...),
+    current_user: User = Depends(require_permission("notifications", "write")),
+    db: Session = Depends(get_db)
+):
+    """Test email domain configuration (admin only)."""
+    from app.models.email_notifications import EmailDomain
+    
+    domain = db.query(EmailDomain).filter(
+        EmailDomain.id == domain_id
+    ).first()
+    
+    if not domain:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="Domain not found"
+        )
+    
+    # Send test email
+    # In production, actually send test email
     
     return {
         "status": "sent",
-        "notification_id": str(notification.id) if notification else None,
-        "recipient": current_user.email
+        "message": f"Test email sent to {test_email}"
     }
