@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import { AccessibilityProvider, SkipToContent } from '@/components/AccessibilityProvider'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { LanguageProvider } from '@/contexts/LanguageContext'
+import LanguageNotification from '@/components/LanguageNotification'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -53,21 +55,26 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} bg-op-gray antialiased`}>
         <ErrorBoundary>
-          <AccessibilityProvider>
-            {/* Skip to main content link for keyboard users */}
-            <SkipToContent />
-            
-            {/* Main navigation */}
-            <Navbar />
-            
-            {/* Main content with proper landmark */}
-            <main id="main-content" className="min-h-screen focus:outline-none" tabIndex={-1}>
-              {children}
-            </main>
-            
-            {/* Footer with proper landmark */}
-            <Footer />
-          </AccessibilityProvider>
+          <LanguageProvider>
+            <AccessibilityProvider>
+              {/* Skip to main content link for keyboard users */}
+              <SkipToContent />
+              
+              {/* Main navigation */}
+              <Navbar />
+              
+              {/* Language notification for French users */}
+              <LanguageNotification />
+              
+              {/* Main content with proper landmark */}
+              <main id="main-content" className="min-h-screen focus:outline-none" tabIndex={-1}>
+                {children}
+              </main>
+              
+              {/* Footer with proper landmark */}
+              <Footer />
+            </AccessibilityProvider>
+          </LanguageProvider>
         </ErrorBoundary>
       </body>
     </html>

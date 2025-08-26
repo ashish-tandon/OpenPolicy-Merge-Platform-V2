@@ -4,26 +4,25 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import SearchBar from './SearchBar';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
   const router = useRouter();
 
+  const handleLanguageToggle = () => {
+    const newLang = language === 'en' ? 'fr' : 'en';
+    setLanguage(newLang);
+  };
+
   const navItems = [
-    { href: '/mps', label: 'MPs' },
-    { href: '/former-mps', label: 'Former MPs' },
-    { href: '/bills', label: 'Bills' },
-    { href: '/voting-records', label: 'Voting Records' },
-    { href: '/mobile-app', label: 'Mobile App Features' },
-    { href: '/feedback', label: 'Feedback' },
-    { href: '/saved-items', label: 'Saved Items' },
-    { href: '/debates', label: 'Debates' },
-    { href: '/committees', label: 'Committees' },
-    { href: '/government', label: 'Government' },
-    { href: '/represent', label: 'Represent' },
-    { href: '/about', label: 'About' },
-    { href: '/labs', label: 'Labs' },
-    { href: '/api', label: 'API' },
+    { href: '/mps', label: t('nav.mps') },
+    { href: '/bills', label: t('nav.bills') },
+    { href: '/debates', label: t('nav.debates') },
+    { href: '/committees', label: t('nav.committees') },
+    { href: '/about', label: t('nav.about') },
+    { href: '/labs', label: t('nav.labs') },
   ];
 
   return (
@@ -32,7 +31,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-xl font-bold text-op-blue">openparliament.ca</span>
+            <span className="text-xl font-bold text-op-blue">
+              {language === 'en' ? 'openparliament.ca' : 'parlementouvert.ca'}
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -55,8 +56,12 @@ export default function Navbar() {
 
           {/* Language Toggle */}
           <div className="hidden md:flex items-center space-x-4">
-            <button className="text-sm text-gray-600 hover:text-op-blue">
-              Français
+            <button 
+              onClick={handleLanguageToggle}
+              className="text-sm text-gray-600 hover:text-op-blue transition-colors"
+              title={language === 'en' ? 'Voir en français' : 'View in English'}
+            >
+              {language === 'en' ? 'Français' : 'English'}
             </button>
           </div>
 
@@ -91,8 +96,11 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <button className="block py-2 text-gray-600 hover:text-op-blue">
-              Français
+            <button 
+              onClick={handleLanguageToggle}
+              className="block py-2 text-gray-600 hover:text-op-blue"
+            >
+              {language === 'en' ? 'Français' : 'English'}
             </button>
           </div>
         )}
