@@ -1,6 +1,8 @@
 import { Suspense } from 'react';
+import Link from 'next/link';
 import { api } from '@/lib/api';
 import MPList from '@/components/MPs/MPList';
+import MPTileList from '@/components/MPs/MPTileList';
 import MPFilters from '@/components/MPs/MPFilters';
 import LoadingSpinner from '@/components/LoadingSpinner';
 
@@ -39,11 +41,20 @@ export default async function MPsPage({ searchParams }: MPsPageProps) {
     <div className="content-container py-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-op-dark mb-2">
-          Members of Parliament
+          {filters.current ? 'Current MPs' : 'Former MPs'}
         </h1>
-        <p className="text-gray-600">
-          Browse and search through {filters.current ? 'current' : 'former'} MPs
-        </p>
+        
+        {/* Helpful text matching Django template */}
+        <div className="bg-gray-50 rounded-lg p-4 mt-4">
+          <p className="text-sm">
+            <strong>Looking for your MP?</strong> Enter your postal code in the search field at the upper right of the page.{' '}
+            <strong>Looking for an ex-Member?</strong> See our list of{' '}
+            <Link href="/former-mps" className="text-op-blue hover:underline">
+              former MPs
+            </Link>{' '}
+            (since 1994).
+          </p>
+        </div>
       </div>
       
       <div className="grid lg:grid-cols-4 gap-8">
@@ -53,16 +64,26 @@ export default async function MPsPage({ searchParams }: MPsPageProps) {
         
         <div className="lg:col-span-3">
           <Suspense fallback={<LoadingSpinner />}>
-            <MPList 
-              members={mpsData.results}
-              pagination={{
-                page: mpsData.page,
-                pageSize: mpsData.pageSize,
-                total: mpsData.total,
-                totalPages: mpsData.totalPages,
-              }}
-              filters={filters}
-            />
+            {/* Use tile view for current MPs without filters */}
+            {filters.current && !filters.search && !filters.party && !filters.province ? (
+              <MPTileList 
+                members={mpsData.results || []}
+                pagination={{
+                  page: mpsData.page || 1,
+                  pageSize: mpsData.pageSize || 20,
+                  total: mpsData.total || 0,
+                  totalPages: mpsData.totalPages || 1,
+                }}
+                filters={filters}
+              />
+            ) : (
+              <MPList 
+                members={mpsData.results || []}
+                totalCount={mpsData.total || 0}
+                currentPage={page}
+                filters={filters}
+              />
+            )}
           </Suspense>
         </div>
       </div>

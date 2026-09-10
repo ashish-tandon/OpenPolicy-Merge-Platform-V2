@@ -15,7 +15,17 @@ interface CommitteePageProps {
 export default async function CommitteePage({ params }: CommitteePageProps) {
   const { slug } = await params;
   try {
-    const committee = await api.getCommitteeBySlug(slug);
+    // Fetch committee data and related information
+    const [committee, meetings, subcommittees, recentStudies] = await Promise.all([
+      api.getCommitteeBySlug(slug),
+      api.getCommitteeMeetings(slug, { page: '1', page_size: '10' }).catch(() => ({ items: [] })),
+      api.getSubcommittees(slug).catch(() => ({ items: [] })),
+      api.getCommitteeStudies({ committee: slug, page: '1', page_size: '6' }).catch(() => ({ items: [] }))
+    ]);
+
+    // Get archive years (current year back to 2000 or committee start)
+    const currentYear = new Date().getFullYear();
+    const archiveYears = Array.from({ length: currentYear - 1999 }, (_, i) => currentYear - i);
     
     return (
       <div className="content-container py-8">
@@ -33,24 +43,169 @@ export default async function CommitteePage({ params }: CommitteePageProps) {
         {/* Committee Header */}
         <CommitteeHeader committee={committee} />
 
-        {/* Quick Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          {/* Active Studies */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-bold mb-4">Active Studies</h2>
-            <ActiveStudies committeeId={parseInt(committee.id) || 0} />
-          </div>
-
-          {/* Recent Meetings */}
-          <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-bold mb-4">Recent Meetings</h2>
-            <RecentMeetings committeeId={parseInt(committee.id) || 0} />
+        {/* Search Box */}
+        <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <form action="/search" method="GET" className="relative">
+            <input type="hidden" name="prepend" value={`Committee: "${slug}"`} />
+            <input
+              type="search"
+              name="q"
+              placeholder={`Search ${committee.short_name || committee.name} meetings and evidence`}
+              className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-op-blue focus:border-transparent"
+            />
+            <button
+              type="submit"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 p-2 text-gray-500 hover:text-op-blue"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
+          </form>
+          
+          <div className="mt-4 space-y-2 text-sm text-gray-600">
+            {committee.parent && (
+              <p>
+                This is a subcommittee of the{' '}
+                <Link href={`/committees/${committee.parent.slug}`} className="text-op-blue hover:underline">
+                  {committee.parent.name}
+                </Link>{' '}
+                committee.
+              </p>
+            )}
+            <p>
+              This committee's page on{' '}
+              <a 
+                href={committee.source_url || `https://www.parl.ca/committees/en/${slug}`}
+                className="text-op-blue hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Parliament's site
+              </a>{' '}
+              is much more comprehensive than this page.
+            </p>
           </div>
         </div>
 
-        {/* Tabbed Content */}
-        <div className="bg-white rounded-lg shadow">
-          <CommitteeTabs committee={committee} />
+        {/* Word Cloud */}
+        <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <div className="h-64 bg-gray-50 rounded flex items-center justify-center">
+            <p className="text-gray-500">Committee word cloud visualization coming soon</p>
+          </div>
+        </div>
+
+        {/* Meetings */}
+        <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-1">
+              <h2 className="text-xl font-bold text-op-dark">Meetings</h2>
+            </div>
+            <div className="lg:col-span-3">
+              {meetings.items && meetings.items.length > 0 ? (
+                <div className="space-y-2">
+                  {meetings.items.map((meeting: any) => (
+                    <div key={meeting.id} className="border-b border-gray-200 pb-2 last:border-0">
+                      <Link 
+                        href={`/committees/${slug}/meetings/${meeting.number}`}
+                        className="text-op-blue hover:underline"
+                      >
+                        Meeting #{meeting.number}
+                      </Link>
+                      <span className="text-sm text-gray-600 ml-2">
+                        {new Date(meeting.date).toLocaleDateString('en-CA', { 
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </span>
+                      {meeting.description && (
+                        <p className="text-sm text-gray-600 mt-1">{meeting.description}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-gray-500">No recent meetings found.</p>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Subcommittees */}
+        {subcommittees.items && subcommittees.items.length > 0 && (
+          <div className="bg-white rounded-lg shadow p-6 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+              <div className="lg:col-span-1">
+                <h2 className="text-xl font-bold text-op-dark">
+                  Subcommittee{subcommittees.items.length > 1 ? 's' : ''}
+                </h2>
+              </div>
+              <div className="lg:col-span-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {subcommittees.items.map((sub: any) => (
+                    <div key={sub.id}>
+                      <Link 
+                        href={`/committees/${sub.slug}`}
+                        className="text-op-blue hover:underline"
+                      >
+                        {sub.name}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Recent Studies */}
+        {recentStudies.items && recentStudies.items.length > 0 && (
+          <div className="bg-white rounded-lg shadow p-6 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+              <div className="lg:col-span-1">
+                <h2 className="text-xl font-bold text-op-dark">Recent studies</h2>
+              </div>
+              <div className="lg:col-span-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  {recentStudies.items.map((study: any) => (
+                    <div key={study.id} className="text-sm line-clamp-2">
+                      <Link 
+                        href={`/committees/${slug}/studies/${study.id}`}
+                        className="text-op-blue hover:underline"
+                        title={study.name}
+                      >
+                        {study.name}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Archive */}
+        <div className="bg-white rounded-lg shadow p-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-1">
+              <h2 className="text-xl font-bold text-op-dark">Archive</h2>
+            </div>
+            <div className="lg:col-span-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {archiveYears.map(year => (
+                  <div key={year} className="text-sm">
+                    <Link 
+                      href={`/committees/${slug}/archive/${year}`}
+                      className="text-op-blue hover:underline"
+                    >
+                      {year}
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Committee Resources */}

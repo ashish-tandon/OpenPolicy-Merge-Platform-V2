@@ -1,4 +1,5 @@
 import { Suspense } from 'react';
+import Link from 'next/link';
 import { api } from '@/lib/api';
 import SearchFilters from '@/components/Search/SearchFilters';
 import SearchResults from '@/components/Search/SearchResults';
@@ -41,15 +42,41 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           Search OpenParliament
         </h1>
         {query && (
-          <p className="text-gray-600">
-            {searchResults?.count || 0} results for "{query}"
-          </p>
+          <div className="mt-4">
+            <p className="text-gray-600 mb-2">
+              {searchResults?.count || 0} results for "{query}"
+            </p>
+            <p className="text-sm text-gray-500">
+              Refine by{' '}
+              <button className="text-op-blue hover:underline" data-add-facet="MP">MP</button>,{' '}
+              <button className="text-op-blue hover:underline" data-add-facet="Party">party</button>,{' '}
+              <button className="text-op-blue hover:underline" data-add-facet="Committee">committee</button>,{' '}
+              <button className="text-op-blue hover:underline" data-add-facet="Province">province</button>, or{' '}
+              <button className="text-op-blue hover:underline" data-add-facet="Type">result type</button>.
+            </p>
+          </div>
         )}
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
         <div className="lg:col-span-1">
+          {/* Alert Creation */}
+          {query && (
+            <div className="bg-white rounded-lg shadow p-4 mb-6">
+              <h3 className="font-bold text-op-dark mb-3">Get email alerts</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Get email when new items match this search:
+              </p>
+              <Link
+                href={`/alerts/signup?search=${encodeURIComponent(query)}`}
+                className="block w-full text-center bg-op-blue text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+              >
+                Create an alert
+              </Link>
+            </div>
+          )}
+          
           <SearchFilters 
             currentQuery={query} 
             currentType={type} 

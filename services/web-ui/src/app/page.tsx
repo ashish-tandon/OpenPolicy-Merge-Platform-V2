@@ -5,6 +5,7 @@ import WordCloud from '@/components/WordCloud';
 import RecentBills from '@/components/RecentBills';
 import RecentVotes from '@/components/RecentVotes';
 import FeaturedDebate from '@/components/FeaturedDebate';
+import SearchBar from '@/components/SearchBar';
 
 export default async function HomePage() {
   // Fetch initial data for the homepage
@@ -19,14 +20,34 @@ export default async function HomePage() {
       {/* House Status Banner */}
       <HouseStatus />
 
-      {/* Hero Section */}
+      {/* Hero Section with Search */}
       <div className="text-center py-12">
         <h1 className="text-4xl font-bold text-op-dark mb-4">
-          Your window into the House of Commons
+          Keep tabs on Parliament.
         </h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Track Canadian MPs, bills, debates, and committees
-        </p>
+        <div className="max-w-2xl mx-auto mb-8">
+          <SearchBar />
+        </div>
+      </div>
+
+      {/* What we're doing section */}
+      <div className="bg-white rounded-lg shadow p-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-1">
+            <h2 className="text-2xl font-bold text-op-dark">What we're doing</h2>
+          </div>
+          <div className="lg:col-span-3">
+            <p className="text-lg mb-4">
+              Finding out what your representatives in Ottawa are up to can be tough.<br />
+              <strong>We're trying to make it easy.</strong>
+            </p>
+            <p>
+              <strong>Find your MP</strong> by entering your postal code above. See what your representatives are{' '}
+              <Link href="/debates" className="text-op-blue hover:underline">saying</Link>, and what{' '}
+              <Link href="/bills" className="text-op-blue hover:underline">laws</Link> they're proposing. Poke around.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Grid */}
@@ -128,6 +149,53 @@ export default async function HomePage() {
                 </Link>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Site News Section */}
+      <div className="mt-12 bg-white rounded-lg shadow p-6">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+          <div className="lg:col-span-1">
+            <h2 className="text-2xl font-bold text-op-dark">What's new around here</h2>
+          </div>
+          <div className="lg:col-span-3">
+            <p className="mb-6 text-sm text-gray-600">
+              Subscribe to our{' '}
+              <Link href="/rss/site-news" className="text-op-blue hover:underline">
+                site news feed
+              </Link>{' '}
+              (<Link href="/about/rss" className="text-op-blue hover:underline">what's a feed?</Link>), or follow{' '}
+              <a href="https://twitter.com/openparlca" className="text-op-blue hover:underline" target="_blank" rel="noopener noreferrer">
+                @openparlca
+              </a>{' '}
+              on Twitter.
+            </p>
+            
+            {/* Placeholder news items - TODO: Replace with dynamic content from API */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-lg font-semibold mb-2">
+                  New Feature: Real-time House Status{' '}
+                  <span className="text-sm font-normal text-gray-500">January 15th</span>
+                </h3>
+                <p className="text-gray-700">
+                  Track what's happening in the House of Commons in real-time with our new House Status feature. 
+                  See when MPs are voting, debating, or in question period.
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="text-lg font-semibold mb-2">
+                  Improved Search Functionality{' '}
+                  <span className="text-sm font-normal text-gray-500">January 10th</span>
+                </h3>
+                <p className="text-gray-700">
+                  Our search now includes postal code lookup! Enter your postal code to find your MP and see 
+                  what they've been up to in Parliament.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
